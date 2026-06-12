@@ -9,7 +9,7 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'Zero to AI',
-      defaultLocale: 'zh-CN',
+      defaultLocale: 'root',
       locales: {
         root: { label: '简体中文', lang: 'zh-CN' },
       },
