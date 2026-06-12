@@ -12,6 +12,6 @@ lastVerified: "2026-06-12"
 建议先学完至少一个工具的快速入门（比如 [Claude Code 10 分钟上手](/zero-to-ai/claude-code/quickstart/)），再来读方法论。
 
 - [通用环境基础设施](basics) — 终端、PATH、包管理器、环境变量一次性讲清楚
-- [CLAUDE.md 编写哲学](claude-md-philosophy)（即将推出）
-- [记忆系统设计原则](memory-system-design)（即将推出）
-- [工作流编排思路](workflow-design)（即将推出）
+- [CLAUDE.md 编写哲学](claude-md-philosophy)
+- [记忆系统设计原则](memory-system-design)
+- [工作流编排思路](workflow-design)
