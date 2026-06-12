@@ -4,6 +4,7 @@ description: 为什么 AI 编程需要记忆系统、怎么设计一套可持续
 tags: [methodology]
 difficulty: intermediate
 lastVerified: "2026-06-12"
+sidebar: { hidden: true }
 pre-requisites:
   - methodology/basics
   - claude-code/memory

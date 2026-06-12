@@ -4,6 +4,7 @@ description: 怎么把多个 AI 工具和 Skill 组织成高效的工作流
 tags: [methodology]
 difficulty: intermediate
 lastVerified: "2026-06-12"
+sidebar: { hidden: true }
 pre-requisites:
   - methodology/basics
   - methodology/memory-system-design
