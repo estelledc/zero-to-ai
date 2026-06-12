@@ -1,0 +1,26 @@
+---
+export interface Props {
+  difficulty: 'beginner' | 'intermediate' | 'advanced';
+}
+
+const { difficulty } = Astro.props;
+
+const LABEL_MAP: Record<string, string> = {
+  beginner: '起步',
+  intermediate: '进阶',
+  advanced: '高级',
+};
+
+const COLOR_MAP: Record<string, string> = {
+  beginner: 'var(--sl-color-gray-3)',
+  intermediate: 'var(--sl-color-text-accent)',
+  advanced: 'var(--sl-color-purple-high)',
+};
+---
+
+<span
+  class="difficulty-badge"
+  style={`background: ${COLOR_MAP[difficulty]}; color: var(--sl-color-black); padding: 0.125rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem; font-weight: 600;`}
+>
+  {LABEL_MAP[difficulty]}
+</span>

@@ -1,0 +1,50 @@
+---
+export interface Props {
+  pathSlug: string;
+  tutorials: { slug: string; title: string }[];
+  currentSlug: string;
+}
+
+const { pathSlug, tutorials, currentSlug } = Astro.props;
+const currentIndex = tutorials.findIndex((t) => t.slug === currentSlug);
+---
+
+{
+  currentIndex >= 0 && (
+    <nav
+      class="path-progress"
+      aria-label="学习路径进度"
+      data-path={pathSlug}
+      data-current={currentSlug}
+      style="display: flex; align-items: center; gap: 0.25rem; padding: 0.75rem 0; flex-wrap: wrap;"
+    >
+      {tutorials.map((t, i) => {
+        const isCurrent = i === currentIndex;
+        const bg = isCurrent
+          ? 'var(--sl-color-text-accent)'
+          : 'var(--sl-color-gray-5)';
+        return (
+          <a
+            href={`/zero-to-ai/${t.slug}/`}
+            title={t.title}
+            style={`display: inline-block; width: ${isCurrent ? '1.5rem' : '0.75rem'}; height: ${isCurrent ? '1.5rem' : '0.75rem'}; border-radius: 50%; background: ${bg}; transition: all 0.2s;`}
+          >
+            <span class="sr-only">{t.title}</span>
+          </a>
+        );
+      })}
+    </nav>
+  )
+}
+
+<script>
+  // Mark current page as visited in localStorage
+  const nav = document.querySelector('.path-progress');
+  if (nav) {
+    const path = nav.dataset.path;
+    const current = nav.dataset.current;
+    if (path && current) {
+      localStorage.setItem(`path:${path}:${current}`, 'done');
+    }
+  }
+</script>
