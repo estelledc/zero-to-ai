@@ -20,22 +20,27 @@ hero:
 
 选一条学习路径，跟着走就行：
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem;">
 
-<CardGrid>
-  <Card title="AI 编程零基础入门" icon="rocket">
-    从不会写代码到能用 AI 独立完成小页面。
-    4-6 小时 · 适合零基础
-  </Card>
-  <Card title="日常效率提升" icon="zap">
-    学会用记忆系统、Skill 协作提升日常效率。
-    3-5 小时 · 适合有基础
-  </Card>
-  <Card title="高级定制与自动化" icon="setting">
-    自定义 Skill、Hook 系统、多工具协同工作流。
-    5-8 小时 · 适合深度用户
-  </Card>
-</CardGrid>
+<div style="padding: 1.25rem; border: 1px solid var(--sl-color-gray-5); border-radius: 0.5rem;">
+  <strong style="font-size: 1.05rem;">AI 编程零基础入门</strong>
+  <p style="margin-top: 0.5rem; font-size: 0.875rem; color: var(--sl-color-gray-2);">从不会写代码到能用 AI 独立完成小页面。</p>
+  <p style="font-size: 0.8rem; color: var(--sl-color-gray-3);">4-6 小时 · 适合零基础</p>
+</div>
+
+<div style="padding: 1.25rem; border: 1px solid var(--sl-color-gray-5); border-radius: 0.5rem;">
+  <strong style="font-size: 1.05rem;">日常效率提升</strong>
+  <p style="margin-top: 0.5rem; font-size: 0.875rem; color: var(--sl-color-gray-2);">学会用记忆系统、Skill 协作提升日常效率。</p>
+  <p style="font-size: 0.8rem; color: var(--sl-color-gray-3);">3-5 小时 · 适合有基础</p>
+</div>
+
+<div style="padding: 1.25rem; border: 1px solid var(--sl-color-gray-5); border-radius: 0.5rem;">
+  <strong style="font-size: 1.05rem;">高级定制与自动化</strong>
+  <p style="margin-top: 0.5rem; font-size: 0.875rem; color: var(--sl-color-gray-2);">自定义 Skill、Hook 系统、多工具协同工作流。</p>
+  <p style="font-size: 0.8rem; color: var(--sl-color-gray-3);">5-8 小时 · 适合深度用户</p>
+</div>
+
+</div>
 
 [浏览全部学习路径 →](/zero-to-ai/paths/)
 
