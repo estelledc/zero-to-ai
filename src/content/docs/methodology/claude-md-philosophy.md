@@ -4,6 +4,7 @@ description: 为什么 CLAUDE.md 是 Claude Code 的核心、怎么写出好的�
 tags: [methodology]
 difficulty: intermediate
 lastVerified: "2026-06-12"
+sidebar: { hidden: true }
 pre-requisites:
   - methodology/basics
   - claude-code/config

@@ -19,14 +19,7 @@ export default defineConfig({
           label: 'AI 编程工具',
           items: [
             { label: 'Claude Code', items: [{ autogenerate: { directory: 'claude-code' } }] },
-            { label: 'Codex', items: [{ autogenerate: { directory: 'codex' } }] },
-            { label: 'DeepSeek TUI', items: [{ autogenerate: { directory: 'deepseek-tui' } }] },
-          ],
-        },
-        {
-          label: 'AI 研究工具',
-          items: [
-            { label: 'lr CLI', items: [{ autogenerate: { directory: 'lr-cli' } }] },
+            // Codex, DeepSeek TUI — 暂无内容，Phase 2 再加入
           ],
         },
         {
@@ -38,7 +31,7 @@ export default defineConfig({
       lastUpdated: true,
 
       editLink: {
-        baseUrl: 'https://github.com/estelledc/zero-to-ai/edit/main/src/content/docs/',
+        baseUrl: 'https://github.com/estelledc/zero-to-ai/edit/main/',
       },
 
       social: [
