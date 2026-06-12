@@ -78,5 +78,5 @@ MEMORY-PROJECTS.md — C 段：项目专属，命中项目名时加载
 
 ## 下一步
 
-- 理解记忆系统的设计原则：[记忆系统设计原则](/zero-to-ai/methodology/memory-system-design/)（即将推出）
-- 想看完整工作流：[工作流编排思路](/zero-to-ai/methodology/workflow-design/)（即将推出）
+- 理解记忆系统的设计原则：[记忆系统设计原则](/zero-to-ai/methodology/memory-system-design/)
+- 想看完整工作流：[工作流编排思路](/zero-to-ai/methodology/workflow-design/)

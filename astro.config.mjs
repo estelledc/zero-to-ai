@@ -26,6 +26,10 @@ export default defineConfig({
           label: '方法论',
           items: [{ autogenerate: { directory: 'methodology' } }],
         },
+        {
+          label: '附录',
+          items: [{ autogenerate: { directory: 'appendix' } }],
+        },
       ],
 
       lastUpdated: true,
