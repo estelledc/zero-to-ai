@@ -84,6 +84,14 @@ function main() {
   const fullDocsDir = join(process.cwd(), DOCS_DIR);
   const allSlugs = collectSlugs(fullDocsDir);
 
+  // Load learning path slugs for validating learningPaths frontmatter
+  const learningPathsSource = readFileSync(
+    join(process.cwd(), DATA_DIR, 'learning-paths.ts'),
+    'utf-8',
+  );
+  const pathTutorials = parseLearningPathTutorials(learningPathsSource);
+  const pathSlugs = new Set(pathTutorials.keys());
+
   let fileCount = 0;
   let hasError = false;
 
@@ -110,18 +118,21 @@ function main() {
         const learningPathRefs = parseFrontmatterArray(content, 'learningPaths');
         const relatedContent = parseFrontmatterRelatedContent(content);
 
+        // prerequisites reference doc slugs
         for (const ref of prerequisites) {
           if (!allSlugs.has(ref)) {
             console.error(`[${slug}] prerequisites 引用不存在: ${ref}`);
             hasError = true;
           }
         }
+        // learningPaths reference learning path slugs (not doc slugs)
         for (const ref of learningPathRefs) {
-          if (!allSlugs.has(ref)) {
+          if (!pathSlugs.has(ref)) {
             console.error(`[${slug}] learningPaths 引用不存在: ${ref}`);
             hasError = true;
           }
         }
+        // relatedContent slugs reference doc slugs
         for (const { slug: ref } of relatedContent) {
           if (!allSlugs.has(ref)) {
             console.error(`[${slug}] relatedContent 引用不存在: ${ref}`);
@@ -135,13 +146,6 @@ function main() {
   validateDir(fullDocsDir);
 
   // Validate learning path tutorial slugs exist in docs
-  const learningPathsSource = readFileSync(
-    join(process.cwd(), DATA_DIR, 'learning-paths.ts'),
-    'utf-8',
-  );
-  const pathTutorials = parseLearningPathTutorials(learningPathsSource);
-  const pathSlugs = new Set(pathTutorials.keys());
-
   for (const [pathSlug, tutorials] of pathTutorials) {
     for (const tSlug of tutorials) {
       if (!allSlugs.has(tSlug)) {
