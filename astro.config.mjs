@@ -64,10 +64,6 @@ export default defineConfig({
         themes: ['github-dark', 'github-light'],
       },
 
-      components: {
-        ContentHeader: './src/components/ContentHeader.astro',
-      },
-
       customCss: ['./src/styles/custom.css'],
     }),
   ],
