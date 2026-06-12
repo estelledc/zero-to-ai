@@ -57,6 +57,14 @@ ls
 包管理器就是一个"应用商店"，只是工作在终端里：
 
 - **macOS**：`brew install <包名>`（需要先装 Homebrew）
+
+如果你的 Mac 还没装 Homebrew（输入 `brew --version` 看是否提示 command not found），先用这条命令安装：
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+安装过程中它会告诉你它在做什么、是否需要输入密码。按提示操作即可。装完后验证：`brew --version`。
 - **Windows**：`winget install <包名>`（Windows 11 自带）
 - **Linux**：`sudo apt install <包名>`（Debian/Ubuntu）或 `sudo dnf install <包名>`（Fedora）
 
