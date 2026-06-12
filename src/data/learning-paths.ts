@@ -49,14 +49,16 @@ export const learningPaths: LearningPath[] = [
     slug: 'advanced-custom',
     title: '高级定制与自动化',
     description:
-      '深入 Claude Code 底层：Hook 自动触发、MCP 集成、Skill 定制、记忆系统设计、工作流编排和学习管理。',
+      '深入 Claude Code 底层：Hook 自动触发、MCP 集成、子 Agent 并行、配置即代码、记忆系统设计、工作流编排和学习管理。',
     targetAudience: '深度用户，想定制自己的 AI 工具链',
-    timeRange: '6-9 小时',
+    timeRange: '7-10 小时',
     tutorials: [
       'claude-code/cost',
       'claude-code/config',
       'claude-code/hooks',
       'claude-code/mcp',
+      'claude-code/subagents',
+      'claude-code/dotfiles',
       'claude-code/memory',
       'methodology/claude-md-philosophy',
       'methodology/workflow-design',

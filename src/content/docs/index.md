@@ -37,7 +37,7 @@ hero:
 <div style="padding: 1.25rem; border: 1px solid var(--sl-color-gray-5); border-radius: 0.5rem;">
   <strong style="font-size: 1.05rem;">高级定制与自动化</strong>
   <p style="margin-top: 0.5rem; font-size: 0.875rem; color: var(--sl-color-gray-2);">自定义 Skill、Hook 系统、多工具协同工作流。</p>
-  <p style="font-size: 0.8rem; color: var(--sl-color-gray-3);">6-9 小时 · 适合深度用户</p>
+  <p style="font-size: 0.8rem; color: var(--sl-color-gray-3);">7-10 小时 · 适合深度用户</p>
 </div>
 
 </div>
