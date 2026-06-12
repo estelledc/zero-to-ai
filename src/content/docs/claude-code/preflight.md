@@ -8,6 +8,9 @@ sidebar:
 learningPaths:
   - ai-coding-zero
 prerequisites: []
+relatedContent:
+  - {slug: "claude-code/cost", label: "成本与计费"}
+  - {slug: "claude-code/quickstart", label: "10 分钟上手"}
 lastVerified: "2026-06-12"
 toolVersion: "Claude Code CLI (latest)"
 ---

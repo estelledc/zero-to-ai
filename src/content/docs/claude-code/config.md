@@ -361,4 +361,4 @@ echo '{"continue": true}'
 - 配置好了基础？学 [Skill 体系](/zero-to-ai/claude-code/skills/) —— 把常见的任务封装成可复用技能
 - 想看配置背后的设计思想：[CLAUDE.md 编写哲学](/zero-to-ai/methodology/claude-md-philosophy/)
 - 想把多个 skill 串联成自动化工作流：[工作流编排思路](/zero-to-ai/methodology/workflow-design/)
-- 想让 Claude 记住跨会话的信息：[记忆系统设计原则](/zero-to-ai/methodology/memory-design/)
+- 想让 Claude 记住跨会话的信息：[记忆系统设计原则](/zero-to-ai/methodology/memory-system-design/)

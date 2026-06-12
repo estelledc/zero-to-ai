@@ -10,6 +10,7 @@ prerequisites:
 relatedContent:
   - {slug: claude-code/context, label: 上下文窗口管理}
   - {slug: claude-code/daily-rhythm, label: 日常节奏}
+  - {slug: "claude-code/subagents", label: "子 Agent 协作"}
 lastVerified: "2026-06-12"
 toolVersion: "Claude Code CLI (latest)"
 ---
@@ -318,4 +319,5 @@ npm start   # 或 node your-entry.js，或 npm run dev
 
 - 验证是日常节奏的核心环节 -- [日常节奏](/zero-to-ai/claude-code/daily-rhythm/) 教你如何把验证嵌入每天的开发流程中
 - 验证的另一个维度是管理对话长度 -- [上下文窗口管理](/zero-to-ai/claude-code/context/) 教你避免"对话太长导致 Claude 开始忘事"
+- 子 Agent 的输出也需要验证 → [子 Agent 协作](/zero-to-ai/claude-code/subagents/)
 - 如果你的验证流程需要反复执行，把它写成一个 Skill（参考[Skill 体系](/zero-to-ai/claude-code/skills/)）

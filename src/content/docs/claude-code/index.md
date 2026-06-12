@@ -3,6 +3,8 @@ title: Claude Code
 description: Claude Code 完整教程 — 从自评估到高级定制，16 篇实战指南覆盖安装、配置、Skill、Hook、记忆、验证、上下文、成本、MCP、子 Agent 和日常节奏
 tags: [claude-code]
 difficulty: beginner
+learningPaths:
+  - ai-coding-zero
 next: false
 lastVerified: "2026-06-12"
 toolVersion: "Claude Code CLI (latest)"

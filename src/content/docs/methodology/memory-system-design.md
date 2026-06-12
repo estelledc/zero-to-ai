@@ -3,6 +3,9 @@ title: 记忆系统设计原则
 description: 为什么 AI 编程需要记忆系统、怎么设计一套可持续的知识管理流程
 tags: [methodology]
 difficulty: intermediate
+learningPaths:
+  - daily-efficiency
+  - advanced-custom
 lastVerified: "2026-06-12"
 prerequisites:
   - methodology/basics
@@ -21,7 +24,7 @@ prerequisites:
 
 ## Before you start
 
-- 你已经读过 [CLAUDE.md 是什么](/zero-to-ai/claude-code/memory/)，知道 CLAUDE.md 是 Claude Code 启动时自动读取的上下文文件
+- 你已经读过 [记忆系统](/zero-to-ai/claude-code/memory/)，知道 CLAUDE.md 是 Claude Code 启动时自动读取的上下文文件
 - 你已经在实际项目中用过 Claude Code 至少一周，遇到过"新会话不记得之前约定"的痛点
 
 ## 类比：记忆像什么

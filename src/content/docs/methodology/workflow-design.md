@@ -3,6 +3,9 @@ title: 工作流编排思路
 description: 怎么把多个 AI 工具和 Skill 组织成高效的工作流
 tags: [methodology]
 difficulty: intermediate
+learningPaths:
+  - daily-efficiency
+  - advanced-custom
 lastVerified: "2026-06-12"
 prerequisites:
   - methodology/basics
@@ -122,7 +125,7 @@ Jason 的 CLAUDE.md 里对应的规则：
 - 用 diff 看实际改了什么（和你的计划一致吗？）
 - 在浏览器里实际操作一遍（别只看代码）
 
-验证的核心原则：**让计算机验证，不要用眼睛验证**。眼睛会漏东西，计算机会老老实实告诉你编译不过、测试失败、拼写错误。更多验证方法论见 [Claude Code 上下文窗口管理](/zero-to-ai/claude-code/context/)（关于 token 预算和验证怎么配合）。
+验证的核心原则：**让计算机验证，不要用眼睛验证**。眼睛会漏东西，计算机会老老实实告诉你编译不过、测试失败、拼写错误。更多验证方法论见 [验证方法论](/zero-to-ai/claude-code/verify/)。
 
 ### 5. Learn（提炼，让这次不再白做）
 

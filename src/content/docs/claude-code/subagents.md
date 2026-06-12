@@ -160,7 +160,7 @@ git diff          # 逐行看，每条 + 行和 - 行都对吗？
 
 ## Subagent-driven Development 完整流程
 
-这是 Jason 日常使用的标准流程（简版）。完整版见 [subagent-driven-development skill](/zero-to-ai/methodology/workflow-design/)：
+这是 Jason 日常使用的标准流程（简版）。完整流程见 [工作流编排思路](/zero-to-ai/methodology/workflow-design/)：
 
 1. **写好计划文档**：每个 Task 完全独立、有完整上下文、有明确的输入输出
 2. **一次派一个 Task** 给子 Agent -- 不要同时派多个（会产生合并冲突）
