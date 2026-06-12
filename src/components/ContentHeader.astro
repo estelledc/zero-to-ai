@@ -1,4 +1,49 @@
 ---
-// ContentHeader component placeholder
-// Will be implemented in a later task
+// Reusable ContentHeader component.
+// Starlight 0.40 does NOT support ContentHeader as an overridable component slot,
+// so this component must be imported directly in MDX pages that need it:
+//   import ContentHeader from '../components/ContentHeader.astro'
+//
+// It renders a page header area with a difficulty badge and optional learning path banner.
+
+import DifficultyBadge from './DifficultyBadge.astro';
+
+const { starlightRoute } = Astro.locals;
+const entry = starlightRoute?.entry;
+
+const difficulty = entry?.data?.difficulty;
+const learningPaths: string[] = entry?.data?.learningPaths || [];
+
+const PATH_TITLES: Record<string, string> = {
+  'ai-coding-zero': 'AI 编程零基础入门',
+  'daily-efficiency': '日常效率提升',
+  'advanced-custom': '高级定制与自动化',
+};
 ---
+
+<div class="content-header" style="margin-bottom: 1rem;">
+  {difficulty && (
+    <div style="margin-bottom: 0.5rem;">
+      <DifficultyBadge difficulty={difficulty} />
+    </div>
+  )}
+
+  {
+    learningPaths.length > 0 && (
+      <div
+        style={`background: var(--sl-color-gray-6); border: 1px solid var(--sl-color-gray-5); border-radius: 0.5rem; padding: 0.75rem 1rem; margin-top: 0.5rem; font-size: 0.875rem;`}
+      >
+        本教程属于学习路径：
+        {learningPaths.map((slug, i) => (
+          <span>
+            <a href={`/zero-to-ai/paths/#${slug}`} style="font-weight: 600;">
+              {PATH_TITLES[slug] || slug}
+            </a>
+            {i < learningPaths.length - 1 && '、'}
+          </span>
+        ))}
+        {' '} · <a href="/zero-to-ai/paths/">浏览全部路径</a>
+      </div>
+    )
+  }
+</div>
