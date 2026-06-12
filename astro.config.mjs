@@ -19,7 +19,7 @@ export default defineConfig({
           label: 'AI 编程工具',
           items: [
             { label: 'Claude Code', items: [{ autogenerate: { directory: 'claude-code' } }] },
-            // Codex, DeepSeek TUI — 暂无内容，Phase 2 再加入
+            // Codex, DeepSeek TUI, lr CLI 目录保留（后续扩展用）
           ],
         },
         {
