@@ -15,3 +15,4 @@ lastVerified: "2026-06-12"
 - [CLAUDE.md 编写哲学](claude-md-philosophy)
 - [记忆系统设计原则](memory-system-design)
 - [工作流编排思路](workflow-design)
+- [学习管理系统](learning-management) — 工件选择启发式、笔记管线、如何把对话变成永久知识

@@ -6,8 +6,8 @@ hero:
   title: Zero to AI
   tagline: 从零开始，用 AI 工具编程。不是百科文档，是经过实战验证的使用策略集合。
   actions:
-    - text: 开始学习
-      link: /zero-to-ai/claude-code/quickstart/
+    - text: 5 分钟了解是否适合你
+      link: /zero-to-ai/claude-code/preflight/
       icon: right-arrow
       variant: primary
     - text: 查看所有工具
@@ -25,19 +25,19 @@ hero:
 <div style="padding: 1.25rem; border: 1px solid var(--sl-color-gray-5); border-radius: 0.5rem;">
   <strong style="font-size: 1.05rem;">AI 编程零基础入门</strong>
   <p style="margin-top: 0.5rem; font-size: 0.875rem; color: var(--sl-color-gray-2);">从不会写代码到能用 AI 独立完成小页面。</p>
-  <p style="font-size: 0.8rem; color: var(--sl-color-gray-3);">4-6 小时 · 适合零基础</p>
+  <p style="font-size: 0.8rem; color: var(--sl-color-gray-3);">6-8 小时 · 适合零基础</p>
 </div>
 
 <div style="padding: 1.25rem; border: 1px solid var(--sl-color-gray-5); border-radius: 0.5rem;">
   <strong style="font-size: 1.05rem;">日常效率提升</strong>
   <p style="margin-top: 0.5rem; font-size: 0.875rem; color: var(--sl-color-gray-2);">学会用记忆系统、Skill 协作提升日常效率。</p>
-  <p style="font-size: 0.8rem; color: var(--sl-color-gray-3);">3-5 小时 · 适合有基础</p>
+  <p style="font-size: 0.8rem; color: var(--sl-color-gray-3);">4-6 小时 · 适合有基础</p>
 </div>
 
 <div style="padding: 1.25rem; border: 1px solid var(--sl-color-gray-5); border-radius: 0.5rem;">
   <strong style="font-size: 1.05rem;">高级定制与自动化</strong>
   <p style="margin-top: 0.5rem; font-size: 0.875rem; color: var(--sl-color-gray-2);">自定义 Skill、Hook 系统、多工具协同工作流。</p>
-  <p style="font-size: 0.8rem; color: var(--sl-color-gray-3);">5-8 小时 · 适合深度用户</p>
+  <p style="font-size: 0.8rem; color: var(--sl-color-gray-3);">6-9 小时 · 适合深度用户</p>
 </div>
 
 </div>
@@ -57,21 +57,9 @@ hero:
 </div>
 
 <div style="padding: 1rem; border: 1px solid var(--sl-color-gray-5); border-radius: 0.5rem;">
-  <strong>Codex</strong>
-  <p style="font-size: 0.875rem; color: var(--sl-color-gray-2);">OpenAI 的终端 AI 编程代理</p>
-  <em style="font-size: 0.75rem;">即将推出</em>
-</div>
-
-<div style="padding: 1rem; border: 1px solid var(--sl-color-gray-5); border-radius: 0.5rem;">
-  <strong>DeepSeek TUI</strong>
-  <p style="font-size: 0.875rem; color: var(--sl-color-gray-2);">DeepSeek 的终端交互界面</p>
-  <em style="font-size: 0.75rem;">即将推出</em>
-</div>
-
-<div style="padding: 1rem; border: 1px solid var(--sl-color-gray-5); border-radius: 0.5rem;">
-  <strong>lr CLI</strong>
-  <p style="font-size: 0.875rem; color: var(--sl-color-gray-2);">终端里的论文搜索利器</p>
-  <em style="font-size: 0.75rem;">即将推出</em>
+  <strong>更多 AI 编程工具</strong>
+  <p style="font-size: 0.875rem; color: var(--sl-color-gray-2); margin-bottom: 0.5rem;">Codex、DeepSeek TUI、lr CLI 等工具的教程正在筹备中。本站目前以 Claude Code 为重点覆盖工具。</p>
+  <p style="font-size: 0.8rem; margin: 0;">想看哪个工具优先？<a href="https://github.com/estelledc/zero-to-ai/discussions">GitHub Discussions 反馈 →</a></p>
 </div>
 
 </div>
