@@ -1,6 +1,6 @@
 ---
 title: Claude Code
-description: Claude Code 完整使用指南 — 从安装到高级定制
+description: Claude Code 完整教程 — 从自评估到高级定制，16 篇实战指南覆盖安装、配置、Skill、Hook、记忆、验证、上下文、成本、MCP、子 Agent 和日常节奏
 tags: [claude-code]
 difficulty: beginner
 next: false
@@ -12,19 +12,42 @@ toolVersion: "Claude Code CLI (latest)"
 
 Claude Code 是 Anthropic 出品的命令行 AI 编程助手。你在终端里用自然语言描述任务，它读代码、写代码、运行命令、帮你调试。就像有一个随时待命的资深开发者坐在你旁边。
 
-## 适合谁
+本教程不是官方文档的翻译——是基于真实项目使用经验总结的策略集合。每一篇都来自踩过的坑和验证过的方案。
 
-- **L1 起步**：你会用终端输入基本命令，想要 AI 帮你写代码、解释错误、搭建项目
-- **L2 进阶**：你已经用 Claude Code 完成过几个小任务，想搭建自己的 CLAUDE.md 和记忆系统
-- **L3 高级**：你想写自定义 Skill、配置 Hook 自动触发、多工具协同
+## 教程地图
 
-## 你会学到
+### 入门（建议按顺序）
 
-- [10 分钟上手](quickstart) — 安装、第一句 prompt、理解对话模式
-- [核心配置](config) — CLAUDE.md / settings.json / Hook 系统怎么配置
-- [Skill 体系](skills) — 创建和使用可复用技能
-- [记忆系统](memory) — 长期记忆让 AI 越来越懂你
+- [开始之前](preflight) — 3 分钟自评估，确认这个教程适不适合你
+- [10 分钟上手](quickstart) — 安装 Claude Code，输入你的第一句 prompt
+- [成本与计费](cost) — token 怎么算、三种模型怎么选、怎么控制开销
+- [核心配置](config) — CLAUDE.md / settings.json / Hook 系统基础配置
+- [上下文管理](context) — 管理 AI 的"记忆空间"，学会 /clear 和 /compact
+- [验证方法论](verify) — 确认 Claude 写的代码是对的——最重要的单一步骤
+
+### 核心工作流
+
+- [Skill 体系](skills) — 创建和使用可复用技能，把重复工作变成一句话
+- [记忆系统](memory) — 长期记忆让 AI 记住你的偏好和项目约定
+- [Hook 系统](hooks) — 自动触发检查与动作，"每次 X 发生时自动做 Y"
+- [日常节奏](daily-rhythm) — 每天怎么跟 Claude 协作——完整的 7 步日循环
+
+### 高级定制
+
+- [MCP 集成](mcp) — 连接外部工具（含上下文成本警告，大多数人不需要）
+- [子 Agent 协作](subagents) — 多任务并行委派，项目经理 + 工程师团队模式
+- [配置即代码](dotfiles) — 版本管理你的 Claude Code 配置，换电脑 30 秒恢复
+
+## 你可能还需要的预备知识
+
+这些不是 Claude Code 教程页，但经常需要配合使用：
+
+- [通用环境基础设施](/zero-to-ai/methodology/basics/) — 终端、PATH、包管理器、环境变量，10 分钟速成
+- [Git 零基础速成](/zero-to-ai/appendix/git-basics/) — 如果还不熟悉 Git，花 10 分钟看这篇
+- [术语对照表](/zero-to-ai/glossary/) — 教程中出现的所有术语速查
 
 ## 从哪里开始
 
-→ [10 分钟上手](quickstart)
+→ 第一次来？从 [开始之前](/zero-to-ai/claude-code/preflight/) 花 3 分钟自评估。
+
+已经装好了？直接跳到你要的章节，每篇都是独立的。
