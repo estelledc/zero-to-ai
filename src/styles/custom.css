@@ -1,0 +1,29 @@
+/* Zero to AI - 自定义样式 */
+/* 全局字体：中文优先的系统字体栈 */
+:root {
+  --sl-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+    'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif;
+  --sl-font-mono: 'Sarasa Mono SC', 'Noto Sans Mono CJK SC', 'SF Mono',
+    'Fira Code', 'Consolas', monospace;
+}
+
+/* :focus-visible 自定义样式确保跨浏览器一致性 */
+:focus-visible {
+  outline: 2px solid var(--sl-color-text-accent);
+  outline-offset: 2px;
+}
+
+/* Pagefind 暗色模式 */
+@media (prefers-color-scheme: dark) {
+  .pagefind-ui {
+    --pagefind-ui-primary: var(--sl-color-text);
+    --pagefind-ui-text: var(--sl-color-text);
+    --pagefind-ui-background: var(--sl-color-bg);
+    --pagefind-ui-border: var(--sl-color-gray-5);
+  }
+}
+
+/* 代码块溢出处理 */
+.expressive-code pre {
+  overflow-x: auto;
+}
