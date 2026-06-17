@@ -38,9 +38,7 @@ const pathsWithTutorialInfo = learningPaths.map((path) => ({
           {path.tutorialDetails.map((t) => (
             <li>
               <a href={`${base}/${t.slug}/`}>{t.title}</a>
-              {t.difficulty && (
-                <DifficultyBadge difficulty={t.difficulty} />
-              )}
+              {t.difficulty && <DifficultyBadge difficulty={t.difficulty} />}
             </li>
           ))}
         </ol>
