@@ -39,7 +39,7 @@ const currentIndex = tutorials.findIndex((t) => t.slug === currentSlug);
 
 <script>
   // Mark current page as visited in localStorage
-  const nav = document.querySelector('.path-progress');
+  const nav = document.querySelector('.path-progress') as HTMLElement | null;
   if (nav) {
     const path = nav.dataset.path;
     const current = nav.dataset.current;
