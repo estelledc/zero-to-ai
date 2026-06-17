@@ -68,6 +68,10 @@ export default defineConfig({
         themes: ['github-dark', 'github-light'],
       },
 
+      components: {
+        PageTitle: './src/components/overrides/PageTitle.astro',
+      },
+
       customCss: ['./src/styles/custom.css'],
 
       // Pagefind 搜索（Starlight 内置，确保启用）

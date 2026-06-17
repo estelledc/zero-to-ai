@@ -1,49 +1,93 @@
 ---
-// Reusable ContentHeader component.
-// Starlight 0.40 does NOT support ContentHeader as an overridable component slot,
-// so this component must be imported directly in MDX pages that need it:
-//   import ContentHeader from '../components/ContentHeader.astro'
-//
-// It renders a page header area with a difficulty badge and optional learning path banner.
-
+/**
+ * ContentHeader — renders difficulty badge, learning path banner, and path progress.
+ * Injected automatically via PageTitle override; no manual import needed in .md files.
+ */
 import DifficultyBadge from './DifficultyBadge.astro';
+import PathProgress from './PathProgress.astro';
+import { learningPaths } from '../data/learning-paths';
+import { getCollection } from 'astro:content';
 
-const { starlightRoute } = Astro.locals;
-const entry = starlightRoute?.entry;
+const route = Astro.locals.starlightRoute;
+const entry = route?.entry;
 
-const difficulty = entry?.data?.difficulty;
-const learningPaths: string[] = entry?.data?.learningPaths || [];
+const difficulty = entry?.data?.difficulty as
+  | 'beginner'
+  | 'intermediate'
+  | 'advanced'
+  | undefined;
 
-const PATH_TITLES: Record<string, string> = {
-  'ai-coding-zero': 'AI 编程零基础入门',
-  'daily-efficiency': '日常效率提升',
-  'advanced-custom': '高级定制与自动化',
-};
+// Derive which learning paths this page belongs to from the canonical data source
+const pageId = entry?.id as string | undefined;
+const belongsTo = pageId
+  ? learningPaths.filter((p) => p.tutorials.includes(pageId))
+  : [];
+
+// Build tutorial details for PathProgress (only for the first matching path)
+const allDocs = belongsTo.length > 0 ? await getCollection('docs') : [];
+const primaryPath = belongsTo[0];
+const progressTutorials = primaryPath
+  ? primaryPath.tutorials.map((slug) => {
+      const doc = allDocs.find((d) => d.id === slug);
+      return { slug, title: doc?.data.title || slug };
+    })
+  : [];
 ---
 
-<div class="content-header" style="margin-bottom: 1rem;">
-  {difficulty && (
-    <div style="margin-bottom: 0.5rem;">
-      <DifficultyBadge difficulty={difficulty} />
-    </div>
-  )}
+{(difficulty || belongsTo.length > 0) && (
+  <div class="content-header">
+    {difficulty && (
+      <div class="content-header__badge">
+        <DifficultyBadge difficulty={difficulty} />
+      </div>
+    )}
 
-  {
-    learningPaths.length > 0 && (
-      <div
-        style={`background: var(--sl-color-gray-6); border: 1px solid var(--sl-color-gray-5); border-radius: 0.5rem; padding: 0.75rem 1rem; margin-top: 0.5rem; font-size: 0.875rem;`}
-      >
-        本教程属于学习路径：
-        {learningPaths.map((slug, i) => (
+    {belongsTo.length > 0 && (
+      <div class="content-header__paths">
+        <span>本教程属于学习路径：</span>
+        {belongsTo.map((path, i) => (
           <span>
-            <a href={`/zero-to-ai/paths/#${slug}`} style="font-weight: 600;">
-              {PATH_TITLES[slug] || slug}
-            </a>
-            {i < learningPaths.length - 1 && '、'}
+            <a href={`/zero-to-ai/paths/#${path.slug}`}>{path.title}</a>
+            {i < belongsTo.length - 1 && '、'}
           </span>
         ))}
-        {' '} · <a href="/zero-to-ai/paths/">浏览全部路径</a>
+        <span class="content-header__browse"> · <a href="/zero-to-ai/paths/">浏览全部路径</a></span>
       </div>
-    )
+    )}
+
+    {primaryPath && pageId && (
+      <PathProgress
+        pathSlug={primaryPath.slug}
+        tutorials={progressTutorials}
+        currentSlug={pageId}
+      />
+    )}
+  </div>
+)}
+
+<style>
+  .content-header {
+    margin-bottom: 1.5rem;
   }
-</div>
+
+  .content-header__badge {
+    margin-bottom: 0.5rem;
+  }
+
+  .content-header__paths {
+    background: var(--sl-color-gray-6);
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  .content-header__paths a {
+    font-weight: 600;
+  }
+
+  .content-header__browse {
+    color: var(--sl-color-gray-2);
+  }
+</style>
