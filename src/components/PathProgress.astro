@@ -67,21 +67,33 @@ const currentIndex = tutorials.findIndex((t) => t.slug === currentSlug);
   }
 
   .path-progress__dot {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    background: transparent;
+    transition: all 0.2s;
+  }
+
+  .path-progress__dot::after {
+    content: '';
+    display: block;
     width: 0.75rem;
     height: 0.75rem;
     border-radius: 50%;
     background: var(--sl-color-gray-5);
-    transition: all 0.2s;
+    transition: background 0.2s;
   }
 
-  .path-progress__dot--visited {
+  .path-progress__dot--visited::after {
     background: var(--sl-color-green-high);
   }
 
-  .path-progress__dot--current {
-    width: 1.5rem;
-    height: 1.5rem;
+  .path-progress__dot--current::after {
+    width: 1rem;
+    height: 1rem;
     background: var(--sl-color-text-accent);
   }
 </style>
