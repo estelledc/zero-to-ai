@@ -3,7 +3,7 @@ import { learningPaths } from '../data/learning-paths';
 import { getCollection } from 'astro:content';
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import DifficultyBadge from '../components/DifficultyBadge.astro';
-import { base } from '../utils/base-url';
+import { base, slugToHref } from '../utils/base-url';
 
 const allDocs = await getCollection('docs');
 
@@ -37,13 +37,13 @@ const pathsWithTutorialInfo = learningPaths.map((path) => ({
         <ol class="path-card__list">
           {path.tutorialDetails.map((t) => (
             <li>
-              <a href={`${base}/${t.slug}/`}>{t.title}</a>
+              <a href={slugToHref(t.slug)}>{t.title}</a>
               {t.difficulty && <DifficultyBadge difficulty={t.difficulty} />}
             </li>
           ))}
         </ol>
 
-        <a href={`${base}/${path.tutorials[0]}/`} class="path-card__cta">
+        <a href={slugToHref(path.tutorials[0])} class="path-card__cta">
           开始这条路径 &rarr;
         </a>
       </section>
