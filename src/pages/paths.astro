@@ -3,14 +3,14 @@ import { learningPaths } from '../data/learning-paths';
 import { getCollection } from 'astro:content';
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import DifficultyBadge from '../components/DifficultyBadge.astro';
+import { base } from '../utils/base-url';
 
 const allDocs = await getCollection('docs');
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const pathsWithTutorialInfo = learningPaths.map((path) => ({
   ...path,
   tutorialDetails: path.tutorials.map((slug) => {
-    const doc = allDocs.find((d: any) => d.id === slug);
+    const doc = allDocs.find((d) => d.id === slug);
     return {
       slug,
       title: doc?.data.title || slug,

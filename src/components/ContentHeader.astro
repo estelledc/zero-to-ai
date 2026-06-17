@@ -7,20 +7,19 @@ import DifficultyBadge from './DifficultyBadge.astro';
 import PathProgress from './PathProgress.astro';
 import { learningPaths } from '../data/learning-paths';
 import { getCollection } from 'astro:content';
+import { base } from '../utils/base-url';
 
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const route = Astro.locals.starlightRoute;
+const entry = route.entry;
 
-const route = (Astro.locals as any).starlightRoute;
-const entry = route?.entry;
-
-const difficulty = entry?.data?.difficulty as
+const difficulty = entry.data.difficulty as
   | 'beginner'
   | 'intermediate'
   | 'advanced'
   | undefined;
 
 // Derive which learning paths this page belongs to from the canonical data source
-const pageId = entry?.id as string | undefined;
+const pageId = entry.id;
 const belongsTo = pageId
   ? learningPaths.filter((p) => p.tutorials.includes(pageId))
   : [];
@@ -30,7 +29,7 @@ const allDocs = belongsTo.length > 0 ? await getCollection('docs') : [];
 const primaryPath = belongsTo[0];
 const progressTutorials = primaryPath
   ? primaryPath.tutorials.map((slug) => {
-      const doc = allDocs.find((d: any) => d.id === slug);
+      const doc = allDocs.find((d) => d.id === slug);
       return { slug, title: doc?.data.title || slug };
     })
   : [];
