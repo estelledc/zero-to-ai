@@ -30,6 +30,7 @@
     "@astrojs/starlight": "^0.40.0",
     "astro": "^6.4.6",
     "sharp": "^0.35.1",
+    "starlight-base-path": "^0.1.1",
     "typescript": "^6.0.3"
   },
   "devDependencies": {

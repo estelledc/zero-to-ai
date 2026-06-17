@@ -228,7 +228,7 @@ Hook 调试比其他配置更难 -- 失败通常是静默的。Hook 脚本报错
 
 ## 下一步
 
-- 回到 [Skill 体系](/zero-to-ai/claude-code/skills/) 理解 Hook 的互补工具 -- Skill 解决灵活工作流，Hook 解决确定性自动检查
-- 看看 [工作流编排思路](/zero-to-ai/methodology/workflow-design/) 理解 Hook 在整个工作流中的定位
-- 在 [核心配置](/zero-to-ai/claude-code/config/) 的 Hook 入门段动手写你的第一个 Hook
-- 对记忆系统还没概念？读 [记忆系统](/zero-to-ai/claude-code/memory/) -- Hook + Skill + Memory 三者协作才能发挥最大效力
+- 回到 [Skill 体系](/claude-code/skills/) 理解 Hook 的互补工具 -- Skill 解决灵活工作流，Hook 解决确定性自动检查
+- 看看 [工作流编排思路](/methodology/workflow-design/) 理解 Hook 在整个工作流中的定位
+- 在 [核心配置](/claude-code/config/) 的 Hook 入门段动手写你的第一个 Hook
+- 对记忆系统还没概念？读 [记忆系统](/claude-code/memory/) -- Hook + Skill + Memory 三者协作才能发挥最大效力

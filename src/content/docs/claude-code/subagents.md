@@ -128,7 +128,7 @@ Jason 的日常做法：把任务描述写成一个 markdown plan 文件，子 A
 
 ## 怎么验证子 Agent 的结果
 
-子 Agent 和主 Agent 一样会犯错 -- 同样遵循 [验证方法论](/zero-to-ai/claude-code/verify/) 中的"AI 生成的代码不是 100% 正确"原则。验证流程和验证主 Agent 的输出完全一样，三层体系同样适用：
+子 Agent 和主 Agent 一样会犯错 -- 同样遵循 [验证方法论](/claude-code/verify/) 中的"AI 生成的代码不是 100% 正确"原则。验证流程和验证主 Agent 的输出完全一样，三层体系同样适用：
 
 **第一层：看 diff**
 
@@ -160,7 +160,7 @@ git diff          # 逐行看，每条 + 行和 - 行都对吗？
 
 ## Subagent-driven Development 完整流程
 
-这是 Jason 日常使用的标准流程（简版）。完整流程见 [工作流编排思路](/zero-to-ai/methodology/workflow-design/)：
+这是 Jason 日常使用的标准流程（简版）。完整流程见 [工作流编排思路](/methodology/workflow-design/)：
 
 1. **写好计划文档**：每个 Task 完全独立、有完整上下文、有明确的输入输出
 2. **一次派一个 Task** 给子 Agent -- 不要同时派多个（会产生合并冲突）
@@ -199,7 +199,7 @@ Task B 改了 Task A 也会碰的文件 --> 合并时冲突。计划阶段就识
 
 ## 下一步
 
-- 理解这套流程在工作流中的位置 --> [工作流编排思路](/zero-to-ai/methodology/workflow-design/)
-- 复习怎么验证子 Agent 的产出 --> [验证方法论](/zero-to-ai/claude-code/verify/)
-- 想看另一个高级特性 --> [MCP 集成](/zero-to-ai/claude-code/mcp/)
-- 回顾 Hook 和子 Agent 的互补关系 --> [Hook 系统](/zero-to-ai/claude-code/hooks/)
+- 理解这套流程在工作流中的位置 --> [工作流编排思路](/methodology/workflow-design/)
+- 复习怎么验证子 Agent 的产出 --> [验证方法论](/claude-code/verify/)
+- 想看另一个高级特性 --> [MCP 集成](/claude-code/mcp/)
+- 回顾 Hook 和子 Agent 的互补关系 --> [Hook 系统](/claude-code/hooks/)

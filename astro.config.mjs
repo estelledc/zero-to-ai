@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import { starlightBasePath } from 'starlight-base-path';
 
 export default defineConfig({
   site: 'https://estelledc.github.io',
@@ -8,6 +9,7 @@ export default defineConfig({
 
   integrations: [
     starlight({
+      plugins: [starlightBasePath()],
       title: 'Zero to AI',
       description: '从零开始用 AI 编程工具 — 实战教程集合',
       defaultLocale: 'root',

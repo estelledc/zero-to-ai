@@ -148,6 +148,6 @@ export ANTHROPIC_AUTH_TOKEN="你的Agnes API Key"
 
 ## 下一步
 
-- 现在已经零成本开始 vibe coding，建议快速浏览[验证方法论](/zero-to-ai/claude-code/verify/)——AI 写的代码你要会验证
-- 想深入定制 Claude Code？看[核心配置](/zero-to-ai/claude-code/config/)中的 settings.json
+- 现在已经零成本开始 vibe coding，建议快速浏览[验证方法论](/claude-code/verify/)——AI 写的代码你要会验证
+- 想深入定制 Claude Code？看[核心配置](/claude-code/config/)中的 settings.json
 - 遇到复杂任务觉得 Agnes 不够用？随时切回 Anthropic 官方 Claude——参考上面第 6 步的切换命令
