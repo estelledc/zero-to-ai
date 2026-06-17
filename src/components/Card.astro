@@ -14,7 +14,13 @@ const { title, description, meta, href, linkText } = Astro.props;
   <strong class="zt-card__title">{title}</strong>
   {description && <p class="zt-card__desc">{description}</p>}
   {meta && <p class="zt-card__meta">{meta}</p>}
-  {href && linkText && <a class="zt-card__link" href={href}>{linkText}</a>}
+  {
+    href && linkText && (
+      <a class="zt-card__link" href={href}>
+        {linkText}
+      </a>
+    )
+  }
   <slot />
 </div>
 

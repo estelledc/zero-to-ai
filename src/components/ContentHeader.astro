@@ -12,17 +12,11 @@ import { base } from '../utils/base-url';
 const route = Astro.locals.starlightRoute;
 const entry = route.entry;
 
-const difficulty = entry.data.difficulty as
-  | 'beginner'
-  | 'intermediate'
-  | 'advanced'
-  | undefined;
+const difficulty = entry.data.difficulty as 'beginner' | 'intermediate' | 'advanced' | undefined;
 
 // Derive which learning paths this page belongs to from the canonical data source
 const pageId = entry.id;
-const belongsTo = pageId
-  ? learningPaths.filter((p) => p.tutorials.includes(pageId))
-  : [];
+const belongsTo = pageId ? learningPaths.filter((p) => p.tutorials.includes(pageId)) : [];
 
 // Build tutorial details for PathProgress (only for the first matching path)
 const allDocs = belongsTo.length > 0 ? await getCollection('docs') : [];
@@ -35,36 +29,41 @@ const progressTutorials = primaryPath
   : [];
 ---
 
-{(difficulty || belongsTo.length > 0) && (
-  <div class="content-header">
-    {difficulty && (
-      <div class="content-header__badge">
-        <DifficultyBadge difficulty={difficulty} />
-      </div>
-    )}
+{
+  (difficulty || belongsTo.length > 0) && (
+    <div class="content-header">
+      {difficulty && (
+        <div class="content-header__badge">
+          <DifficultyBadge difficulty={difficulty} />
+        </div>
+      )}
 
-    {belongsTo.length > 0 && (
-      <div class="content-header__paths">
-        <span>本教程属于学习路径：</span>
-        {belongsTo.map((path, i) => (
-          <span>
-            <a href={`${base}/paths/#${path.slug}`}>{path.title}</a>
-            {i < belongsTo.length - 1 && '、'}
+      {belongsTo.length > 0 && (
+        <div class="content-header__paths">
+          <span>本教程属于学习路径：</span>
+          {belongsTo.map((path, i) => (
+            <span>
+              <a href={`${base}/paths/#${path.slug}`}>{path.title}</a>
+              {i < belongsTo.length - 1 && '、'}
+            </span>
+          ))}
+          <span class="content-header__browse">
+            {' '}
+            · <a href={`${base}/paths/`}>浏览全部路径</a>
           </span>
-        ))}
-        <span class="content-header__browse"> · <a href={`${base}/paths/`}>浏览全部路径</a></span>
-      </div>
-    )}
+        </div>
+      )}
 
-    {primaryPath && pageId && (
-      <PathProgress
-        pathSlug={primaryPath.slug}
-        tutorials={progressTutorials}
-        currentSlug={pageId}
-      />
-    )}
-  </div>
-)}
+      {primaryPath && pageId && (
+        <PathProgress
+          pathSlug={primaryPath.slug}
+          tutorials={progressTutorials}
+          currentSlug={pageId}
+        />
+      )}
+    </div>
+  )
+}
 
 <style>
   .content-header {
