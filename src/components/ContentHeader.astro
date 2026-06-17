@@ -8,7 +8,7 @@ import PathProgress from './PathProgress.astro';
 import { learningPaths } from '../data/learning-paths';
 import { getCollection } from 'astro:content';
 
-const route = Astro.locals.starlightRoute;
+const route = (Astro.locals as any).starlightRoute;
 const entry = route?.entry;
 
 const difficulty = entry?.data?.difficulty as
@@ -28,7 +28,7 @@ const allDocs = belongsTo.length > 0 ? await getCollection('docs') : [];
 const primaryPath = belongsTo[0];
 const progressTutorials = primaryPath
   ? primaryPath.tutorials.map((slug) => {
-      const doc = allDocs.find((d) => d.id === slug);
+      const doc = allDocs.find((d: any) => d.id === slug);
       return { slug, title: doc?.data.title || slug };
     })
   : [];
