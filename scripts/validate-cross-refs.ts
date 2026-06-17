@@ -185,9 +185,7 @@ function main() {
   }
 
   if (warnCount > 0) {
-    console.warn(
-      `交叉引用校验通过 (有 ${warnCount} 个警告，已检查 ${fileCount} 个文件)`,
-    );
+    console.warn(`交叉引用校验通过 (有 ${warnCount} 个警告，已检查 ${fileCount} 个文件)`);
   } else {
     console.log(`交叉引用校验通过 (已检查 ${fileCount} 个文件)`);
   }

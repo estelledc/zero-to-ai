@@ -10,10 +10,10 @@ learningPaths:
 prerequisites:
   - claude-code/quickstart
 relatedContent:
-  - {slug: "claude-code/context", label: "上下文管理"}
-  - {slug: "claude-code/preflight", label: "开始之前"}
-lastVerified: "2026-06-12"
-toolVersion: "Claude Code CLI (latest)"
+  - { slug: 'claude-code/context', label: '上下文管理' }
+  - { slug: 'claude-code/preflight', label: '开始之前' }
+lastVerified: '2026-06-12'
+toolVersion: 'Claude Code CLI (latest)'
 ---
 
 ## 为什么这篇很重要
@@ -45,11 +45,11 @@ toolVersion: "Claude Code CLI (latest)"
 
 Claude Code 支持三种模型，价格差异很大。选择哪个模型是对成本影响最大的单一决策。
 
-| 模型 | 定位 | Input ($/M tok) | Output ($/M tok) | 适合 |
-|------|------|-----------------|-------------------|------|
-| Haiku 4.5 | 快而便宜 | ~$0.80 | ~$4 | 简单任务、格式转换、grep 类操作 |
-| Sonnet 4.6 | 均衡 | ~$3 | ~$15 | 日常编程、代码审查、文档生成 |
-| Opus 4.8 | 强而贵 | ~$15 | ~$75 | 复杂架构、多文件重构、深度推理 |
+| 模型       | 定位     | Input ($/M tok) | Output ($/M tok) | 适合                            |
+| ---------- | -------- | --------------- | ---------------- | ------------------------------- |
+| Haiku 4.5  | 快而便宜 | ~$0.80          | ~$4              | 简单任务、格式转换、grep 类操作 |
+| Sonnet 4.6 | 均衡     | ~$3             | ~$15             | 日常编程、代码审查、文档生成    |
+| Opus 4.8   | 强而贵   | ~$15            | ~$75             | 复杂架构、多文件重构、深度推理  |
 
 > 以上为 2026 年 6 月近似价格，实际以 [Anthropic 官方定价页](https://www.anthropic.com/pricing) 为准。M token = 百万 token。
 

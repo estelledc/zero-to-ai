@@ -3,7 +3,7 @@ title: 方法论
 description: 工具无关的共用思想和方法
 tags: [methodology]
 difficulty: beginner
-lastVerified: "2026-06-12"
+lastVerified: '2026-06-12'
 ---
 
 这些内容不绑定任何一个具体工具，而是讲通用思想：
