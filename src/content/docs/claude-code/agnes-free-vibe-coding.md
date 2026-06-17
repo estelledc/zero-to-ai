@@ -8,10 +8,10 @@ learningPaths:
 prerequisites:
   - claude-code/quickstart
 relatedContent:
-  - {slug: claude-code/config, label: 核心配置}
-  - {slug: claude-code/cost, label: 成本与计费}
-lastVerified: "2026-06-13"
-toolVersion: "Claude Code CLI (latest)"
+  - { slug: claude-code/config, label: 核心配置 }
+  - { slug: claude-code/cost, label: 成本与计费 }
+lastVerified: '2026-06-13'
+toolVersion: 'Claude Code CLI (latest)'
 ---
 
 ## 这是什么
@@ -47,6 +47,7 @@ export ANTHROPIC_BASE_URL="https://apihub.agnes-ai.com"
 ```
 
 解释：
+
 - `ANTHROPIC_AUTH_TOKEN`：原本填 Anthropic 的 key，现在填 Agnes 的 key
 - `ANTHROPIC_BASE_URL`：告诉 Claude Code 去哪里调用模型。Agnes 的 Anthropic 兼容端点就是 `https://apihub.agnes-ai.com`
 
@@ -119,16 +120,16 @@ export ANTHROPIC_AUTH_TOKEN="你的Agnes API Key"
 
 ## Agnes 免费模型能做什么
 
-| 场景 | 能不能做 | 备注 |
-|------|:--:|------|
-| 日常问答、解释概念 | 能 | 反应快，适合学习 |
-| 写代码片段、函数 | 能 | 简单函数质量不错 |
-| 读项目、理解代码结构 | 能 | 256K 上下文，能读很大项目 |
-| 写文件、跑命令、改 bug | 能 | tool calling 实测可用 |
-| 复杂多步重构 | 一般 | 思考深度不如 Claude，可能需要多轮对话 |
-| 生成图片（文生图） | 能 | 用 `agnes-image-2.1-flash`，但需要单独调 API |
-| 生成视频 | 能 | 用 `agnes-video-v2.0`，异步生成，需等待 |
-| 深度推理、数学证明 | 不太行 | 免费模型的推理能力弱于 Claude Opus |
+| 场景                   | 能不能做 | 备注                                         |
+| ---------------------- | :------: | -------------------------------------------- |
+| 日常问答、解释概念     |    能    | 反应快，适合学习                             |
+| 写代码片段、函数       |    能    | 简单函数质量不错                             |
+| 读项目、理解代码结构   |    能    | 256K 上下文，能读很大项目                    |
+| 写文件、跑命令、改 bug |    能    | tool calling 实测可用                        |
+| 复杂多步重构           |   一般   | 思考深度不如 Claude，可能需要多轮对话        |
+| 生成图片（文生图）     |    能    | 用 `agnes-image-2.1-flash`，但需要单独调 API |
+| 生成视频               |    能    | 用 `agnes-video-v2.0`，异步生成，需等待      |
+| 深度推理、数学证明     |  不太行  | 免费模型的推理能力弱于 Claude Opus           |
 
 ## 常见坑
 
