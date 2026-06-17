@@ -3,7 +3,7 @@ title: Git 10 分钟速成
 description: 从零开始理解版本控制 — 用游戏存档的类比学会 git init/add/commit/diff/log/status/clone
 tags: [appendix]
 difficulty: beginner
-lastVerified: "2026-06-12"
+lastVerified: '2026-06-12'
 ---
 
 ## 类比：Git 像游戏存档
@@ -12,13 +12,13 @@ lastVerified: "2026-06-12"
 
 对应关系：
 
-| 游戏术语 | Git 术语 |
-|----------|----------|
-| 存档 | commit（提交） |
-| 存档列表 | log（日志） |
-| 回到存档 | checkout |
-| 对比两个存档 | diff |
-| 下载别人的存档 | clone |
+| 游戏术语       | Git 术语       |
+| -------------- | -------------- |
+| 存档           | commit（提交） |
+| 存档列表       | log（日志）    |
+| 回到存档       | checkout       |
+| 对比两个存档   | diff           |
+| 下载别人的存档 | clone          |
 
 不需要联网，不需要注册账号，Git 是你电脑上的一个程序，管好你自己文件夹里的代码。
 
@@ -44,6 +44,7 @@ git status
 ```
 
 输出示例解读：
+
 - `Untracked files`（红色）— 新文件，Git 还不认识
 - `Changes not staged for commit`（红色）— 改过了但没标记"要存档"
 - `Changes to be committed`（绿色）— 已经标记好，等存档

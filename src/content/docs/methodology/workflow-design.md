@@ -6,7 +6,7 @@ difficulty: intermediate
 learningPaths:
   - daily-efficiency
   - advanced-custom
-lastVerified: "2026-06-12"
+lastVerified: '2026-06-12'
 prerequisites:
   - methodology/basics
   - claude-code/skills
@@ -169,15 +169,15 @@ Skill 是 Claude Code 的工作流模板。它的本质是：把"每次都要手
 
 Jason 的 intern-journal 里有 14 个 Skill，覆盖日常高频操作：
 
-| Skill | 一句话作用 |
-|---|---|
-| `/commit` | 分析 git 变更，按主题分组，原子化提交 |
-| `/daily-learn` | 读今日对话记录，补 daily 文件的"今日学到"段 |
-| `/wiki` | 检查知识库健康、消化新来源、发现矛盾 |
-| `/learn` | 学习导航 -- 根据现状推荐下一步学什么 |
-| `/source-learn` | 从开源项目源码中系统学习 |
-| `/sync-all` | 一键刷新所有派生文件和 HTML 渲染 |
-| `/dotfiles` | 备份/恢复/同步 Claude Code 配置 |
+| Skill           | 一句话作用                                  |
+| --------------- | ------------------------------------------- |
+| `/commit`       | 分析 git 变更，按主题分组，原子化提交       |
+| `/daily-learn`  | 读今日对话记录，补 daily 文件的"今日学到"段 |
+| `/wiki`         | 检查知识库健康、消化新来源、发现矛盾        |
+| `/learn`        | 学习导航 -- 根据现状推荐下一步学什么        |
+| `/source-learn` | 从开源项目源码中系统学习                    |
+| `/sync-all`     | 一键刷新所有派生文件和 HTML 渲染            |
+| `/dotfiles`     | 备份/恢复/同步 Claude Code 配置             |
 
 Skill 解决的问题是"决策成本"。没有 Skill 时，每次要做上述事情，你都要在脑子里回忆步骤、打出具体指令、确认参数。有 Skill 后，说一句 `/commit`，Claude 就知道整个流程。决策成本从"想 30 秒+打 50 字"降到"打 7 个字符"。
 

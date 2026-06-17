@@ -10,10 +10,10 @@ prerequisites:
   - claude-code/hooks
   - claude-code/memory
 relatedContent:
-  - {slug: "methodology/claude-md-philosophy", label: "CLAUDE.md 编写哲学"}
-  - {slug: "claude-code/skills", label: "Skill 体系"}
-lastVerified: "2026-06-12"
-toolVersion: "Claude Code CLI (latest)"
+  - { slug: 'methodology/claude-md-philosophy', label: 'CLAUDE.md 编写哲学' }
+  - { slug: 'claude-code/skills', label: 'Skill 体系' }
+lastVerified: '2026-06-12'
+toolVersion: 'Claude Code CLI (latest)'
 ---
 
 ## 这是什么

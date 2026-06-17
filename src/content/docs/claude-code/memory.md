@@ -10,9 +10,9 @@ learningPaths:
 prerequisites:
   - claude-code/config
 relatedContent:
-  - {slug: "methodology/memory-system-design", label: "记忆系统设计原则"}
-lastVerified: "2026-06-12"
-toolVersion: "Claude Code CLI (latest)"
+  - { slug: 'methodology/memory-system-design', label: '记忆系统设计原则' }
+lastVerified: '2026-06-12'
+toolVersion: 'Claude Code CLI (latest)'
 ---
 
 ## 这是什么
@@ -52,12 +52,12 @@ metadata:
 
 ### 3. 记忆的类型
 
-| 类型 | 用途 | 示例 |
-|---|---|---|
-| `user` | 用户个人事实 | 姓名、角色、偏好 |
-| `feedback` | 用户反馈和修正 | "上次告诉 Claude 不要用 emoji" |
-| `project` | 项目约定和约束 | 项目架构、技术栈决策 |
-| `reference` | 外部引用 | 文档 URL、dashboard 链接 |
+| 类型        | 用途           | 示例                           |
+| ----------- | -------------- | ------------------------------ |
+| `user`      | 用户个人事实   | 姓名、角色、偏好               |
+| `feedback`  | 用户反馈和修正 | "上次告诉 Claude 不要用 emoji" |
+| `project`   | 项目约定和约束 | 项目架构、技术栈决策           |
+| `reference` | 外部引用       | 文档 URL、dashboard 链接       |
 
 ### 4. 记忆如何被加载
 

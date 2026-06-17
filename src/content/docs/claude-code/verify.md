@@ -8,11 +8,11 @@ learningPaths:
 prerequisites:
   - claude-code/quickstart
 relatedContent:
-  - {slug: claude-code/context, label: 上下文窗口管理}
-  - {slug: claude-code/daily-rhythm, label: 日常节奏}
-  - {slug: "claude-code/subagents", label: "子 Agent 协作"}
-lastVerified: "2026-06-12"
-toolVersion: "Claude Code CLI (latest)"
+  - { slug: claude-code/context, label: 上下文窗口管理 }
+  - { slug: claude-code/daily-rhythm, label: 日常节奏 }
+  - { slug: 'claude-code/subagents', label: '子 Agent 协作' }
+lastVerified: '2026-06-12'
+toolVersion: 'Claude Code CLI (latest)'
 ---
 
 ## 这是什么
@@ -106,6 +106,7 @@ git diff --stat
 ```
 
 先问自己三个问题：
+
 - 改的文件数量和位置符合预期吗？（如果只让改 auth，结果 utils.ts 也变了 -- 有侧效应）
 - 每个文件的改动量符合预期吗？（如果只让加一个按钮，结果改了 200 行 -- 值得细看）
 - 有没有陌生的文件出现在列表里？（如果 config.json 不该被碰 -- Claude 可能误操作了）
@@ -144,17 +145,18 @@ git diff
 
 **不同类型的测试，抓不同类型的 bug**：
 
-| 测试类型 | 能抓到的问题 | 抓不到的问题 |
-|---|---|---|
-| 单元测试 | 函数内部逻辑错误 | 函数之间的协作错误、协议不匹配 |
-| 集成测试 | 模块之间的协作错误 | 真实环境的网络延迟、权限问题 |
-| 端到端测试（真跑一遍） | 几乎所有真实使用场景的问题 | -- |
+| 测试类型               | 能抓到的问题               | 抓不到的问题                   |
+| ---------------------- | -------------------------- | ------------------------------ |
+| 单元测试               | 函数内部逻辑错误           | 函数之间的协作错误、协议不匹配 |
+| 集成测试               | 模块之间的协作错误         | 真实环境的网络延迟、权限问题   |
+| 端到端测试（真跑一遍） | 几乎所有真实使用场景的问题 | --                             |
 
 Jason 的案例：56 个单元测试全部通过。1 个真实端到端测试抓到协议 bug。这不是单元测试的问题 -- 单元测试本身跑对了，但它测试的范围天然不覆盖"上下游之间的数据格式约定"这种跨系统问题。
 
 **具体操作（按项目类型）**：
 
 **前端项目**：
+
 ```bash
 npm run dev    # 启动开发服务器
 # 在浏览器打开，手动点一遍改动的功能
@@ -162,6 +164,7 @@ npm run dev    # 启动开发服务器
 ```
 
 **后端项目**：
+
 ```bash
 npm start      # 启动服务
 curl http://localhost:3000/api/your-endpoint  # 手动调一次接口
@@ -170,6 +173,7 @@ npm test
 ```
 
 **纯脚本**：
+
 ```bash
 node your-script.js
 # 看终端输出是否符合预期
@@ -311,6 +315,7 @@ npm start   # 或 node your-entry.js，或 npm run dev
 如果程序正常启动且功能无异，验证通过。
 
 进阶练习：这次让 Claude Code 做一个涉及多个文件的改动（比如"把 src/utils/ 下所有文件里的 `var` 替换成 `const`"），然后验证：
+
 - grep 确认所有文件确实被改了
 - diff 审计确认没有多改其他文件
 - 程序启动正常

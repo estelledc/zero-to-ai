@@ -10,10 +10,10 @@ prerequisites:
   - claude-code/hooks
   - claude-code/verify
 relatedContent:
-  - {slug: "methodology/workflow-design", label: "工作流编排思路"}
-  - {slug: "claude-code/mcp", label: "MCP 集成"}
-lastVerified: "2026-06-12"
-toolVersion: "Claude Code CLI (latest)"
+  - { slug: 'methodology/workflow-design', label: '工作流编排思路' }
+  - { slug: 'claude-code/mcp', label: 'MCP 集成' }
+lastVerified: '2026-06-12'
+toolVersion: 'Claude Code CLI (latest)'
 ---
 
 ## 这是什么

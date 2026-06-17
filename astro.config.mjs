@@ -51,10 +51,7 @@ export default defineConfig({
         },
         {
           label: '附录',
-          items: [
-            { slug: 'appendix' },
-            { slug: 'appendix/git-basics' },
-          ],
+          items: [{ slug: 'appendix' }, { slug: 'appendix/git-basics' }],
         },
       ],
 
@@ -72,7 +69,10 @@ export default defineConfig({
         // Open Graph
         {
           tag: 'meta',
-          attrs: { property: 'og:image', content: 'https://estelledc.github.io/zero-to-ai/og-default.png' },
+          attrs: {
+            property: 'og:image',
+            content: 'https://estelledc.github.io/zero-to-ai/og-default.png',
+          },
         },
         {
           tag: 'meta',

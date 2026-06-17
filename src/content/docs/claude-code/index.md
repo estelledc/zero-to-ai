@@ -6,8 +6,8 @@ difficulty: beginner
 learningPaths:
   - ai-coding-zero
 next: false
-lastVerified: "2026-06-12"
-toolVersion: "Claude Code CLI (latest)"
+lastVerified: '2026-06-12'
+toolVersion: 'Claude Code CLI (latest)'
 ---
 
 ## Claude Code 是什么

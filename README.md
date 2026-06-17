@@ -62,15 +62,15 @@ scripts/
 
 每篇教程的 frontmatter 支持以下扩展字段：
 
-| 字段 | 类型 | 说明 |
-|------|------|------|
-| `difficulty` | `beginner` / `intermediate` / `advanced` | 难度等级 |
-| `tags` | `string[]` | 分类标签 |
-| `learningPaths` | `string[]` | 所属学习路径 slug |
-| `prerequisites` | `string[]` | 前置依赖教程 slug |
-| `relatedContent` | `{slug, label}[]` | 相关内容链接 |
-| `lastVerified` | `string` | 最后验证日期 |
-| `toolVersion` | `string` | 适用工具版本 |
+| 字段             | 类型                                     | 说明              |
+| ---------------- | ---------------------------------------- | ----------------- |
+| `difficulty`     | `beginner` / `intermediate` / `advanced` | 难度等级          |
+| `tags`           | `string[]`                               | 分类标签          |
+| `learningPaths`  | `string[]`                               | 所属学习路径 slug |
+| `prerequisites`  | `string[]`                               | 前置依赖教程 slug |
+| `relatedContent` | `{slug, label}[]`                        | 相关内容链接      |
+| `lastVerified`   | `string`                                 | 最后验证日期      |
+| `toolVersion`    | `string`                                 | 适用工具版本      |
 
 ### 交叉引用
 
