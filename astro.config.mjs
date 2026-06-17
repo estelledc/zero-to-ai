@@ -51,7 +51,7 @@ export default defineConfig({
         },
         {
           label: '附录',
-          items: [{ slug: 'appendix' }, { slug: 'appendix/git-basics' }],
+          items: [{ slug: 'appendix' }, { slug: 'appendix/git-basics' }, { slug: 'glossary' }],
         },
       ],
 
@@ -89,6 +89,31 @@ export default defineConfig({
         },
         // 站点验证（预留）
         // { tag: 'meta', attrs: { name: 'google-site-verification', content: '...' } },
+        // 安全头：防止 clickjacking
+        {
+          tag: 'meta',
+          attrs: {
+            'http-equiv': 'X-Frame-Options',
+            content: 'DENY',
+          },
+        },
+        // 安全头：基本 CSP
+        {
+          tag: 'meta',
+          attrs: {
+            'http-equiv': 'Content-Security-Policy',
+            content:
+              "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'",
+          },
+        },
+        // 安全头：防止 MIME 嗅探
+        {
+          tag: 'meta',
+          attrs: {
+            'http-equiv': 'X-Content-Type-Options',
+            content: 'nosniff',
+          },
+        },
       ],
 
       expressiveCode: {
@@ -105,8 +130,8 @@ export default defineConfig({
       // Pagefind 搜索（Starlight 内置，确保启用）
       pagefind: true,
 
-      // 404 页面
-      disable404Route: false,
+      // 404 页面：使用自定义中文 404
+      disable404Route: true,
     }),
   ],
 });
