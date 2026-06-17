@@ -5,7 +5,7 @@ export interface Props {
 
 const { difficulty } = Astro.props;
 
-const LABEL_MAP: Record<string, string> = {
+const LABEL_MAP: Record<Props['difficulty'], string> = {
   beginner: '起步',
   intermediate: '进阶',
   advanced: '高级',
