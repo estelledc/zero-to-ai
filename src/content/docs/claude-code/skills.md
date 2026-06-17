@@ -25,7 +25,7 @@ Skill 像厨房里的预制菜包——把"切菜、调味、控制火候"这些
 
 ## Before you start
 
-- CLAUDE.md 和 settings.json 已经配置好（参考[核心配置](/zero-to-ai/claude-code/config/)）
+- CLAUDE.md 和 settings.json 已经配置好（参考[核心配置](/claude-code/config/)）
 - 你发现自己在重复输入相同类型的 prompt
 
 ## 实际操作
@@ -120,6 +120,6 @@ git log --oneline 展示新提交
 
 ## 下一步
 
-- 想看完整的 Skill 示例：[CLAUDE.md 编写哲学](/zero-to-ai/methodology/claude-md-philosophy/) -- 了解怎么让 Skill 和其他配置协同工作
-- Hook 是 Skill 的互补工具 → [Hook 系统](/zero-to-ai/claude-code/hooks/)
-- 想学工作流编排：[工作流编排思路](/zero-to-ai/methodology/workflow-design/) -- 把多个 Skill 串成高效管线
+- 想看完整的 Skill 示例：[CLAUDE.md 编写哲学](/methodology/claude-md-philosophy/) -- 了解怎么让 Skill 和其他配置协同工作
+- Hook 是 Skill 的互补工具 → [Hook 系统](/claude-code/hooks/)
+- 想学工作流编排：[工作流编排思路](/methodology/workflow-design/) -- 把多个 Skill 串成高效管线

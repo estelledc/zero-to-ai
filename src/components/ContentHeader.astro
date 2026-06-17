@@ -8,6 +8,8 @@ import PathProgress from './PathProgress.astro';
 import { learningPaths } from '../data/learning-paths';
 import { getCollection } from 'astro:content';
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 const route = (Astro.locals as any).starlightRoute;
 const entry = route?.entry;
 
@@ -47,11 +49,11 @@ const progressTutorials = primaryPath
         <span>本教程属于学习路径：</span>
         {belongsTo.map((path, i) => (
           <span>
-            <a href={`/zero-to-ai/paths/#${path.slug}`}>{path.title}</a>
+            <a href={`${base}/paths/#${path.slug}`}>{path.title}</a>
             {i < belongsTo.length - 1 && '、'}
           </span>
         ))}
-        <span class="content-header__browse"> · <a href="/zero-to-ai/paths/">浏览全部路径</a></span>
+        <span class="content-header__browse"> · <a href={`${base}/paths/`}>浏览全部路径</a></span>
       </div>
     )}
 
