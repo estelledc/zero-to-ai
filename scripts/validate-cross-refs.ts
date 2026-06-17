@@ -2,13 +2,14 @@
  * validate-cross-refs.ts
  * Validates frontmatter cross-references and learning path consistency.
  * Uses gray-matter for robust YAML parsing instead of fragile regex.
+ * Directly imports learning-paths.ts for type-safe access to path data.
  */
 import { readdirSync, readFileSync } from 'node:fs';
 import { join, extname } from 'node:path';
 import matter from 'gray-matter';
+import { learningPaths } from '../src/data/learning-paths';
 
 const DOCS_DIR = 'src/content/docs';
-const DATA_DIR = 'src/data';
 
 // --- Helpers ---
 
@@ -39,21 +40,11 @@ function collectSlugs(dir: string, base: string = ''): Set<string> {
   return slugs;
 }
 
-/** Parse learning path tutorial slugs from source (regex on TS source, no dynamic import) */
-function parseLearningPathTutorials(source: string): Map<string, string[]> {
+/** Build path tutorials map from imported learning paths data */
+function buildPathTutorialsMap(): Map<string, string[]> {
   const paths = new Map<string, string[]>();
-  const pathRegex = /slug:\s*['"](.+?)['"][\s\S]*?tutorials:\s*\[([\s\S]*?)\]/g;
-  let match;
-  while ((match = pathRegex.exec(source)) !== null) {
-    const pathSlug = match[1];
-    const tutorialsBlock = match[2];
-    const tutorialSlugs: string[] = [];
-    const tutorialRegex = /['"](.+?)['"]/g;
-    let tMatch;
-    while ((tMatch = tutorialRegex.exec(tutorialsBlock)) !== null) {
-      tutorialSlugs.push(tMatch[1]);
-    }
-    paths.set(pathSlug, tutorialSlugs);
+  for (const path of learningPaths) {
+    paths.set(path.slug, path.tutorials);
   }
   return paths;
 }
@@ -64,12 +55,8 @@ function main() {
   const fullDocsDir = join(process.cwd(), DOCS_DIR);
   const allSlugs = collectSlugs(fullDocsDir);
 
-  // Load learning path data
-  const learningPathsSource = readFileSync(
-    join(process.cwd(), DATA_DIR, 'learning-paths.ts'),
-    'utf-8',
-  );
-  const pathTutorials = parseLearningPathTutorials(learningPathsSource);
+  // Load learning path data (directly imported, type-safe)
+  const pathTutorials = buildPathTutorialsMap();
   const pathSlugs = new Set(pathTutorials.keys());
 
   // Build reverse map: tutorial slug → set of path slugs it belongs to

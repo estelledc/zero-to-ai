@@ -9,7 +9,7 @@ const allDocs = await getCollection('docs');
 const pathsWithTutorialInfo = learningPaths.map((path) => ({
   ...path,
   tutorialDetails: path.tutorials.map((slug) => {
-    const doc = allDocs.find((d) => d.id === slug);
+    const doc = allDocs.find((d: any) => d.id === slug);
     return {
       slug,
       title: doc?.data.title || slug,

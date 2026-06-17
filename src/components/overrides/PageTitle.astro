@@ -9,9 +9,10 @@ import ContentHeader from '../ContentHeader.astro';
 
 // Starlight uses '_top' as the page title anchor ID (defined in constants.ts)
 const PAGE_TITLE_ID = '_top';
+const route = (Astro.locals as any).starlightRoute;
 ---
 
-<h1 id={PAGE_TITLE_ID}>{Astro.locals.starlightRoute.entry.data.title}</h1>
+<h1 id={PAGE_TITLE_ID}>{route.entry.data.title}</h1>
 <ContentHeader />
 
 <style>
