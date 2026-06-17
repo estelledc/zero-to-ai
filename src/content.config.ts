@@ -17,7 +17,7 @@ export const collections = {
             z.object({
               slug: z.string(),
               label: z.string(),
-            })
+            }),
           )
           .optional(),
         lastVerified: z.string().optional(),
