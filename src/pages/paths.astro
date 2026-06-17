@@ -2,6 +2,7 @@
 import { learningPaths } from '../data/learning-paths';
 import { getCollection } from 'astro:content';
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import DifficultyBadge from '../components/DifficultyBadge.astro';
 
 const allDocs = await getCollection('docs');
 
@@ -12,51 +13,77 @@ const pathsWithTutorialInfo = learningPaths.map((path) => ({
     return {
       slug,
       title: doc?.data.title || slug,
-      difficulty: doc?.data.difficulty,
+      difficulty: doc?.data.difficulty as 'beginner' | 'intermediate' | 'advanced' | undefined,
     };
   }),
 }));
 ---
 
 <StarlightPage frontmatter={{ title: '学习路径' }}>
-  <p style="margin-bottom: 2rem;">
+  <p class="paths-intro">
     不知道从哪开始？选一条适合你的路径，跟着走就行。每条路径是一系列教程的有序串联，从入门到交付。
   </p>
 
   {
     pathsWithTutorialInfo.map((path) => (
-      <section
-        id={path.slug}
-        style="margin-bottom: 2.5rem; padding: 1.5rem; border: 1px solid var(--sl-color-gray-5); border-radius: 0.5rem;"
-      >
-        <h2 style="margin-top: 0;">{path.title}</h2>
+      <section id={path.slug} class="path-card">
+        <h2>{path.title}</h2>
         <p>{path.description}</p>
-        <p style="font-size: 0.875rem; color: var(--sl-color-gray-2);">
+        <p class="path-card__meta">
           适合：{path.targetAudience} &middot; 预估时间：{path.timeRange}
         </p>
 
-        <ol style="padding-left: 1.25rem;">
+        <ol class="path-card__list">
           {path.tutorialDetails.map((t) => (
-            <li style="margin-bottom: 0.25rem;">
+            <li>
               <a href={`/zero-to-ai/${t.slug}/`}>{t.title}</a>
               {t.difficulty && (
-                <span
-                  style={`margin-left: 0.5rem; font-size: 0.75rem; color: var(--sl-color-gray-2);`}
-                >
-                  ({t.difficulty === 'beginner' ? '起步' : t.difficulty === 'intermediate' ? '进阶' : '高级'})
-                </span>
+                <DifficultyBadge difficulty={t.difficulty} />
               )}
             </li>
           ))}
         </ol>
 
-        <a
-          href={`/zero-to-ai/${path.tutorials[0]}/`}
-          style="display: inline-block; margin-top: 0.75rem; font-weight: 600;"
-        >
+        <a href={`/zero-to-ai/${path.tutorials[0]}/`} class="path-card__cta">
           开始这条路径 &rarr;
         </a>
       </section>
     ))
   }
 </StarlightPage>
+
+<style>
+  .paths-intro {
+    margin-bottom: 2rem;
+  }
+
+  .path-card {
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.5rem;
+  }
+
+  .path-card h2 {
+    margin-top: 0;
+  }
+
+  .path-card__meta {
+    font-size: 0.875rem;
+    color: var(--sl-color-gray-2);
+  }
+
+  .path-card__list {
+    padding-left: 1.25rem;
+  }
+
+  .path-card__list li {
+    margin-bottom: 0.25rem;
+  }
+
+  .path-card__cta {
+    display: inline-block;
+    margin-top: 0.75rem;
+    font-weight: 600;
+  }
+</style>
