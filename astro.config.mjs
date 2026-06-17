@@ -47,6 +47,7 @@ export default defineConfig({
             { slug: 'methodology/memory-system-design' },
             { slug: 'methodology/workflow-design' },
             { slug: 'methodology/learning-management' },
+            { slug: 'methodology/skill-pack' },
           ],
         },
         {

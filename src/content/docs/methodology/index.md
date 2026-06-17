@@ -16,3 +16,4 @@ lastVerified: '2026-06-12'
 - [记忆系统设计原则](memory-system-design)
 - [工作流编排思路](workflow-design)
 - [学习管理系统](learning-management) — 工件选择启发式、笔记管线、如何把对话变成永久知识
+- [学习日志 Skill Pack](skill-pack) — 一键部署的结构化学习系统，下载即用
