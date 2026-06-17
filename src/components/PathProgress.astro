@@ -5,7 +5,7 @@ export interface Props {
   currentSlug: string;
 }
 
-import { base } from '../utils/base-url';
+import { slugToHref } from '../utils/base-url';
 
 const { pathSlug, tutorials, currentSlug } = Astro.props;
 const currentIndex = tutorials.findIndex((t) => t.slug === currentSlug);
@@ -23,7 +23,7 @@ const currentIndex = tutorials.findIndex((t) => t.slug === currentSlug);
         const isCurrent = i === currentIndex;
         return (
           <a
-            href={`${base}/${t.slug}/`}
+            href={slugToHref(t.slug)}
             title={t.title}
             data-slug={t.slug}
             class:list={['path-progress__dot', { 'path-progress__dot--current': isCurrent }]}
