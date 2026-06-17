@@ -98,6 +98,6 @@ echo $HOME
 
 ## 下一步
 
-- 继续 [Claude Code 快速开始](/zero-to-ai/claude-code/quickstart/)
-- 回 [学习方法论](/zero-to-ai/methodology/)
-- 查看 [术语对照表](/zero-to-ai/glossary/)
+- 继续 [Claude Code 快速开始](/claude-code/quickstart/)
+- 回 [学习方法论](/methodology/)
+- 查看 [术语对照表](/glossary/)

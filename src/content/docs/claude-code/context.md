@@ -22,7 +22,7 @@ toolVersion: "Claude Code CLI (latest)"
 
 ## Before you start
 
-- 已经完成 [10 分钟上手](/zero-to-ai/claude-code/quickstart/) 中的安装和配置
+- 已经完成 [10 分钟上手](/claude-code/quickstart/) 中的安装和配置
 - 能正常启动 Claude Code 对话
 - 有过至少一次"对话长到 Claude 开始忘事"的体验（如果没有，这篇帮你预防）
 
@@ -179,7 +179,7 @@ Jason 实战总结的一条经验：**单 session 超过 2 小时，上下文质
 3. 新 session 的 Claude 会重新读取 CLAUDE.md 和项目文件——相当于**新桌面 + 新鲜记忆**，不带旧对话的任何残留
 4. 告诉新 session："上次我们在做 X，进度在 Y 文件里，继续完成 Z"
 
-这就是为什么记忆系统（参考[记忆系统](/zero-to-ai/claude-code/memory/)）很重要——它让你在 session 之间传递关键信息，而不是依赖 Claude 的"短期记忆"（上下文窗口）。
+这就是为什么记忆系统（参考[记忆系统](/claude-code/memory/)）很重要——它让你在 session 之间传递关键信息，而不是依赖 Claude 的"短期记忆"（上下文窗口）。
 
 ## 常见坑
 
@@ -243,6 +243,6 @@ git stash
 
 ## 下一步
 
-- 上下文管理是日常节奏的基础——[日常节奏](/zero-to-ai/claude-code/daily-rhythm/) 教你如何把这三个命令嵌入每天的开发流程
-- 验证是另一个视角的质量控制——[验证方法论](/zero-to-ai/claude-code/verify/) 教你确保 Claude 写出来的代码真的能用
-- 记忆系统是 session 之间的长期记忆——[记忆系统](/zero-to-ai/claude-code/memory/) 教你让 Claude 长记性
+- 上下文管理是日常节奏的基础——[日常节奏](/claude-code/daily-rhythm/) 教你如何把这三个命令嵌入每天的开发流程
+- 验证是另一个视角的质量控制——[验证方法论](/claude-code/verify/) 教你确保 Claude 写出来的代码真的能用
+- 记忆系统是 session 之间的长期记忆——[记忆系统](/claude-code/memory/) 教你让 Claude 长记性

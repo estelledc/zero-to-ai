@@ -171,6 +171,6 @@ dotfiles/home-claude/skills/   ← 唯一源（git 跟踪）
 
 ## 下一步
 
-- 回到配置基础 → [核心配置](/zero-to-ai/claude-code/config/)
-- 理解这套架构的哲学 → [CLAUDE.md 编写哲学](/zero-to-ai/methodology/claude-md-philosophy/)
-- 看看另一个高级主题 → [子 Agent 协作](/zero-to-ai/claude-code/subagents/)
+- 回到配置基础 → [核心配置](/claude-code/config/)
+- 理解这套架构的哲学 → [CLAUDE.md 编写哲学](/methodology/claude-md-philosophy/)
+- 看看另一个高级主题 → [子 Agent 协作](/claude-code/subagents/)

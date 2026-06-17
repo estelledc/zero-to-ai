@@ -31,7 +31,7 @@ Claude Code 写的代码也一样 -- 生成只是第一步，验证才是区分"
 
 - 已经用 Claude Code 完成过至少 2-3 次代码改动任务
 - 知道怎么打开终端和输入命令
-- 了解 `git` 的基本概念（如果不了解，先看[10 分钟上手](/zero-to-ai/claude-code/quickstart/)中的 git 使用说明）
+- 了解 `git` 的基本概念（如果不了解，先看[10 分钟上手](/claude-code/quickstart/)中的 git 使用说明）
 
 ## 为什么验证是 #1 最佳实践
 
@@ -317,7 +317,7 @@ npm start   # 或 node your-entry.js，或 npm run dev
 
 ## 下一步
 
-- 验证是日常节奏的核心环节 -- [日常节奏](/zero-to-ai/claude-code/daily-rhythm/) 教你如何把验证嵌入每天的开发流程中
-- 验证的另一个维度是管理对话长度 -- [上下文窗口管理](/zero-to-ai/claude-code/context/) 教你避免"对话太长导致 Claude 开始忘事"
-- 子 Agent 的输出也需要验证 → [子 Agent 协作](/zero-to-ai/claude-code/subagents/)
-- 如果你的验证流程需要反复执行，把它写成一个 Skill（参考[Skill 体系](/zero-to-ai/claude-code/skills/)）
+- 验证是日常节奏的核心环节 -- [日常节奏](/claude-code/daily-rhythm/) 教你如何把验证嵌入每天的开发流程中
+- 验证的另一个维度是管理对话长度 -- [上下文窗口管理](/claude-code/context/) 教你避免"对话太长导致 Claude 开始忘事"
+- 子 Agent 的输出也需要验证 → [子 Agent 协作](/claude-code/subagents/)
+- 如果你的验证流程需要反复执行，把它写成一个 Skill（参考[Skill 体系](/claude-code/skills/)）

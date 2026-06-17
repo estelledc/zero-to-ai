@@ -5,6 +5,7 @@ import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import DifficultyBadge from '../components/DifficultyBadge.astro';
 
 const allDocs = await getCollection('docs');
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const pathsWithTutorialInfo = learningPaths.map((path) => ({
   ...path,
@@ -36,7 +37,7 @@ const pathsWithTutorialInfo = learningPaths.map((path) => ({
         <ol class="path-card__list">
           {path.tutorialDetails.map((t) => (
             <li>
-              <a href={`/zero-to-ai/${t.slug}/`}>{t.title}</a>
+              <a href={`${base}/${t.slug}/`}>{t.title}</a>
               {t.difficulty && (
                 <DifficultyBadge difficulty={t.difficulty} />
               )}
@@ -44,7 +45,7 @@ const pathsWithTutorialInfo = learningPaths.map((path) => ({
           ))}
         </ol>
 
-        <a href={`/zero-to-ai/${path.tutorials[0]}/`} class="path-card__cta">
+        <a href={`${base}/${path.tutorials[0]}/`} class="path-card__cta">
           开始这条路径 &rarr;
         </a>
       </section>
