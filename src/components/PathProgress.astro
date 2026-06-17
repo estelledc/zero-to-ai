@@ -5,8 +5,9 @@ export interface Props {
   currentSlug: string;
 }
 
+import { base } from '../utils/base-url';
+
 const { pathSlug, tutorials, currentSlug } = Astro.props;
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const currentIndex = tutorials.findIndex((t) => t.slug === currentSlug);
 ---
 
@@ -23,6 +24,7 @@ const currentIndex = tutorials.findIndex((t) => t.slug === currentSlug);
         <a
           href={`${base}/${t.slug}/`}
           title={t.title}
+          data-slug={t.slug}
           class:list={['path-progress__dot', { 'path-progress__dot--current': isCurrent }]}
         >
           <span class="sr-only">{t.title}</span>
@@ -37,9 +39,19 @@ const currentIndex = tutorials.findIndex((t) => t.slug === currentSlug);
   if (nav) {
     const path = nav.dataset.path;
     const current = nav.dataset.current;
+
+    // Mark current page as visited
     if (path && current) {
       localStorage.setItem(`path:${path}:${current}`, 'done');
     }
+
+    // Highlight all previously visited dots
+    nav.querySelectorAll<HTMLAnchorElement>('.path-progress__dot').forEach((dot) => {
+      const slug = dot.dataset.slug;
+      if (slug && localStorage.getItem(`path:${path}:${slug}`) === 'done') {
+        dot.classList.add('path-progress__dot--visited');
+      }
+    });
   }
 </script>
 
@@ -59,6 +71,10 @@ const currentIndex = tutorials.findIndex((t) => t.slug === currentSlug);
     border-radius: 50%;
     background: var(--sl-color-gray-5);
     transition: all 0.2s;
+  }
+
+  .path-progress__dot--visited {
+    background: var(--sl-color-green-high);
   }
 
   .path-progress__dot--current {
