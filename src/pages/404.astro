@@ -1,0 +1,57 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { base } from '../utils/base-url';
+---
+
+<StarlightPage frontmatter={{ title: '页面未找到', template: 'splash' }} hasSidebar={false}>
+  <div class="not-found">
+    <p class="not-found__code">404</p>
+    <p class="not-found__message">你访问的页面不存在或已被移动。</p>
+    <nav class="not-found__actions">
+      <a href={`${base}/`} class="not-found__link">返回首页</a>
+      <a href={`${base}/claude-code/`} class="not-found__link not-found__link--secondary"
+        >浏览教程</a
+      >
+    </nav>
+  </div>
+</StarlightPage>
+
+<style>
+  .not-found {
+    text-align: center;
+    padding: 4rem 1rem;
+  }
+  .not-found__code {
+    font-size: 6rem;
+    font-weight: 700;
+    color: var(--sl-color-gray-3);
+    margin: 0;
+    line-height: 1;
+  }
+  .not-found__message {
+    font-size: 1.25rem;
+    color: var(--sl-color-gray-2);
+    margin-top: 1rem;
+  }
+  .not-found__actions {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .not-found__link {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    background: var(--sl-color-text-accent);
+    color: var(--sl-color-black);
+    text-decoration: none;
+  }
+  .not-found__link--secondary {
+    background: transparent;
+    border: 1px solid var(--sl-color-gray-5);
+    color: var(--sl-color-text);
+  }
+</style>

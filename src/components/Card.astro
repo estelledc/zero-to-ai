@@ -1,4 +1,6 @@
 ---
+import { base } from '../utils/base-url';
+
 export interface Props {
   title: string;
   description?: string;
@@ -8,6 +10,10 @@ export interface Props {
 }
 
 const { title, description, meta, href, linkText } = Astro.props;
+
+const isExternal = href?.startsWith('http');
+const resolvedHref = href && !isExternal && href.startsWith('/') ? `${base}${href}` : href;
+const linkAttrs = isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {};
 ---
 
 <div class="zt-card">
@@ -15,8 +21,12 @@ const { title, description, meta, href, linkText } = Astro.props;
   {description && <p class="zt-card__desc">{description}</p>}
   {meta && <p class="zt-card__meta">{meta}</p>}
   {
-    href && linkText && (
-      <a class="zt-card__link" href={href}>
+    resolvedHref && linkText && (
+      <a
+        class:list={['zt-card__link', { 'zt-card__link--external': isExternal }]}
+        href={resolvedHref}
+        {...linkAttrs}
+      >
         {linkText}
       </a>
     )
