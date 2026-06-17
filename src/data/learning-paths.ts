@@ -27,6 +27,7 @@ export const learningPaths: LearningPath[] = [
       'claude-code/skills',
       'claude-code/memory',
       'claude-code/daily-rhythm',
+      'claude-code/agnes-free-vibe-coding',
     ],
   },
   {
@@ -61,6 +62,7 @@ export const learningPaths: LearningPath[] = [
       'claude-code/dotfiles',
       'claude-code/memory',
       'methodology/claude-md-philosophy',
+      'methodology/memory-system-design',
       'methodology/workflow-design',
       'methodology/learning-management',
     ],

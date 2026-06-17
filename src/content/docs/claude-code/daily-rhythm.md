@@ -5,6 +5,7 @@ tags: [claude-code]
 difficulty: beginner
 learningPaths:
   - ai-coding-zero
+  - daily-efficiency
 prerequisites:
   - claude-code/quickstart
 relatedContent:

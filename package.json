@@ -11,7 +11,13 @@
     "validate-refs": "npx tsx scripts/validate-cross-refs.ts",
     "check": "astro check"
   },
-  "keywords": ["ai-coding", "claude-code", "tutorial", "astro", "starlight"],
+  "keywords": [
+    "ai-coding",
+    "claude-code",
+    "tutorial",
+    "astro",
+    "starlight"
+  ],
   "author": "Jason <https://github.com/estelledc>",
   "license": "ISC",
   "repository": {
@@ -27,6 +33,7 @@
     "typescript": "^6.0.3"
   },
   "devDependencies": {
+    "gray-matter": "^4.0.3",
     "tsx": "^4.19.0"
   }
 }
