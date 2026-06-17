@@ -85,14 +85,14 @@ my-learning/
 
 ## 兼容性
 
-| AI 工具 | 支持状态 |
-|---------|---------|
-| Claude Code | 完整支持 |
-| OpenAI Codex | 完整支持 |
-| CatDesk | 完整支持 |
-| Cursor | 完整支持 |
-| Windsurf | 未测试（理论兼容） |
-| GitHub Copilot | 未测试 |
+| AI 工具        | 支持状态           |
+| -------------- | ------------------ |
+| Claude Code    | 完整支持           |
+| OpenAI Codex   | 完整支持           |
+| CatDesk        | 完整支持           |
+| Cursor         | 完整支持           |
+| Windsurf       | 未测试（理论兼容） |
+| GitHub Copilot | 未测试             |
 
 ## 设计哲学
 
