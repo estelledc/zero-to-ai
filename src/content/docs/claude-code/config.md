@@ -5,6 +5,7 @@ tags: [claude-code]
 difficulty: intermediate
 learningPaths:
   - ai-coding-zero
+  - advanced-custom
 prerequisites:
   - claude-code/quickstart
 relatedContent:

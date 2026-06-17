@@ -1,13 +1,18 @@
-// scripts/validate-cross-refs.ts
-// Validate frontmatter slug references in markdown files.
-// Standalone Node.js script — no Astro build dependency.
+/**
+ * validate-cross-refs.ts
+ * Validates frontmatter cross-references and learning path consistency.
+ * Uses gray-matter for robust YAML parsing instead of fragile regex.
+ */
 import { readdirSync, readFileSync } from 'node:fs';
 import { join, extname } from 'node:path';
+import matter from 'gray-matter';
 
 const DOCS_DIR = 'src/content/docs';
 const DATA_DIR = 'src/data';
 
-// Collect all valid slugs from markdown files (skipping .gitkeep)
+// --- Helpers ---
+
+/** Recursively collect all valid doc slugs from markdown/mdx files */
 function collectSlugs(dir: string, base: string = ''): Set<string> {
   const slugs = new Set<string>();
   let entries;
@@ -18,7 +23,7 @@ function collectSlugs(dir: string, base: string = ''): Set<string> {
   }
 
   for (const entry of entries) {
-    if (entry.name.startsWith('.')) continue;
+    if (entry.name.startsWith('.') || entry.name.startsWith('_')) continue;
     const fullPath = join(dir, entry.name);
     if (entry.isDirectory()) {
       for (const slug of collectSlugs(fullPath, base ? `${base}/${entry.name}` : entry.name)) {
@@ -34,35 +39,9 @@ function collectSlugs(dir: string, base: string = ''): Set<string> {
   return slugs;
 }
 
-// Parse frontmatter array of strings (e.g., prerequisites: \n  - a\n  - b)
-function parseFrontmatterArray(content: string, key: string): string[] {
-  const regex = new RegExp(`${key}:\\s*\\n((?:\\s+-\\s+.+\\n?)*)`, 'm');
-  const match = content.match(regex);
-  if (!match) return [];
-  return (match[1].match(/- (.+)/g) || []).map((s) => s.replace('- ', '').trim());
-}
-
-// Parse relatedContent (array of objects with slug + label)
-function parseFrontmatterRelatedContent(content: string): { slug: string; label: string }[] {
-  const result: { slug: string; label: string }[] = [];
-  const section = content.match(/relatedContent:\s*\n((?:\s+- \{.+\}\n?)*)/m);
-  if (!section) return result;
-  const items = section[1].match(/\{slug: ["'](.+?)["'], label: ["'](.+?)["']\}/g);
-  if (!items) return result;
-  for (const item of items) {
-    const slugMatch = item.match(/slug: ["'](.+?)["']/);
-    const labelMatch = item.match(/label: ["'](.+?)["']/);
-    if (slugMatch && labelMatch) {
-      result.push({ slug: slugMatch[1], label: labelMatch[1] });
-    }
-  }
-  return result;
-}
-
-// Parse tutorial slugs from learning-paths.ts source (no dynamic import needed)
+/** Parse learning path tutorial slugs from source (regex on TS source, no dynamic import) */
 function parseLearningPathTutorials(source: string): Map<string, string[]> {
   const paths = new Map<string, string[]>();
-  // Match each path block: slug: '...', then tutorials: [ ... ]
   const pathRegex = /slug:\s*['"](.+?)['"][\s\S]*?tutorials:\s*\[([\s\S]*?)\]/g;
   let match;
   while ((match = pathRegex.exec(source)) !== null) {
@@ -80,11 +59,12 @@ function parseLearningPathTutorials(source: string): Map<string, string[]> {
 }
 
 // --- Main ---
+
 function main() {
   const fullDocsDir = join(process.cwd(), DOCS_DIR);
   const allSlugs = collectSlugs(fullDocsDir);
 
-  // Load learning path slugs for validating learningPaths frontmatter
+  // Load learning path data
   const learningPathsSource = readFileSync(
     join(process.cwd(), DATA_DIR, 'learning-paths.ts'),
     'utf-8',
@@ -92,10 +72,32 @@ function main() {
   const pathTutorials = parseLearningPathTutorials(learningPathsSource);
   const pathSlugs = new Set(pathTutorials.keys());
 
-  let fileCount = 0;
-  let hasError = false;
+  // Build reverse map: tutorial slug → set of path slugs it belongs to
+  const tutorialToPathsMap = new Map<string, Set<string>>();
+  for (const [pathSlug, tutorials] of pathTutorials) {
+    for (const tSlug of tutorials) {
+      if (!tutorialToPathsMap.has(tSlug)) {
+        tutorialToPathsMap.set(tSlug, new Set());
+      }
+      tutorialToPathsMap.get(tSlug)!.add(pathSlug);
+    }
+  }
 
-  // Validate each markdown file's frontmatter references
+  let fileCount = 0;
+  let errorCount = 0;
+  let warnCount = 0;
+
+  function error(slug: string, msg: string) {
+    console.error(`ERROR [${slug}] ${msg}`);
+    errorCount++;
+  }
+
+  function warn(slug: string, msg: string) {
+    console.warn(`WARN  [${slug}] ${msg}`);
+    warnCount++;
+  }
+
+  // Validate each markdown file
   function validateDir(dir: string, base: string = '') {
     let entries;
     try {
@@ -104,7 +106,7 @@ function main() {
       return;
     }
     for (const entry of entries) {
-      if (entry.name.startsWith('.')) continue;
+      if (entry.name.startsWith('.') || entry.name.startsWith('_')) continue;
       const fullPath = join(dir, entry.name);
       if (entry.isDirectory()) {
         validateDir(fullPath, base ? `${base}/${entry.name}` : entry.name);
@@ -112,31 +114,63 @@ function main() {
         fileCount++;
         const name = entry.name.replace(/\.(md|mdx)$/, '');
         const slug = base ? `${base}/${name}` : name;
-        const content = readFileSync(fullPath, 'utf-8');
+        const raw = readFileSync(fullPath, 'utf-8');
 
-        const prerequisites = parseFrontmatterArray(content, 'prerequisites');
-        const learningPathRefs = parseFrontmatterArray(content, 'learningPaths');
-        const relatedContent = parseFrontmatterRelatedContent(content);
+        // Parse frontmatter with gray-matter
+        let data: Record<string, unknown>;
+        try {
+          ({ data } = matter(raw));
+        } catch (e) {
+          error(slug, `frontmatter 解析失败: ${(e as Error).message}`);
+          continue;
+        }
 
-        // prerequisites reference doc slugs
+        // Validate prerequisites (should reference existing doc slugs)
+        const prerequisites = (data.prerequisites as string[]) || [];
         for (const ref of prerequisites) {
           if (!allSlugs.has(ref)) {
-            console.error(`[${slug}] prerequisites 引用不存在: ${ref}`);
-            hasError = true;
+            error(slug, `prerequisites 引用不存在: ${ref}`);
           }
         }
-        // learningPaths reference learning path slugs (not doc slugs)
+
+        // Validate learningPaths (should reference existing path slugs)
+        const learningPathRefs = (data.learningPaths as string[]) || [];
         for (const ref of learningPathRefs) {
           if (!pathSlugs.has(ref)) {
-            console.error(`[${slug}] learningPaths 引用不存在: ${ref}`);
-            hasError = true;
+            error(slug, `learningPaths 引用不存在: ${ref}`);
           }
         }
-        // relatedContent slugs reference doc slugs
+
+        // Validate relatedContent slugs
+        const relatedContent = (data.relatedContent as { slug: string; label: string }[]) || [];
         for (const { slug: ref } of relatedContent) {
           if (!allSlugs.has(ref)) {
-            console.error(`[${slug}] relatedContent 引用不存在: ${ref}`);
-            hasError = true;
+            error(slug, `relatedContent 引用不存在: ${ref}`);
+          }
+        }
+
+        // Bidirectional consistency: if learning-paths.ts lists this tutorial,
+        // its frontmatter should declare the corresponding learningPaths
+        const expectedPaths = tutorialToPathsMap.get(slug);
+        if (expectedPaths) {
+          for (const expectedPath of expectedPaths) {
+            if (!learningPathRefs.includes(expectedPath)) {
+              warn(
+                slug,
+                `learning-paths.ts 将此教程列入路径 "${expectedPath}"，但 frontmatter 未声明`,
+              );
+            }
+          }
+        }
+
+        // Reverse: if frontmatter declares a path, that path should list this tutorial
+        for (const ref of learningPathRefs) {
+          const pathTuts = pathTutorials.get(ref);
+          if (pathTuts && !pathTuts.includes(slug)) {
+            warn(
+              slug,
+              `frontmatter 声明属于路径 "${ref}"，但 learning-paths.ts 未将此教程列入该路径`,
+            );
           }
         }
       }
@@ -149,20 +183,27 @@ function main() {
   for (const [pathSlug, tutorials] of pathTutorials) {
     for (const tSlug of tutorials) {
       if (!allSlugs.has(tSlug)) {
-        console.error(`[learning-path:${pathSlug}] 教程引用不存在: ${tSlug}`);
-        hasError = true;
+        error(`learning-path:${pathSlug}`, `教程引用不存在: ${tSlug}`);
       }
     }
   }
 
-  if (hasError) {
+  // Summary
+  console.log('');
+  if (errorCount > 0) {
     console.error(
-      `\n交叉引用校验失败 (已检查 ${fileCount} 个文件)，请修正以上引用后重新构建。`,
+      `交叉引用校验失败: ${errorCount} 个错误, ${warnCount} 个警告 (已检查 ${fileCount} 个文件)`,
     );
     process.exit(1);
   }
 
-  console.log(`交叉引用校验通过 (已检查 ${fileCount} 个文件)。`);
+  if (warnCount > 0) {
+    console.warn(
+      `交叉引用校验通过 (有 ${warnCount} 个警告，已检查 ${fileCount} 个文件)`,
+    );
+  } else {
+    console.log(`交叉引用校验通过 (已检查 ${fileCount} 个文件)`);
+  }
 }
 
 main();
