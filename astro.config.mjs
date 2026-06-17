@@ -9,6 +9,7 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'Zero to AI',
+      description: '从零开始用 AI 编程工具 — 实战教程集合',
       defaultLocale: 'root',
       locales: {
         root: { label: '简体中文', lang: 'zh-CN' },
@@ -16,11 +17,8 @@ export default defineConfig({
 
       sidebar: [
         {
-          label: 'AI 编程工具',
-          items: [
-            { label: 'Claude Code', items: [{ autogenerate: { directory: 'claude-code' } }] },
-            // Codex, DeepSeek TUI, lr CLI 目录保留（后续扩展用）
-          ],
+          label: 'Claude Code',
+          items: [{ autogenerate: { directory: 'claude-code' } }],
         },
         {
           label: '方法论',
@@ -43,17 +41,26 @@ export default defineConfig({
       ],
 
       head: [
+        // Open Graph
         {
           tag: 'meta',
-          attrs: {
-            property: 'og:image',
-            content: 'https://estelledc.github.io/zero-to-ai/og-default.png',
-          },
+          attrs: { property: 'og:image', content: 'https://estelledc.github.io/zero-to-ai/og-default.png' },
         },
+        {
+          tag: 'meta',
+          attrs: { property: 'og:type', content: 'website' },
+        },
+        {
+          tag: 'meta',
+          attrs: { property: 'og:locale', content: 'zh_CN' },
+        },
+        // Twitter Card
         {
           tag: 'meta',
           attrs: { name: 'twitter:card', content: 'summary_large_image' },
         },
+        // 站点验证（预留）
+        // { tag: 'meta', attrs: { name: 'google-site-verification', content: '...' } },
       ],
 
       expressiveCode: {
@@ -62,6 +69,12 @@ export default defineConfig({
       },
 
       customCss: ['./src/styles/custom.css'],
+
+      // Pagefind 搜索（Starlight 内置，确保启用）
+      pagefind: true,
+
+      // 404 页面
+      disable404Route: false,
     }),
   ],
 });

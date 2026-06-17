@@ -1,0 +1,51 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  meta?: string;
+  href?: string;
+  linkText?: string;
+}
+
+const { title, description, meta, href, linkText } = Astro.props;
+---
+
+<div class="zt-card">
+  <strong class="zt-card__title">{title}</strong>
+  {description && <p class="zt-card__desc">{description}</p>}
+  {meta && <p class="zt-card__meta">{meta}</p>}
+  {href && linkText && <a class="zt-card__link" href={href}>{linkText}</a>}
+  <slot />
+</div>
+
+<style>
+  .zt-card {
+    padding: 1.25rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.5rem;
+    transition: border-color 0.2s;
+  }
+  .zt-card:hover {
+    border-color: var(--sl-color-text-accent);
+  }
+  .zt-card__title {
+    font-size: 1.05rem;
+    display: block;
+  }
+  .zt-card__desc {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--sl-color-gray-2);
+  }
+  .zt-card__meta {
+    font-size: 0.8rem;
+    color: var(--sl-color-gray-3);
+    margin-top: 0.25rem;
+  }
+  .zt-card__link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+</style>

@@ -1,24 +1,32 @@
 {
   "name": "zero-to-ai",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "从零开始用 AI 编程工具 — 实战教程集合",
+  "type": "module",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "npm run validate-refs && astro build",
     "preview": "astro preview",
-    "validate-refs": "npx tsx scripts/validate-cross-refs.ts"
+    "validate-refs": "npx tsx scripts/validate-cross-refs.ts",
+    "check": "astro check"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["ai-coding", "claude-code", "tutorial", "astro", "starlight"],
+  "author": "Jason <https://github.com/estelledc>",
   "license": "ISC",
-  "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/estelledc/zero-to-ai.git"
+  },
+  "homepage": "https://estelledc.github.io/zero-to-ai/",
   "dependencies": {
     "@astrojs/check": "^0.9.9",
     "@astrojs/starlight": "^0.40.0",
     "astro": "^6.4.6",
     "sharp": "^0.35.1",
     "typescript": "^6.0.3"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0"
   }
 }
