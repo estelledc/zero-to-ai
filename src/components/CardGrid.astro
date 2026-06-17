@@ -1,0 +1,20 @@
+---
+export interface Props {
+  minWidth?: string;
+}
+
+const { minWidth = '220px' } = Astro.props;
+---
+
+<div class="zt-card-grid" style={`--min-w: ${minWidth};`}>
+  <slot />
+</div>
+
+<style>
+  .zt-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--min-w), 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+</style>
