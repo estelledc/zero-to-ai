@@ -6,6 +6,7 @@ export interface Props {
 }
 
 const { pathSlug, tutorials, currentSlug } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const currentIndex = tutorials.findIndex((t) => t.slug === currentSlug);
 ---
 
@@ -20,7 +21,7 @@ const currentIndex = tutorials.findIndex((t) => t.slug === currentSlug);
       const isCurrent = i === currentIndex;
       return (
         <a
-          href={`/zero-to-ai/${t.slug}/`}
+          href={`${base}/${t.slug}/`}
           title={t.title}
           class:list={['path-progress__dot', { 'path-progress__dot--current': isCurrent }]}
         >

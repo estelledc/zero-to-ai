@@ -187,4 +187,4 @@ git log --oneline
 
 跑完后你应该看到两个存档记录。这就学会了 Git 最核心的操作。
 
-继续阅读：[通用环境基础设施](/zero-to-ai/methodology/basics/) — 终端、PATH、包管理器、环境变量
+继续阅读：[通用环境基础设施](/methodology/basics/) — 终端、PATH、包管理器、环境变量

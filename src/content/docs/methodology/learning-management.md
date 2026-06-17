@@ -138,7 +138,7 @@ intern-journal/
 
 ## 日常循环中的知识管理
 
-学习管理系统不是独立运行的 -- 它嵌入在你的日常节奏里。回忆一下 [日常节奏](/zero-to-ai/claude-code/daily-rhythm/) 的第 6 步"记录"：
+学习管理系统不是独立运行的 -- 它嵌入在你的日常节奏里。回忆一下 [日常节奏](/claude-code/daily-rhythm/) 的第 6 步"记录"：
 
 每天收工前，问自己三个问题：
 
@@ -204,6 +204,6 @@ intern-journal/
 
 ## 下一步
 
-- [日常节奏](/zero-to-ai/claude-code/daily-rhythm/) -- 看看完整的日循环是怎么运转的
-- [记忆系统设计原则](/zero-to-ai/methodology/memory-system-design/) -- 理解这个系统的"记忆层"怎么设计
-- [工作流编排思路](/zero-to-ai/methodology/workflow-design/) -- 学习管理这一环在更大的工作流里处于什么位置
+- [日常节奏](/claude-code/daily-rhythm/) -- 看看完整的日循环是怎么运转的
+- [记忆系统设计原则](/methodology/memory-system-design/) -- 理解这个系统的"记忆层"怎么设计
+- [工作流编排思路](/methodology/workflow-design/) -- 学习管理这一环在更大的工作流里处于什么位置
