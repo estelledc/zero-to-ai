@@ -5,7 +5,7 @@ tags: [methodology]
 difficulty: beginner
 learningPaths:
   - ai-coding-zero
-lastVerified: "2026-06-12"
+lastVerified: '2026-06-12'
 ---
 
 ## 这是什么
@@ -67,6 +67,7 @@ ls
 ```
 
 安装过程中它会告诉你它在做什么、是否需要输入密码。按提示操作即可。装完后验证：`brew --version`。
+
 - **Windows**：`winget install <包名>`（Windows 11 自带）
 - **Linux**：`sudo apt install <包名>`（Debian/Ubuntu）或 `sudo dnf install <包名>`（Fedora）
 

@@ -8,10 +8,10 @@ learningPaths:
 prerequisites:
   - claude-code/quickstart
 relatedContent:
-  - {slug: claude-code/verify, label: 验证方法论}
-  - {slug: claude-code/daily-rhythm, label: 日常节奏}
-lastVerified: "2026-06-12"
-toolVersion: "Claude Code CLI (latest)"
+  - { slug: claude-code/verify, label: 验证方法论 }
+  - { slug: claude-code/daily-rhythm, label: 日常节奏 }
+lastVerified: '2026-06-12'
+toolVersion: 'Claude Code CLI (latest)'
 ---
 
 ## 这是什么
@@ -38,11 +38,11 @@ toolVersion: "Claude Code CLI (latest)"
 
 ### 三个操作，对应三种桌面管理策略
 
-| 命令 | 桌面类比 | 什么时候用 |
-|---|---|---|
-| `/clear` | 把所有纸收走，换一张空桌面 | 任务完全切换时 |
+| 命令       | 桌面类比                                               | 什么时候用                       |
+| ---------- | ------------------------------------------------------ | -------------------------------- |
+| `/clear`   | 把所有纸收走，换一张空桌面                             | 任务完全切换时                   |
 | `/compact` | 把一叠纸的内容摘要成一张索引卡，节省空间但保留关键信息 | 桌面开始堆满，但当前任务还没做完 |
-| `/rewind` | 回到上次存档点（像玩游戏回到保存点） | Claude 开始走偏，需要退回重试 |
+| `/rewind`  | 回到上次存档点（像玩游戏回到保存点）                   | Claude 开始走偏，需要退回重试    |
 
 下面逐个展开。
 
@@ -159,12 +159,12 @@ Claude Code 的 `/rewind` 就是回到上一次存档点。存档点通常是你
 
 返回上下文窗口的使用百分比。把百分数对应到行动：
 
-| 使用率 | 行动 |
-|---|---|
-| 0-30% | 正常，继续工作 |
+| 使用率 | 行动                                                                             |
+| ------ | -------------------------------------------------------------------------------- |
+| 0-30%  | 正常，继续工作                                                                   |
 | 30-50% | 开始计划。如果当前任务快结束了，做完就 `/clear`。如果还有一段路，准备 `/compact` |
-| 50-70% | 必须行动。立即 `/compact`，或 `/clear` 后新 session |
-| 70%+ | 紧急。上下文已经开始退化，Claude 可能已经"忘事"。尽快 `/compact` 或新 session |
+| 50-70% | 必须行动。立即 `/compact`，或 `/clear` 后新 session                              |
+| 70%+   | 紧急。上下文已经开始退化，Claude 可能已经"忘事"。尽快 `/compact` 或新 session    |
 
 **注意**：上面的百分数不是绝对值，不同模型版本的上下文窗口大小不同。但比例判断的逻辑不变——过半就该行动。
 
