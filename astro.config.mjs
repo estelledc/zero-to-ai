@@ -18,15 +18,41 @@ export default defineConfig({
       sidebar: [
         {
           label: 'Claude Code',
-          items: [{ autogenerate: { directory: 'claude-code' } }],
+          items: [
+            { slug: 'claude-code' },
+            { slug: 'claude-code/preflight' },
+            { slug: 'claude-code/quickstart' },
+            { slug: 'claude-code/cost' },
+            { slug: 'claude-code/agnes-free-vibe-coding' },
+            { slug: 'claude-code/config' },
+            { slug: 'claude-code/context' },
+            { slug: 'claude-code/verify' },
+            { slug: 'claude-code/skills' },
+            { slug: 'claude-code/memory' },
+            { slug: 'claude-code/hooks' },
+            { slug: 'claude-code/daily-rhythm' },
+            { slug: 'claude-code/mcp' },
+            { slug: 'claude-code/subagents' },
+            { slug: 'claude-code/dotfiles' },
+          ],
         },
         {
           label: '方法论',
-          items: [{ autogenerate: { directory: 'methodology' } }],
+          items: [
+            { slug: 'methodology' },
+            { slug: 'methodology/basics' },
+            { slug: 'methodology/claude-md-philosophy' },
+            { slug: 'methodology/memory-system-design' },
+            { slug: 'methodology/workflow-design' },
+            { slug: 'methodology/learning-management' },
+          ],
         },
         {
           label: '附录',
-          items: [{ autogenerate: { directory: 'appendix' } }],
+          items: [
+            { slug: 'appendix' },
+            { slug: 'appendix/git-basics' },
+          ],
         },
       ],
 
