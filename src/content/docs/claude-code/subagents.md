@@ -14,6 +14,7 @@ relatedContent:
   - { slug: 'claude-code/mcp', label: 'MCP 集成' }
   - { slug: 'claude-code/verify', label: '验证方法论' }
   - { slug: 'claude-code/hooks', label: 'Hook 系统' }
+  - { slug: 'methodology/skill-engineering', label: 'Skill 工程化设计' }
 lastVerified: '2026-06-18'
 toolVersion: 'Claude Code CLI (latest)'
 ---

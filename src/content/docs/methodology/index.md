@@ -23,3 +23,4 @@ lastVerified: '2026-06-18'
 - [学习管理系统](learning-management) — 工件选择启发式、笔记管线、如何把对话变成永久知识
 - [学习日志 Skill Pack](skill-pack) — 一键部署的结构化学习系统，下载即用
 - [系统提示解剖学](prompt-anatomy) — 从泄露的真实 AI 系统提示中，学习工业级的指令设计模式
+- [Skill 工程化设计](skill-engineering) — 从开源 Skill 项目中学习如何把提示词升级为可安装、可版本化的工程资产
