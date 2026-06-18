@@ -15,6 +15,7 @@ relatedContent:
   - { slug: 'claude-code/cost', label: '成本与计费' }
   - { slug: 'appendix/git-basics', label: 'Git 10 分钟速成' }
   - { slug: 'claude-code/skills', label: 'Skill 体系' }
+  - { slug: 'methodology/prompt-anatomy', label: '系统提示解剖学' }
 lastVerified: '2026-06-18'
 toolVersion: 'Claude Code CLI (latest)'
 ---
