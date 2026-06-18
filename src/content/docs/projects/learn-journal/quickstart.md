@@ -68,6 +68,8 @@ cp skill-pack/config.yaml.example config.yaml
 
 AI 会问你几个问题（名字、学习方向、经验水平），然后帮你创建目录结构。
 
+如果中途想退出 AI 对话，不同工具的退出方式不同：Claude Code 用 `/quit` 或 `Ctrl+C`，CatDesk 关闭窗口即可，Cursor 按 `Esc`。退出不会丢失已创建的文件。
+
 初始化完成后，你的文件夹变成：
 
 ```text

@@ -71,6 +71,8 @@ MEMORY-COMPANY.md  — 公司基础设施，命中关键词时加载
 MEMORY-PROJECTS.md — 项目专属，命中项目名时加载
 ```
 
+**内置 vs 自建**：上面描述的三层记忆索引（MEMORY.md / MEMORY-COMPANY.md / MEMORY-PROJECTS.md）是 Jason 的自建方案，不是 Claude Code 自带的功能。Claude Code 内置的记忆能力是通过 `~/.claude/CLAUDE.md` 和项目级 `CLAUDE.md` 实现的——你写在这些文件里的内容每次会话都会被加载。三层索引是在此基础上的进阶组织方式，适合记忆条目多了之后分类管理。刚开始用的话，直接在 CLAUDE.md 里写就够了。
+
 ## 动手试一试：写你的第一条记忆
 
 跟着下面的步骤操作，5 分钟内你就能让 Claude 在每次新对话开始时"认识"你。

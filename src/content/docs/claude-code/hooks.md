@@ -114,6 +114,26 @@ fi
 echo '{"decision": "allow"}'
 ```
 
+在 settings.json 中注册 PostToolUse Hook：
+
+```json
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/check-learnings.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
 这里返回 `"decision": "warn"` 而不是 `"block"`——写完文件后用户可能还要继续编辑，阻止写操作只会让 Claude 无法工作。
 
 ### SessionStart——开机自检
