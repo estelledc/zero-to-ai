@@ -2,6 +2,9 @@
 title: 术语对照表
 description: Zero to AI 教程中使用的术语及其中英文对照
 tags: [reference]
+difficulty: beginner
+learningPaths: ['ai-coding-zero']
+lastVerified: '2026-06-12'
 ---
 
 本教程中所有术语遵循以下规范：
