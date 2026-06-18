@@ -208,7 +208,7 @@ Claude Code 实际加载两层 CLAUDE.md：
 
 除了权限，settings.json 还能控制：
 
-- **`model`**：指定使用的模型，如 `"claude-sonnet-4"`、`"claude-opus-4"`。项目级设置覆盖全局设置
+- **`model`**：指定使用的模型，如 `"claude-sonnet-4"`、`"claude-opus-4"`。项目级设置覆盖全局设置。注意 Anthropic 会定期更新模型名——比如原来的 `claude-sonnet-4-20250514` 可能在后续更新中被新版本替代。建议使用不带日期后缀的短名（如 `"claude-sonnet-4"`），这样 Anthropic 更新时你不需要手动改配置
 - **`permissions.bash.maxOutputSize`**：限制 bash 命令的输出大小，防止 Claude 读入太多无用输出
 - **全局与项目级合并**：项目级 settings.json 的权限是"收紧"的方向 —— allow 列表取交集，deny 列表取并集
 
