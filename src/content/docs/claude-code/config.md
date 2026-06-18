@@ -16,6 +16,7 @@ relatedContent:
   - { slug: 'claude-code/quickstart', label: '10 分钟上手' }
   - { slug: 'claude-code/cost', label: '成本与计费' }
   - { slug: 'claude-code/mcp', label: 'MCP 集成' }
+  - { slug: 'methodology/memory-system-design', label: '记忆系统设计原则' }
 lastVerified: '2026-06-18'
 toolVersion: 'Claude Code CLI (latest)'
 ---

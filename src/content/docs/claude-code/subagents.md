@@ -13,6 +13,7 @@ relatedContent:
   - { slug: 'methodology/workflow-design', label: '工作流编排思路' }
   - { slug: 'claude-code/mcp', label: 'MCP 集成' }
   - { slug: 'claude-code/verify', label: '验证方法论' }
+  - { slug: 'claude-code/hooks', label: 'Hook 系统' }
 lastVerified: '2026-06-18'
 toolVersion: 'Claude Code CLI (latest)'
 ---

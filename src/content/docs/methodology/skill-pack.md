@@ -13,6 +13,7 @@ relatedContent:
   - { slug: 'claude-code/daily-rhythm', label: '日常节奏' }
   - { slug: 'projects/learn-journal/index', label: 'Learn Journal 实战项目' }
   - { slug: 'projects/learn-journal/quickstart', label: 'Learn Journal 快速开始' }
+  - { slug: 'projects/learn-journal/design-philosophy', label: 'Learn Journal 设计哲学' }
 lastVerified: '2026-06-18'
 ---
 

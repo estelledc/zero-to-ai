@@ -14,6 +14,8 @@ relatedContent:
   - { slug: 'claude-code/subagents', label: '子 Agent 协作' }
   - { slug: 'claude-code/cost', label: '成本与计费' }
   - { slug: 'claude-code/config', label: '核心配置' }
+  - { slug: 'claude-code/skills', label: 'Skill 体系' }
+  - { slug: 'claude-code/context', label: '上下文窗口管理' }
 ---
 
 ## 这是什么

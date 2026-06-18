@@ -12,6 +12,7 @@ relatedContent:
   - { slug: 'claude-code/daily-rhythm', label: '日常节奏' }
   - { slug: 'claude-code/cost', label: '成本与计费' }
   - { slug: 'claude-code/memory', label: '记忆系统' }
+  - { slug: 'claude-code/quickstart', label: '10 分钟上手' }
 lastVerified: '2026-06-18'
 toolVersion: 'Claude Code CLI (latest)'
 ---

@@ -11,6 +11,7 @@ relatedContent:
   - { slug: 'methodology/learning-management', label: '学习管理系统' }
   - { slug: 'methodology/memory-system-design', label: '记忆系统设计' }
   - { slug: 'projects/learn-journal/quickstart', label: '快速开始' }
+  - { slug: 'projects/learn-journal/design-philosophy', label: 'Learn Journal 设计哲学' }
 lastVerified: '2026-06-18'
 ---
 

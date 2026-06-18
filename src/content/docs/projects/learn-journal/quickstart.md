@@ -11,6 +11,8 @@ lastVerified: '2026-06-18'
 relatedContent:
   - { slug: 'methodology/skill-pack', label: '学习日志 Skill Pack' }
   - { slug: 'projects/learn-journal/how-it-works', label: '运作原理' }
+  - { slug: 'claude-code/daily-rhythm', label: '日常节奏' }
+  - { slug: 'methodology/learning-management', label: '学习管理系统' }
 ---
 
 ## 前提条件（诚实版）

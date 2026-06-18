@@ -14,6 +14,7 @@ relatedContent:
   - { slug: 'claude-code/preflight', label: '开始之前' }
   - { slug: 'claude-code/agnes-free-vibe-coding', label: 'Agnes 免费 vibe coding' }
   - { slug: 'claude-code/config', label: '核心配置' }
+  - { slug: 'claude-code/quickstart', label: '10 分钟上手' }
   - { slug: 'glossary', label: '术语对照表' }
 lastVerified: '2026-06-18'
 toolVersion: 'Claude Code CLI (latest)'
