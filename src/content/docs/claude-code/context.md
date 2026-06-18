@@ -129,7 +129,7 @@ Claude Code 的 `/rewind` 就是回到上一次存档点。存档点通常是你
 ### 注意事项
 
 - `/rewind` 回到上一个"好状态"，通常是上一条用户消息之后。但它不会回退 Claude 已经执行的文件修改——你需要在 git 里手动回退（`git checkout -- <文件名>` 或 `git stash`）
-- 如果你用的 Claude Code 桌面版，双击 `Esc` 等同于 `/rewind`，手不用离开键盘
+- 在终端中使用 Claude Code 时，双击 `Esc` 等同于 `/rewind`，手不用离开键盘
 
 ### 实际操作
 

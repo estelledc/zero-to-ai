@@ -5,6 +5,10 @@ tags: [claude-code]
 difficulty: beginner
 learningPaths:
   - ai-coding-zero
+prerequisites: []
+relatedContent:
+  - { slug: 'methodology/basics', label: '通用环境基础设施' }
+  - { slug: 'glossary', label: '术语对照表' }
 next: false
 lastVerified: '2026-06-12'
 toolVersion: 'Claude Code CLI (latest)'
