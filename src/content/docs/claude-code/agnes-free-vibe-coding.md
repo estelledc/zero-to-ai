@@ -18,11 +18,11 @@ toolVersion: 'Claude Code CLI (latest)'
 
 ## 这是什么
 
-Claude Code 默认用 Anthropic 官方的 Claude 模型，按 token 收费。对于零基础学习者，刚开始探索时不确定"这工具到底适不适合我"，先花钱再体验有心理压力。
+Claude Code 默认用 Anthropic 官方的 Claude 模型，按 token 收费。对于零基础学习者，刚开始探索时不确定“这工具到底适不适合我”，先花钱再体验有心理压力。
 
 Agnes AI 是一个**完全免费**的 AI API 平台。它的 `agnes-2.0-flash` 模型支持 Anthropic Messages API 格式——这意味着 Claude Code 可以直接把它当后端用。零成本、零绑卡，只需要一个邮箱。
 
-本文教你：**用 Claude Code 的界面和功能，跑 Agnes 的免费模型**。学会之后，你可以随时在"免费模式（Agnes）"和"高性能模式（Claude）"之间切换。
+本文教你：**用 Claude Code 的界面和功能，跑 Agnes 的免费模型**。学会之后，你可以随时在“免费模式（Agnes）”和“高性能模式（Claude）”之间切换。
 
 ## 类比
 

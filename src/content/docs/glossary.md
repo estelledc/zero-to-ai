@@ -32,7 +32,7 @@ lastVerified: '2026-06-18'
 | compaction                               | 压缩               | 将长对话总结为关键信息，释放上下文空间                                                                                                                         |
 | context window                           | 上下文窗口         | Claude 一次能“记住”的最大信息量，类比办公桌大小。详见[上下文管理](/claude-code/context/)                                                                       |
 | MCP (Model Context Protocol)             | 模型上下文协议     | 让 Claude Code 连接外部工具的标准协议。详见 [MCP 集成](/claude-code/mcp/)                                                                                      |
-| model                                    | 模型               | AI 的"大脑版本"，如 Haiku（快而便宜）、Sonnet（均衡）、Opus（强而贵）。实际使用时带版本号，如 `claude-sonnet-4-20250514`，详见[成本与计费](/claude-code/cost/) |
+| model                                    | 模型               | AI 的“大脑版本”，如 Haiku（快而便宜）、Sonnet（均衡）、Opus（强而贵）。实际使用时带版本号，如 `claude-sonnet-4-20250514`，详见[成本与计费](/claude-code/cost/) |
 | Plan Mode                                | 计划模式           | 让 Claude 先出方案再写代码的工作模式                                                                                                                           |
 | prompt                                   | 提示词 / prompt    | 发送给 AI 的指令或问题                                                                                                                                         |
 | subagent                                 | 子代理             | Claude Code 创建的独立工作进程，完成特定子任务。详见[子 Agent 协作](/claude-code/subagents/)                                                                   |
@@ -107,5 +107,5 @@ lastVerified: '2026-06-18'
 | anti-ghostwriting            | 反代写              | AI 不代替你思考，只辅助记录。你必须用自己的话表达理解。详见[运作原理](/projects/learn-journal/how-it-works/)                   |
 | progressive template         | 渐进模板            | 从最简单的 Level 0 模板逐步升级到完整版，降低冷启动阶段的认知负担。详见[快速上手](/projects/learn-journal/quickstart/)         |
 | natural reuse                | 自然复用            | 不安排专门复习时间，而是在日常工作中自然触发对已学知识的回顾。详见[运作原理](/projects/learn-journal/how-it-works/)            |
-| artifact selection heuristic | 工件选择启发式      | "命中即停"规则：按优先级判断该用哪种工件记录。详见[学习管理](/methodology/learning-management/)                                |
+| artifact selection heuristic | 工件选择启发式      | “命中即停”规则：按优先级判断该用哪种工件记录。详见[学习管理](/methodology/learning-management/)                                |
 | teach mode / execute mode    | 教学模式 / 实施模式 | Claude 在解释概念时用教学模式（六步讲解），在执行任务时用实施模式（直接操作）。详见[工作流设计](/methodology/workflow-design/) |
