@@ -5,7 +5,7 @@ tags: [methodology]
 difficulty: intermediate
 learningPaths:
   - advanced-custom
-lastVerified: '2026-06-12'
+lastVerified: '2026-06-18'
 prerequisites:
   - methodology/basics
   - claude-code/config

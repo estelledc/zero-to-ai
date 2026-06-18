@@ -155,7 +155,7 @@ git diff
 
 比如 API key 文件、密码文件。解决：在项目根目录建一个 `.gitignore` 文件，把不想存的文件名写进去，一行一个。
 
-```
+```text
 # .gitignore 示例
 .env
 secret.txt

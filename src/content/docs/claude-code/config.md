@@ -14,7 +14,9 @@ relatedContent:
   - { slug: 'methodology/workflow-design', label: '工作流编排思路' }
   - { slug: 'claude-code/hooks', label: 'Hook 系统' }
   - { slug: 'claude-code/quickstart', label: '10 分钟上手' }
-lastVerified: '2026-06-12'
+  - { slug: 'claude-code/cost', label: '成本与计费' }
+  - { slug: 'claude-code/mcp', label: 'MCP 集成' }
+lastVerified: '2026-06-18'
 toolVersion: 'Claude Code CLI (latest)'
 ---
 
@@ -225,47 +227,9 @@ Claude Code 实际加载两层 CLAUDE.md：
 
 ### 5. Hook 入门 —— 事件驱动的自动化
 
-Hook 是 Claude Code 的事件触发器：在特定时刻（事件发生）自动执行你设定的脚本（响应动作）。
+Hook 是 Claude Code 的事件触发器：在特定时刻（事件发生）自动执行你设定的脚本（响应动作）。四种类型覆盖了操作前拦截（PreToolUse）、操作后检查（PostToolUse）、会话开始注入上下文（SessionStart）、会话结束记录日志（SessionStop）。
 
-四种 Hook 类型：
-
-| Hook 类型        | 触发时机         | 典型用途                           |
-| ---------------- | ---------------- | ---------------------------------- |
-| **PreToolUse**   | 工具调用**之前** | 阻止危险操作（`git push --force`） |
-| **PostToolUse**  | 工具调用**之后** | 写文件后检查格式、提醒缺失字段     |
-| **SessionStart** | 会话**开始时**   | 注入上下文、提醒待办事项           |
-| **SessionStop**  | 会话**结束时**   | 记录时长、发送通知                 |
-
-#### PreToolUse：操作前的门禁
-
-以下是一个阻止 `git add .` 的 Hook 脚本示例。放在 `~/.claude/hooks/pre-tool-use.sh`：
-
-```bash
-#!/bin/bash
-# 读取 Claude Code 传入的事件 JSON
-event=$(cat)
-tool_name=$(echo "$event" | jq -r '.tool_name')
-tool_input=$(echo "$event" | jq -r '.tool_input')
-
-# 如果是要执行 git add . → 阻止
-if [ "$tool_name" = "Bash" ] && echo "$tool_input" | jq -r '.command' | grep -q "git add \."; then
-  echo '{"decision": "block", "reason": "不要用 git add .，逐文件 add 更安全"}'
-else
-  echo '{"decision": "allow"}'
-fi
-```
-
-逐行解释：
-
-- `#!/bin/bash`：告诉系统用 bash 执行这个脚本
-- `event=$(cat)`：Claude Code 会把事件信息通过标准输入（stdin）传给脚本，`cat` 读取全部内容存到 `event` 变量
-- `jq -r '.tool_name'`：从 JSON 里取出 `tool_name` 字段。`-r` 表示去掉引号的原始字符串
-- `if [ "$tool_name" = "Bash" ]`：判断是不是 Bash 工具调用。只拦截 Bash 命令，不拦截其他工具
-- `echo "$tool_input" | grep -q "git add \."`：在命令内容里搜索 `git add .`。`-q` 表示安静模式，不输出结果，只返回是否找到
-- `echo '{"decision": "block", ...}'`：返回 JSON 告诉 Claude Code 阻止这个操作。`"decision"` 可以是 `"block"`（阻止）、`"allow"`（放行）或 `"warn"`（放行但显示警告）
-- `"reason"` 字段会显示给用户，解释为什么被阻止或警告
-
-要让 Hook 生效，需要在 `~/.claude/settings.json` 中注册：
+Hook 在 `settings.json` 中注册，脚本通过 stdin 接收事件 JSON、通过 stdout 返回决策 JSON。一个最小示例——拦截 `git add .`：
 
 ```json
 {
@@ -273,71 +237,14 @@ fi
     "PreToolUse": [
       {
         "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/pre-tool-use.sh"
-          }
-        ]
+        "hooks": [{ "type": "command", "command": "~/.claude/hooks/guard-git-add.sh" }]
       }
     ]
   }
 }
 ```
 
-这里 `"matcher": "Bash"` 表示只对 Bash 工具调用触发这个 Hook，不会对文件读写等其他工具触发。
-
-#### PostToolUse：操作后的检查
-
-写完文件后自动检查。比如检查 learnings 笔记是否漏了"来源"字段：
-
-```bash
-#!/bin/bash
-event=$(cat)
-tool_name=$(echo "$event" | jq -r '.tool_name')
-
-if [ "$tool_name" = "Write" ] || [ "$tool_name" = "Edit" ]; then
-  file_path=$(echo "$event" | jq -r '.tool_input.file_path')
-  if echo "$file_path" | grep -q "learnings/"; then
-    content=$(cat "$file_path")
-    if ! echo "$content" | grep -q "来源:"; then
-      echo '{"decision": "warn", "reason": "learnings 笔记缺少『来源:』字段，pre-commit hook 会拒绝提交"}'
-      exit 0
-    fi
-  fi
-fi
-echo '{"decision": "allow"}'
-```
-
-这里返回 `"decision": "warn"` 而不是 `"block"` —— 只是提醒但允许继续，因为写完文件后用户可能还要编辑。
-
-#### SessionStart：会话开始时注入上下文
-
-比如每天下午 6 点后新开会话时提醒写日报：
-
-```bash
-#!/bin/bash
-hour=$(date +%H)
-if [ "$hour" -ge 18 ]; then
-  echo '{"continue": true, "hookSpecificOutput": {"hookEventName": "SessionStart", "systemMessage": "已经下午了，今天还没写日报的话别忘了填 daily/ 哦"}}'
-else
-  echo '{"continue": true}'
-fi
-```
-
-`SessionStart` 的返回值格式略有不同：用 `"continue": true` 表示正常继续，`"hookSpecificOutput"` 里的 `"systemMessage"` 字段会作为系统消息注入到 Claude 的上下文中。
-
-#### SessionStop：会话结束时记录
-
-```bash
-#!/bin/bash
-event=$(cat)
-start_time=$(echo "$event" | jq -r '.session_start_time')
-end_time=$(date +%s)
-duration=$(( (end_time - start_time) / 60 ))
-echo "Session ended. Duration: ${duration} minutes." >> ~/.claude/session-log.txt
-echo '{"continue": true}'
-```
+Hook 的完整教程（4 种类型的详细示例、分层防御思维、调试方法、常见坑）见 [Hook 系统](/claude-code/hooks/)。
 
 ### 6. 常见坑
 

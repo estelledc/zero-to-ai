@@ -13,7 +13,7 @@ relatedContent:
   - { slug: 'claude-code/daily-rhythm', label: '日常节奏' }
   - { slug: 'projects/learn-journal/index', label: 'Learn Journal 实战项目' }
   - { slug: 'projects/learn-journal/quickstart', label: 'Learn Journal 快速开始' }
-lastVerified: '2026-06-17'
+lastVerified: '2026-06-18'
 ---
 
 ## 这是什么
@@ -52,7 +52,7 @@ lastVerified: '2026-06-17'
 
 **交叉引用**——新笔记自动关联已有知识，形成知识网络。写之前先搜索已有内容，避免重复。
 
-**间隔复习**（第二周自动开启）——追踪每条知识的掌握度，用优先级公式 `(1 - mastery) × (days_since + 1)` 提醒你复习快忘的内容。
+**自然复用**——不用专门安排"复习时间"。AI 在工作中遇到相关问题时自动引用旧笔记、写新笔记时发现关联并建议交叉引用。知识巩固融入日常工作流，而非依赖算法调度。
 
 **质量门禁**——lint 脚本检查笔记格式（来源字段、死链等），确保知识库不会随时间腐烂。
 
@@ -62,7 +62,7 @@ lastVerified: '2026-06-17'
 skill-pack/
 ├── protocols/          ← 核心方法论（AI 遵循的规则）
 │   ├── core.md         ← 工件选择、知识捕获、教学风格
-│   ├── review.md       ← 间隔复习算法
+│   ├── review.md       ← 自然复用策略
 │   └── explain.md      ← 六步讲解协议
 ├── templates/          ← 工件模板（日报、笔记等的格式）
 ├── skills/             ← 功能描述（AI 在什么时候做什么）
@@ -106,7 +106,7 @@ my-learning/
 
 **平台无关**——同一套协议通过不同的适配器文件支持多个 AI 工具。换工具不需要重新学习。
 
-**渐进式**——第一天只需要写 daily，第二周才开启间隔复习。不会一上来就用复杂度压垮你。
+**渐进式**——第一天只需要写 daily，熟悉后逐步引入知识捕获和交叉引用。不会一上来就用复杂度压垮你。
 
 ## 和本站其他内容的关系
 

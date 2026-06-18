@@ -11,18 +11,19 @@ relatedContent:
   - { slug: 'methodology/workflow-design', label: '工作流编排思路' }
   - { slug: 'claude-code/hooks', label: 'Hook 系统' }
   - { slug: 'claude-code/config', label: '核心配置' }
-  - { slug: 'claude-code/dotfiles', label: 'Dotfiles 同步' }
-lastVerified: '2026-06-12'
+  - { slug: 'claude-code/dotfiles', label: '配置即代码' }
+  - { slug: 'claude-code/daily-rhythm', label: '日常节奏' }
+lastVerified: '2026-06-18'
 toolVersion: 'Claude Code CLI (latest)'
 ---
 
 ## 这是什么
 
-Skill 是可复用的任务指令。比如你每次提交代码都要说"分析变更、分组、生成规范的中文 commit message"，把它写成一个 Skill，下次直接 `/commit` 就行。
+Skill 是可复用的任务指令。比如你每次提交代码都要说“分析变更、分组、生成规范的中文 commit message”，把它写成一个 Skill，下次直接 `/commit` 就行。
 
 ## 类比
 
-Skill 像厨房里的预制菜包——把"切菜、调味、控制火候"这些每次都重复的步骤打包好。你不用每次都从头描述流程，只需要说一个关键词（比如 `/commit` 或 `/render`），AI 就知道该执行哪套完整流程。
+Skill 像厨房里的预制菜包——把“切菜、调味、控制火候”这些每次都重复的步骤打包好。你不用每次都从头描述流程，只需要说一个关键词（比如 `/commit` 或 `/render`），AI 就知道该执行哪套完整流程。
 
 ## 开始之前
 
@@ -102,11 +103,11 @@ git log --oneline 展示新提交
 注意几个设计要点：
 
 1. **模式表格放在最前面**——Claude 先判断用哪种模式，不会选错
-2. **确认步骤不可跳过**——提交是不可逆操作，必须等用户说"ok"
+2. **确认步骤不可跳过**——提交是不可逆操作，必须等用户说“ok”
 3. **安全检查内置**——提交前检查敏感文件、跳过临时文件
 4. **提交信息规范**——定义清晰的格式：动词 + 对象：说明
 
-这个 skill 比最开始的基本格式（5 步操作）复杂很多，但它解决的是真实问题：每天提交代码时不用重复输入"分析变更、分组、生成中文 commit message"。
+这个 skill 比最开始的基本格式（5 步操作）复杂很多，但它解决的是真实问题：每天提交代码时不用重复输入“分析变更、分组、生成中文 commit message”。
 
 ### 3. 使用 Skill
 
@@ -120,7 +121,7 @@ git log --oneline 展示新提交
 
 ## 动手试一试：从零创建你的第一个 Skill
 
-不需要很复杂。我们来做一个"代码审查"Skill——你写完代码后输入 `/review`，Claude 自动帮你做检查。
+不需要很复杂。我们来做一个“代码审查”Skill——你写完代码后输入 `/review`，Claude 自动帮你做检查。
 
 ### Step 1: 创建 Skill 文件
 
@@ -157,7 +158,7 @@ description: 审查最近的代码变更，检查常见问题
 
 在 Claude Code 中输入：
 
-```
+```text
 /review
 ```
 
@@ -165,7 +166,7 @@ Claude 会读取你的 Skill 文件并按步骤执行。如果没触发，检查
 
 ### Step 3: 迭代改进
 
-第一版跑通后，根据实际使用中遇到的情况逐步增强。比如加上"忽略 node_modules"的规则、或者"只看最后一次 commit 的变更"。好的 Skill 是迭代出来的，不是一次写完的。
+第一版跑通后，根据实际使用中遇到的情况逐步增强。比如加上“忽略 node_modules”的规则、或者“只看最后一次 commit 的变更”。好的 Skill 是迭代出来的，不是一次写完的。
 
 ### Checkpoint
 

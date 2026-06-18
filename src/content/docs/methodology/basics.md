@@ -5,7 +5,7 @@ tags: [methodology]
 difficulty: beginner
 learningPaths:
   - ai-coding-zero
-lastVerified: '2026-06-12'
+lastVerified: '2026-06-18'
 prerequisites: []
 relatedContent:
   - { slug: 'claude-code/quickstart', label: '10 分钟上手 Claude Code' }
