@@ -19,8 +19,7 @@ export async function GET(context: APIContext) {
         title: doc.data.title,
         description: doc.data.description || '',
         link: `${base}/${doc.id}/`,
-        pubDate:
-          doc.data.lastUpdated instanceof Date ? doc.data.lastUpdated : SITE_LAUNCH_DATE,
+        pubDate: doc.data.lastUpdated instanceof Date ? doc.data.lastUpdated : SITE_LAUNCH_DATE,
       })),
     customData: '<language>zh-CN</language>',
   });
