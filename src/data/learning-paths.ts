@@ -62,6 +62,8 @@ export const learningPaths: LearningPath[] = [
     tutorials: [
       'claude-code/cost',
       'claude-code/config',
+      'claude-code/skills',
+      'claude-code/verify',
       'claude-code/hooks',
       'claude-code/mcp',
       'claude-code/subagents',
@@ -72,6 +74,8 @@ export const learningPaths: LearningPath[] = [
       'methodology/workflow-design',
       'methodology/learning-management',
       'methodology/skill-pack',
+      'methodology/prompt-anatomy',
+      'methodology/skill-engineering',
       'projects/learn-journal/design-philosophy',
     ],
   },
