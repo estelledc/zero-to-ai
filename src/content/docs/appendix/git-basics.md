@@ -203,4 +203,7 @@ git log --oneline
 
 本篇只涵盖本地操作。分支（branch）、推送（push）、合并（merge）等协作概念不在范围内——遇到时再学。术语速查见[术语对照表](/glossary/)。
 
-继续阅读：[通用环境基础设施](/methodology/basics/) — 终端、PATH、包管理器、环境变量
+## 下一步
+
+- [开始之前](/claude-code/preflight/) — 几分钟确认 Claude Code 教程适不适合你（AI 编程零基础入门路径下一站）
+- [通用环境基础设施](/methodology/basics/) — 终端、PATH、包管理器、环境变量

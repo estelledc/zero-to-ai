@@ -62,6 +62,8 @@ export const learningPaths: LearningPath[] = [
     tutorials: [
       'claude-code/cost',
       'claude-code/config',
+      'claude-code/skills',
+      'claude-code/verify',
       'claude-code/hooks',
       'claude-code/mcp',
       'claude-code/subagents',
