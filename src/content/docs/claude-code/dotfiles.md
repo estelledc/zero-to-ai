@@ -71,7 +71,6 @@ ln -sf ~/intern-journal/dotfiles/home-claude/CLAUDE.md ~/.claude/CLAUDE.md
 ```json
 {
   "model": "claude-sonnet-4",
-  "apiKey": "${ANTHROPIC_API_KEY}",
   "mcpServers": {
     "supabase": {
       "command": "npx",
@@ -83,6 +82,8 @@ ln -sf ~/intern-journal/dotfiles/home-claude/CLAUDE.md ~/.claude/CLAUDE.md
   }
 }
 ```
+
+> **注意**：Claude Code 的 API key 通过环境变量 `ANTHROPIC_API_KEY` 传入，不写在 settings.json 里。模板中只需要放 MCP server 等需要凭证的配置项。
 
 生成真实配置：
 
