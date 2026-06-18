@@ -12,6 +12,7 @@ relatedContent:
   - { slug: 'glossary', label: '术语对照表' }
   - { slug: 'claude-code/preflight', label: '开始之前' }
   - { slug: 'methodology/basics', label: '通用环境基础设施' }
+  - { slug: 'appendix/git-basics', label: 'Git 10 分钟速成' }
 lastVerified: '2026-06-18'
 toolVersion: 'Claude Code CLI (latest)'
 ---
