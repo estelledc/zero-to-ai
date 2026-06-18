@@ -53,10 +53,7 @@ const currentIndex = tutorials.findIndex((t) => t.slug === currentSlug);
 
     // Mark current page as visited (with version)
     if (path && current) {
-      localStorage.setItem(
-        `path:${path}:${current}`,
-        JSON.stringify({ v: PROGRESS_VERSION }),
-      );
+      localStorage.setItem(`path:${path}:${current}`, JSON.stringify({ v: PROGRESS_VERSION }));
     }
 
     // Highlight previously visited dots — only if version matches
