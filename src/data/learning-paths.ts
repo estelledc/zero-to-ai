@@ -75,6 +75,7 @@ export const learningPaths: LearningPath[] = [
       'methodology/learning-management',
       'methodology/skill-pack',
       'methodology/prompt-anatomy',
+      'methodology/skill-engineering',
       'projects/learn-journal/design-philosophy',
     ],
   },
