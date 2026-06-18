@@ -6,7 +6,7 @@ difficulty: advanced
 learningPaths:
   - advanced-custom
 prerequisites:
-  - projects/learn-journal/how-it-works
+  - projects/learn-journal/index
 relatedContent:
   - { slug: 'methodology/claude-md-philosophy', label: 'CLAUDE.md 编写哲学' }
   - { slug: 'methodology/workflow-design', label: '工作流编排思路' }
@@ -109,10 +109,12 @@ Learn Journal 不维护外部数据库或 JSON 状态文件。所有状态都存
 架构长这样：
 
 ```text
-protocols/          <- 核心规则（所有平台共享）
-  ├── core.md
-  ├── explain.md
-  └── capture.md
+protocols/              <- 核心规则（所有平台共享）
+  ├── artifact-routing.md
+  ├── daily-rhythm.md
+  ├── explain-protocol.md
+  ├── quality-gates.md
+  └── review-system.md
 
 adapters/           <- 薄壳翻译层（每个平台一个）
   ├── claude-code/CLAUDE.md

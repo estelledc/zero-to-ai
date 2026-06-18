@@ -104,6 +104,7 @@ if [ "$tool_name" != "Write" ] && [ "$tool_name" != "Edit" ]; then
 fi
 
 file_path=$(echo "$event" | jq -r '.tool_input.file_path')
+# 注意：file_path 字段名可能因版本而异。先用 echo "$event" | jq . 确认实际结构
 # 只检查 learnings 目录下的笔记
 if echo "$file_path" | grep -q "learnings/"; then
   if [ -f "$file_path" ] && ! grep -q "来源:" "$file_path"; then
