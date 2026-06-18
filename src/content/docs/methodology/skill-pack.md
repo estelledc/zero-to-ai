@@ -24,7 +24,7 @@ lastVerified: '2026-06-17'
 
 ## 下载
 
-<a href="/downloads/skill-pack.zip" download>skill-pack.zip</a>（约 31KB）
+[skill-pack.zip](/downloads/skill-pack.zip)（约 32KB）
 
 ## 30 秒上手
 

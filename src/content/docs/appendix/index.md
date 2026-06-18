@@ -3,6 +3,8 @@ title: 附录
 description: 零基础预备知识
 tags: [appendix]
 difficulty: beginner
+prerequisites: []
+next: false
 lastVerified: '2026-06-12'
 ---
 
