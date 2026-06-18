@@ -6,6 +6,9 @@ difficulty: beginner
 prerequisites:
   - projects/learn-journal/index
 lastVerified: '2026-06-18'
+relatedContent:
+  - { slug: 'methodology/skill-pack', label: '学习日志 Skill Pack' }
+  - { slug: 'projects/learn-journal/how-it-works', label: '运作原理' }
 ---
 
 ## 前提条件（诚实版）
@@ -160,6 +163,6 @@ my-learning/
 
 ## 下一步
 
-- [它是怎么工作的](/projects/learn-journal/how-it-works/) -- 理解背后的五环循环和间隔复习
-- [日常节奏](/claude-code/daily-rhythm/) -- 完整的日循环工作流（如果你用 Claude Code）
-- [学习管理系统](/methodology/learning-management/) -- 工件选择和知识捕获的完整理论
+- [它是怎么工作的](/projects/learn-journal/how-it-works/)——理解背后的五环循环和间隔复习
+- [日常节奏](/claude-code/daily-rhythm/)——完整的日循环工作流（如果你用 Claude Code）
+- [学习管理系统](/methodology/learning-management/)——工件选择和知识捕获的完整理论

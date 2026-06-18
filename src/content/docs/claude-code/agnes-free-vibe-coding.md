@@ -8,8 +8,8 @@ learningPaths:
 prerequisites:
   - claude-code/quickstart
 relatedContent:
-  - { slug: claude-code/config, label: 核心配置 }
-  - { slug: claude-code/cost, label: 成本与计费 }
+  - { slug: 'claude-code/config', label: '核心配置' }
+  - { slug: 'claude-code/cost', label: '成本与计费' }
 lastVerified: '2026-06-13'
 toolVersion: 'Claude Code CLI (latest)'
 ---
@@ -133,7 +133,7 @@ export ANTHROPIC_AUTH_TOKEN="你的Agnes API Key"
 
 ## 常见坑
 
-- **`ANTHROPIC_AUTH_TOKEN` 不是 `ANTHROPIC_API_KEY`**：注意变量名。Claude Code 读的是 `ANTHROPIC_AUTH_TOKEN`（新名称），网上很多老教程写的 `ANTHROPIC_API_KEY` 也能用但建议用前者。
+- **`ANTHROPIC_AUTH_TOKEN` 不是 `ANTHROPIC_API_KEY`**：注意变量名。Agnes 提供商配置使用 `ANTHROPIC_AUTH_TOKEN`（注意不是标准的 `ANTHROPIC_API_KEY`），网上很多老教程写的 `ANTHROPIC_API_KEY` 也能用，但建议用前者。
 - **模型名必须精确匹配**：`agnes-2.0-flash`，不能写成 `agnes-2.0` 或 `agnes2.0flash`。
 - **免费模型有速率限制**：Agnes 对免费用户有请求频率限制。如果频繁报错 429（Too Many Requests），等几秒再试。
 - **Thinking 模式在 Claude Code 中不生效**：`agnes-2.0-flash` 支持 Thinking，但 Claude Code 的 Anthropic 客户端不会自动传 `chat_template_kwargs` 参数。如果追求思考深度，用 Anthropic 官方 Claude 模型。

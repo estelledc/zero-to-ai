@@ -1,6 +1,6 @@
 ---
 title: Learn Journal
-description: 一个经过 50 天验证的结构化学习方法论 -- 以 AI skill 包形式分发
+description: 一个经过 50 天验证的结构化学习方法论——以 AI skill 包形式分发
 tags: [projects, learn-journal]
 difficulty: beginner
 relatedContent:
@@ -93,6 +93,6 @@ Learn Journal 不替代任何工具，也不要求你换工具：
 
 ## 下一步
 
-- [快速上手](/projects/learn-journal/quickstart/) -- 从下载到第一次使用的完整指南
-- [它是怎么工作的](/projects/learn-journal/how-it-works/) -- 五环循环、六步讲解、间隔复习的详细解释
-- [设计哲学](/projects/learn-journal/design-philosophy/) -- 协议驱动、文件系统即状态的设计决策和 trade-off
+- [快速上手](/projects/learn-journal/quickstart/)——从下载到第一次使用的完整指南
+- [它是怎么工作的](/projects/learn-journal/how-it-works/)——五环循环、六步讲解、间隔复习的详细解释
+- [设计哲学](/projects/learn-journal/design-philosophy/)——协议驱动、文件系统即状态的设计决策和 trade-off

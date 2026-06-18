@@ -1,6 +1,6 @@
 ---
 title: Learn Journal 是怎么工作的
-description: 五环学习循环、六步讲解、间隔复习 -- 背后的方法论详解
+description: 五环学习循环、六步讲解、间隔复习——背后的方法论详解
 tags: [projects, learn-journal, methodology]
 difficulty: intermediate
 prerequisites:
@@ -149,6 +149,6 @@ priority = (1 - 掌握度) × (距今天数 + 1)
 
 ## 下一步
 
-- [设计哲学](/projects/learn-journal/design-philosophy/) -- 为什么用协议驱动、为什么文件系统即状态、以及这些选择的代价
-- [学习管理系统](/methodology/learning-management/) -- 工件选择和知识捕获的完整理论
-- [记忆系统设计原则](/methodology/memory-system-design/) -- 更广义的记忆系统设计思路
+- [设计哲学](/projects/learn-journal/design-philosophy/)——为什么用协议驱动、为什么文件系统即状态、以及这些选择的代价
+- [学习管理系统](/methodology/learning-management/)——工件选择和知识捕获的完整理论
+- [记忆系统设计原则](/methodology/memory-system-design/)——更广义的记忆系统设计思路
