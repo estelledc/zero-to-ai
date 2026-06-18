@@ -51,6 +51,16 @@ export default defineConfig({
           ],
         },
         {
+          label: '实战项目',
+          items: [
+            { slug: 'projects' },
+            { slug: 'projects/learn-journal' },
+            { slug: 'projects/learn-journal/quickstart' },
+            { slug: 'projects/learn-journal/how-it-works' },
+            { slug: 'projects/learn-journal/design-philosophy' },
+          ],
+        },
+        {
           label: '附录',
           items: [{ slug: 'appendix' }, { slug: 'appendix/git-basics' }, { slug: 'glossary' }],
         },

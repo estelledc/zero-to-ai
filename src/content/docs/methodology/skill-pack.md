@@ -116,4 +116,8 @@ my-learning/
 
 ## 下一步
 
+- [Learn Journal 产品介绍](/projects/learn-journal/) -- 完整的产品视角：这是什么、为什么你需要它
+- [快速上手](/projects/learn-journal/quickstart/) -- 从下载到第一次使用的完整指南
+- [设计哲学](/projects/learn-journal/design-philosophy/) -- 协议驱动、无状态、渐进增强的设计决策
+
 下载后如果遇到问题，可以查看 ZIP 内的 `SETUP.md` 获取详细安装说明和常见问题解答。
