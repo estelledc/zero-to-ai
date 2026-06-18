@@ -14,6 +14,7 @@ relatedContent:
   - { slug: 'claude-code/config', label: '核心配置' }
   - { slug: 'claude-code/context', label: '上下文窗口管理' }
   - { slug: 'claude-code/dotfiles', label: '配置即代码' }
+  - { slug: 'methodology/workflow-design', label: '工作流编排思路' }
 lastVerified: '2026-06-18'
 toolVersion: 'Claude Code CLI (latest)'
 ---

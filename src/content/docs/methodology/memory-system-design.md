@@ -15,6 +15,8 @@ relatedContent:
   - { slug: 'methodology/workflow-design', label: '工作流编排思路' }
   - { slug: 'methodology/learning-management', label: '学习管理系统' }
   - { slug: 'projects/learn-journal/how-it-works', label: 'Learn Journal 运作原理' }
+  - { slug: 'projects/learn-journal/design-philosophy', label: 'Learn Journal 设计哲学' }
+  - { slug: 'claude-code/context', label: '上下文窗口管理' }
 ---
 
 ## 这是什么

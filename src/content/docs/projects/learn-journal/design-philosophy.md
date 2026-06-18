@@ -10,6 +10,7 @@ prerequisites:
 relatedContent:
   - { slug: 'methodology/claude-md-philosophy', label: 'CLAUDE.md 编写哲学' }
   - { slug: 'methodology/workflow-design', label: '工作流编排思路' }
+  - { slug: 'projects/learn-journal/index', label: 'Learn Journal 实战项目' }
 lastVerified: '2026-06-18'
 ---
 

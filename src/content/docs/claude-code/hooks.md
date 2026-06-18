@@ -13,6 +13,8 @@ relatedContent:
   - { slug: 'claude-code/config', label: '核心配置' }
   - { slug: 'claude-code/skills', label: 'Skill 体系' }
   - { slug: 'claude-code/dotfiles', label: '配置即代码' }
+  - { slug: 'claude-code/memory', label: '记忆系统' }
+  - { slug: 'claude-code/daily-rhythm', label: '日常节奏' }
 lastVerified: '2026-06-18'
 toolVersion: 'Claude Code CLI (latest)'
 ---

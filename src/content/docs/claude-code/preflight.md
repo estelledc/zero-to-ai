@@ -9,6 +9,7 @@ prerequisites: []
 relatedContent:
   - { slug: 'claude-code/cost', label: '成本与计费' }
   - { slug: 'claude-code/quickstart', label: '10 分钟上手' }
+  - { slug: 'methodology/basics', label: '通用环境基础设施' }
 lastVerified: '2026-06-18'
 toolVersion: 'Claude Code CLI (latest)'
 ---
