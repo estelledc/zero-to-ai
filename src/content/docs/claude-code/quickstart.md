@@ -12,7 +12,7 @@ relatedContent:
   - { slug: 'glossary', label: '术语对照表' }
   - { slug: 'claude-code/preflight', label: '开始之前' }
   - { slug: 'methodology/basics', label: '通用环境基础设施' }
-lastVerified: '2026-06-12'
+lastVerified: '2026-06-18'
 toolVersion: 'Claude Code CLI (latest)'
 ---
 
@@ -133,18 +133,18 @@ Claude 会扫描你的文件、理解结构、用自然语言解释。这比"建
 
 ### 5. 基本操作
 
-| 操作                 | 怎么做                       |
-| -------------------- | ---------------------------- |
-| 开始对话             | `claude`                     |
-| 中止当前回复         | `Ctrl + C`                   |
-| 暂停/恢复对话        | `Ctrl + Z` → 恢复：`fg`      |
-| 看到 Claude 在做什么 | 它会在终端打印正在执行的命令 |
+| 操作                 | 怎么做                                                                                                       |
+| -------------------- | ------------------------------------------------------------------------------------------------------------ |
+| 开始对话             | `claude`                                                                                                     |
+| 中止当前回复         | `Ctrl + C`                                                                                                   |
+| 暂停/恢复对话        | `Ctrl + Z` → 恢复：`fg`（操作系统级进程暂停，不是 Claude Code 功能。初学者建议避免使用，直接开新会话更安全） |
+| 看到 Claude 在做什么 | 它会在终端打印正在执行的命令                                                                                 |
 
 ## 常见坑
 
 - **`claude: command not found`**：安装后需关掉终端重开，或者执行 `source ~/.zshrc` 让 PATH 生效。确认 `npm list -g @anthropic-ai/claude-code` 能看到它。
 - **`ANTHROPIC_API_KEY not set`**：确认 `echo $ANTHROPIC_API_KEY` 有输出。若无，重新执行 export 命令。
-- **Claude Code 改错了代码**：如果还没学 git，最简单的保护方式：在让 AI 改动之前，先手动复制一份文件夹作为备份（右键文件夹 → 复制 → 粘贴）。如果你已经会用 git：`git diff` 查看改动，`git checkout -- <文件名>` 回退单文件，`git stash` 回退全部。养成先 commit 再让 AI 动手的习惯。
+- **Claude Code 改错了代码**：如果还没学 git，最简单的保护方式：在让 AI 改动之前，先手动复制一份文件夹作为备份（右键文件夹 → 复制 → 粘贴）。如果你已经会用 git：`git diff` 查看改动，`git checkout -- <文件名>` 回退单文件，`git stash` 回退全部。养成先 commit 再让 AI 动手的习惯。Git 基础操作详见[附录：Git 入门](/appendix/git-basics/)。
 - **Claude 第一次写的代码不完美**：这完全正常，不是你的问题也不是工具的问题。Claude Code 第一次接触你的项目时，它对代码库的理解是空白的——就像一个刚入职的同事还没读过任何文档。第一次尝试通常不太对，告诉它"不对，我要的是 X 而不是 Y"，第二次就会好很多。这是正常的工作方式，不是故障。
 - **回复太慢/卡住了**：`Ctrl + C` 中止当前回复，重新发 prompt。
 

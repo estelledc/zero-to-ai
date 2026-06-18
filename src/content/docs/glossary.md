@@ -42,17 +42,17 @@ lastVerified: '2026-06-18'
 
 ## Claude Code 配置
 
-| 英文                    | 中文                    | 说明                                                                                             |
-| ----------------------- | ----------------------- | ------------------------------------------------------------------------------------------------ |
-| CLAUDE.md               | CLAUDE.md（不翻译）     | Claude Code 的项目指令文件，告诉 Claude 项目约定和行为准则。详见[核心配置](/claude-code/config/) |
-| dotfiles                | 点文件 / 配置文件       | 以点开头的配置文件（如 .zshrc、.claude/），通常放在用户目录下                                    |
-| Hook                    | 钩子                    | 特定事件触发时自动执行的动作。详见 [Hook 系统](/claude-code/hooks/)                              |
-| Memory                  | 记忆 / 记忆系统         | 持久化存储用户偏好和上下文。详见[记忆系统](/claude-code/memory/)                                 |
-| settings.json           | settings.json（不翻译） | Claude Code 的权限和行为配置文件                                                                 |
-| Skill                   | 技能                    | 可复用的工作流指令，放在 .claude/skills/ 目录下。详见 [Skill 体系](/claude-code/skills/)         |
-| dual-layer architecture | 双层架构                | 概率层（AI 协议指令）+ 确定性层（脚本硬检查）的系统设计模式                                      |
-| deterministic layer     | 确定性层                | 双层架构中由脚本/lint 执行的硬性检查层，不依赖 AI 判断                                           |
-| probability layer       | 概率层                  | 双层架构中由 CLAUDE.md/Skill 定义的 AI 行为指令层，执行效果有概率性                              |
+| 英文                    | 中文                    | 说明                                                                                                                    |
+| ----------------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| CLAUDE.md               | CLAUDE.md（不翻译）     | Claude Code 的项目指令文件，告诉 Claude 项目约定和行为准则。详见[核心配置](/claude-code/config/)                        |
+| dotfiles                | 点文件 / 配置文件       | 以点开头的配置文件（如 .zshrc、.claude/），通常放在用户目录下                                                           |
+| Hook                    | 钩子                    | 特定事件触发时自动执行的动作。详见 [Hook 系统](/claude-code/hooks/)                                                     |
+| Memory                  | 记忆 / 记忆系统         | 持久化存储用户偏好和上下文。详见[记忆系统](/claude-code/memory/)                                                        |
+| settings.json           | settings.json（不翻译） | Claude Code 的权限和行为配置文件                                                                                        |
+| Skill                   | 技能                    | 可复用的工作流指令，放在 .claude/skills/ 目录下。详见 [Skill 体系](/claude-code/skills/)                                |
+| dual-layer architecture | 双层架构                | 概率层（AI 协议指令）+ 确定性层（脚本硬检查）的系统设计模式。详见[设计哲学](/projects/learn-journal/design-philosophy/) |
+| deterministic layer     | 确定性层                | 双层架构中由脚本/lint 执行的硬性检查层，不依赖 AI 判断                                                                  |
+| probability layer       | 概率层                  | 双层架构中由 CLAUDE.md/Skill 定义的 AI 行为指令层，执行效果有概率性                                                     |
 
 ## Git
 

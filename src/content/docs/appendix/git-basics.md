@@ -9,7 +9,7 @@ prerequisites: []
 relatedContent:
   - { slug: 'claude-code/quickstart', label: '10 分钟上手 Claude Code' }
   - { slug: 'methodology/basics', label: '通用环境基础设施' }
-lastVerified: '2026-06-12'
+lastVerified: '2026-06-18'
 ---
 
 ## 类比：Git 像游戏存档
@@ -147,7 +147,9 @@ git diff
 - **只想撤回某个文件**：`git checkout -- 文件名`，这个文件回到上次存档的状态，其他文件不受影响
 - **想把所有改动暂时收起来**：`git stash` 把所有未存档的修改"藏"起来，工作区变干净。想拿回来时用 `git stash pop`
 
-学会这两个命令你就敢让 AI 随便改了——改乱了一个文件用 `git checkout --`，改乱了一堆用 `git stash`。
+> 现代 Git（2.23+）推荐用 `git restore <file>` 替代 `git checkout -- <file>`，功能相同但语义更清晰。
+
+学会这两个命令你就敢让 AI 随便改了——改乱了一个文件用 `git checkout --`（或 `git restore`），改乱了一堆用 `git stash`。
 
 ## 常见坑
 
@@ -172,7 +174,7 @@ node_modules/
 
 **4. 不知道怎么回退就不敢让 AI 改代码**
 
-学会 `git stash` 就够了。改之前 `git stash` 存一下当前进度，改乱了 `git stash pop` 恢复。注意：`git stash` 保存的是未提交的改动——如果你想回退 AI 已经做了的修改，用 `git checkout -- <文件名>` 更直接。
+学会 `git stash` 就够了。改之前 `git stash` 存一下当前进度，改乱了 `git stash pop` 恢复。注意：`git stash` 保存的是未提交的改动——如果你想回退 AI 已经做了的修改，用 `git checkout -- <文件名>`（或 `git restore <文件名>`）更直接。
 
 ## Checkpoint：动手试试
 
