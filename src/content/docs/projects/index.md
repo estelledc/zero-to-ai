@@ -3,6 +3,7 @@ title: 实战项目
 description: 用 AI 工具做出来的真实项目——不是 demo，是经过验证的实践
 tags: [projects]
 difficulty: beginner
+prerequisites: []
 next: false
 lastVerified: '2026-06-18'
 ---

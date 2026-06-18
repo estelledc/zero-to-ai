@@ -4,6 +4,10 @@ description: Zero to AI 教程中使用的术语及其中英文对照
 tags: [reference]
 difficulty: beginner
 learningPaths: ['ai-coding-zero']
+prerequisites: []
+relatedContent:
+  - { slug: 'claude-code/index', label: 'Claude Code 教程总览' }
+  - { slug: 'methodology/basics', label: '通用环境基础设施' }
 lastVerified: '2026-06-12'
 ---
 
