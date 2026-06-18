@@ -18,7 +18,7 @@ toolVersion: 'Claude Code CLI (latest)'
 
 Claude Code 是终端里的 AI 编程助手。安装它之后，你在终端输入 `claude` 就能开始和 AI 对话、让 AI 帮你写代码、调试、学习编程。这篇文章带你从零到能用它完成第一个任务。
 
-## Before you start
+## 开始之前
 
 - 你会打开终端并输入命令（如果不会，先看[通用环境基础设施](/methodology/basics/)）
 - 你有一个 Anthropic 账号和 API Key（[console.anthropic.com](https://console.anthropic.com) 获取）

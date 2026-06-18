@@ -20,7 +20,7 @@ toolVersion: 'Claude Code CLI (latest)'
 
 根据社区调研，上下文管理不当是初学者的第一常见错误——比配置错误、权限问题、API key 设置都更普遍。好消息是：它只需要学会三个命令。
 
-## Before you start
+## 开始之前
 
 - 已经完成 [10 分钟上手](/claude-code/quickstart/) 中的安装和配置
 - 能正常启动 Claude Code 对话
