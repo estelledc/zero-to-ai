@@ -22,7 +22,7 @@ prerequisites:
 
 本文以 Jason 的真实记忆系统为原型，逐层拆解设计思路。读完你会知道为什么需要三层分类、每条记忆怎么追溯来源、以及什么该放进记忆文件而不是 CLAUDE.md。
 
-## Before you start
+## 开始之前
 
 - 你已经读过 [记忆系统](/claude-code/memory/)，知道 CLAUDE.md 是 Claude Code 启动时自动读取的上下文文件
 - 你已经在实际项目中用过 Claude Code 至少一周，遇到过"新会话不记得之前约定"的痛点
