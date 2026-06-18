@@ -78,7 +78,7 @@ git commit -m "存档说明"
 
 写清楚你做了什么，未来的你会感谢现在的你。
 
-**常见错误**：忘记 `git add` 直接 `git commit`——什么都没存进去。正确流程永远是：改文件 -> `git add` -> `git commit`。
+**常见错误**：忘记 `git add` 直接 `git commit`——什么都没存进去。正确流程永远是：改文件 → `git add` → `git commit`。
 
 ### 5. `git diff` — 对比两次存档有什么不同
 
@@ -165,7 +165,7 @@ node_modules/
 
 **4. 不知道怎么回退就不敢让 AI 改代码**
 
-学会 `git stash` 就够了。改之前 `git stash` 一下，改乱了 `git stash pop` 拿回原来的，干净利落。
+学会 `git stash` 就够了。改之前 `git stash` 存一下当前进度，改乱了 `git stash pop` 恢复。注意：`git stash` 保存的是未提交的改动——如果你想回退 AI 已经做了的修改，用 `git checkout -- <文件名>` 更直接。
 
 ## Checkpoint：动手试试
 

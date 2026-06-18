@@ -1,6 +1,6 @@
 ---
 title: Learn Journal 设计哲学
-description: 协议驱动、文件系统即状态、宿主无关 -- 设计决策及其代价
+description: 协议驱动、文件系统即状态、宿主无关——设计决策及其代价
 tags: [projects, learn-journal, methodology]
 difficulty: advanced
 prerequisites:
@@ -171,6 +171,6 @@ Learn Journal 的真正价值不在于"别人做不到"，而在于"别人还没
 
 ## 下一步
 
-- [CLAUDE.md 编写哲学](/methodology/claude-md-philosophy/) -- 协议驱动设计的更多细节和实践
-- [工作流编排思路](/methodology/workflow-design/) -- 多步骤工作流的设计方法
-- [Learn Journal 产品介绍](/projects/learn-journal/) -- 回到产品视角
+- [CLAUDE.md 编写哲学](/methodology/claude-md-philosophy/)——协议驱动设计的更多细节和实践
+- [工作流编排思路](/methodology/workflow-design/)——多步骤工作流的设计方法
+- [Learn Journal 产品介绍](/projects/learn-journal/)——回到产品视角
