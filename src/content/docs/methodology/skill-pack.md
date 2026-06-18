@@ -1,6 +1,6 @@
 ---
 title: 学习日志 Skill Pack
-description: 一键部署的结构化学习系统——让任何 AI 编程助手变成你的学习伙伴
+description: 一键部署的结构化学习系统 — 让任何 AI 编程助手变成你的学习伙伴
 tags: [methodology, tool]
 difficulty: intermediate
 learningPaths:
@@ -121,7 +121,7 @@ my-learning/
 ## 常见坑
 
 - **Skill 文件路径写错**：Claude 找 Skill 全靠路径。忘了 `.claude/skills/` 前缀、或者拼错了一个字母，Claude 就完全找不到对应的 Skill，表现出来就是“这个功能怎么不触发了”。检查路径时注意前导点号和斜杠，像检查快递地址一样逐字核对。
-- **Skill 内容过长撑爆 context window**：一个 Skill 文件写了上千行，Claude 把它全部读进来，留给实际工作的 context 空间就不够了。Skill 应该精瘦——只写“什么时候触发”和“触发后做什么”，详细的参考文档放在单独文件里按需读取。
+- **Skill 内容过长撑爆上下文窗口**：一个 Skill 文件写了上千行，Claude 把它全部读进来，留给实际工作的 context 空间就不够了。Skill 应该精瘦——只写“什么时候触发”和“触发后做什么”，详细的参考文档放在单独文件里按需读取。
 - **多个 Skill 定义冲突**：两个 Skill 都声称自己处理“用户说写完了”这个触发词，Claude 不知道该听谁的。解决方法是让触发条件互斥——比如一个管“写完代码”，另一个管“写完笔记”，不要用模糊的“写完了”同时匹配两个。
 
 ## 下一步
