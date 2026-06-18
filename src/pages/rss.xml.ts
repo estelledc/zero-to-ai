@@ -3,6 +3,9 @@ import { getCollection } from 'astro:content';
 import type { APIContext } from 'astro';
 import { base } from '../utils/base-url';
 
+/** Fallback date for docs without lastUpdated — the initial site launch date. */
+const SITE_LAUNCH_DATE = new Date('2026-06-12T00:00:00Z');
+
 export async function GET(context: APIContext) {
   const docs = await getCollection('docs');
 
@@ -16,7 +19,8 @@ export async function GET(context: APIContext) {
         title: doc.data.title,
         description: doc.data.description || '',
         link: `${base}/${doc.id}/`,
-        pubDate: doc.data.lastUpdated instanceof Date ? doc.data.lastUpdated : new Date(),
+        pubDate:
+          doc.data.lastUpdated instanceof Date ? doc.data.lastUpdated : SITE_LAUNCH_DATE,
       })),
     customData: '<language>zh-CN</language>',
   });
