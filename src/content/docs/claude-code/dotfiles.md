@@ -70,7 +70,7 @@ ln -sf ~/intern-journal/dotfiles/home-claude/CLAUDE.md ~/.claude/CLAUDE.md
 
 ```json
 {
-  "model": "claude-sonnet-4-6",
+  "model": "claude-sonnet-4",
   "apiKey": "${ANTHROPIC_API_KEY}",
   "mcpServers": {
     "supabase": {

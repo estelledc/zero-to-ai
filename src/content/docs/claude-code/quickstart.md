@@ -8,8 +8,8 @@ learningPaths:
 prerequisites:
   - methodology/basics
 relatedContent:
-  - { slug: claude-code/config, label: 核心配置 }
-  - { slug: glossary, label: 术语对照表 }
+  - { slug: 'claude-code/config', label: '核心配置' }
+  - { slug: 'glossary', label: '术语对照表' }
 lastVerified: '2026-06-12'
 toolVersion: 'Claude Code CLI (latest)'
 ---
@@ -69,18 +69,18 @@ npm --version
 ### 2. 设置 API Key
 
 ```bash
-export ANTHROPIC_API_KEY="sk-ant-api03-你的真实key写在这里"
+export ANTHROPIC_API_KEY="你的API-Key粘贴在这里"
 ```
 
-把 `sk-ant-api03-...` 整段替成你在 [Anthropic 控制台](https://console.anthropic.com) 生成的真实 key。不要手打，复制粘贴。key 很长。
+把引号里的内容替成你在 [Anthropic 控制台](https://console.anthropic.com) 生成的真实 API Key。不要手打，复制粘贴。key 很长。
 
 重要：上面的 export 命令只在当前终端窗口有效，关掉终端就没了。永久保存需要写入 shell 配置文件：
 
 ```bash
-echo 'export ANTHROPIC_API_KEY="sk-ant-api03-你的key"' >> ~/.zshrc
+echo 'export ANTHROPIC_API_KEY="你的API-Key粘贴在这里"' >> ~/.zshrc
 ```
 
-`~/.zshrc` 是每次打开终端时自动执行的配置文件。`>>` 表示"追加到这行的末尾"。把 `sk-ant-api03-你的key` 替成你的真实 key。
+`~/.zshrc` 是每次打开终端时自动执行的配置文件。`>>` 表示"追加到文件的末尾"。把引号里的内容替成你的真实 API Key。
 
 完成后关掉终端重开，输入 `echo $ANTHROPIC_API_KEY` 确认有输出，就表示配置成功了。
 
@@ -135,7 +135,7 @@ Claude 会扫描你的文件、理解结构、用自然语言解释。这比"建
 | -------------------- | ---------------------------- |
 | 开始对话             | `claude`                     |
 | 中止当前回复         | `Ctrl + C`                   |
-| 暂停/恢复对话        | `Ctrl + Z` -> 恢复：`fg`     |
+| 暂停/恢复对话        | `Ctrl + Z` → 恢复：`fg`      |
 | 看到 Claude 在做什么 | 它会在终端打印正在执行的命令 |
 
 ## 常见坑
@@ -148,5 +148,5 @@ Claude 会扫描你的文件、理解结构、用自然语言解释。这比"建
 
 ## 下一步
 
-- 现在你已经能基本使用，下一步学[核心配置](/claude-code/config/) -- CLAUDE.md 和 settings.json 是 Claude Code 的灵魂
+- 现在你已经能基本使用，下一步学[核心配置](/claude-code/config/)——CLAUDE.md 和 settings.json 是 Claude Code 的灵魂
 - 或者：用刚学会的 Claude Code 让它帮你创建第一个完整小页面（打开终端，cd 到你的项目目录，输入：`用 html/css 帮我做一个个人名片页面`）
