@@ -10,7 +10,9 @@ prerequisites:
 relatedContent:
   - { slug: 'claude-code/config', label: '核心配置' }
   - { slug: 'claude-code/cost', label: '成本与计费' }
-lastVerified: '2026-06-13'
+  - { slug: 'claude-code/verify', label: '验证方法论' }
+  - { slug: 'claude-code/quickstart', label: '10 分钟上手' }
+lastVerified: '2026-06-18'
 toolVersion: 'Claude Code CLI (latest)'
 ---
 
@@ -73,7 +75,7 @@ export ANTHROPIC_DEFAULT_HAIKU_MODEL="agnes-1.5-flash"
 
 启动 Claude Code 后，输入这句 prompt：
 
-```
+```text
 What model are you using? Reply with just the model name.
 ```
 

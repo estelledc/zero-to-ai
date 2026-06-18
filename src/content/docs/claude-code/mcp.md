@@ -7,11 +7,13 @@ learningPaths:
   - advanced-custom
 prerequisites:
   - claude-code/quickstart
-lastVerified: '2026-06-12'
+lastVerified: '2026-06-18'
 toolVersion: 'Claude Code CLI (latest)'
 relatedContent:
   - { slug: 'methodology/workflow-design', label: '工作流编排思路' }
   - { slug: 'claude-code/subagents', label: '子 Agent 协作' }
+  - { slug: 'claude-code/cost', label: '成本与计费' }
+  - { slug: 'claude-code/config', label: '核心配置' }
 ---
 
 ## 这是什么

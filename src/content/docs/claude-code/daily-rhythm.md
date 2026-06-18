@@ -8,12 +8,13 @@ learningPaths:
   - daily-efficiency
 prerequisites:
   - claude-code/quickstart
+  - claude-code/skills
 relatedContent:
   - { slug: 'claude-code/verify', label: '验证方法论' }
   - { slug: 'claude-code/context', label: '上下文窗口管理' }
   - { slug: 'methodology/learning-management', label: '学习管理系统' }
   - { slug: 'methodology/skill-pack', label: 'Skill Pack 技能包' }
-lastVerified: '2026-06-12'
+lastVerified: '2026-06-18'
 toolVersion: 'Claude Code CLI (latest)'
 ---
 

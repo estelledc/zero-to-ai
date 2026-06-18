@@ -12,7 +12,8 @@ relatedContent:
   - { slug: 'methodology/workflow-design', label: '工作流编排思路' }
   - { slug: 'claude-code/config', label: '核心配置' }
   - { slug: 'claude-code/skills', label: 'Skill 体系' }
-lastVerified: '2026-06-12'
+  - { slug: 'claude-code/dotfiles', label: '配置即代码' }
+lastVerified: '2026-06-18'
 toolVersion: 'Claude Code CLI (latest)'
 ---
 
