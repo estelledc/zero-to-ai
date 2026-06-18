@@ -10,6 +10,8 @@ prerequisites:
   - claude-code/skills
 relatedContent:
   - { slug: 'methodology/workflow-design', label: '工作流编排思路' }
+  - { slug: 'claude-code/config', label: '核心配置' }
+  - { slug: 'claude-code/skills', label: 'Skill 体系' }
 lastVerified: '2026-06-12'
 toolVersion: 'Claude Code CLI (latest)'
 ---

@@ -53,7 +53,7 @@ export ANTHROPIC_BASE_URL="https://apihub.agnes-ai.com"
 
 ### 3. 指定用 Agnes 的模型
 
-Claude Code 默认会尝试调用 `claude-sonnet-4-6` 等 Anthropic 模型名，但 Agnes 的模型叫 `agnes-2.0-flash`。需要多设置一个环境变量：
+Claude Code 默认会尝试调用 `claude-sonnet-4` 等 Anthropic 模型名，但 Agnes 的模型叫 `agnes-2.0-flash`。需要多设置一个环境变量：
 
 ```bash
 export ANTHROPIC_MODEL="agnes-2.0-flash"

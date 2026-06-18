@@ -3,6 +3,8 @@ title: 方法论
 description: 工具无关的共用思想和方法
 tags: [methodology]
 difficulty: beginner
+prerequisites: []
+next: false
 lastVerified: '2026-06-12'
 ---
 

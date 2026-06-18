@@ -180,6 +180,6 @@ Claude 会读取你的 Skill 文件并按步骤执行。如果没触发，检查
 
 ## 下一步
 
-- 想看完整的 Skill 示例：[CLAUDE.md 编写哲学](/methodology/claude-md-philosophy/)——了解怎么让 Skill 和其他配置协同工作
+- 了解 Skill 和其他配置的协同设计：[CLAUDE.md 编写哲学](/methodology/claude-md-philosophy/)——理解 Skill、CLAUDE.md、Hook 如何配合
 - Hook 是 Skill 的互补工具 → [Hook 系统](/claude-code/hooks/)
 - 想学工作流编排：[工作流编排思路](/methodology/workflow-design/)——把多个 Skill 串成高效管线
