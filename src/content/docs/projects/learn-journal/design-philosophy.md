@@ -1,6 +1,6 @@
 ---
 title: Learn Journal 设计哲学
-description: 双层架构、kill switch、三种终态——设计决策及其代价
+description: 双层架构、kill switch、三种终态 — 设计决策及其代价
 tags: [projects, learn-journal, methodology]
 difficulty: advanced
 learningPaths:
@@ -27,7 +27,7 @@ lastVerified: '2026-06-18'
 
 早期设计是纯协议驱动：所有行为都写在 markdown 规则里，由 AI 执行。问题是：
 
-- AI 可能忘记规则（context window 竞争）
+- AI 可能忘记规则（上下文窗口竞争）
 - AI 可能理解偏（同一段协议，不同模型执行不同）
 - AI 的行为不可复现（同样的输入，不同 session 可能不同输出）
 - 用户无法验证“AI 是否真的在遵循协议”
@@ -42,7 +42,7 @@ lastVerified: '2026-06-18'
 
 ### 降级可用原则
 
-设计目标：即使概率层完全失效（AI 不遵循协议、换了不兼容的模型、context window 不够），用户仍然可以：
+设计目标：即使概率层完全失效（AI 不遵循协议、换了不兼容的模型、上下文窗口不够），用户仍然可以：
 
 - 手动复制模板填写笔记
 - 运行 lint-notes.sh 检查格式
@@ -67,7 +67,7 @@ Learn Journal 的 AI 行为不是写在代码里的 if-else，而是写在 markd
 **代价**：
 
 - 没有类型检查，AI 可能“理解偏了”——同一段协议，不同模型的执行一致性不保证
-- 协议越长，AI 遵循的可靠性越低（context window 竞争）
+- 协议越长，AI 遵循的可靠性越低（上下文窗口竞争）
 - 用户修改协议后可能破坏系统行为，没有编译器帮你检查
 - 版本管理困难：协议文件更新后，AI 的行为变化不可预测
 

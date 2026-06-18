@@ -1,6 +1,6 @@
 ---
 title: Learn Journal
-description: 一个方法论实验——验证"AI 辅助结构化记录"是否比"什么都不做"能产生更好的学习效果
+description: 一个方法论实验 — 验证"AI 辅助结构化记录"是否比"什么都不做"能产生更好的学习效果
 tags: [projects, learn-journal]
 difficulty: beginner
 learningPaths:

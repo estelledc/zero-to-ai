@@ -1,6 +1,6 @@
 ---
 title: 上下文窗口管理
-description: 桌面隐喻教你管理 Claude Code 的记忆空间——/clear、/compact、/rewind 实战
+description: 桌面隐喻教你管理 Claude Code 的记忆空间 — /clear、/compact、/rewind 实战
 tags: [claude-code]
 difficulty: intermediate
 learningPaths:

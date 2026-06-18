@@ -1,6 +1,6 @@
 ---
 title: 学习管理系统
-description: 用 Claude Code 搭建自己的知识管理系统——工件选择、笔记管线、文件系统哲学
+description: 用 Claude Code 搭建自己的知识管理系统 — 工件选择、笔记管线、文件系统哲学
 tags: [methodology]
 difficulty: intermediate
 learningPaths:

@@ -1,6 +1,6 @@
 ---
 title: 日常节奏
-description: 从开机到关机——一个完整的 Claude Code 日常使用流程
+description: 从开机到关机 — 一个完整的 Claude Code 日常使用流程
 tags: [claude-code]
 difficulty: intermediate
 learningPaths:
