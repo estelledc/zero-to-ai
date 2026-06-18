@@ -5,7 +5,7 @@ tags: [methodology]
 difficulty: beginner
 prerequisites: []
 next: false
-lastVerified: '2026-06-12'
+lastVerified: '2026-06-18'
 ---
 
 这些内容不绑定任何一个具体工具，而是讲通用思想：

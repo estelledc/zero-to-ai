@@ -13,7 +13,7 @@ relatedContent:
   - { slug: 'methodology/workflow-design', label: '工作流编排思路' }
   - { slug: 'claude-code/mcp', label: 'MCP 集成' }
   - { slug: 'claude-code/verify', label: '验证方法论' }
-lastVerified: '2026-06-12'
+lastVerified: '2026-06-18'
 toolVersion: 'Claude Code CLI (latest)'
 ---
 
@@ -170,7 +170,7 @@ git diff          # 逐行看，每条 + 行和 - 行都对吗？
 5. **通过** → 下一个 Task。**不通过** → 子 Agent 修复 → 回到第 4 步
 6. **全部完成** → 最终审查（一个子 Agent 整体看一遍所有改动）
 
-关键原则：**一次只派一个 Task。** 并行派多个 = 合并冲突地狱。子 Agent 之间的依赖关系处理起来很痛苦——这就是为什么计划阶段就应该尽量让 Task 独立。如果两个 Task 之间有强依赖，把它们合并成一个 Task，或者让一个子 Agent 顺序执行它们（而不是分派给两个并行子 Agent）。
+关键原则：**代码修改类任务一次派一个——不要同时让多个子 Agent 改同一个模块。** 并行派多个修改任务 = 合并冲突地狱。但搜索、审查、分析类任务可以并行派发（比如同时搜 4 个目录、同时从 3 个维度审查代码）——这些只读任务不会产生冲突。子 Agent 之间的依赖关系处理起来很痛苦——这就是为什么计划阶段就应该尽量让 Task 独立。如果两个 Task 之间有强依赖，把它们合并成一个 Task，或者让一个子 Agent 顺序执行它们（而不是分派给两个并行子 Agent）。
 
 ## 常见坑
 
