@@ -9,12 +9,12 @@ prerequisites: []
 relatedContent:
   - { slug: 'claude-code/quickstart', label: '10 分钟上手 Claude Code' }
   - { slug: 'methodology/basics', label: '通用环境基础设施' }
-lastVerified: '2026-06-12'
+lastVerified: '2026-06-18'
 ---
 
 ## 类比：Git 像游戏存档
 
-玩 RPG 游戏时，打 boss 前你会存档。打赢了继续，打输了读档重来。**Git 就是给代码做同样的事**——每次修改后"存档"，任何时候可以回到之前的版本。
+玩 RPG 游戏时，打 boss 前你会存档。打赢了继续，打输了读档重来。**Git 就是给代码做同样的事**——每次修改后“存档”，任何时候可以回到之前的版本。
 
 对应关系：
 
@@ -26,20 +26,20 @@ lastVerified: '2026-06-12'
 | 对比两个存档   | diff           |
 | 下载别人的存档 | clone          |
 
-不需要联网，不需要注册账号，Git 是你电脑上的一个程序，管好你自己文件夹里的代码。
+本地操作不需要联网，不需要注册账号——Git 是你电脑上的程序。等你需要和别人协作（clone、push）时才需要网络。
 
 ## 7 个核心操作
 
 ### 1. `git init` — 开始一个新游戏
 
-在文件夹里初始化 Git。只需要运行一次，Git 会在这个文件夹里建一个隐藏的 `.git` 目录，用来存放所有"存档"数据。
+在文件夹里初始化 Git。只需要运行一次，Git 会在这个文件夹里建一个隐藏的 `.git` 目录，用来存放所有“存档”数据。
 
 ```bash
 cd 你的项目文件夹
 git init
 ```
 
-运行后会看到 `Initialized empty Git repository in ...`，表示"游戏"开始了。
+运行后会看到 `Initialized empty Git repository in ...`，表示“游戏”开始了。
 
 ### 2. `git status` — 看现在什么状态
 
@@ -52,7 +52,7 @@ git status
 输出示例解读：
 
 - `Untracked files`（红色）— 新文件，Git 还不认识
-- `Changes not staged for commit`（红色）— 改过了但没标记"要存档"
+- `Changes not staged for commit`（红色）— 改过了但没标记“要存档”
 - `Changes to be committed`（绿色）— 已经标记好，等存档
 
 **每次不知道该做什么时，先 `git status`。**
@@ -66,6 +66,8 @@ git add 文件名          # 只存一个文件
 git add 文件1 文件2     # 存多个文件
 git add .               # 存当前目录所有修改（小心！）
 ```
+
+`git add` 把文件放入**暂存区**（staging area）——相当于存档前的“待确认清单”。只有暂存区里的文件会被下一次 `git commit` 存进去。
 
 `git add .` 的坑：会把当前目录所有修改都标记，包括你可能不想存的临时文件、配置文件。存之前看一眼 `git status` 确认。
 
@@ -119,6 +121,8 @@ git clone <URL>
 
 下载后自动把整个存档历史也带下来，你可以看这个项目从第一天到现在的所有改动。
 
+除了以上 7 个基础命令，下面的场景还会用到几个保护性命令（`git stash`、`git restore`），遇到时现学即可。
+
 ## 和 Claude Code 配合的 3 个关键场景
 
 ### 场景一：AI 改代码前先存档
@@ -145,9 +149,11 @@ git diff
 两种情况：
 
 - **只想撤回某个文件**：`git checkout -- 文件名`，这个文件回到上次存档的状态，其他文件不受影响
-- **想把所有改动暂时收起来**：`git stash` 把所有未存档的修改"藏"起来，工作区变干净。想拿回来时用 `git stash pop`
+- **想把当前改到一半的进度暂时存起来**：`git stash`（像游戏的“快速存档”）。回来继续时 `git stash pop`
 
-学会这两个命令你就敢让 AI 随便改了——改乱了一个文件用 `git checkout --`，改乱了一堆用 `git stash`。
+> 现代 Git（2.23+）推荐用 `git restore <file>` 替代 `git checkout -- <file>`，功能相同但语义更清晰。
+
+学会这两个命令你就敢让 AI 随便改了——改乱了一个文件用 `git checkout --`（或 `git restore`），改乱了一堆用 `git stash`。
 
 ## 常见坑
 
@@ -155,14 +161,14 @@ git diff
 
 比如 API key 文件、密码文件。解决：在项目根目录建一个 `.gitignore` 文件，把不想存的文件名写进去，一行一个。
 
-```
+```text
 # .gitignore 示例
 .env
 secret.txt
 node_modules/
 ```
 
-**2. commit message 写"修改"、"更新"**
+**2. commit message 写“修改”、“更新”**
 
 没用。一个月后自己都看不懂。花 5 秒写清楚改了啥。
 
@@ -172,7 +178,7 @@ node_modules/
 
 **4. 不知道怎么回退就不敢让 AI 改代码**
 
-学会 `git stash` 就够了。改之前 `git stash` 存一下当前进度，改乱了 `git stash pop` 恢复。注意：`git stash` 保存的是未提交的改动——如果你想回退 AI 已经做了的修改，用 `git checkout -- <文件名>` 更直接。
+回顾场景三的两招：改乱了一个文件用 `git restore <文件名>`，改到一半想切换任务用 `git stash` / `git stash pop`。学会这两个就够了。
 
 ## Checkpoint：动手试试
 
@@ -195,4 +201,9 @@ git log --oneline
 
 跑完后你应该看到两个存档记录。这就学会了 Git 最核心的操作。
 
-继续阅读：[通用环境基础设施](/methodology/basics/) — 终端、PATH、包管理器、环境变量
+本篇只涵盖本地操作。分支（branch）、推送（push）、合并（merge）等协作概念不在范围内——遇到时再学。术语速查见[术语对照表](/glossary/)。
+
+## 下一步
+
+- [开始之前](/claude-code/preflight/) — 几分钟确认 Claude Code 教程适不适合你（AI 编程零基础入门路径下一站）
+- [通用环境基础设施](/methodology/basics/) — 终端、PATH、包管理器、环境变量

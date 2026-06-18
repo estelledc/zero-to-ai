@@ -5,7 +5,7 @@ tags: [methodology]
 difficulty: beginner
 learningPaths:
   - ai-coding-zero
-lastVerified: '2026-06-12'
+lastVerified: '2026-06-18'
 prerequisites: []
 relatedContent:
   - { slug: 'claude-code/quickstart', label: '10 分钟上手 Claude Code' }
@@ -16,7 +16,7 @@ relatedContent:
 
 ## 这是什么
 
-AI 编程工具都需要你使用**终端**输入命令。如果你以前只点鼠标操作电脑，这篇文章帮你补齐基础知识。读完你会知道终端是什么、怎么打开、以及安装软件时经常出现的"PATH""环境变量"是什么意思。
+AI 编程工具都需要你使用**终端**输入命令。如果你以前只点鼠标操作电脑，这篇文章帮你补齐基础知识。读完你会知道终端是什么、怎么打开、以及安装软件时经常出现的“PATH”“环境变量”是什么意思。
 
 ## 开始之前
 
@@ -42,7 +42,7 @@ echo "Hello"
 
 输出：`Hello`
 
-`echo` 就是"复读机"——你说什么它就重复什么。
+`echo` 就是“复读机”——你说什么它就重复什么。
 
 ### 3. 你在哪？
 
@@ -50,7 +50,7 @@ echo "Hello"
 pwd
 ```
 
-输出：类似 `/Users/jason` 的路径。`pwd` = "print working directory"（打印当前目录）。
+输出：类似 `/Users/jason` 的路径。`pwd` = “print working directory”（打印当前目录）。
 
 ### 4. 这里有什么？
 
@@ -58,11 +58,11 @@ pwd
 ls
 ```
 
-输出：当前目录下的文件列表。`ls` = "list"（列出）。
+输出：当前目录下的文件列表。`ls` = “list”（列出）。
 
 ### 5. 包管理器是什么？
 
-包管理器就是一个"应用商店"，只是工作在终端里：
+包管理器就是一个“应用商店”，只是工作在终端里：
 
 - **macOS**：`brew install <包名>`（需要先装 Homebrew）
 
@@ -95,7 +95,7 @@ echo $HOME
 
 输出：你的用户主目录路径（如 `/Users/jason`）。
 
-环境变量是系统和程序之间共享的"便签"。`HOME` 告诉所有程序你的主目录在哪。AI 工具的 API Key 通常也通过环境变量传入（如 `ANTHROPIC_API_KEY`）。
+环境变量是系统和程序之间共享的“便签”。`HOME` 告诉所有程序你的主目录在哪。AI 工具的 API Key 通常也通过环境变量传入（如 `ANTHROPIC_API_KEY`）。
 
 ## 常见坑
 
@@ -106,5 +106,6 @@ echo $HOME
 ## 下一步
 
 - 继续 [Claude Code 快速开始](/claude-code/quickstart/)
+- 环境就绪后，了解 [CLAUDE.md 编写哲学](/methodology/claude-md-philosophy/) 来定制 Claude 的行为
 - 回 [学习方法论](/methodology/)
 - 查看 [术语对照表](/glossary/)

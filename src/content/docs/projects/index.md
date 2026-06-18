@@ -1,9 +1,12 @@
 ---
 title: 实战项目
-description: 用 AI 工具做出来的真实项目——不是 demo，是经过验证的实践
+description: 用 AI 工具做出来的真实项目 — 不是 demo，是经过验证的实践
 tags: [projects]
 difficulty: beginner
 prerequisites: []
+relatedContent:
+  - { slug: 'projects/learn-journal/index', label: 'Learn Journal' }
+  - { slug: 'claude-code/index', label: 'Claude Code 教程总览' }
 next: false
 lastVerified: '2026-06-18'
 ---
