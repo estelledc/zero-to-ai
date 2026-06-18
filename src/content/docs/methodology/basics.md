@@ -106,5 +106,6 @@ echo $HOME
 ## 下一步
 
 - 继续 [Claude Code 快速开始](/claude-code/quickstart/)
+- 环境就绪后，了解 [CLAUDE.md 编写哲学](/methodology/claude-md-philosophy/) 来定制 Claude 的行为
 - 回 [学习方法论](/methodology/)
 - 查看 [术语对照表](/glossary/)

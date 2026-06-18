@@ -5,6 +5,9 @@ tags: [methodology]
 difficulty: beginner
 prerequisites: []
 next: false
+relatedContent:
+  - { slug: 'glossary', label: '术语对照表' }
+  - { slug: 'claude-code/index', label: 'Claude Code 教程' }
 lastVerified: '2026-06-18'
 ---
 
