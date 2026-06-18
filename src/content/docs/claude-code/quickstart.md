@@ -13,6 +13,7 @@ relatedContent:
   - { slug: 'claude-code/preflight', label: '开始之前' }
   - { slug: 'methodology/basics', label: '通用环境基础设施' }
   - { slug: 'appendix/git-basics', label: 'Git 10 分钟速成' }
+  - { slug: 'claude-code/agnes-free-vibe-coding', label: '零成本 vibe coding' }
 lastVerified: '2026-06-18'
 toolVersion: 'Claude Code CLI (latest)'
 ---

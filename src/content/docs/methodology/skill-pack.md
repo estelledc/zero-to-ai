@@ -2,7 +2,7 @@
 title: 学习日志 Skill Pack
 description: 一键部署的结构化学习系统——让任何 AI 编程助手变成你的学习伙伴
 tags: [methodology, tool]
-difficulty: beginner
+difficulty: intermediate
 learningPaths:
   - daily-efficiency
   - advanced-custom
@@ -60,10 +60,12 @@ lastVerified: '2026-06-18'
 
 ```text
 skill-pack/
-├── protocols/          ← 核心方法论（AI 遵循的规则）
-│   ├── core.md         ← 工件选择、知识捕获、教学风格
-│   ├── review.md       ← 自然复用策略
-│   └── explain.md      ← 六步讲解协议
+├── protocols/              ← 核心方法论（AI 遵循的规则）
+│   ├── artifact-routing.md ← 工件选择路由
+│   ├── daily-rhythm.md     ← 日终回顾节奏
+│   ├── explain-protocol.md ← 六步讲解协议
+│   ├── quality-gates.md    ← 质量门禁规则
+│   └── review-system.md    ← 自然复用策略
 ├── templates/          ← 工件模板（日报、笔记等的格式）
 ├── skills/             ← 功能描述（AI 在什么时候做什么）
 ├── adapters/           ← 平台适配（不同 AI 工具的入口文件）

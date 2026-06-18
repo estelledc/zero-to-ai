@@ -99,3 +99,13 @@ lastVerified: '2026-06-18'
 | verification loop   | 验证循环               | 每次 AI 完成操作后，人类进行检查和确认的反馈闭环                                                                           |
 | Content Collection  | 内容集合               | Astro 管理结构化内容（如教程、博客）的方式，支持类型安全和数据校验                                                         |
 | GitHub Pages        | GitHub Pages（不翻译） | GitHub 提供的免费静态网站托管服务，本站部署于此                                                                            |
+
+## Learn Journal / 方法论
+
+| 英文                         | 中文                | 说明                                                                                                                           |
+| ---------------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| anti-ghostwriting            | 反代写              | AI 不代替你思考，只辅助记录。你必须用自己的话表达理解。详见[运作原理](/projects/learn-journal/how-it-works/)                   |
+| progressive template         | 渐进模板            | 从最简单的 Level 0 模板逐步升级到完整版，降低冷启动阶段的认知负担。详见[快速上手](/projects/learn-journal/quickstart/)         |
+| natural reuse                | 自然复用            | 不安排专门复习时间，而是在日常工作中自然触发对已学知识的回顾。详见[运作原理](/projects/learn-journal/how-it-works/)            |
+| artifact selection heuristic | 工件选择启发式      | "命中即停"规则：按优先级判断该用哪种工件记录。详见[学习管理](/methodology/learning-management/)                                |
+| teach mode / execute mode    | 教学模式 / 实施模式 | Claude 在解释概念时用教学模式（六步讲解），在执行任务时用实施模式（直接操作）。详见[工作流设计](/methodology/workflow-design/) |

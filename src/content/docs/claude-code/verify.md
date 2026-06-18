@@ -310,6 +310,7 @@ grep -rn "验证练习 2026-06-12" .
 git diff
 
 # 第三层：运行程序确认没有破坏任何功能
+#（如果你的项目是纯 HTML：直接在浏览器中打开文件。如果是 Node.js 项目：npm start）
 npm start   # 或 node your-entry.js，或 npm run dev
 ```
 

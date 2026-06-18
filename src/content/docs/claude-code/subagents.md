@@ -67,6 +67,16 @@ toolVersion: 'Claude Code CLI (latest)'
 
 **决策口诀**："能并行且互不依赖 → 子 Agent。有先后依赖 → 自己干。不确定？先自己干。"
 
+## 怎么触发子 Agent
+
+在对话中描述需要并行或独立完成的任务，Claude Code 会自动判断是否需要子 Agent。你也可以明确提示：
+
+```text
+用子 Agent 并行搜索 src/ 和 tests/ 目录下所有用到 getUserById 的地方
+```
+
+Claude Code 会在后台启动独立的子 Agent 进程来执行。你不需要手动管理进程——主 Agent 会自动收集结果并汇总。
+
 ## 怎么给子 Agent 写任务
 
 任务描述的黄金法则：**假设子 Agent 对你的项目一无所知。**
