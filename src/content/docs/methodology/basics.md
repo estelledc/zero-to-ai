@@ -9,6 +9,9 @@ lastVerified: '2026-06-12'
 prerequisites: []
 relatedContent:
   - { slug: 'claude-code/quickstart', label: '10 分钟上手 Claude Code' }
+  - { slug: 'glossary', label: '术语对照表' }
+  - { slug: 'appendix/git-basics', label: 'Git 最小知识' }
+  - { slug: 'claude-code/index', label: 'Claude Code 教程总览' }
 ---
 
 ## 这是什么

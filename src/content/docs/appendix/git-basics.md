@@ -3,6 +3,8 @@ title: Git 10 分钟速成
 description: 从零开始理解版本控制 — 用游戏存档的类比学会 git init/add/commit/diff/log/status/clone
 tags: [appendix]
 difficulty: beginner
+learningPaths:
+  - ai-coding-zero
 prerequisites: []
 relatedContent:
   - { slug: 'claude-code/quickstart', label: '10 分钟上手 Claude Code' }

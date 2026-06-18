@@ -3,6 +3,8 @@ title: Learn Journal 设计哲学
 description: 双层架构、kill switch、三种终态——设计决策及其代价
 tags: [projects, learn-journal, methodology]
 difficulty: advanced
+learningPaths:
+  - advanced-custom
 prerequisites:
   - projects/learn-journal/how-it-works
 relatedContent:
@@ -106,7 +108,7 @@ Learn Journal 不维护外部数据库或 JSON 状态文件。所有状态都存
 
 架构长这样：
 
-```
+```text
 protocols/          <- 核心规则（所有平台共享）
   ├── core.md
   ├── explain.md
