@@ -16,6 +16,7 @@ export const learningPaths: LearningPath[] = [
     targetAudience: '编程零基础，想用 AI 写自己的第一个页面',
     timeRange: '6-8 小时',
     tutorials: [
+      'appendix/git-basics',
       'claude-code/preflight',
       'methodology/basics',
       'claude-code/index',
@@ -46,6 +47,9 @@ export const learningPaths: LearningPath[] = [
       'methodology/workflow-design',
       'methodology/learning-management',
       'methodology/skill-pack',
+      'projects/learn-journal/index',
+      'projects/learn-journal/quickstart',
+      'projects/learn-journal/how-it-works',
     ],
   },
   {
@@ -68,6 +72,7 @@ export const learningPaths: LearningPath[] = [
       'methodology/workflow-design',
       'methodology/learning-management',
       'methodology/skill-pack',
+      'projects/learn-journal/design-philosophy',
     ],
   },
 ];

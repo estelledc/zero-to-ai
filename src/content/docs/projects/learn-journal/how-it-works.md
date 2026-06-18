@@ -3,12 +3,15 @@ title: Learn Journal 是怎么工作的
 description: 核心循环、六步讲解、自然复用、反代写——背后的方法论详解
 tags: [projects, learn-journal, methodology]
 difficulty: intermediate
+learningPaths:
+  - daily-efficiency
 prerequisites:
   - projects/learn-journal/index
   - projects/learn-journal/quickstart
 relatedContent:
   - { slug: 'methodology/learning-management', label: '学习管理系统' }
   - { slug: 'methodology/memory-system-design', label: '记忆系统设计' }
+  - { slug: 'projects/learn-journal/quickstart', label: '快速开始' }
 lastVerified: '2026-06-18'
 ---
 

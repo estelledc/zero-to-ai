@@ -12,6 +12,7 @@ prerequisites:
 relatedContent:
   - { slug: 'claude-code/context', label: '上下文管理' }
   - { slug: 'claude-code/preflight', label: '开始之前' }
+  - { slug: 'claude-code/agnes-free-vibe-coding', label: 'Agnes 免费 vibe coding' }
 lastVerified: '2026-06-12'
 toolVersion: 'Claude Code CLI (latest)'
 ---
