@@ -131,6 +131,8 @@ export ANTHROPIC_AUTH_TOKEN="你的Agnes API Key"
 | 生成视频               |    能    | 用 `agnes-video-v2.0`，异步生成，需等待      |
 | 深度推理、数学证明     |  不太行  | 免费模型的推理能力弱于 Claude Opus           |
 
+**免费的代价**：Agnes 免费模型在推理深度、代码生成质量和多步任务的连贯性上不如 Claude 官方模型。如果你发现 Agnes 在某个任务上反复出错或给出低质量结果，这可能不是你的 prompt 问题——而是模型能力的天花板。这时候切回 Claude 官方模型（参考上面第 6 步）是正确的选择，不要在免费模型上死磕。
+
 ## 常见坑
 
 - **`ANTHROPIC_AUTH_TOKEN` 不是 `ANTHROPIC_API_KEY`**：注意变量名。Agnes 提供商配置使用 `ANTHROPIC_AUTH_TOKEN`（注意不是标准的 `ANTHROPIC_API_KEY`），网上很多老教程写的 `ANTHROPIC_API_KEY` 也能用，但建议用前者。
