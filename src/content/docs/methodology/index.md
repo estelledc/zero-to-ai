@@ -22,3 +22,4 @@ lastVerified: '2026-06-18'
 - [工作流编排思路](workflow-design) — 怎么把多个 AI 工具和 Skill 组织成高效的工作流
 - [学习管理系统](learning-management) — 工件选择启发式、笔记管线、如何把对话变成永久知识
 - [学习日志 Skill Pack](skill-pack) — 一键部署的结构化学习系统，下载即用
+- [系统提示解剖学](prompt-anatomy) — 从泄露的真实 AI 系统提示中，学习工业级的指令设计模式

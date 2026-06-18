@@ -15,6 +15,7 @@ relatedContent:
   - { slug: 'claude-code/dotfiles', label: '配置即代码' }
   - { slug: 'claude-code/daily-rhythm', label: '日常节奏' }
   - { slug: 'methodology/claude-md-philosophy', label: 'CLAUDE.md 编写哲学' }
+  - { slug: 'methodology/prompt-anatomy', label: '系统提示解剖学' }
 lastVerified: '2026-06-18'
 toolVersion: 'Claude Code CLI (latest)'
 ---

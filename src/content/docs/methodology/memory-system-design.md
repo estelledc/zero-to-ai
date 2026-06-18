@@ -17,6 +17,7 @@ relatedContent:
   - { slug: 'projects/learn-journal/how-it-works', label: 'Learn Journal 运作原理' }
   - { slug: 'projects/learn-journal/design-philosophy', label: 'Learn Journal 设计哲学' }
   - { slug: 'claude-code/context', label: '上下文窗口管理' }
+  - { slug: 'methodology/prompt-anatomy', label: '系统提示解剖学' }
 ---
 
 ## 这是什么
