@@ -10,6 +10,8 @@ prerequisites:
 relatedContent:
   - { slug: 'claude-code/config', label: '核心配置' }
   - { slug: 'glossary', label: '术语对照表' }
+  - { slug: 'claude-code/preflight', label: '开始之前' }
+  - { slug: 'methodology/basics', label: '通用环境基础设施' }
 lastVerified: '2026-06-12'
 toolVersion: 'Claude Code CLI (latest)'
 ---

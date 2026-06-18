@@ -10,6 +10,7 @@ prerequisites:
 relatedContent:
   - { slug: 'claude-code/verify', label: '验证方法论' }
   - { slug: 'claude-code/daily-rhythm', label: '日常节奏' }
+  - { slug: 'claude-code/cost', label: '成本与计费' }
 lastVerified: '2026-06-12'
 toolVersion: 'Claude Code CLI (latest)'
 ---
