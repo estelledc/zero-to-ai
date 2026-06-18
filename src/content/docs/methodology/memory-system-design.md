@@ -113,14 +113,14 @@ originSessionId: a2b1fbf6-9f69-4b79-84a0-e692088aef18
 
 `originSessionId` 是一个关键字段。它不是随便编的——它是 Claude Code 会话的唯一标识。
 
-这意味着每条记忆都能追溯到 “谁、在什么时候、因为什么” 产生的。用 Jason 系统里的实际例子：
+这意味着每条记忆都能追溯到"谁、在什么时候、因为什么"产生的。用 Jason 系统里的实际例子：
 
-- `feedback_teaching_style.md` 的 originSessionId 是 `4ca6864d-...`，对应那次 OpenClaw Hook 学习中 Jason 说 “用带我学习然后提问的方式，而不是现在这种直接出题目”
+- `feedback_teaching_style.md` 的 originSessionId 是 `4ca6864d-...`，对应那次 OpenClaw Hook 学习中 Jason 说"用带我学习然后提问的方式，而不是现在这种直接出题目"
 - `feedback_bash_sigpipe.md` 的 originSessionId 是 `a2b1fbf6-...`，对应那次 daily-learn 跑了 `cat manifest.json | python3 -m json.tool | head -40` 被 SIGPIPE 误导
 
 ### 为什么要追溯？
 
-三个月后你看到一条记忆规则 "禁止 cat | head"，你可能不记得为什么。打开文件，看到 Why 段："2026-05-08 daily-learn 跑 cat manifest.json | python3 -m json.tool | head -40 就被这个坑了——JSON 完全有效，命令 '失败' 了"。
+三个月后你看到一条记忆规则"禁止 cat | head"，你可能不记得为什么。打开文件，看到 Why 段："2026-05-08 daily-learn 跑 cat manifest.json | python3 -m json.tool | head -40 就被这个坑了——JSON 完全有效，命令'失败'了"。
 
 这就是**记忆不是死规则，而是活教训**。每条记忆都带着当时的具体场景和问题，让你（和 Claude）能理解规则背后的意图，而不只是机械执行。
 
@@ -179,7 +179,7 @@ Jason 系统里有一条硬规则，写在了 MEMORY.md 的最底部：
 
 ### 一个实际例子
 
-Jason 最初有一条规则：`feat` 分支结束后删掉工作树。后来他发现有时需要回来查上下文，决定保留工作树。这次不是加一条 "有时保留工作树" 的新规则——而是直接修改了原规则文件，把 "删除" 改成 "保留一周后再删"。**更新，不叠加**。
+Jason 最初有一条规则：`feat` 分支结束后删掉工作树。后来他发现有时需要回来查上下文，决定保留工作树。这次不是加一条"有时保留工作树"的新规则——而是直接修改了原规则文件，把"删除"改成"保留一周后再删"。**更新，不叠加**。
 
 ## 记忆 vs CLAUDE.md —— 该放哪里？
 
