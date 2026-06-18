@@ -12,6 +12,7 @@ relatedContent:
   - { slug: 'claude-code/verify', label: '验证方法论' }
   - { slug: 'claude-code/context', label: '上下文窗口管理' }
   - { slug: 'methodology/learning-management', label: '学习管理系统' }
+  - { slug: 'methodology/skill-pack', label: 'Skill Pack 技能包' }
 lastVerified: '2026-06-12'
 toolVersion: 'Claude Code CLI (latest)'
 ---

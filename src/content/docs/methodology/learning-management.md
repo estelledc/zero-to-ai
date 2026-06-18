@@ -12,6 +12,8 @@ prerequisites:
 relatedContent:
   - { slug: 'claude-code/daily-rhythm', label: '日常节奏' }
   - { slug: 'methodology/memory-system-design', label: '记忆系统设计原则' }
+  - { slug: 'methodology/skill-pack', label: 'Skill Pack 技能包' }
+  - { slug: 'projects/learn-journal/index', label: 'Learn Journal 实战项目' }
 lastVerified: '2026-06-12'
 ---
 
@@ -108,7 +110,7 @@ Claude 会注意到你学到了新东西，主动建议你写下来。这是 Cla
 
 这个系统的物理形态极其简单——就是几个文件夹和一堆 markdown 文件：
 
-```
+```text
 intern-journal/
   daily/           ← 每日记录（YYYY-MM-DD.md）
   learnings/       ← 新概念和技能（kebab-case 文件名）

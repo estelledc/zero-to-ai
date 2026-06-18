@@ -11,6 +11,8 @@ prerequisites:
 relatedContent:
   - { slug: 'methodology/learning-management', label: '学习管理系统' }
   - { slug: 'claude-code/daily-rhythm', label: '日常节奏' }
+  - { slug: 'projects/learn-journal/index', label: 'Learn Journal 实战项目' }
+  - { slug: 'projects/learn-journal/quickstart', label: 'Learn Journal 快速开始' }
 lastVerified: '2026-06-17'
 ---
 
@@ -56,7 +58,7 @@ lastVerified: '2026-06-17'
 
 ## 文件结构
 
-```
+```text
 skill-pack/
 ├── protocols/          ← 核心方法论（AI 遵循的规则）
 │   ├── core.md         ← 工件选择、知识捕获、教学风格
@@ -71,7 +73,7 @@ skill-pack/
 
 ## 初始化后你的学习空间
 
-```
+```text
 my-learning/
 ├── config.yaml         ← 你的配置（名字、方向、复习偏好）
 ├── CLAUDE.md           ← （或 AGENTS.md / .cursorrules）

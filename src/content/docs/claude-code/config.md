@@ -12,6 +12,8 @@ relatedContent:
   - { slug: 'methodology/claude-md-philosophy', label: 'CLAUDE.md 编写哲学' }
   - { slug: 'claude-code/skills', label: 'Skill 体系' }
   - { slug: 'methodology/workflow-design', label: '工作流编排思路' }
+  - { slug: 'claude-code/hooks', label: 'Hook 系统' }
+  - { slug: 'claude-code/quickstart', label: '10 分钟上手' }
 lastVerified: '2026-06-12'
 toolVersion: 'Claude Code CLI (latest)'
 ---
@@ -274,7 +276,7 @@ fi
         "hooks": [
           {
             "type": "command",
-            "command": "bash ~/.claude/hooks/pre-tool-use.sh"
+            "command": "~/.claude/hooks/pre-tool-use.sh"
           }
         ]
       }
