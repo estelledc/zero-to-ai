@@ -73,6 +73,7 @@ export default defineConfig({
       },
 
       social: [
+        { icon: 'external', label: '回主站', href: 'https://estelledc.github.io/' },
         { icon: 'github', label: 'GitHub', href: 'https://github.com/estelledc/zero-to-ai' },
       ],
 
