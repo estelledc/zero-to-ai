@@ -9,6 +9,8 @@ import { slugToHref } from '../utils/base-url';
 
 const { pathSlug, tutorials, currentSlug } = Astro.props;
 const currentIndex = tutorials.findIndex((t) => t.slug === currentSlug);
+const prev = currentIndex > 0 ? tutorials[currentIndex - 1] : null;
+const next = currentIndex < tutorials.length - 1 ? tutorials[currentIndex + 1] : null;
 ---
 
 {
@@ -19,19 +21,40 @@ const currentIndex = tutorials.findIndex((t) => t.slug === currentSlug);
       data-path={pathSlug}
       data-current={currentSlug}
     >
-      {tutorials.map((t, i) => {
-        const isCurrent = i === currentIndex;
-        return (
-          <a
-            href={slugToHref(t.slug)}
-            title={t.title}
-            data-slug={t.slug}
-            class:list={['path-progress__dot', { 'path-progress__dot--current': isCurrent }]}
-          >
-            <span class="sr-only">{t.title}</span>
+      <div class="path-progress__dots">
+        {tutorials.map((t, i) => {
+          const isCurrent = i === currentIndex;
+          return (
+            <a
+              href={slugToHref(t.slug)}
+              title={t.title}
+              data-slug={t.slug}
+              class:list={['path-progress__dot', { 'path-progress__dot--current': isCurrent }]}
+            >
+              <span class="sr-only">{t.title}</span>
+            </a>
+          );
+        })}
+      </div>
+      <div class="path-progress__nav">
+        {prev ? (
+          <a href={slugToHref(prev.slug)} class="path-progress__prev">
+            &larr; 上一篇：{prev.title}
           </a>
-        );
-      })}
+        ) : (
+          <span />
+        )}
+        <span class="path-progress__count">
+          {currentIndex + 1} / {tutorials.length}
+        </span>
+        {next ? (
+          <a href={slugToHref(next.slug)} class="path-progress__next">
+            下一篇：{next.title} &rarr;
+          </a>
+        ) : (
+          <span class="path-progress__done">路径完成</span>
+        )}
+      </div>
     </nav>
   )
 }
@@ -79,10 +102,13 @@ const currentIndex = tutorials.findIndex((t) => t.slug === currentSlug);
 
 <style>
   .path-progress {
+    padding: 0.75rem 0;
+  }
+
+  .path-progress__dots {
     display: flex;
     align-items: center;
     gap: 0.25rem;
-    padding: 0.75rem 0;
     flex-wrap: wrap;
   }
 
@@ -115,5 +141,40 @@ const currentIndex = tutorials.findIndex((t) => t.slug === currentSlug);
     width: 1rem;
     height: 1rem;
     background: var(--sl-color-text-accent);
+  }
+
+  .path-progress__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    font-size: 0.8125rem;
+    line-height: 1.4;
+  }
+
+  .path-progress__prev,
+  .path-progress__next {
+    color: var(--sl-color-text-accent);
+    text-decoration: none;
+    max-width: 40%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .path-progress__prev:hover,
+  .path-progress__next:hover {
+    text-decoration: underline;
+  }
+
+  .path-progress__count {
+    color: var(--sl-color-gray-2);
+    flex-shrink: 0;
+  }
+
+  .path-progress__done {
+    color: var(--sl-color-green-high);
+    font-weight: 600;
   }
 </style>

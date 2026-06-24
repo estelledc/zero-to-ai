@@ -26,6 +26,7 @@ export default defineConfig({
             { slug: 'claude-code/quickstart' },
             { slug: 'claude-code/cost' },
             { slug: 'claude-code/agnes-free-vibe-coding' },
+            { slug: 'claude-code/first-page' },
             { slug: 'claude-code/config' },
             { slug: 'claude-code/context' },
             { slug: 'claude-code/verify' },
@@ -48,6 +49,8 @@ export default defineConfig({
             { slug: 'methodology/workflow-design' },
             { slug: 'methodology/learning-management' },
             { slug: 'methodology/skill-pack' },
+            { slug: 'methodology/prompt-anatomy' },
+            { slug: 'methodology/skill-engineering' },
           ],
         },
         {
