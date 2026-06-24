@@ -17,4 +17,5 @@ lastVerified: '2026-06-18'
 已经有基础的读者可以直接跳到 [Claude Code 教程](/claude-code/)。
 
 - [Git 10 分钟速成](/appendix/git-basics/) — 从游戏存档的类比学版本控制，学会 init/add/commit/diff/log
+- [常见问题排查](/appendix/troubleshooting/) — 跨教程高频报错的集中排查手册
 - [通用环境基础设施](/methodology/basics/) — 终端、PATH、包管理器、环境变量一次性讲清楚

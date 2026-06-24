@@ -10,6 +10,8 @@ relatedContent:
   - { slug: 'claude-code/quickstart', label: '10 分钟上手 Claude Code' }
   - { slug: 'methodology/basics', label: '通用环境基础设施' }
 lastVerified: '2026-06-18'
+prev: false
+next: false
 ---
 
 ## 类比：Git 像游戏存档
