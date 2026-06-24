@@ -29,6 +29,7 @@ export const learningPaths: LearningPath[] = [
       'claude-code/verify',
       'claude-code/skills',
       'claude-code/memory',
+      'claude-code/project-guide',
       'claude-code/daily-rhythm',
       'glossary',
     ],

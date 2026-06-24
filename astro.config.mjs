@@ -32,6 +32,7 @@ export default defineConfig({
             { slug: 'claude-code/verify' },
             { slug: 'claude-code/skills' },
             { slug: 'claude-code/memory' },
+            { slug: 'claude-code/project-guide' },
             { slug: 'claude-code/hooks' },
             { slug: 'claude-code/daily-rhythm' },
             { slug: 'claude-code/mcp' },
@@ -65,7 +66,12 @@ export default defineConfig({
         },
         {
           label: '附录',
-          items: [{ slug: 'appendix' }, { slug: 'appendix/git-basics' }, { slug: 'glossary' }],
+          items: [
+            { slug: 'appendix' },
+            { slug: 'appendix/git-basics' },
+            { slug: 'appendix/troubleshooting' },
+            { slug: 'glossary' },
+          ],
         },
       ],
 
