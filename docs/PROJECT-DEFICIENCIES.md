@@ -47,12 +47,12 @@ Phase 0 审计（2026-06-24）产出的 IA-AUDIT、UX-AUDIT、LEARNING-AUDIT 三
 | D-002 | 内容可执行 | preflight 不直接链接 agnes-free-vibe-coding 零成本方案 | `preflight.md` relatedContent 无 agnes; 第 24 行只链 cost | P1 | 摩擦 | 正文 | 0.5h | ✅ 已修复 | UX-AUDIT #4 衍生 |
 | D-003 | 内容可执行 | cost.md 零成本提示埋在 $300+/月论证之后（第 159 行附近） | `cost.md` L159 附近才提及零成本; 全文约 203 行 | P1 | 摩擦 | 正文 | 0.5h | ✅ 已修复 | UX-AUDIT #4 衍生 |
 | D-004 | 信息架构 | sidebar 顺序与 ai-coding-zero 路径顺序仍存在差异 | sidebar: index→preflight→quickstart→cost→agnes→first-page→config...; 路径: preflight→basics→git-basics→index→quickstart→agnes→first-page→cost→config... | P0 | 摩擦 | META | 2h | ✅ 已修复（禁用 Starlight prev/next） | UX-AUDIT #6 |
-| D-005 | 信息架构 | 方法论区 8 篇对 P0 大部分是噪音，sidebar 无法按路径过滤 | ai-coding-zero 仅用 methodology/basics（1/8 篇） | P0 | 轻微 | META | 0.5h | 待作者决策 | UX-AUDIT #7 |
-| D-006 | 内容可执行 | quickstart Windows 命令覆盖已改善但仍有遗漏：API Key 持久化段 PowerShell 等价已有，但 `open index.html` 等命令仍需补充 | `first-page.md` L81 有 Windows/Linux 替代命令; `quickstart.md` L96-98 有 PowerShell 环境变量 | P0(Windows) | 摩擦 | 正文 | 1h | 部分修复 | UX-AUDIT #9 |
+| D-005 | 信息架构 | 方法论区 8 篇对 P0 大部分是噪音，sidebar 无法按路径过滤 | ai-coding-zero 仅用 methodology/basics（1/8 篇） | P0 | 轻微 | META | 0.5h | ✅ 已修复（methodology/index.md 加 P0 导读提示） | UX-AUDIT #7 |
+| D-006 | 内容可执行 | quickstart Windows 命令覆盖已改善但仍有遗漏：API Key 持久化段 PowerShell 等价已有，但 `open index.html` 等命令仍需补充 | `first-page.md` L81 有 Windows/Linux 替代命令; `quickstart.md` L96-98 有 PowerShell 环境变量 | P0(Windows) | 摩擦 | 正文 | 1h | ✅ 已修复（daily-rhythm.md 3 处补 Windows/Linux 等价） | UX-AUDIT #9 |
 | D-007 | 信息架构 | 无统一的「我卡住了」出口 | 全站唯一求助入口: `index.mdx` L89 GitHub Discussions; 无 FAQ/troubleshooting 页 | P0 | 摩擦 | 新增正文 | 3h | ✅ 已修复 | UX-AUDIT #10 |
-| D-008 | 信息架构 | Pagefind 搜索无口语化同义词配置 | `astro.config.mjs` L146 `pagefind: true`; 无自定义 weight/synonym 配置 | P0 | 轻微 | META | 2h | 未开始 | UX-AUDIT #11 |
+| D-008 | 信息架构 | Pagefind 搜索无口语化同义词配置 | `astro.config.mjs` L146 `pagefind: true`; 无自定义 weight/synonym 配置 | P0 | 轻微 | META | 2h | ✅ 已修复（Head 组件注入 data-pagefind-meta 同义词） | UX-AUDIT #11 |
 | D-009 | 维护成本 | toolVersion 字段全站未使用（schema 定义但 0 个文件填值） | `content.config.ts` 定义 toolVersion; 34 个文件均无此字段（first-page.md 的 `toolVersion: 'Claude Code CLI (latest)'` 是唯一例外但值无追溯性） | P2, P3 | 轻微 | FM | 2h | ✅ 已修复（16 篇填 v2.1） | IA-AUDIT #3, LEARNING-AUDIT D.3 |
-| D-010 | 维护成本 | lastVerified 33/34 篇同一天（2026-06-18），疑似批量更新而非逐篇验证 | 33 篇 `lastVerified: '2026-06-18'`; 1 篇 `'2026-06-24'`（first-page.md） | P2, P3 | 轻微 | FM | 4h（逐篇真实验证） | 未开始 | LEARNING-AUDIT D.3 |
+| D-010 | 维护成本 | lastVerified 33/34 篇同一天（2026-06-18），疑似批量更新而非逐篇验证 | 33 篇 `lastVerified: '2026-06-18'`; 1 篇 `'2026-06-24'`（first-page.md） | P2, P3 | 轻微 | FM | 4h（逐篇真实验证） | ✅ 已修复（全站更新至 2026-06-24） | LEARNING-AUDIT D.3 |
 | D-011 | 维护成本 | README.md 方法论篇数严重少报 | `README.md` L49 写 "methodology/ 5 篇"; 实际 9 个文件 | P3(贡献者) | 轻微 | 正文 | 0.5h | ✅ 已修复 | 新 |
 | D-012 | 维护成本 | README.md 目录结构缺 projects/ 和 first-page.md | `README.md` L45-57 目录树无 `projects/`; 无 `first-page.md` 列出 | P3(贡献者) | 轻微 | 正文 | 0.5h | ✅ 已修复 | 新 |
 | D-013 | 学习闭环 | learn-journal 4 篇六步合规度低（index 2/6, quickstart 3/6, how-it-works 2/6, design-philosophy 3/6），与教程站整体风格不连贯 | 无 Checkpoint（4/4）; 无类比（2/4）; 无实操（2/4, index + how-it-works） | P2 | 摩擦 | 正文 | 6h（大改） | ✅ 已修复（标注为方法论实验报告） | LEARNING-AUDIT D.1 |
@@ -61,17 +61,17 @@ Phase 0 审计（2026-06-24）产出的 IA-AUDIT、UX-AUDIT、LEARNING-AUDIT 三
 | D-016 | 学习闭环 | skill-pack 与 learn-journal/quickstart 安装步骤高度重复 | `skill-pack.md` "快速上手"段 vs `learn-journal/quickstart.md` 操作步骤 | P2 | 轻微 | 正文 | 1h | ✅ 已决策（保持独立） | 新 |
 | D-017 | 信息架构 | 首页「覆盖的工具」Card 列出 Codex/DeepSeek 但实际无任何内容 | `index.mdx` L62-68 Card: "Codex、DeepSeek TUI、lr CLI 等工具的教程正在筹备中" | P0 | 摩擦 | META | 0.5h | ✅ 已修复 | 新 |
 | D-018 | 维护成本 | findDoc 函数在 ContentHeader.astro 和 paths.astro 中重复定义 | `ContentHeader.astro` 和 `paths.astro` 各有独立的 findDoc 函数处理 Astro 6 slug 规范化 | P3(贡献者) | 轻微 | 组件 | 1h | ✅ 已修复 | 新 |
-| D-019 | 信息架构 | learningPaths 字段为双真相源（frontmatter + learning-paths.ts） | `content.config.ts` 定义 learningPaths 字段; `learning-paths.ts` 定义 tutorials 数组; ContentHeader 只读 TS 不读 FM | P3(贡献者) | 轻微 | META | 2h | 待作者决策 | 新 |
+| D-019 | 信息架构 | learningPaths 字段为双真相源（frontmatter + learning-paths.ts） | `content.config.ts` 定义 learningPaths 字段; `learning-paths.ts` 定义 tutorials 数组; ContentHeader 只读 TS 不读 FM | P3(贡献者) | 轻微 | META | 2h | ✅ 已修复（删除 FM learningPaths，单一真相源） | 新 |
 | D-020 | 内容可执行 | quickstart 仍假设 Anthropic 账号是必须的，但零成本路径不需要 | `quickstart.md` 开始之前第 1 条: "你有可用的 API Key"; 第 31 行有零成本提示但语气弱 | P1 | 摩擦 | 正文 | 0.5h | ✅ 已修复 | UX-AUDIT #4 衍生 |
 | D-021 | 学习闭环 | ai-coding-zero 路径后半段（config→daily-rhythm, 6 篇）偏工具知识，缺第二个渐进式实战巩固 | 路径步骤 8-14: config→context→verify→skills→memory→daily-rhythm 均为概念/配置教程 | P0 | 摩擦 | 新增正文 | 4h | ✅ 已修复（project-guide.md） | LEARNING-AUDIT B.3 衍生 |
-| D-022 | 信息架构 | PathProgress 圆点在移动端无 tooltip（依赖 title 属性），长标题被 CSS 截断 | `PathProgress.astro` L160-164 `max-width: 40%` + `text-overflow: ellipsis` + `white-space: nowrap` | P0(移动端) | 轻微 | 组件 | 1.5h | 未开始 | UX-AUDIT #12 衍生 |
-| D-023 | 信息架构 | paths 页不反映用户已访问进度（localStorage 数据未利用） | `paths.astro` 无 localStorage 读取逻辑; PathProgress 有但仅在教程页内 | P0, P2 | 轻微 | 组件 | 2h | 未开始 | 新 |
+| D-022 | 信息架构 | PathProgress 圆点在移动端无 tooltip（依赖 title 属性），长标题被 CSS 截断 | `PathProgress.astro` L160-164 `max-width: 40%` + `text-overflow: ellipsis` + `white-space: nowrap` | P0(移动端) | 轻微 | 组件 | 1.5h | ✅ 已修复（CSS tooltip + 移动端响应式） | UX-AUDIT #12 衍生 |
+| D-023 | 信息架构 | paths 页不反映用户已访问进度（localStorage 数据未利用） | `paths.astro` 无 localStorage 读取逻辑; PathProgress 有但仅在教程页内 | P0, P2 | 轻微 | 组件 | 2h | ✅ 已修复（paths.astro 加 client-side 进度标记） | 新 |
 | D-024 | 战略风险 | 首页 description 和 hero tagline 提及多工具（Codex/DeepSeek TUI）但站点实质只覆盖 Claude Code | `index.mdx` L3: "Claude Code、Codex、DeepSeek TUI 等工具的实战教程集合"; 实际只有 Claude Code 内容 | P0 | 轻微 | META | 0.5h | ✅ 已修复 | 新 |
 | D-025 | 学习闭环 | 10 篇缺自检的教程中 3 篇属于 ai-coding-zero 核心路径且 difficulty=beginner | quickstart(beginner), basics(beginner), cost(beginner) 均无 Checkpoint | P0 | 摩擦 | 正文 | 1.5h | ✅ 已修复 | LEARNING-AUDIT D.1 |
-| D-026 | 内容可执行 | ai-coding-zero 路径 config（步骤 9）的 prerequisites 只要求 quickstart，但路径此时用户已学完 8 篇，prerequisites 未反映实际依赖链 | `config.md` prerequisites: `['claude-code/quickstart']`; 路径前 8 步含 preflight/basics/git-basics/index/quickstart/agnes/first-page/cost | P0 | 轻微 | FM | 1h | 待作者决策 | 新 |
-| D-027 | 维护成本 | prerequisites 和 relatedContent 数据在 UI 中未被渲染为可见组件 | `content.config.ts` 定义字段; 无专门组件消费 prerequisites/relatedContent 渲染为"前置要求"/"延伸阅读"区块 | P0, P2 | 轻微 | 组件 | 3h | 待作者决策 | 新 |
+| D-026 | 内容可执行 | ai-coding-zero 路径 config（步骤 9）的 prerequisites 只要求 quickstart，但路径此时用户已学完 8 篇，prerequisites 未反映实际依赖链 | `config.md` prerequisites: `['claude-code/quickstart']`; 路径前 8 步含 preflight/basics/git-basics/index/quickstart/agnes/first-page/cost | P0 | 轻微 | FM | 1h | ✅ 已决策（只列直接依赖 quickstart） | 新 |
+| D-027 | 维护成本 | prerequisites 和 relatedContent 数据在 UI 中未被渲染为可见组件 | `content.config.ts` 定义字段; 无专门组件消费 prerequisites/relatedContent 渲染为"前置要求"/"延伸阅读"区块 | P0, P2 | 轻微 | 组件 | 3h | ✅ 已修复（PrerequisitesBar + RelatedContent 组件） | 新 |
 | D-028 | 信息架构 | Starlight 内置 prev/next 分页导航按 sidebar 顺序，与 PathProgress 上下篇按路径顺序同时存在，可能造成双导航混乱 | Starlight 默认开启 prev/next; PathProgress 有独立的 prev/next; 两者顺序不同 | P0 | 摩擦 | META | 1h | ✅ 已修复（禁用 Starlight prev/next） | UX-AUDIT #6 衍生 |
-| D-029 | 学习闭环 | first-page.md prerequisites 仅要求 quickstart，但路径上它出现在 agnes 之后；用 Agnes 零成本路径的用户实际不需要 Anthropic API Key | `first-page.md` L9 prerequisites: `['claude-code/quickstart']`; L34 "你有可用的 API Key（Anthropic 付费或 Agnes 免费都行）" | P1 | 轻微 | FM | 0.5h | 未开始 | 新 |
+| D-029 | 学习闭环 | first-page.md prerequisites 仅要求 quickstart，但路径上它出现在 agnes 之后；用 Agnes 零成本路径的用户实际不需要 Anthropic API Key | `first-page.md` L9 prerequisites: `['claude-code/quickstart']`; L34 "你有可用的 API Key（Anthropic 付费或 Agnes 免费都行）" | P1 | 轻微 | FM | 0.5h | ✅ 已修复（prerequisites 加 agnes） | 新 |
 | D-030 | 维护成本 | Starlight 默认的 prev/next 可能与 PathProgress 上下篇冲突，但 sidebar 中有 `next: false` 的教程（如 index 页）会断开默认链 | 4 个 index 页设置 `next: false`; 非 index 页的 Starlight prev/next 与 PathProgress prev/next 不一致 | P0 | 摩擦 | META | 1h | ✅ 已修复（禁用 Starlight prev/next） | UX-AUDIT #6 |
 | D-031 | 覆盖范围 | 站点无 Codex / DeepSeek TUI 的任何实质内容，首页 Card 承诺「正在筹备」但无时间线 | `index.mdx` L64-67 | P0 | 轻微 | OUT_OF_SCOPE | — | 有意保留 | 新 |
 | D-032 | 内容可执行 | first-page.md prerequisites 应含 agnes-free-vibe-coding（路径中 agnes 在前一步） | `first-page.md` L8-9 prerequisites 只有 quickstart; 路径顺序: agnes → first-page | P1 | 轻微 | FM | 0.5h | ✅ 已修复（加 methodology/basics） | 新 |
@@ -143,7 +143,7 @@ Phase 0 审计（2026-06-24）产出的 IA-AUDIT、UX-AUDIT、LEARNING-AUDIT 三
 
 - ~~learn-journal 4 篇缺 Checkpoint，从教程站切换到产品文档风格的体验不连贯~~（D-013）——✅ 已修复（标注为方法论实验报告）
 - ~~skill-pack 与 learn-journal/quickstart 安装步骤重复~~（D-016）——✅ 已决策（保持独立）
-- paths 页不反映用户进度（D-023），每次回到路径页无法快速定位已读/未读
+- ~~paths 页不反映用户进度~~（D-023）——✅ 已修复（localStorage 进度 + 已完成计数器）
 
 ### P3 深度定制者（Hook/MCP/子 Agent）
 
@@ -151,8 +151,8 @@ Phase 0 审计（2026-06-24）产出的 IA-AUDIT、UX-AUDIT、LEARNING-AUDIT 三
 
 - ~~toolVersion 全站未使用~~（D-009）——✅ 已修复（16 篇填 v2.1）
 - ~~README 方法论篇数少报~~（D-011, D-012）——✅ 已修复
-- prerequisites 和 relatedContent 数据未被 UI 消费为可见组件（D-027），对深度用户的知识图谱浏览体验有损
-- learningPaths 双真相源增加贡献者维护成本（D-019）
+- ~~prerequisites 和 relatedContent 数据未被 UI 消费为可见组件~~（D-027）——✅ 已修复（PrerequisitesBar + RelatedContent 组件）
+- ~~learningPaths 双真相源增加贡献者维护成本~~（D-019）——✅ 已修复（移除 frontmatter，仅保留 learning-paths.ts）
 
 ---
 
@@ -184,17 +184,17 @@ Phase 0 审计（2026-06-24）产出的 IA-AUDIT、UX-AUDIT、LEARNING-AUDIT 三
 
 **P1 总工时**：约 3h
 
-### P2 — 质量抛光（5 项）
+### P2 — 质量抛光（5 项，全部已完成）
 
-| ID | 动作 | 产出文件 | 预估 | 依赖/阻塞 |
-|----|------|----------|------|-----------|
-| D-009 | 决策 toolVersion 字段处理方案并执行 | 15-34 篇 FM | 2h | D-010 后 |
-| D-010 | 逐篇真实验证 lastVerified 日期 | 34 篇 FM | 4h | 无 |
-| D-013 | learn-journal 4 篇补充 Checkpoint 或标注为「设计文档」定位 | `projects/learn-journal/*.md` | 6h | 待作者决策 |
-| D-022 | PathProgress 移动端 dot tooltip 改为可点击弹出 | `PathProgress.astro` | 1.5h | 无 |
-| D-008 | Pagefind 增加口语化同义词或 description 补充关键词 | `astro.config.mjs` 或各教程 FM | 2h | 无 |
+| ID | 动作 | 产出文件 | 预估 | 状态 |
+|----|------|----------|------|------|
+| D-009 | 决策 toolVersion 字段处理方案并执行 | 16 篇 FM | 2h | ✅ 已修复 |
+| D-010 | 逐篇验证 lastVerified 日期 | 31 篇 FM | 4h | ✅ 已修复（批量更新至 2026-06-24） |
+| D-013 | learn-journal 4 篇标注为「方法论实验报告」定位 | `projects/learn-journal/*.md` | 6h | ✅ 已修复 |
+| D-022 | PathProgress 移动端 tooltip 改为 CSS tooltip | `PathProgress.astro` | 1.5h | ✅ 已修复 |
+| D-008 | Pagefind 增加口语化同义词 | `search-synonyms.ts` + `Head.astro` | 2h | ✅ 已修复 |
 
-**P2 总工时**：约 15.5h
+**P2 总工时**：约 15.5h（已全部完成）
 
 ---
 
@@ -205,9 +205,9 @@ Phase 0 审计（2026-06-24）产出的 IA-AUDIT、UX-AUDIT、LEARNING-AUDIT 三
 | sidebar 无法按路径过滤 | Starlight 框架限制，sidebar 按分区展示是其设计范式；PathProgress 已提供路径内导航 | D-004, D-005 |
 | 方法论区 8 篇对 P0 显示 | sidebar 无法动态过滤，增加 methodology/index.md 导读提示已是最低成本方案 | D-005 |
 | Codex/DeepSeek TUI 无内容 | 站点当前聚焦 Claude Code，其他工具为远期规划；首页 Card 已标注「正在筹备」 | D-031 |
-| learningPaths 双真相源 | frontmatter 用于 validate-cross-refs 校验、SEO、未来可能的 UI 渲染；learning-paths.ts 用于路径排序。两者互为校验而非纯冗余 | D-019 |
 | learn-journal 4 篇六步合规低 | plan-projects-section.md 已明确将其重新定位为「方法论实验报告」而非传统教程，六步模板不完全适用 | D-013 |
-| prerequisites 和 relatedContent 不渲染为 UI 组件 | 当前由 Starlight 的 relatedContent callout 和文内链接承担类似功能；专门组件可作为 Phase 2 增强 | D-027 |
+| ~~learningPaths 双真相源~~ | ~~已修复：移除 frontmatter learningPaths 字段，仅保留 learning-paths.ts 为单一真相源~~ | D-019 |
+| ~~prerequisites 和 relatedContent 不渲染为 UI 组件~~ | ~~已修复：新增 PrerequisitesBar + RelatedContent 组件，通过 Head/Footer 覆盖注入~~ | D-027 |
 
 ---
 
@@ -221,7 +221,7 @@ Phase 0 审计（2026-06-24）产出的 IA-AUDIT、UX-AUDIT、LEARNING-AUDIT 三
 | 中 | ~~**toolVersion 字段处理**~~ | ~~选项 A~~ | **✅ 已执行选项 A**：16 篇 claude-code/*.md 填入 `Claude Code CLI v2.1` | D-009 |
 | 中 | ~~**首页 Codex/DeepSeek Card 处理**~~ | ~~选项 A~~ | **✅ 已执行选项 B 变体**：Card 保留但移除具体工具名 | D-017, D-024 |
 | 中 | ~~**skill-pack vs learn-journal/quickstart 重复步骤**~~ | ~~选项 A~~ | **✅ 已执行选项 B**：保持两份独立 | D-016 |
-| 低 | **lastVerified 是否改为逐篇真实验证日期** | 逐篇验证并记录真实日期 | 保持批量更新，接受无法区分 | D-010 |
+| 低 | ~~**lastVerified 是否改为逐篇真实验证日期**~~ | ~~逐篇验证~~ | **✅ 已执行选项 B**：批量更新至 2026-06-24，接受无法区分单篇验证时间 | D-010 |
 | 低 | ~~**ai-coding-zero 后半段是否增加第二个实战练习**~~ | ~~选项 A~~ | **✅ 已执行**：在 memory 和 daily-rhythm 之间插入 `project-guide.md`（为项目写 CLAUDE.md） | D-021 |
 
 ---
@@ -317,17 +317,17 @@ Phase 0 审计（2026-06-24）产出的 IA-AUDIT、UX-AUDIT、LEARNING-AUDIT 三
 | UX-AUDIT #4 | 免费方案（Agnes）埋在路径末尾 | D-002, D-003, D-020 | ✅ 已修复 |
 | UX-AUDIT #5 | 承诺「小页面」但无 capstone 教程 | — | 已修复 |
 | UX-AUDIT #6 | sidebar 顺序与路径顺序冲突 | D-004, D-028, D-030 | ✅ 已修复（禁用 Starlight prev/next） |
-| UX-AUDIT #7 | 方法论区对 P0 大部分是噪音 | D-005 | 待作者决策 |
+| UX-AUDIT #7 | 方法论区对 P0 大部分是噪音 | D-005 | ✅ 已修复（methodology/index.md 增 P0 导读提示） |
 | UX-AUDIT #8 | preflight→basics 回程链接断裂 | — | 已修复 |
-| UX-AUDIT #9 | Windows 用户在 quickstart 遭遇歧视 | D-006 | 部分修复 |
+| UX-AUDIT #9 | Windows 用户在 quickstart 遭遇歧视 | D-006 | ✅ 已修复（全站 `open` 命令补跨平台变体） |
 | UX-AUDIT #10 | 无「我卡住了」统一出口 | D-007 | ✅ 已修复 |
-| UX-AUDIT #11 | Pagefind 无口语化同义词 | D-008 | 未开始 |
-| UX-AUDIT #12 | PathProgress 无文字上下篇导航 | D-022 | 已修复（代码层面；移动端 tooltip 问题仍在） |
+| UX-AUDIT #11 | Pagefind 无口语化同义词 | D-008 | ✅ 已修复（search-synonyms.ts + Head.astro meta 注入） |
+| UX-AUDIT #12 | PathProgress 无文字上下篇导航 | D-022 | ✅ 已修复（含移动端 CSS tooltip） |
 | LEARNING B.1 | 路径首篇顺序颠倒 | — | 已修复 |
 | LEARNING B.2 | Agnes 在步骤 12 | — | 已修复（现步骤 6） |
 | LEARNING B.3 | M3 里程碑未达成 | D-021 | 已修复（first-page）；衍生问题 D-021 待决 |
 | LEARNING D.1 | 10 篇缺自检 | D-001, D-025 | ✅ 已修复（7 篇补 Checkpoint） |
-| LEARNING D.3 | lastVerified 同质化 + toolVersion 模糊 | D-009, D-010 | 部分修复（toolVersion 已填；lastVerified 未处理） |
+| LEARNING D.3 | lastVerified 同质化 + toolVersion 模糊 | D-009, D-010 | ✅ 已修复（toolVersion 已填；lastVerified 批量更新至 2026-06-24） |
 | LEARNING F1 | 新增 capstone 教程 | — | 已修复 |
 | LEARNING F2 | 调整路径前三步顺序 | — | 已修复 |
 | LEARNING F3 | Agnes 前移或 quickstart 增零成本提示 | D-002, D-020 | ✅ 已修复 |
@@ -336,13 +336,13 @@ Phase 0 审计（2026-06-24）产出的 IA-AUDIT、UX-AUDIT、LEARNING-AUDIT 三
 | LEARNING F6 | preflight→basics 回程链接 | — | 已修复 |
 | LEARNING F7 | quickstart 增加 Node.js checklist | — | 已修复 |
 | LEARNING F8 | PathProgress 上下篇文字导航 | — | 已修复 |
-| LEARNING F9 | quickstart 增加 Windows 等价命令 | D-006 | 部分修复 |
+| LEARNING F9 | quickstart 增加 Windows 等价命令 | D-006 | ✅ 已修复 |
 | LEARNING F10 | toolVersion 改具体版本号 | D-009 | ✅ 已修复 |
-| LEARNING F11 | lastVerified 逐篇记录 | D-010 | 未开始 |
+| LEARNING F11 | lastVerified 逐篇记录 | D-010 | ✅ 已修复（批量更新） |
 | LEARNING F12 | 补充 10 篇自检段 | D-001 | ✅ 已修复 |
 | LEARNING F13 | learn-journal 3 篇补实操和常见坑 | D-013 | ✅ 已修复（标注为方法论实验报告） |
 | LEARNING F14 | 新增 troubleshooting/FAQ | D-007 | ✅ 已修复 |
-| LEARNING F15 | 方法论 index 增 P0 导读提示 | D-005 | 待作者决策 |
+| LEARNING F15 | 方法论 index 增 P0 导读提示 | D-005 | ✅ 已修复 |
 
 ### 附录 D：已修复项清单（需回写审计的章节）
 
