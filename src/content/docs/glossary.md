@@ -13,6 +13,8 @@ relatedContent:
   - { slug: 'claude-code/cost', label: '成本与计费' }
   - { slug: 'appendix/git-basics', label: 'Git 10 分钟速成' }
 lastVerified: '2026-06-18'
+prev: false
+next: false
 ---
 
 本教程中所有术语遵循以下规范：

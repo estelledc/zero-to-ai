@@ -6,7 +6,7 @@
 
 ## 项目定位
 
-面向编程零基础用户的中文 AI 编程工具实战教程站。目前以 Claude Code 为核心覆盖工具，后续扩展 Codex、DeepSeek TUI 等。
+面向编程零基础用户的中文 AI 编程工具实战教程站。目前以 Claude Code 为核心覆盖工具，后续根据社区反馈扩展。
 
 每篇教程遵循统一节奏：日常类比 → 技术定义 → 实际操作 → 常见坑 → 自检 → 下一步导航。
 
@@ -46,8 +46,9 @@ npm run validate-refs
 src/
 ├── content/docs/          # 所有教程内容（Markdown）
 │   ├── claude-code/       # Claude Code 教程（16 篇）
-│   ├── methodology/       # 工具无关的方法论（5 篇）
-│   └── appendix/          # 附录（Git 基础等）
+│   ├── methodology/       # 工具无关的方法论（8 篇）
+│   ├── projects/          # 实战项目（Learn Journal 等）
+│   └── appendix/          # 附录（Git 基础、常见问题排查等）
 ├── components/            # 自定义 Astro 组件
 ├── data/                  # 学习路径等结构化数据
 ├── pages/                 # 自定义页面
