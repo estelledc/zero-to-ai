@@ -57,18 +57,7 @@ function main() {
 
   // Load learning path data (directly imported, type-safe)
   const pathTutorials = buildPathTutorialsMap();
-  const pathSlugs = new Set(pathTutorials.keys());
 
-  // Build reverse map: tutorial slug → set of path slugs it belongs to
-  const tutorialToPathsMap = new Map<string, Set<string>>();
-  for (const [pathSlug, tutorials] of pathTutorials) {
-    for (const tSlug of tutorials) {
-      if (!tutorialToPathsMap.has(tSlug)) {
-        tutorialToPathsMap.set(tSlug, new Set());
-      }
-      tutorialToPathsMap.get(tSlug)!.add(pathSlug);
-    }
-  }
 
   let fileCount = 0;
   let errorCount = 0;
@@ -120,14 +109,6 @@ function main() {
           }
         }
 
-        // Validate learningPaths (should reference existing path slugs)
-        const learningPathRefs = (data.learningPaths as string[]) || [];
-        for (const ref of learningPathRefs) {
-          if (!pathSlugs.has(ref)) {
-            error(slug, `learningPaths 引用不存在: ${ref}`);
-          }
-        }
-
         // Validate relatedContent slugs
         const relatedContent = (data.relatedContent as { slug: string; label: string }[]) || [];
         for (const { slug: ref } of relatedContent) {
@@ -136,30 +117,6 @@ function main() {
           }
         }
 
-        // Bidirectional consistency: if learning-paths.ts lists this tutorial,
-        // its frontmatter should declare the corresponding learningPaths
-        const expectedPaths = tutorialToPathsMap.get(slug);
-        if (expectedPaths) {
-          for (const expectedPath of expectedPaths) {
-            if (!learningPathRefs.includes(expectedPath)) {
-              warn(
-                slug,
-                `learning-paths.ts 将此教程列入路径 "${expectedPath}"，但 frontmatter 未声明`,
-              );
-            }
-          }
-        }
-
-        // Reverse: if frontmatter declares a path, that path should list this tutorial
-        for (const ref of learningPathRefs) {
-          const pathTuts = pathTutorials.get(ref);
-          if (pathTuts && !pathTuts.includes(slug)) {
-            warn(
-              slug,
-              `frontmatter 声明属于路径 "${ref}"，但 learning-paths.ts 未将此教程列入该路径`,
-            );
-          }
-        }
       }
     }
   }

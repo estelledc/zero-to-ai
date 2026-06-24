@@ -10,7 +10,6 @@ export const collections = {
       extend: z.object({
         difficulty: z.enum(['beginner', 'intermediate', 'advanced']).optional(),
         tags: z.array(z.string()).optional(),
-        learningPaths: z.array(z.string()).optional(),
         prerequisites: z.array(z.string()).optional(),
         relatedContent: z
           .array(

@@ -27,8 +27,8 @@ const next = currentIndex < tutorials.length - 1 ? tutorials[currentIndex + 1] :
           return (
             <a
               href={slugToHref(t.slug)}
-              title={t.title}
               data-slug={t.slug}
+              data-title={t.title}
               class:list={['path-progress__dot', { 'path-progress__dot--current': isCurrent }]}
             >
               <span class="sr-only">{t.title}</span>
@@ -79,6 +79,17 @@ const next = currentIndex < tutorials.length - 1 ? tutorials[currentIndex + 1] :
       localStorage.setItem(`path:${path}:${current}`, JSON.stringify({ v: PROGRESS_VERSION }));
     }
 
+    // Inject tooltip spans from data-title (replaces native title for mobile support)
+    nav.querySelectorAll<HTMLAnchorElement>('.path-progress__dot').forEach((dot) => {
+      const title = dot.dataset.title;
+      if (title) {
+        const tip = document.createElement('span');
+        tip.className = 'path-progress__tooltip';
+        tip.textContent = title;
+        dot.appendChild(tip);
+      }
+    });
+
     // Highlight previously visited dots — only if version matches
     nav.querySelectorAll<HTMLAnchorElement>('.path-progress__dot').forEach((dot) => {
       const slug = dot.dataset.slug;
@@ -121,6 +132,32 @@ const next = currentIndex < tutorials.length - 1 ? tutorials[currentIndex + 1] :
     border-radius: 50%;
     background: transparent;
     transition: all 0.2s;
+    position: relative;
+  }
+
+  /* Tooltip: visible on hover (desktop) and focus/active (mobile tap) */
+  .path-progress__dot .path-progress__tooltip {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 0.375rem);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--sl-color-bg-nav);
+    color: var(--sl-color-text);
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    z-index: 10;
+    pointer-events: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  }
+
+  .path-progress__dot:hover .path-progress__tooltip,
+  .path-progress__dot:focus .path-progress__tooltip,
+  .path-progress__dot:active .path-progress__tooltip {
+    display: block;
   }
 
   .path-progress__dot::after {
@@ -158,9 +195,17 @@ const next = currentIndex < tutorials.length - 1 ? tutorials[currentIndex + 1] :
     color: var(--sl-color-text-accent);
     text-decoration: none;
     max-width: 40%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  }
+
+  @media (max-width: 40rem) {
+    .path-progress__prev,
+    .path-progress__next {
+      max-width: 100%;
+    }
+
+    .path-progress__nav {
+      flex-wrap: wrap;
+    }
   }
 
   .path-progress__prev:hover,

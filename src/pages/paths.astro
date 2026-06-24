@@ -35,9 +35,9 @@ const pathsWithTutorialInfo = learningPaths.map((path) => ({
           适合：{path.targetAudience} &middot; 预估时间：{path.timeRange}
         </p>
 
-        <ol class="path-card__list">
+        <ol class="path-card__list" data-path-slug={path.slug}>
           {path.tutorialDetails.map((t) => (
-            <li>
+            <li data-tutorial-slug={t.slug}>
               <a href={slugToHref(t.slug)}>{t.title}</a>
               {t.difficulty && <DifficultyBadge difficulty={t.difficulty} />}
             </li>
@@ -86,4 +86,56 @@ const pathsWithTutorialInfo = learningPaths.map((path) => ({
     margin-top: 0.75rem;
     font-weight: 600;
   }
+  .path-card__list li[data-visited] a::before {
+    content: '\2713\00a0';
+    color: var(--sl-color-green-high);
+  }
+
+  .path-card__list li[data-visited] {
+    opacity: 0.75;
+  }
+
+  .path-card__progress {
+    font-size: 0.8125rem;
+    color: var(--sl-color-gray-2);
+    margin-top: 0.25rem;
+  }
 </style>
+
+<script>
+  const PROGRESS_VERSION = 1;
+
+  document.querySelectorAll<HTMLOListElement>('.path-card__list[data-path-slug]').forEach((list) => {
+    const pathSlug = list.dataset.pathSlug;
+    if (!pathSlug) return;
+
+    let visited = 0;
+    let total = 0;
+
+    list.querySelectorAll<HTMLLIElement>('li[data-tutorial-slug]').forEach((li) => {
+      total++;
+      const slug = li.dataset.tutorialSlug;
+      if (!slug) return;
+
+      const raw = localStorage.getItem(`path:${pathSlug}:${slug}`);
+      if (!raw) return;
+
+      try {
+        const data = JSON.parse(raw);
+        if (data.v === PROGRESS_VERSION) {
+          li.setAttribute('data-visited', '');
+          visited++;
+        }
+      } catch {
+        // stale entry
+      }
+    });
+
+    if (visited > 0) {
+      const info = document.createElement('p');
+      info.className = 'path-card__progress';
+      info.textContent = `已完成 ${visited} / ${total} 篇`;
+      list.after(info);
+    }
+  });
+</script>

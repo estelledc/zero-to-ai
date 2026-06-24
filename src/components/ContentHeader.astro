@@ -5,6 +5,7 @@
  */
 import DifficultyBadge from './DifficultyBadge.astro';
 import PathProgress from './PathProgress.astro';
+import PrerequisitesBar from './PrerequisitesBar.astro';
 import { learningPaths } from '../data/learning-paths';
 import { getCollection } from 'astro:content';
 import { base } from '../utils/base-url';
@@ -63,6 +64,8 @@ const progressTutorials = primaryPath
           currentSlug={pageId}
         />
       )}
+
+      <PrerequisitesBar />
     </div>
   )
 }
