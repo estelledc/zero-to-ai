@@ -105,37 +105,39 @@ const pathsWithTutorialInfo = learningPaths.map((path) => ({
 <script>
   const PROGRESS_VERSION = 1;
 
-  document.querySelectorAll<HTMLOListElement>('.path-card__list[data-path-slug]').forEach((list) => {
-    const pathSlug = list.dataset.pathSlug;
-    if (!pathSlug) return;
+  document
+    .querySelectorAll<HTMLOListElement>('.path-card__list[data-path-slug]')
+    .forEach((list) => {
+      const pathSlug = list.dataset.pathSlug;
+      if (!pathSlug) return;
 
-    let visited = 0;
-    let total = 0;
+      let visited = 0;
+      let total = 0;
 
-    list.querySelectorAll<HTMLLIElement>('li[data-tutorial-slug]').forEach((li) => {
-      total++;
-      const slug = li.dataset.tutorialSlug;
-      if (!slug) return;
+      list.querySelectorAll<HTMLLIElement>('li[data-tutorial-slug]').forEach((li) => {
+        total++;
+        const slug = li.dataset.tutorialSlug;
+        if (!slug) return;
 
-      const raw = localStorage.getItem(`path:${pathSlug}:${slug}`);
-      if (!raw) return;
+        const raw = localStorage.getItem(`path:${pathSlug}:${slug}`);
+        if (!raw) return;
 
-      try {
-        const data = JSON.parse(raw);
-        if (data.v === PROGRESS_VERSION) {
-          li.setAttribute('data-visited', '');
-          visited++;
+        try {
+          const data = JSON.parse(raw);
+          if (data.v === PROGRESS_VERSION) {
+            li.setAttribute('data-visited', '');
+            visited++;
+          }
+        } catch {
+          // stale entry
         }
-      } catch {
-        // stale entry
+      });
+
+      if (visited > 0) {
+        const info = document.createElement('p');
+        info.className = 'path-card__progress';
+        info.textContent = `已完成 ${visited} / ${total} 篇`;
+        list.after(info);
       }
     });
-
-    if (visited > 0) {
-      const info = document.createElement('p');
-      info.className = 'path-card__progress';
-      info.textContent = `已完成 ${visited} / ${total} 篇`;
-      list.after(info);
-    }
-  });
 </script>

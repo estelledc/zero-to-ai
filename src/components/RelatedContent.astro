@@ -6,8 +6,7 @@
 import { slugToHref } from '../utils/base-url';
 
 const entry = Astro.locals.starlightRoute.entry;
-const relatedContent =
-  (entry.data.relatedContent as { slug: string; label: string }[]) || [];
+const relatedContent = (entry.data.relatedContent as { slug: string; label: string }[]) || [];
 ---
 
 {

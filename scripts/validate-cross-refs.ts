@@ -58,7 +58,6 @@ function main() {
   // Load learning path data (directly imported, type-safe)
   const pathTutorials = buildPathTutorialsMap();
 
-
   let fileCount = 0;
   let errorCount = 0;
   let warnCount = 0;
@@ -116,7 +115,6 @@ function main() {
             error(slug, `relatedContent 引用不存在: ${ref}`);
           }
         }
-
       }
     }
   }

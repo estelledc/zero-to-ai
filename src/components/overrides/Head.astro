@@ -16,6 +16,4 @@ const synonyms = synonymMap[pageId] ?? [];
 ---
 
 {head.map(({ tag: Tag, attrs, content }) => <Tag {...attrs} set:html={content} />)}
-{synonyms.length > 0 && (
-  <meta data-pagefind-meta={`synonyms:${synonyms.join(' ')}`} />
-)}
+{synonyms.length > 0 && <meta data-pagefind-meta={`synonyms:${synonyms.join(' ')}`} />}
