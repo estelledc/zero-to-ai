@@ -3,8 +3,6 @@ title: 10 分钟上手 Claude Code
 description: 安装 Claude Code、输入第一句 prompt、理解对话模式和基本操作
 tags: [claude-code]
 difficulty: beginner
-learningPaths:
-  - ai-coding-zero
 prerequisites:
   - methodology/basics
 relatedContent:
@@ -15,7 +13,7 @@ relatedContent:
   - { slug: 'appendix/git-basics', label: 'Git 10 分钟速成' }
   - { slug: 'claude-code/agnes-free-vibe-coding', label: '零成本 vibe coding' }
   - { slug: 'claude-code/first-page', label: '你的第一个 AI 页面' }
-lastVerified: '2026-06-18'
+lastVerified: '2026-06-24'
 toolVersion: 'Claude Code CLI v2.1'
 prev: false
 next: false

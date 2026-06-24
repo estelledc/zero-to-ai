@@ -3,9 +3,6 @@ title: Skill 体系
 description: 创建和使用可复用技能 — 把常见的提示词封装成 Skill，下次直接调用
 tags: [claude-code]
 difficulty: intermediate
-learningPaths:
-  - ai-coding-zero
-  - advanced-custom
 prerequisites:
   - claude-code/config
 relatedContent:
@@ -17,7 +14,7 @@ relatedContent:
   - { slug: 'methodology/claude-md-philosophy', label: 'CLAUDE.md 编写哲学' }
   - { slug: 'methodology/prompt-anatomy', label: '系统提示解剖学' }
   - { slug: 'methodology/skill-engineering', label: 'Skill 工程化设计' }
-lastVerified: '2026-06-18'
+lastVerified: '2026-06-24'
 toolVersion: 'Claude Code CLI v2.1'
 ---
 

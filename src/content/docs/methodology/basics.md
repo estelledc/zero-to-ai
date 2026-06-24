@@ -3,9 +3,7 @@ title: 通用环境基础设施
 description: 终端、PATH、包管理器、环境变量 — 一次性讲清楚，不再每个工具教程里重复
 tags: [methodology]
 difficulty: beginner
-learningPaths:
-  - ai-coding-zero
-lastVerified: '2026-06-18'
+lastVerified: '2026-06-24'
 prev: false
 next: false
 prerequisites: []

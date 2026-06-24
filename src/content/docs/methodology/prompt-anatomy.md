@@ -3,9 +3,7 @@ title: 系统提示解剖学
 description: 从泄露的真实 AI 系统提示中，学习工业级的指令设计模式
 tags: [methodology]
 difficulty: advanced
-learningPaths:
-  - advanced-custom
-lastVerified: '2026-06-18'
+lastVerified: '2026-06-24'
 prerequisites:
   - methodology/claude-md-philosophy
   - claude-code/skills

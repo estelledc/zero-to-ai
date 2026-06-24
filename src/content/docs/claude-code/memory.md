@@ -3,10 +3,6 @@ title: 记忆系统
 description: Claude Code 的长期记忆 — 让 AI 记住你的偏好、项目约定和重要事实
 tags: [claude-code]
 difficulty: intermediate
-learningPaths:
-  - ai-coding-zero
-  - daily-efficiency
-  - advanced-custom
 prerequisites:
   - claude-code/config
 relatedContent:
@@ -15,7 +11,7 @@ relatedContent:
   - { slug: 'claude-code/context', label: '上下文窗口管理' }
   - { slug: 'claude-code/dotfiles', label: '配置即代码' }
   - { slug: 'methodology/workflow-design', label: '工作流编排思路' }
-lastVerified: '2026-06-18'
+lastVerified: '2026-06-24'
 toolVersion: 'Claude Code CLI v2.1'
 ---
 

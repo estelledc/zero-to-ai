@@ -3,8 +3,6 @@ title: 术语对照表
 description: Zero to AI 教程中使用的术语及其中英文对照
 tags: [reference]
 difficulty: beginner
-learningPaths:
-  - ai-coding-zero
 prerequisites: []
 relatedContent:
   - { slug: 'claude-code/index', label: 'Claude Code 教程总览' }
@@ -12,7 +10,7 @@ relatedContent:
   - { slug: 'claude-code/quickstart', label: '10 分钟上手 Claude Code' }
   - { slug: 'claude-code/cost', label: '成本与计费' }
   - { slug: 'appendix/git-basics', label: 'Git 10 分钟速成' }
-lastVerified: '2026-06-18'
+lastVerified: '2026-06-24'
 prev: false
 next: false
 ---

@@ -3,8 +3,6 @@ title: 配置即代码
 description: 把 Claude Code 配置纳入版本管理 — symlink 架构、新机初始化、模板与凭证安全
 tags: [claude-code]
 difficulty: advanced
-learningPaths:
-  - advanced-custom
 prerequisites:
   - claude-code/config
   - claude-code/hooks
@@ -15,7 +13,7 @@ relatedContent:
   - { slug: 'claude-code/config', label: '核心配置' }
   - { slug: 'claude-code/hooks', label: 'Hook 系统' }
   - { slug: 'claude-code/memory', label: '记忆系统' }
-lastVerified: '2026-06-18'
+lastVerified: '2026-06-24'
 toolVersion: 'Claude Code CLI v2.1'
 ---
 

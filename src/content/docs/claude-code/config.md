@@ -3,9 +3,6 @@ title: 核心配置
 description: CLAUDE.md、settings.json 和 Hook 系统 — Claude Code 的灵魂配置
 tags: [claude-code]
 difficulty: intermediate
-learningPaths:
-  - ai-coding-zero
-  - advanced-custom
 prerequisites:
   - claude-code/quickstart
 relatedContent:
@@ -17,7 +14,7 @@ relatedContent:
   - { slug: 'claude-code/cost', label: '成本与计费' }
   - { slug: 'claude-code/mcp', label: 'MCP 集成' }
   - { slug: 'methodology/memory-system-design', label: '记忆系统设计原则' }
-lastVerified: '2026-06-18'
+lastVerified: '2026-06-24'
 toolVersion: 'Claude Code CLI v2.1'
 ---
 

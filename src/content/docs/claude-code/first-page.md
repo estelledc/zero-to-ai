@@ -3,11 +3,10 @@ title: 你的第一个 AI 页面
 description: 用 Claude Code 从零构建一个可打开、可截图、可展示的个人介绍页面 — 零基础路径的交付时刻
 tags: [claude-code]
 difficulty: beginner
-learningPaths:
-  - ai-coding-zero
 prerequisites:
   - claude-code/quickstart
   - methodology/basics
+  - claude-code/agnes-free-vibe-coding
 relatedContent:
   - { slug: 'claude-code/quickstart', label: '10 分钟上手' }
   - { slug: 'claude-code/verify', label: '验证方法论' }

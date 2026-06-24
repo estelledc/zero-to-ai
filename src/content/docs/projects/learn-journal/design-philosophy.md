@@ -3,15 +3,13 @@ title: Learn Journal 设计哲学
 description: 方法论实验报告 — 双层架构、kill switch、三种终态的设计决策及其代价
 tags: [projects, learn-journal, methodology]
 difficulty: advanced
-learningPaths:
-  - advanced-custom
 prerequisites:
   - projects/learn-journal/index
 relatedContent:
   - { slug: 'methodology/claude-md-philosophy', label: 'CLAUDE.md 编写哲学' }
   - { slug: 'methodology/workflow-design', label: '工作流编排思路' }
   - { slug: 'projects/learn-journal/index', label: 'Learn Journal 实战项目' }
-lastVerified: '2026-06-18'
+lastVerified: '2026-06-24'
 ---
 
 ## 这篇讲什么

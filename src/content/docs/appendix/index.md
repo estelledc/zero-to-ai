@@ -9,7 +9,7 @@ relatedContent:
   - { slug: 'appendix/git-basics', label: 'Git 10 分钟速成' }
   - { slug: 'methodology/basics', label: '通用环境基础设施' }
   - { slug: 'glossary', label: '术语对照表' }
-lastVerified: '2026-06-18'
+lastVerified: '2026-06-24'
 ---
 
 这里收录的是教程正文之前需要掌握的零基础预备知识。

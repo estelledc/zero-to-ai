@@ -3,8 +3,6 @@ title: 子 Agent 协作
 description: 让 Claude Code 派活给多个子 Agent 并行工作 — 什么时候用、怎么写任务、怎么验收
 tags: [claude-code]
 difficulty: advanced
-learningPaths:
-  - advanced-custom
 prerequisites:
   - claude-code/skills
   - claude-code/hooks
@@ -15,7 +13,7 @@ relatedContent:
   - { slug: 'claude-code/verify', label: '验证方法论' }
   - { slug: 'claude-code/hooks', label: 'Hook 系统' }
   - { slug: 'methodology/skill-engineering', label: 'Skill 工程化设计' }
-lastVerified: '2026-06-18'
+lastVerified: '2026-06-24'
 toolVersion: 'Claude Code CLI v2.1'
 ---
 

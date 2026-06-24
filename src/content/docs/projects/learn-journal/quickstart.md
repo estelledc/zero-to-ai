@@ -3,11 +3,9 @@ title: Learn Journal 快速上手
 description: 方法论实验报告 — 从下载到第一次使用的完整指南
 tags: [projects, learn-journal]
 difficulty: beginner
-learningPaths:
-  - daily-efficiency
 prerequisites:
   - projects/learn-journal/index
-lastVerified: '2026-06-18'
+lastVerified: '2026-06-24'
 relatedContent:
   - { slug: 'methodology/skill-pack', label: '学习日志 Skill Pack' }
   - { slug: 'projects/learn-journal/how-it-works', label: '运作原理' }

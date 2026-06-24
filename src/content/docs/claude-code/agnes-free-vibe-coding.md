@@ -3,8 +3,6 @@ title: 零成本 vibe coding — Claude Code + Agnes 免费模型
 description: 用 Claude Code 免费写代码。注册 Agnes AI 获取免费 API Key，2 行配置把 Claude Code 的后端切到 Agnes，零费用开始 vibe coding。
 tags: [claude-code, agnes-ai]
 difficulty: beginner
-learningPaths:
-  - ai-coding-zero
 prerequisites:
   - claude-code/quickstart
 relatedContent:
@@ -13,7 +11,7 @@ relatedContent:
   - { slug: 'claude-code/verify', label: '验证方法论' }
   - { slug: 'claude-code/quickstart', label: '10 分钟上手' }
   - { slug: 'claude-code/context', label: '上下文窗口管理' }
-lastVerified: '2026-06-18'
+lastVerified: '2026-06-24'
 toolVersion: 'Claude Code CLI v2.1'
 prev: false
 next: false

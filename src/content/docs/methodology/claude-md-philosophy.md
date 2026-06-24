@@ -3,9 +3,7 @@ title: CLAUDE.md 编写哲学
 description: 为什么 CLAUDE.md 是 Claude Code 的核心、怎么写出好的项目指令
 tags: [methodology]
 difficulty: intermediate
-learningPaths:
-  - advanced-custom
-lastVerified: '2026-06-18'
+lastVerified: '2026-06-24'
 prerequisites:
   - methodology/basics
   - claude-code/config

@@ -8,7 +8,7 @@ relatedContent:
   - { slug: 'projects/learn-journal/index', label: 'Learn Journal' }
   - { slug: 'claude-code/index', label: 'Claude Code 教程总览' }
 next: false
-lastVerified: '2026-06-18'
+lastVerified: '2026-06-24'
 ---
 
 前面的教程教你怎么用工具、怎么设计方法论。这个板块展示的是：**把工具和方法论结合起来，能做出什么真实的东西。**

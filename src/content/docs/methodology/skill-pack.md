@@ -3,9 +3,6 @@ title: 学习日志 Skill Pack
 description: 一键部署的结构化学习系统 — 让任何 AI 编程助手变成你的学习伙伴
 tags: [methodology, tool]
 difficulty: intermediate
-learningPaths:
-  - daily-efficiency
-  - advanced-custom
 prerequisites:
   - methodology/learning-management
 relatedContent:
@@ -15,7 +12,7 @@ relatedContent:
   - { slug: 'projects/learn-journal/quickstart', label: 'Learn Journal 快速开始' }
   - { slug: 'projects/learn-journal/design-philosophy', label: 'Learn Journal 设计哲学' }
   - { slug: 'methodology/skill-engineering', label: 'Skill 工程化设计' }
-lastVerified: '2026-06-18'
+lastVerified: '2026-06-24'
 ---
 
 ## 这是什么

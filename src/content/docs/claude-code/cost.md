@@ -3,10 +3,6 @@ title: 成本与计费
 description: Claude Code 花多少钱、为什么值、怎么控制 — token 模型、三种模型对比、实际成本拆解
 tags: [claude-code]
 difficulty: beginner
-learningPaths:
-  - ai-coding-zero
-  - daily-efficiency
-  - advanced-custom
 prerequisites:
   - claude-code/quickstart
 relatedContent:
@@ -16,7 +12,7 @@ relatedContent:
   - { slug: 'claude-code/config', label: '核心配置' }
   - { slug: 'claude-code/quickstart', label: '10 分钟上手' }
   - { slug: 'glossary', label: '术语对照表' }
-lastVerified: '2026-06-18'
+lastVerified: '2026-06-24'
 toolVersion: 'Claude Code CLI v2.1'
 ---
 

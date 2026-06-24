@@ -3,8 +3,6 @@ title: 写一份项目指令文件
 description: 把你在前面学到的配置、上下文、Skill、记忆系统全串起来，为自己的项目写一份 CLAUDE.md — 零基础路径的第二个实操交付
 tags: [claude-code]
 difficulty: beginner
-learningPaths:
-  - ai-coding-zero
 prerequisites:
   - claude-code/first-page
   - claude-code/skills

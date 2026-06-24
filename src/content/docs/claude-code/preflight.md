@@ -3,14 +3,12 @@ title: 开始之前
 description: 几分钟确认这个教程适不适合你 — 自评估、心理模型、成本预期
 tags: [claude-code]
 difficulty: beginner
-learningPaths:
-  - ai-coding-zero
 prerequisites: []
 relatedContent:
   - { slug: 'claude-code/cost', label: '成本与计费' }
   - { slug: 'claude-code/quickstart', label: '10 分钟上手' }
   - { slug: 'methodology/basics', label: '通用环境基础设施' }
-lastVerified: '2026-06-18'
+lastVerified: '2026-06-24'
 toolVersion: 'Claude Code CLI v2.1'
 prev: false
 next: false

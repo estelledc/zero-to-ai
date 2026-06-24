@@ -3,14 +3,12 @@ title: Learn Journal
 description: 一个方法论实验 — 验证"AI 辅助结构化记录"是否比"什么都不做"能产生更好的学习效果
 tags: [projects, learn-journal]
 difficulty: beginner
-learningPaths:
-  - daily-efficiency
 prerequisites: []
 relatedContent:
   - { slug: 'methodology/learning-management', label: '学习管理系统（理论基础）' }
   - { slug: 'methodology/skill-pack', label: '下载 Skill Pack' }
   - { slug: 'claude-code/daily-rhythm', label: '日常节奏' }
-lastVerified: '2026-06-18'
+lastVerified: '2026-06-24'
 ---
 
 ## 这是什么

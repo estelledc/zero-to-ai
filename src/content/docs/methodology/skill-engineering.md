@@ -3,9 +3,7 @@ title: Skill 工程化设计
 description: 从开源 Skill 项目中学习如何把提示词升级为可安装、可版本化的工程资产
 tags: [methodology]
 difficulty: advanced
-learningPaths:
-  - advanced-custom
-lastVerified: '2026-06-18'
+lastVerified: '2026-06-24'
 prerequisites:
   - claude-code/skills
   - methodology/prompt-anatomy

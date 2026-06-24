@@ -3,11 +3,9 @@ title: MCP 集成
 description: 让 Claude Code 连接外部工具 — MCP 是什么、适合谁、以及关键的上下文成本警告
 tags: [claude-code]
 difficulty: advanced
-learningPaths:
-  - advanced-custom
 prerequisites:
   - claude-code/quickstart
-lastVerified: '2026-06-18'
+lastVerified: '2026-06-24'
 toolVersion: 'Claude Code CLI v2.1'
 relatedContent:
   - { slug: 'methodology/workflow-design', label: '工作流编排思路' }

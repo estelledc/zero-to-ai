@@ -3,9 +3,6 @@ title: 学习管理系统
 description: 用 Claude Code 搭建自己的知识管理系统 — 工件选择、笔记管线、文件系统哲学
 tags: [methodology]
 difficulty: intermediate
-learningPaths:
-  - daily-efficiency
-  - advanced-custom
 prerequisites:
   - claude-code/daily-rhythm
   - methodology/workflow-design
@@ -15,7 +12,7 @@ relatedContent:
   - { slug: 'methodology/skill-pack', label: 'Skill Pack 技能包' }
   - { slug: 'projects/learn-journal/index', label: 'Learn Journal 实战项目' }
   - { slug: 'methodology/workflow-design', label: '工作流编排思路' }
-lastVerified: '2026-06-18'
+lastVerified: '2026-06-24'
 ---
 
 > 如果你已经用过 Claude Code 一周以上，可以直接读本文——不必严格按前置要求的顺序。

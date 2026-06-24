@@ -3,10 +3,7 @@ title: 工作流编排思路
 description: 怎么把多个 AI 工具和 Skill 组织成高效的工作流
 tags: [methodology]
 difficulty: intermediate
-learningPaths:
-  - daily-efficiency
-  - advanced-custom
-lastVerified: '2026-06-18'
+lastVerified: '2026-06-24'
 prerequisites:
   - methodology/basics
   - claude-code/skills

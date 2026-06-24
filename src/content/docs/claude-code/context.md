@@ -3,8 +3,6 @@ title: 上下文窗口管理
 description: 桌面隐喻教你管理 Claude Code 的记忆空间 — /clear、/compact、/rewind 实战
 tags: [claude-code]
 difficulty: intermediate
-learningPaths:
-  - ai-coding-zero
 prerequisites:
   - claude-code/quickstart
 relatedContent:
@@ -13,7 +11,7 @@ relatedContent:
   - { slug: 'claude-code/cost', label: '成本与计费' }
   - { slug: 'claude-code/memory', label: '记忆系统' }
   - { slug: 'claude-code/quickstart', label: '10 分钟上手' }
-lastVerified: '2026-06-18'
+lastVerified: '2026-06-24'
 toolVersion: 'Claude Code CLI v2.1'
 prev: false
 next: false

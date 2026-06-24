@@ -3,8 +3,6 @@ title: Hook 系统
 description: 让 Claude Code 自动触发检查 — Hook 的 4 种类型、分层防御思维、以及你的第一个 Hook 脚本
 tags: [claude-code]
 difficulty: advanced
-learningPaths:
-  - advanced-custom
 prerequisites:
   - claude-code/config
   - claude-code/skills
@@ -15,7 +13,7 @@ relatedContent:
   - { slug: 'claude-code/dotfiles', label: '配置即代码' }
   - { slug: 'claude-code/memory', label: '记忆系统' }
   - { slug: 'claude-code/daily-rhythm', label: '日常节奏' }
-lastVerified: '2026-06-18'
+lastVerified: '2026-06-24'
 toolVersion: 'Claude Code CLI v2.1'
 ---
 

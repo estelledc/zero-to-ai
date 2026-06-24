@@ -3,9 +3,6 @@ title: 验证方法论
 description: 让 Claude 检查 Claude — 三层验证确保 AI 生成的代码真的能用
 tags: [claude-code]
 difficulty: intermediate
-learningPaths:
-  - ai-coding-zero
-  - advanced-custom
 prerequisites:
   - claude-code/quickstart
 relatedContent:
@@ -16,7 +13,7 @@ relatedContent:
   - { slug: 'appendix/git-basics', label: 'Git 10 分钟速成' }
   - { slug: 'claude-code/skills', label: 'Skill 体系' }
   - { slug: 'methodology/prompt-anatomy', label: '系统提示解剖学' }
-lastVerified: '2026-06-18'
+lastVerified: '2026-06-24'
 toolVersion: 'Claude Code CLI v2.1'
 ---
 

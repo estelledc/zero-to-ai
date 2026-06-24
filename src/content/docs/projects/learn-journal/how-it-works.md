@@ -3,8 +3,6 @@ title: Learn Journal 是怎么工作的
 description: 方法论实验报告 — 核心循环、六步讲解、自然复用、反代写的方法论详解
 tags: [projects, learn-journal, methodology]
 difficulty: intermediate
-learningPaths:
-  - daily-efficiency
 prerequisites:
   - projects/learn-journal/index
 relatedContent:
@@ -12,7 +10,7 @@ relatedContent:
   - { slug: 'methodology/memory-system-design', label: '记忆系统设计' }
   - { slug: 'projects/learn-journal/quickstart', label: '快速开始' }
   - { slug: 'projects/learn-journal/design-philosophy', label: 'Learn Journal 设计哲学' }
-lastVerified: '2026-06-18'
+lastVerified: '2026-06-24'
 ---
 
 ## 类比：健身教练 vs 健身房会员卡
