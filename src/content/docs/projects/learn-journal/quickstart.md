@@ -1,6 +1,6 @@
 ---
 title: Learn Journal 快速上手
-description: 从下载到第一次使用的完整指南
+description: 方法论实验报告 — 从下载到第一次使用的完整指南
 tags: [projects, learn-journal]
 difficulty: beginner
 learningPaths:

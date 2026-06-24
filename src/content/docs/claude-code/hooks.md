@@ -16,7 +16,7 @@ relatedContent:
   - { slug: 'claude-code/memory', label: '记忆系统' }
   - { slug: 'claude-code/daily-rhythm', label: '日常节奏' }
 lastVerified: '2026-06-18'
-toolVersion: 'Claude Code CLI (latest)'
+toolVersion: 'Claude Code CLI v2.1'
 ---
 
 ## 这是什么

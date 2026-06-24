@@ -16,7 +16,7 @@ relatedContent:
   - { slug: 'claude-code/hooks', label: 'Hook 系统' }
   - { slug: 'methodology/skill-engineering', label: 'Skill 工程化设计' }
 lastVerified: '2026-06-18'
-toolVersion: 'Claude Code CLI (latest)'
+toolVersion: 'Claude Code CLI v2.1'
 ---
 
 ## 这是什么

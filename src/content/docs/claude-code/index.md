@@ -9,9 +9,10 @@ prerequisites: []
 relatedContent:
   - { slug: 'methodology/basics', label: '通用环境基础设施' }
   - { slug: 'glossary', label: '术语对照表' }
+prev: false
 next: false
 lastVerified: '2026-06-18'
-toolVersion: 'Claude Code CLI (latest)'
+toolVersion: 'Claude Code CLI v2.1'
 ---
 
 ## Claude Code 是什么

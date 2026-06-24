@@ -14,7 +14,9 @@ relatedContent:
   - { slug: 'claude-code/memory', label: '记忆系统' }
   - { slug: 'claude-code/quickstart', label: '10 分钟上手' }
 lastVerified: '2026-06-18'
-toolVersion: 'Claude Code CLI (latest)'
+toolVersion: 'Claude Code CLI v2.1'
+prev: false
+next: false
 ---
 
 ## 这是什么

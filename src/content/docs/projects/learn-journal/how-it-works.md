@@ -1,6 +1,6 @@
 ---
 title: Learn Journal 是怎么工作的
-description: 核心循环、六步讲解、自然复用、反代写 — 背后的方法论详解
+description: 方法论实验报告 — 核心循环、六步讲解、自然复用、反代写的方法论详解
 tags: [projects, learn-journal, methodology]
 difficulty: intermediate
 learningPaths:

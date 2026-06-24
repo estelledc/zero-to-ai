@@ -18,7 +18,7 @@ relatedContent:
   - { slug: 'claude-code/mcp', label: 'MCP 集成' }
   - { slug: 'methodology/memory-system-design', label: '记忆系统设计原则' }
 lastVerified: '2026-06-18'
-toolVersion: 'Claude Code CLI (latest)'
+toolVersion: 'Claude Code CLI v2.1'
 ---
 
 ## 这是什么

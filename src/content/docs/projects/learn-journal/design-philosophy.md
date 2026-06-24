@@ -1,6 +1,6 @@
 ---
 title: Learn Journal 设计哲学
-description: 双层架构、kill switch、三种终态 — 设计决策及其代价
+description: 方法论实验报告 — 双层架构、kill switch、三种终态的设计决策及其代价
 tags: [projects, learn-journal, methodology]
 difficulty: advanced
 learningPaths:

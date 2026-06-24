@@ -18,7 +18,7 @@ relatedContent:
   - { slug: 'methodology/prompt-anatomy', label: '系统提示解剖学' }
   - { slug: 'methodology/skill-engineering', label: 'Skill 工程化设计' }
 lastVerified: '2026-06-18'
-toolVersion: 'Claude Code CLI (latest)'
+toolVersion: 'Claude Code CLI v2.1'
 ---
 
 ## 这是什么

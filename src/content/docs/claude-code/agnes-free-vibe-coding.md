@@ -14,7 +14,9 @@ relatedContent:
   - { slug: 'claude-code/quickstart', label: '10 分钟上手' }
   - { slug: 'claude-code/context', label: '上下文窗口管理' }
 lastVerified: '2026-06-18'
-toolVersion: 'Claude Code CLI (latest)'
+toolVersion: 'Claude Code CLI v2.1'
+prev: false
+next: false
 ---
 
 ## 这是什么
@@ -153,6 +155,14 @@ export ANTHROPIC_AUTH_TOKEN="你的Agnes API Key"
 3. `curl -s https://apihub.agnes-ai.com/v1/messages -H "x-api-key: $ANTHROPIC_AUTH_TOKEN" -H "anthropic-version: 2023-06-01" -H "Content-Type: application/json" -d '{"model":"agnes-2.0-flash","max_tokens":10,"messages":[{"role":"user","content":"Say OK"}]}'` — 直接测试 API 是否连通。
 4. 如果 API 返回 401 — key 有问题，回 Agnes 平台重新生成。
 5. 如果 API 返回 200 但 Claude Code 报错 — 检查模型名是否拼写正确。
+
+## Checkpoint
+
+确认你的免费配置已经生效：
+
+1. 启动 Claude Code 后问 "What model are you using?"，回复中包含 `agnes`
+2. 你能让 Claude 创建一个文件（比如 `帮我创建一个 hello.html`）
+3. 你知道怎么在 Agnes（免费）和 Anthropic（付费）之间切换
 
 ## 下一步
 

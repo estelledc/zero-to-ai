@@ -7,6 +7,7 @@ learningPaths:
   - ai-coding-zero
 prerequisites:
   - claude-code/quickstart
+  - methodology/basics
 relatedContent:
   - { slug: 'claude-code/quickstart', label: '10 分钟上手' }
   - { slug: 'claude-code/verify', label: '验证方法论' }
@@ -15,7 +16,9 @@ relatedContent:
   - { slug: 'appendix/git-basics', label: 'Git 10 分钟速成' }
   - { slug: 'claude-code/context', label: '上下文窗口管理' }
 lastVerified: '2026-06-24'
-toolVersion: 'Claude Code CLI (latest)'
+toolVersion: 'Claude Code CLI v2.1'
+prev: false
+next: false
 ---
 
 ## 这一页解决什么问题
@@ -130,6 +133,17 @@ git commit -m "我的第一个 AI 页面"
 **做第二个页面**：`/clear` 清空对话，在同一个文件夹里做一个完全不同的页面——比如一个简单的计算器或待办清单。
 
 **继续学习路径**：回到零基础路径，学[成本控制](/claude-code/cost/)、[配置](/claude-code/config/)等进阶内容。工具知识和实战是交替进行的——你已经有了实战的基础。
+
+## Checkpoint
+
+确认你的第一个 AI 页面已完成：
+
+1. 你有一个 `index.html` 文件，双击能在浏览器打开
+2. 页面上有你的名字和至少一段自我介绍
+3. 你至少让 Claude 修改过一次页面（体验了"说需求 → AI 改 → 看效果"的循环）
+4. 如果用了 Git，你已经 `git commit` 保存了成果
+
+全部通过？这是你从"用过 AI"到"用 AI 做出东西"的分界线。
 
 ## 常见坑
 

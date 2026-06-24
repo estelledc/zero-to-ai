@@ -6,6 +6,8 @@ difficulty: beginner
 learningPaths:
   - ai-coding-zero
 lastVerified: '2026-06-18'
+prev: false
+next: false
 prerequisites: []
 relatedContent:
   - { slug: 'claude-code/quickstart', label: '10 分钟上手 Claude Code' }
@@ -103,6 +105,17 @@ echo $HOME
 - **`command not found`**：这个命令没有安装，或者它的路径不在 PATH 里。先确认已安装：`which <命令名>`。若安装了仍提示 command not found，大概率 PATH 未包含该安装路径。
 - **`Permission denied`**：没有权限。加 `sudo` 尝试（macOS/Linux），或检查文件权限：`chmod +x <文件名>`。
 - **安装完软件后终端不识别**：关掉终端重新打开。新装的软件注册到 PATH 需要重启 shell 才能生效。
+
+## Checkpoint
+
+确认你的环境已就绪：
+
+1. 打开终端，输入 `echo "Hello"` 能看到输出
+2. 输入 `node --version` 能看到版本号（没有？macOS 运行 `brew install node`，Windows 运行 `winget install OpenJS.NodeJS.LTS`）
+3. 输入 `npm --version` 能看到版本号
+4. 你知道 `pwd` 是干什么的（打印当前目录）
+
+全部通过？环境就绪，可以继续了。
 
 ## 下一步
 

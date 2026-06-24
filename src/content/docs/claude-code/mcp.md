@@ -8,7 +8,7 @@ learningPaths:
 prerequisites:
   - claude-code/quickstart
 lastVerified: '2026-06-18'
-toolVersion: 'Claude Code CLI (latest)'
+toolVersion: 'Claude Code CLI v2.1'
 relatedContent:
   - { slug: 'methodology/workflow-design', label: '工作流编排思路' }
   - { slug: 'claude-code/subagents', label: '子 Agent 协作' }

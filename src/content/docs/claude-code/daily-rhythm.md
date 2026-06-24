@@ -16,7 +16,7 @@ relatedContent:
   - { slug: 'methodology/skill-pack', label: 'Skill Pack 技能包' }
   - { slug: 'projects/learn-journal/index', label: 'Learn Journal 项目' }
 lastVerified: '2026-06-18'
-toolVersion: 'Claude Code CLI (latest)'
+toolVersion: 'Claude Code CLI v2.1'
 ---
 
 ## 这个页面回答什么问题
