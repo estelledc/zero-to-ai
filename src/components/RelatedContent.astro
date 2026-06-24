@@ -1,0 +1,62 @@
+---
+/**
+ * RelatedContent — renders "延伸阅读" links at the bottom of pages.
+ * Reads relatedContent from frontmatter and renders as styled link list.
+ */
+import { slugToHref } from '../utils/base-url';
+
+const entry = Astro.locals.starlightRoute.entry;
+const relatedContent =
+  (entry.data.relatedContent as { slug: string; label: string }[]) || [];
+---
+
+{
+  relatedContent.length > 0 && (
+    <aside class="related-content">
+      <h2 class="related-content__heading">延伸阅读</h2>
+      <ul class="related-content__list">
+        {relatedContent.map((item) => (
+          <li>
+            <a href={slugToHref(item.slug)}>{item.label}</a>
+          </li>
+        ))}
+      </ul>
+    </aside>
+  )
+}
+
+<style>
+  .related-content {
+    margin-top: 2rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.5rem;
+    background: var(--sl-color-gray-6);
+  }
+
+  .related-content__heading {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+    color: var(--sl-color-white);
+  }
+
+  .related-content__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+  }
+
+  .related-content__list a {
+    color: var(--sl-color-text-accent);
+    text-decoration: none;
+    font-size: 0.875rem;
+  }
+
+  .related-content__list a:hover {
+    text-decoration: underline;
+  }
+</style>

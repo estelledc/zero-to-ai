@@ -1,0 +1,59 @@
+---
+/**
+ * PrerequisitesBar — renders a list of prerequisite tutorials as clickable links.
+ * Only renders if the current page has prerequisites defined in frontmatter.
+ */
+import { getCollection } from 'astro:content';
+import { findDoc } from '../utils/find-doc';
+import { slugToHref } from '../utils/base-url';
+
+const entry = Astro.locals.starlightRoute.entry;
+const prerequisites = (entry.data.prerequisites as string[]) || [];
+
+const allDocs = prerequisites.length > 0 ? await getCollection('docs') : [];
+
+const prereqDetails = prerequisites
+  .map((slug) => {
+    const doc = findDoc(allDocs, slug);
+    return doc ? { slug, title: doc.data.title } : null;
+  })
+  .filter(Boolean) as { slug: string; title: string }[];
+---
+
+{
+  prereqDetails.length > 0 && (
+    <div class="prerequisites-bar">
+      <span class="prerequisites-bar__label">前置要求：</span>
+      {prereqDetails.map((p, i) => (
+        <span>
+          <a href={slugToHref(p.slug)}>{p.title}</a>
+          {i < prereqDetails.length - 1 && '、'}
+        </span>
+      ))}
+    </div>
+  )
+}
+
+<style>
+  .prerequisites-bar {
+    font-size: 0.8125rem;
+    color: var(--sl-color-gray-2);
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--sl-color-gray-6);
+    margin-bottom: 0.5rem;
+  }
+
+  .prerequisites-bar__label {
+    font-weight: 600;
+    color: var(--sl-color-gray-3);
+  }
+
+  .prerequisites-bar a {
+    color: var(--sl-color-text-accent);
+    text-decoration: none;
+  }
+
+  .prerequisites-bar a:hover {
+    text-decoration: underline;
+  }
+</style>

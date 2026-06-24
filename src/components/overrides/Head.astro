@@ -1,0 +1,21 @@
+---
+/**
+ * Custom Head override that injects search synonyms via data-pagefind-meta.
+ *
+ * Pagefind 不支持原生同义词，但 data-pagefind-meta 的内容默认可搜索。
+ * 通过在 <head> 中注入 <meta> 标签，把口语化关键词编入搜索索引。
+ *
+ * Replaces @astrojs/starlight/components/Head.astro
+ */
+import { synonymMap } from '../../data/search-synonyms';
+
+const { head } = Astro.locals.starlightRoute;
+const entry = Astro.locals.starlightRoute.entry;
+const pageId = entry.id;
+const synonyms = synonymMap[pageId] ?? [];
+---
+
+{head.map(({ tag: Tag, attrs, content }) => <Tag {...attrs} set:html={content} />)}
+{synonyms.length > 0 && (
+  <meta data-pagefind-meta={`synonyms:${synonyms.join(' ')}`} />
+)}
