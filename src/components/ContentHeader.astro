@@ -8,6 +8,7 @@ import PathProgress from './PathProgress.astro';
 import { learningPaths } from '../data/learning-paths';
 import { getCollection } from 'astro:content';
 import { base } from '../utils/base-url';
+import { findDoc } from '../utils/find-doc';
 
 const route = Astro.locals.starlightRoute;
 const entry = route.entry;
@@ -20,23 +21,11 @@ const belongsTo = pageId ? learningPaths.filter((p) => p.tutorials.includes(page
 
 // Build tutorial details for PathProgress (only for the first matching path)
 const allDocs = belongsTo.length > 0 ? await getCollection('docs') : [];
-/**
- * Match a tutorial slug to a Content Collection entry.
- * Astro 6 Content Layer may normalise "section/index" to just "section",
- * so we try both forms.
- */
-function findDoc(slug: string) {
-  return (
-    allDocs.find((d) => d.id === slug) ||
-    allDocs.find((d) => d.id === slug.replace(/\/index$/, '')) ||
-    allDocs.find((d) => d.id === `${slug}/index`)
-  );
-}
 
 const primaryPath = belongsTo[0];
 const progressTutorials = primaryPath
   ? primaryPath.tutorials.map((slug) => {
-      const doc = findDoc(slug);
+      const doc = findDoc(allDocs, slug);
       return { slug, title: doc?.data.title || slug };
     })
   : [];

@@ -4,26 +4,14 @@ import { getCollection } from 'astro:content';
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import DifficultyBadge from '../components/DifficultyBadge.astro';
 import { slugToHref } from '../utils/base-url';
+import { findDoc } from '../utils/find-doc';
 
 const allDocs = await getCollection('docs');
-
-/**
- * Match a tutorial slug to a Content Collection entry.
- * Astro 6 Content Layer may normalise "section/index" to just "section",
- * so we try both forms.
- */
-function findDoc(slug: string) {
-  return (
-    allDocs.find((d) => d.id === slug) ||
-    allDocs.find((d) => d.id === slug.replace(/\/index$/, '')) ||
-    allDocs.find((d) => d.id === `${slug}/index`)
-  );
-}
 
 const pathsWithTutorialInfo = learningPaths.map((path) => ({
   ...path,
   tutorialDetails: path.tutorials.map((slug) => {
-    const doc = findDoc(slug);
+    const doc = findDoc(allDocs, slug);
     return {
       slug,
       title: doc?.data.title || slug,
