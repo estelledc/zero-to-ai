@@ -53,3 +53,15 @@
 .expressive-code pre {
   overflow-x: auto;
 }
+
+/* 修复 Starlight 右侧边栏（TOC）溢出问题 */
+/* .right-sidebar 使用 position:fixed + width:100%，但 fixed 的包含块是视口 */
+/* 导致 width:100% = 视口宽度，而非父容器宽度 */
+/* 此处用 viewport 单位重新计算，使其匹配 .right-sidebar-container 的实际宽度 */
+@media (min-width: 72rem) {
+  .right-sidebar {
+    width: calc(
+      var(--sl-sidebar-width) + (100vw - var(--sl-content-width) - 2 * var(--sl-sidebar-width)) / 2
+    );
+  }
+}
