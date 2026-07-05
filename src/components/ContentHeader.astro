@@ -35,6 +35,9 @@ const pathsProgress = belongsTo.map((path) => ({
   currentSlug: resolveCanonicalSlug(pageId, path.tutorials),
 }));
 
+const pathSlugs = pathsProgress.map((p) => p.slug);
+const isMultiPath = pathsProgress.length > 1;
+
 const hasPrerequisites =
   Array.isArray(entry.data.prerequisites) && entry.data.prerequisites.length > 0;
 const showHeader =
@@ -76,19 +79,22 @@ const showHeader =
       )}
 
       {pathsProgress.length > 0 && pageId && (
-        <div
-          class="path-progress-container"
-          data-path-slugs={JSON.stringify(pathsProgress.map((p) => p.slug))}
-        >
+        <div class="path-progress-container" data-path-slugs={JSON.stringify(pathSlugs)}>
           {pathsProgress.map((p) => (
             <div
               class="path-progress-wrapper"
               data-path-slug={p.slug}
-              hidden={pathsProgress.length > 1}
+              hidden={isMultiPath || undefined}
             >
               <PathProgress pathSlug={p.slug} tutorials={p.tutorials} currentSlug={p.currentSlug} />
             </div>
           ))}
+          {isMultiPath && (
+            <script
+              is:inline
+              set:html={`(function(){var c=document.currentScript.parentElement;var slugs=${JSON.stringify(pathSlugs)};var params=new URLSearchParams(location.search);var active=params.get('path');if(!active||slugs.indexOf(active)===-1){try{active=localStorage.getItem('zero-to-ai:active-path');}catch(e){}if(!active||slugs.indexOf(active)===-1)active=slugs[0];}try{localStorage.setItem('zero-to-ai:active-path',active);}catch(e){}c.querySelectorAll('.path-progress-wrapper').forEach(function(w){w.hidden=w.dataset.pathSlug!==active;});})();`}
+            />
+          )}
         </div>
       )}
 
@@ -119,6 +125,7 @@ const showHeader =
     padding: 0.75rem 1rem;
     font-size: 0.875rem;
     line-height: 1.6;
+    margin-bottom: 0.75rem;
   }
 
   .content-header__path-list {
@@ -142,5 +149,13 @@ const showHeader =
 
   .content-header__browse {
     color: var(--sl-color-gray-2);
+  }
+
+  .path-progress-container {
+    margin-top: 0.25rem;
+  }
+
+  .path-progress-wrapper[hidden] {
+    display: none !important;
   }
 </style>
