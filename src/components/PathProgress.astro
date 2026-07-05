@@ -6,9 +6,11 @@ export interface Props {
 }
 
 import { slugToHref } from '../utils/base-url';
+import { slugMatches } from '../utils/find-doc';
 
 const { pathSlug, tutorials, currentSlug } = Astro.props;
-const currentIndex = tutorials.findIndex((t) => t.slug === currentSlug);
+const currentIndex = tutorials.findIndex((t) => slugMatches(currentSlug, t.slug));
+const currentTutorialSlug = currentIndex >= 0 ? tutorials[currentIndex].slug : currentSlug;
 const prev = currentIndex > 0 ? tutorials[currentIndex - 1] : null;
 const next = currentIndex < tutorials.length - 1 ? tutorials[currentIndex + 1] : null;
 ---
@@ -19,7 +21,7 @@ const next = currentIndex < tutorials.length - 1 ? tutorials[currentIndex + 1] :
       class="path-progress"
       aria-label="学习路径进度"
       data-path={pathSlug}
-      data-current={currentSlug}
+      data-current={currentTutorialSlug}
     >
       <div class="path-progress__dots">
         {tutorials.map((t, i) => {

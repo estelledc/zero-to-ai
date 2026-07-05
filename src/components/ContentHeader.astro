@@ -9,7 +9,7 @@ import PrerequisitesBar from './PrerequisitesBar.astro';
 import { learningPaths } from '../data/learning-paths';
 import { getCollection } from 'astro:content';
 import { base } from '../utils/base-url';
-import { findDoc } from '../utils/find-doc';
+import { findDoc, slugMatches } from '../utils/find-doc';
 
 const route = Astro.locals.starlightRoute;
 const entry = route.entry;
@@ -18,7 +18,9 @@ const difficulty = entry.data.difficulty as 'beginner' | 'intermediate' | 'advan
 
 // Derive which learning paths this page belongs to from the canonical data source
 const pageId = entry.id;
-const belongsTo = pageId ? learningPaths.filter((p) => p.tutorials.includes(pageId)) : [];
+const belongsTo = pageId
+  ? learningPaths.filter((p) => p.tutorials.some((t) => slugMatches(pageId, t)))
+  : [];
 
 // Build tutorial details for PathProgress (only for the first matching path)
 const allDocs = belongsTo.length > 0 ? await getCollection('docs') : [];

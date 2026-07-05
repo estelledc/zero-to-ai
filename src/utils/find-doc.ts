@@ -15,3 +15,12 @@ export function findDoc(
     allDocs.find((d) => d.id === `${slug}/index`)
   );
 }
+
+/** Match content entry ids with learning-path tutorial slugs (handles index pages). */
+export function slugMatches(pageId: string, tutorialSlug: string): boolean {
+  return (
+    pageId === tutorialSlug ||
+    pageId === tutorialSlug.replace(/\/index$/, '') ||
+    `${pageId}/index` === tutorialSlug
+  );
+}
