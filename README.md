@@ -67,7 +67,6 @@ scripts/
 | ---------------- | ---------------------------------------- | ----------------- |
 | `difficulty`     | `beginner` / `intermediate` / `advanced` | 难度等级          |
 | `tags`           | `string[]`                               | 分类标签          |
-| `learningPaths`  | `string[]`                               | 所属学习路径 slug |
 | `prerequisites`  | `string[]`                               | 前置依赖教程 slug |
 | `relatedContent` | `{slug, label}[]`                        | 相关内容链接      |
 | `lastVerified`   | `string`                                 | 最后验证日期      |
@@ -75,7 +74,7 @@ scripts/
 
 ### 交叉引用
 
-教程之间通过 `prerequisites`、`relatedContent`、`learningPaths` 形成有向图。`validate-cross-refs.ts` 在 CI 中自动校验所有引用的合法性，断链会阻止部署。
+教程之间通过 `prerequisites`、`relatedContent` 以及 `src/data/learning-paths.ts` 中的路径定义形成有向图。`validate-cross-refs.ts` 在 CI 中自动校验所有引用的合法性，断链会阻止部署。
 
 ### 写作风格
 

@@ -8,12 +8,17 @@
  * Replaces @astrojs/starlight/components/Head.astro
  */
 import { synonymMap } from '../../data/search-synonyms';
+import { slugVariants } from '../../utils/slug-match';
+import { base } from '../../utils/base-url';
 
 const { head } = Astro.locals.starlightRoute;
 const entry = Astro.locals.starlightRoute.entry;
 const pageId = entry.id;
-const synonyms = synonymMap[pageId] ?? [];
+
+const synonyms = slugVariants(pageId).flatMap((variant) => synonymMap[variant] ?? []);
+const uniqueSynonyms = [...new Set(synonyms)];
 ---
 
 {head.map(({ tag: Tag, attrs, content }) => <Tag {...attrs} set:html={content} />)}
-{synonyms.length > 0 && <meta data-pagefind-meta={`synonyms:${synonyms.join(' ')}`} />}
+{uniqueSynonyms.length > 0 && <meta data-pagefind-meta={`synonyms:${uniqueSynonyms.join(' ')}`} />}
+<link rel="alternate" type="application/rss+xml" title="Zero to AI" href={`${base}/rss.xml`} />

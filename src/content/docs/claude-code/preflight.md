@@ -10,8 +10,6 @@ relatedContent:
   - { slug: 'methodology/basics', label: '通用环境基础设施' }
 lastVerified: '2026-06-24'
 toolVersion: 'Claude Code CLI v2.1'
-prev: false
-next: false
 ---
 
 ## 这个教程适合谁

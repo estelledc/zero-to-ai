@@ -15,8 +15,6 @@ relatedContent:
   - { slug: 'methodology/claude-md-philosophy', label: 'CLAUDE.md 编写哲学（进阶）' }
 lastVerified: '2026-06-24'
 toolVersion: 'Claude Code CLI v2.1'
-prev: false
-next: false
 ---
 
 ## 这一页解决什么问题

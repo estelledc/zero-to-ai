@@ -14,7 +14,7 @@ relatedContent:
   - { slug: 'claude-code/cost', label: '成本与计费' }
   - { slug: 'claude-code/mcp', label: 'MCP 集成' }
   - { slug: 'methodology/memory-system-design', label: '记忆系统设计原则' }
-lastVerified: '2026-06-24'
+lastVerified: '2026-07-05'
 toolVersion: 'Claude Code CLI v2.1'
 ---
 

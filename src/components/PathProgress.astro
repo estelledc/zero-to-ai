@@ -26,10 +26,11 @@ const next = currentIndex < tutorials.length - 1 ? tutorials[currentIndex + 1] :
           const isCurrent = i === currentIndex;
           return (
             <a
-              href={slugToHref(t.slug)}
+              href={slugToHref(t.slug, pathSlug)}
               data-slug={t.slug}
               data-title={t.title}
               class:list={['path-progress__dot', { 'path-progress__dot--current': isCurrent }]}
+              aria-current={isCurrent ? 'step' : undefined}
             >
               <span class="sr-only">{t.title}</span>
             </a>
@@ -38,7 +39,7 @@ const next = currentIndex < tutorials.length - 1 ? tutorials[currentIndex + 1] :
       </div>
       <div class="path-progress__nav">
         {prev ? (
-          <a href={slugToHref(prev.slug)} class="path-progress__prev">
+          <a href={slugToHref(prev.slug, pathSlug)} class="path-progress__prev">
             &larr; 上一篇：{prev.title}
           </a>
         ) : (
@@ -48,7 +49,7 @@ const next = currentIndex < tutorials.length - 1 ? tutorials[currentIndex + 1] :
           {currentIndex + 1} / {tutorials.length}
         </span>
         {next ? (
-          <a href={slugToHref(next.slug)} class="path-progress__next">
+          <a href={slugToHref(next.slug, pathSlug)} class="path-progress__next">
             下一篇：{next.title} &rarr;
           </a>
         ) : (
@@ -60,26 +61,49 @@ const next = currentIndex < tutorials.length - 1 ? tutorials[currentIndex + 1] :
 }
 
 <script>
-  /**
-   * Progress tracking with content version awareness.
-   *
-   * Storage format: `path:<pathSlug>:<tutorialSlug>` → JSON `{ v: number }`
-   * When PROGRESS_VERSION is bumped (e.g. after a major content rewrite),
-   * all stale entries are ignored so users re-read updated tutorials.
-   */
-  const PROGRESS_VERSION = 1;
+  import { PROGRESS_VERSION, progressKey, ACTIVE_PATH_KEY } from '../utils/progress-storage';
 
-  const nav = document.querySelector('.path-progress') as HTMLElement | null;
-  if (nav) {
+  // Multi-path: reveal the active wrapper before marking progress
+  const container = document.querySelector('.path-progress-container');
+  if (container) {
+    const wrappers = container.querySelectorAll<HTMLElement>('.path-progress-wrapper');
+    const slugs = JSON.parse(container.getAttribute('data-path-slugs') || '[]') as string[];
+
+    if (slugs.length > 1) {
+      const params = new URLSearchParams(window.location.search);
+      const queryPath = params.get('path');
+      const storedPath = localStorage.getItem(ACTIVE_PATH_KEY);
+
+      let activeSlug = slugs[0];
+      if (queryPath && slugs.includes(queryPath)) {
+        activeSlug = queryPath;
+      } else if (storedPath && slugs.includes(storedPath)) {
+        activeSlug = storedPath;
+      }
+
+      localStorage.setItem(ACTIVE_PATH_KEY, activeSlug);
+
+      wrappers.forEach((wrapper) => {
+        wrapper.hidden = wrapper.dataset.pathSlug !== activeSlug;
+      });
+    }
+  }
+
+  document.querySelectorAll<HTMLElement>('.path-progress').forEach((nav) => {
+    const wrapper = nav.closest('.path-progress-wrapper') as HTMLElement | null;
+    if (wrapper?.hidden) return;
+
     const path = nav.dataset.path;
     const current = nav.dataset.current;
 
-    // Mark current page as visited (with version)
-    if (path && current) {
-      localStorage.setItem(`path:${path}:${current}`, JSON.stringify({ v: PROGRESS_VERSION }));
+    if (path) {
+      localStorage.setItem(ACTIVE_PATH_KEY, path);
     }
 
-    // Inject tooltip spans from data-title (replaces native title for mobile support)
+    if (path && current) {
+      localStorage.setItem(progressKey(path, current), JSON.stringify({ v: PROGRESS_VERSION }));
+    }
+
     nav.querySelectorAll<HTMLAnchorElement>('.path-progress__dot').forEach((dot) => {
       const title = dot.dataset.title;
       if (title) {
@@ -90,12 +114,11 @@ const next = currentIndex < tutorials.length - 1 ? tutorials[currentIndex + 1] :
       }
     });
 
-    // Highlight previously visited dots — only if version matches
     nav.querySelectorAll<HTMLAnchorElement>('.path-progress__dot').forEach((dot) => {
       const slug = dot.dataset.slug;
-      if (!slug) return;
+      if (!slug || !path) return;
 
-      const raw = localStorage.getItem(`path:${path}:${slug}`);
+      const raw = localStorage.getItem(progressKey(path, slug));
       if (!raw) return;
 
       try {
@@ -104,11 +127,10 @@ const next = currentIndex < tutorials.length - 1 ? tutorials[currentIndex + 1] :
           dot.classList.add('path-progress__dot--visited');
         }
       } catch {
-        // Legacy format ("done") — treat as stale, remove it
-        localStorage.removeItem(`path:${path}:${slug}`);
+        localStorage.removeItem(progressKey(path, slug));
       }
     });
-  }
+  });
 </script>
 
 <style>
@@ -135,7 +157,6 @@ const next = currentIndex < tutorials.length - 1 ? tutorials[currentIndex + 1] :
     position: relative;
   }
 
-  /* Tooltip: visible on hover (desktop) and focus/active (mobile tap) */
   .path-progress__dot .path-progress__tooltip {
     display: none;
     position: absolute;
@@ -195,12 +216,16 @@ const next = currentIndex < tutorials.length - 1 ? tutorials[currentIndex + 1] :
     color: var(--sl-color-text-accent);
     text-decoration: none;
     max-width: 40%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   @media (max-width: 40rem) {
     .path-progress__prev,
     .path-progress__next {
       max-width: 100%;
+      white-space: normal;
     }
 
     .path-progress__nav {

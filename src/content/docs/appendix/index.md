@@ -4,7 +4,6 @@ description: 零基础预备知识
 tags: [appendix]
 difficulty: beginner
 prerequisites: []
-next: false
 relatedContent:
   - { slug: 'appendix/git-basics', label: 'Git 10 分钟速成' }
   - { slug: 'methodology/basics', label: '通用环境基础设施' }

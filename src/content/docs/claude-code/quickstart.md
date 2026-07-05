@@ -13,10 +13,8 @@ relatedContent:
   - { slug: 'appendix/git-basics', label: 'Git 10 分钟速成' }
   - { slug: 'claude-code/agnes-free-vibe-coding', label: '零成本 vibe coding' }
   - { slug: 'claude-code/first-page', label: '你的第一个 AI 页面' }
-lastVerified: '2026-06-24'
+lastVerified: '2026-07-05'
 toolVersion: 'Claude Code CLI v2.1'
-prev: false
-next: false
 ---
 
 ## 这是什么

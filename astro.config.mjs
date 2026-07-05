@@ -19,6 +19,10 @@ export default defineConfig({
 
       sidebar: [
         {
+          label: '学习路径',
+          link: '/paths/',
+        },
+        {
           label: 'Claude Code',
           items: [
             { slug: 'claude-code' },

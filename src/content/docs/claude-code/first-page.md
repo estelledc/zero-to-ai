@@ -16,8 +16,6 @@ relatedContent:
   - { slug: 'claude-code/context', label: '上下文窗口管理' }
 lastVerified: '2026-06-24'
 toolVersion: 'Claude Code CLI v2.1'
-prev: false
-next: false
 ---
 
 ## 这一页解决什么问题

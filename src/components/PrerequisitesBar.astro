@@ -23,16 +23,40 @@ const prereqDetails = prerequisites
 {
   prereqDetails.length > 0 && (
     <div class="prerequisites-bar">
-      <span class="prerequisites-bar__label">前置要求：</span>
-      {prereqDetails.map((p, i) => (
-        <span>
-          <a href={slugToHref(p.slug)}>{p.title}</a>
-          {i < prereqDetails.length - 1 && '、'}
-        </span>
-      ))}
+      <span class="prerequisites-bar__label" id="prerequisites-label">
+        前置要求：
+      </span>
+      <ul class="prerequisites-bar__list" aria-labelledby="prerequisites-label">
+        {prereqDetails.map((p) => (
+          <li>
+            <a href={slugToHref(p.slug)} data-prereq-link>
+              {p.title}
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }
+
+<script>
+  import { ACTIVE_PATH_KEY } from '../utils/progress-storage';
+
+  const params = new URLSearchParams(window.location.search);
+  const queryPath = params.get('path');
+  const storedPath = localStorage.getItem(ACTIVE_PATH_KEY);
+  const activePath = queryPath || storedPath;
+
+  if (activePath) {
+    document.querySelectorAll<HTMLAnchorElement>('a[data-prereq-link]').forEach((link) => {
+      const url = new URL(link.href, window.location.origin);
+      if (!url.searchParams.has('path')) {
+        url.searchParams.set('path', activePath);
+        link.href = `${url.pathname}${url.search}`;
+      }
+    });
+  }
+</script>
 
 <style>
   .prerequisites-bar {
@@ -46,6 +70,21 @@ const prereqDetails = prerequisites
   .prerequisites-bar__label {
     font-weight: 600;
     color: var(--sl-color-gray-3);
+  }
+
+  .prerequisites-bar__list {
+    display: inline;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .prerequisites-bar__list li {
+    display: inline;
+  }
+
+  .prerequisites-bar__list li:not(:last-child)::after {
+    content: '、';
   }
 
   .prerequisites-bar a {

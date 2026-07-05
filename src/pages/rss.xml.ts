@@ -12,7 +12,7 @@ export async function GET(context: APIContext) {
   return rss({
     title: 'Zero to AI',
     description: '从零开始用 AI 编程工具 — 实战教程集合',
-    site: context.site!.href,
+    site: new URL(import.meta.env.BASE_URL, context.site).href,
     items: docs
       .filter((doc) => doc.data.title && doc.id !== 'index')
       .map((doc) => ({

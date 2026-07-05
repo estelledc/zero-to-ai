@@ -11,10 +11,8 @@ relatedContent:
   - { slug: 'claude-code/verify', label: '验证方法论' }
   - { slug: 'claude-code/quickstart', label: '10 分钟上手' }
   - { slug: 'claude-code/context', label: '上下文窗口管理' }
-lastVerified: '2026-06-24'
+lastVerified: '2026-07-05'
 toolVersion: 'Claude Code CLI v2.1'
-prev: false
-next: false
 ---
 
 ## 这是什么

@@ -10,30 +10,39 @@ import { learningPaths } from '../data/learning-paths';
 import { getCollection } from 'astro:content';
 import { base } from '../utils/base-url';
 import { findDoc } from '../utils/find-doc';
+import { slugMatches, resolveCanonicalSlug } from '../utils/slug-match';
 
 const route = Astro.locals.starlightRoute;
 const entry = route.entry;
 
 const difficulty = entry.data.difficulty as 'beginner' | 'intermediate' | 'advanced' | undefined;
+const lastVerified = entry.data.lastVerified as string | undefined;
+const toolVersion = entry.data.toolVersion as string | undefined;
 
-// Derive which learning paths this page belongs to from the canonical data source
 const pageId = entry.id;
-const belongsTo = pageId ? learningPaths.filter((p) => p.tutorials.includes(pageId)) : [];
+const belongsTo = pageId
+  ? learningPaths.filter((p) => p.tutorials.some((t) => slugMatches(t, pageId)))
+  : [];
 
-// Build tutorial details for PathProgress (only for the first matching path)
 const allDocs = belongsTo.length > 0 ? await getCollection('docs') : [];
 
-const primaryPath = belongsTo[0];
-const progressTutorials = primaryPath
-  ? primaryPath.tutorials.map((slug) => {
-      const doc = findDoc(allDocs, slug);
-      return { slug, title: doc?.data.title || slug };
-    })
-  : [];
+const pathsProgress = belongsTo.map((path) => ({
+  slug: path.slug,
+  tutorials: path.tutorials.map((slug) => {
+    const doc = findDoc(allDocs, slug);
+    return { slug, title: doc?.data.title || slug };
+  }),
+  currentSlug: resolveCanonicalSlug(pageId, path.tutorials),
+}));
+
+const hasPrerequisites =
+  Array.isArray(entry.data.prerequisites) && entry.data.prerequisites.length > 0;
+const showHeader =
+  difficulty || belongsTo.length > 0 || hasPrerequisites || lastVerified || toolVersion;
 ---
 
 {
-  (difficulty || belongsTo.length > 0) && (
+  showHeader && (
     <div class="content-header">
       {difficulty && (
         <div class="content-header__badge">
@@ -41,15 +50,24 @@ const progressTutorials = primaryPath
         </div>
       )}
 
+      {(lastVerified || toolVersion) && (
+        <p class="content-header__meta">
+          {lastVerified && <span>内容验证于 {lastVerified}</span>}
+          {lastVerified && toolVersion && <span aria-hidden="true"> · </span>}
+          {toolVersion && <span>适用 {toolVersion}</span>}
+        </p>
+      )}
+
       {belongsTo.length > 0 && (
         <div class="content-header__paths">
           <span>本教程属于学习路径：</span>
-          {belongsTo.map((path, i) => (
-            <span>
-              <a href={`${base}/paths/#${path.slug}`}>{path.title}</a>
-              {i < belongsTo.length - 1 && '、'}
-            </span>
-          ))}
+          <ul class="content-header__path-list">
+            {belongsTo.map((path) => (
+              <li>
+                <a href={`${base}/paths/#${path.slug}`}>{path.title}</a>
+              </li>
+            ))}
+          </ul>
           <span class="content-header__browse">
             {' '}
             · <a href={`${base}/paths/`}>浏览全部路径</a>
@@ -57,12 +75,21 @@ const progressTutorials = primaryPath
         </div>
       )}
 
-      {primaryPath && pageId && (
-        <PathProgress
-          pathSlug={primaryPath.slug}
-          tutorials={progressTutorials}
-          currentSlug={pageId}
-        />
+      {pathsProgress.length > 0 && pageId && (
+        <div
+          class="path-progress-container"
+          data-path-slugs={JSON.stringify(pathsProgress.map((p) => p.slug))}
+        >
+          {pathsProgress.map((p) => (
+            <div
+              class="path-progress-wrapper"
+              data-path-slug={p.slug}
+              hidden={pathsProgress.length > 1}
+            >
+              <PathProgress pathSlug={p.slug} tutorials={p.tutorials} currentSlug={p.currentSlug} />
+            </div>
+          ))}
+        </div>
       )}
 
       <PrerequisitesBar />
@@ -79,6 +106,12 @@ const progressTutorials = primaryPath
     margin-bottom: 0.5rem;
   }
 
+  .content-header__meta {
+    font-size: 0.8125rem;
+    color: var(--sl-color-gray-2);
+    margin: 0 0 0.5rem;
+  }
+
   .content-header__paths {
     background: var(--sl-color-gray-6);
     border: 1px solid var(--sl-color-gray-5);
@@ -86,6 +119,21 @@ const progressTutorials = primaryPath
     padding: 0.75rem 1rem;
     font-size: 0.875rem;
     line-height: 1.6;
+  }
+
+  .content-header__path-list {
+    display: inline;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .content-header__path-list li {
+    display: inline;
+  }
+
+  .content-header__path-list li:not(:last-child)::after {
+    content: '、';
   }
 
   .content-header__paths a {

@@ -12,7 +12,7 @@ relatedContent:
   - { slug: 'claude-code/config', label: '核心配置' }
   - { slug: 'claude-code/quickstart', label: '10 分钟上手' }
   - { slug: 'glossary', label: '术语对照表' }
-lastVerified: '2026-06-24'
+lastVerified: '2026-07-05'
 toolVersion: 'Claude Code CLI v2.1'
 ---
 

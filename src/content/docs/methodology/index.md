@@ -4,7 +4,6 @@ description: 工具无关的共用思想和方法
 tags: [methodology]
 difficulty: beginner
 prerequisites: []
-next: false
 relatedContent:
   - { slug: 'glossary', label: '术语对照表' }
   - { slug: 'claude-code/index', label: 'Claude Code 教程' }

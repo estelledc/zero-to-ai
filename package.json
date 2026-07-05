@@ -9,7 +9,7 @@
     "build": "npm run validate-refs && astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "lint": "eslint .",
+    "lint": "eslint . --max-warnings=0",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "validate-refs": "tsx scripts/validate-cross-refs.ts",

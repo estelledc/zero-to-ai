@@ -22,11 +22,7 @@ const linkAttrs = isExternal ? { target: '_blank', rel: 'noopener noreferrer' } 
   {meta && <p class="zt-card__meta">{meta}</p>}
   {
     resolvedHref && linkText && (
-      <a
-        class:list={['zt-card__link', { 'zt-card__link--external': isExternal }]}
-        href={resolvedHref}
-        {...linkAttrs}
-      >
+      <a class:list={['zt-card__link']} href={resolvedHref} {...linkAttrs}>
         {linkText}
       </a>
     )

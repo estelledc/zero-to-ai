@@ -38,18 +38,22 @@ const pathsWithTutorialInfo = learningPaths.map((path) => ({
         <ol class="path-card__list" data-path-slug={path.slug}>
           {path.tutorialDetails.map((t) => (
             <li data-tutorial-slug={t.slug}>
-              <a href={slugToHref(t.slug)}>{t.title}</a>
+              <a href={slugToHref(t.slug, path.slug)}>{t.title}</a>
               {t.difficulty && <DifficultyBadge difficulty={t.difficulty} />}
             </li>
           ))}
         </ol>
 
-        <a href={slugToHref(path.tutorials[0])} class="path-card__cta">
+        <a href={slugToHref(path.tutorials[0], path.slug)} class="path-card__cta">
           开始这条路径 &rarr;
         </a>
       </section>
     ))
   }
+
+  <p class="paths-reset">
+    <button type="button" class="paths-reset__btn" id="reset-progress">重置全部学习进度</button>
+  </p>
 </StarlightPage>
 
 <style>
@@ -86,6 +90,7 @@ const pathsWithTutorialInfo = learningPaths.map((path) => ({
     margin-top: 0.75rem;
     font-weight: 600;
   }
+
   .path-card__list li[data-visited] a::before {
     content: '\2713\00a0';
     color: var(--sl-color-green-high);
@@ -100,44 +105,85 @@ const pathsWithTutorialInfo = learningPaths.map((path) => ({
     color: var(--sl-color-gray-2);
     margin-top: 0.25rem;
   }
+
+  .paths-reset {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .paths-reset__btn {
+    font-size: 0.8125rem;
+    color: var(--sl-color-gray-2);
+    background: none;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.375rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+
+  .paths-reset__btn:hover {
+    color: var(--sl-color-text);
+    border-color: var(--sl-color-gray-4);
+  }
 </style>
 
 <script>
-  const PROGRESS_VERSION = 1;
+  import { PROGRESS_VERSION, progressKey, ACTIVE_PATH_KEY } from '../utils/progress-storage';
 
-  document
-    .querySelectorAll<HTMLOListElement>('.path-card__list[data-path-slug]')
-    .forEach((list) => {
-      const pathSlug = list.dataset.pathSlug;
-      if (!pathSlug) return;
+  function applyProgressMarkers() {
+    document
+      .querySelectorAll<HTMLOListElement>('.path-card__list[data-path-slug]')
+      .forEach((list) => {
+        const pathSlug = list.dataset.pathSlug;
+        if (!pathSlug) return;
 
-      let visited = 0;
-      let total = 0;
+        list.parentElement?.querySelector('.path-card__progress')?.remove();
 
-      list.querySelectorAll<HTMLLIElement>('li[data-tutorial-slug]').forEach((li) => {
-        total++;
-        const slug = li.dataset.tutorialSlug;
-        if (!slug) return;
+        let visited = 0;
+        let total = 0;
 
-        const raw = localStorage.getItem(`path:${pathSlug}:${slug}`);
-        if (!raw) return;
+        list.querySelectorAll<HTMLLIElement>('li[data-tutorial-slug]').forEach((li) => {
+          total++;
+          li.removeAttribute('data-visited');
+          const slug = li.dataset.tutorialSlug;
+          if (!slug) return;
 
-        try {
-          const data = JSON.parse(raw);
-          if (data.v === PROGRESS_VERSION) {
-            li.setAttribute('data-visited', '');
-            visited++;
+          const raw = localStorage.getItem(progressKey(pathSlug, slug));
+          if (!raw) return;
+
+          try {
+            const data = JSON.parse(raw);
+            if (data.v === PROGRESS_VERSION) {
+              li.setAttribute('data-visited', '');
+              visited++;
+            }
+          } catch {
+            localStorage.removeItem(progressKey(pathSlug, slug));
           }
-        } catch {
-          // stale entry
+        });
+
+        if (visited > 0) {
+          const info = document.createElement('p');
+          info.className = 'path-card__progress';
+          info.textContent = `已完成 ${visited} / ${total} 篇`;
+          list.after(info);
         }
       });
+  }
 
-      if (visited > 0) {
-        const info = document.createElement('p');
-        info.className = 'path-card__progress';
-        info.textContent = `已完成 ${visited} / ${total} 篇`;
-        list.after(info);
+  applyProgressMarkers();
+
+  document.getElementById('reset-progress')?.addEventListener('click', () => {
+    if (!confirm('确定要清除所有学习路径的进度记录吗？此操作不可撤销。')) return;
+
+    const keysToRemove: string[] = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key?.startsWith('path:') || key === ACTIVE_PATH_KEY) {
+        keysToRemove.push(key);
       }
-    });
+    }
+    keysToRemove.forEach((key) => localStorage.removeItem(key));
+    applyProgressMarkers();
+  });
 </script>

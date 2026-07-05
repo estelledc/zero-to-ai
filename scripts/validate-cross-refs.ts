@@ -8,6 +8,7 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { join, extname } from 'node:path';
 import matter from 'gray-matter';
 import { learningPaths } from '../src/data/learning-paths';
+import { synonymMap } from '../src/data/search-synonyms';
 
 const DOCS_DIR = 'src/content/docs';
 
@@ -72,6 +73,13 @@ function main() {
     warnCount++;
   }
 
+  /** Normalize slug for comparison (handles index pages) */
+  function slugExists(slug: string): boolean {
+    if (allSlugs.has(slug)) return true;
+    if (slug.endsWith('/index')) return allSlugs.has(slug.replace(/\/index$/, ''));
+    return allSlugs.has(`${slug}/index`);
+  }
+
   // Validate each markdown file
   function validateDir(dir: string, base: string = '') {
     let entries;
@@ -127,6 +135,13 @@ function main() {
       if (!allSlugs.has(tSlug)) {
         error(`learning-path:${pathSlug}`, `教程引用不存在: ${tSlug}`);
       }
+    }
+  }
+
+  // Validate synonym map keys reference existing docs
+  for (const key of Object.keys(synonymMap)) {
+    if (!slugExists(key)) {
+      warn(`search-synonyms:${key}`, `同义词映射 key 不存在: ${key}`);
     }
   }
 
