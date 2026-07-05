@@ -28,10 +28,12 @@ const next = currentIndex < tutorials.length - 1 ? tutorials[currentIndex + 1] :
             <a
               href={slugToHref(t.slug)}
               data-slug={t.slug}
-              data-title={t.title}
               class:list={['path-progress__dot', { 'path-progress__dot--current': isCurrent }]}
             >
               <span class="sr-only">{t.title}</span>
+              <span class="path-progress__tooltip" aria-hidden="true">
+                {t.title}
+              </span>
             </a>
           );
         })}
@@ -78,17 +80,6 @@ const next = currentIndex < tutorials.length - 1 ? tutorials[currentIndex + 1] :
     if (path && current) {
       localStorage.setItem(`path:${path}:${current}`, JSON.stringify({ v: PROGRESS_VERSION }));
     }
-
-    // Inject tooltip spans from data-title (replaces native title for mobile support)
-    nav.querySelectorAll<HTMLAnchorElement>('.path-progress__dot').forEach((dot) => {
-      const title = dot.dataset.title;
-      if (title) {
-        const tip = document.createElement('span');
-        tip.className = 'path-progress__tooltip';
-        tip.textContent = title;
-        dot.appendChild(tip);
-      }
-    });
 
     // Highlight previously visited dots — only if version matches
     nav.querySelectorAll<HTMLAnchorElement>('.path-progress__dot').forEach((dot) => {
