@@ -1,0 +1,21 @@
+src/content/docs/methodology/basics.md
+  s_9340ed41c548fc::t_89a581303533e4 52,95
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "3df26fb54180d9cc3c8939a49a17b8febc0261c7",
+  "prompts": {},
+  "sessions": {
+    "s_9340ed41c548fc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9788d74c-dc80-4c60-8ed9-f8f7c8e0039a",
+        "model": "unknown"
+      },
+      "human_author": "zhouxun <zhouxun.13@bytedance.com>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
