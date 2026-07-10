@@ -2,6 +2,103 @@
   "schemaVersion": 1,
   "pages": [
     {
+      "page": "src/content/docs/codex/agents-md.md",
+      "toolVersion": "Codex CLI v0.144.x",
+      "lastReviewed": "2026-07-10",
+      "result": "PASS",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": [
+        "https://developers.openai.com/codex/guides/agents-md",
+        "https://learn.chatgpt.com/docs/agent-approvals-security"
+      ]
+    },
+    {
+      "page": "src/content/docs/codex/capstone.md",
+      "toolVersion": "Codex CLI v0.144.x",
+      "lastReviewed": "2026-07-10",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": [
+        "https://developers.openai.com/codex/cli",
+        "https://developers.openai.com/codex/guides/agents-md",
+        "https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site"
+      ]
+    },
+    {
+      "page": "src/content/docs/codex/first-task.md",
+      "toolVersion": "Codex CLI v0.144.x",
+      "lastReviewed": "2026-07-10",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://developers.openai.com/codex/cli"]
+    },
+    {
+      "page": "src/content/docs/codex/index.md",
+      "toolVersion": "Codex CLI v0.144.x",
+      "lastReviewed": "2026-07-10",
+      "result": "PASS",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": [
+        "https://developers.openai.com/codex/cli",
+        "https://developers.openai.com/codex/auth",
+        "https://developers.openai.com/codex/guides/agents-md"
+      ]
+    },
+    {
+      "page": "src/content/docs/codex/modify-verify-git.md",
+      "toolVersion": "Codex CLI v0.144.x",
+      "lastReviewed": "2026-07-10",
+      "result": "PASS",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": [
+        "https://developers.openai.com/codex/cli",
+        "https://learn.chatgpt.com/docs/agent-approvals-security"
+      ]
+    },
+    {
+      "page": "src/content/docs/codex/official-sources.md",
+      "toolVersion": "Codex CLI v0.144.x",
+      "lastReviewed": "2026-07-10",
+      "result": "PASS",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": [
+        "https://developers.openai.com/codex/cli",
+        "https://developers.openai.com/codex/auth",
+        "https://developers.openai.com/codex/pricing",
+        "https://developers.openai.com/codex/guides/agents-md",
+        "https://learn.chatgpt.com/docs/agent-approvals-security",
+        "https://learn.chatgpt.com/docs/windows/wsl",
+        "https://learn.chatgpt.com/docs/reference/troubleshooting"
+      ]
+    },
+    {
+      "page": "src/content/docs/codex/quickstart.md",
+      "toolVersion": "Codex CLI v0.144.x",
+      "lastReviewed": "2026-07-10",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": [
+        "https://developers.openai.com/codex/cli",
+        "https://developers.openai.com/codex/auth",
+        "https://developers.openai.com/codex/pricing",
+        "https://learn.chatgpt.com/docs/agent-approvals-security",
+        "https://learn.chatgpt.com/docs/windows/wsl"
+      ]
+    },
+    {
+      "page": "src/content/docs/codex/troubleshooting.md",
+      "toolVersion": "Codex CLI v0.144.x",
+      "lastReviewed": "2026-07-10",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": [
+        "https://learn.chatgpt.com/docs/reference/troubleshooting",
+        "https://developers.openai.com/codex/auth",
+        "https://learn.chatgpt.com/docs/windows/wsl",
+        "https://learn.chatgpt.com/docs/agent-approvals-security"
+      ]
+    },
+    {
       "page": "src/content/docs/projects/publish-first-site.md",
       "toolVersion": "GitHub Pages branch publishing (2026-07)",
       "lastReviewed": "2026-07-10",

@@ -52,6 +52,46 @@ export const learningPaths: LearningPath[] = [
     ],
   },
   {
+    slug: 'codex-zero',
+    title: 'Codex 零基础完整路线',
+    description:
+      '从环境、成本和认证开始，先完成只读任务，再用 AGENTS.md 约束项目，通过修改、验证、Git 和 GitHub Pages 交付公开作品。',
+    targetAudience: '编程零基础，想系统学习 OpenAI Codex CLI',
+    timeRange: '4-6 小时',
+    outcome: '一个有公开 URL、Git 历史、验收截图和项目规则的阅读清单小站',
+    milestones: [
+      '完成安装与认证',
+      '写出可验证的 AGENTS.md',
+      '完成并恢复一次小改动',
+      '发布公开小站',
+    ],
+    completionEvidence: [
+      'Codex 版本与登录状态',
+      '仓库中的 AGENTS.md',
+      '至少三次有意义的提交',
+      'Pages URL 与桌面/移动截图',
+    ],
+    recoveryGuidance: [
+      '先记录版本、登录状态和 git status',
+      '用 sandbox/permissions 缩小能力范围',
+      '用 Git 检查点恢复错误改动',
+    ],
+    tutorials: [
+      'methodology/basics',
+      'appendix/git-basics',
+      'codex/index',
+      'codex/quickstart',
+      'codex/first-task',
+      'codex/agents-md',
+      'codex/modify-verify-git',
+      'codex/capstone',
+      'projects/publish-first-site',
+      'codex/troubleshooting',
+      'codex/official-sources',
+      'glossary',
+    ],
+  },
+  {
     slug: 'daily-efficiency',
     title: '日常效率提升',
     description:

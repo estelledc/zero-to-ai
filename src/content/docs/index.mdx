@@ -1,11 +1,11 @@
 ---
 title: Zero to AI
-description: 从零开始用 AI 编程工具 — 实战教程集合，目前以 Claude Code 为核心覆盖
-lastVerified: '2026-07-05'
+description: 从零开始用 AI 编程工具 — Claude Code 与 Codex 的独立完整实战路线
+lastVerified: '2026-07-10'
 template: splash
 hero:
   title: Zero to AI
-  tagline: 从零开始，用 AI 工具编程。不是百科文档，是经过实战验证的使用策略集合。目前以 Claude Code 为核心覆盖。
+  tagline: 从零开始，用 AI 工具编程。不是百科文档，是经过实战验证的 Claude Code 与 Codex 完整学习路线。
   actions:
     - text: 几分钟了解是否适合你
       link: /claude-code/preflight/
@@ -13,6 +13,10 @@ hero:
       variant: primary
     - text: Claude Code 教程
       link: /claude-code/
+      icon: right-arrow
+      variant: minimal
+    - text: Codex 教程
+      link: /codex/
       icon: right-arrow
       variant: minimal
 ---
@@ -25,6 +29,13 @@ import CardGrid from '../../components/CardGrid.astro';
 选一条学习路径，跟着走就行：
 
 <CardGrid>
+  <Card
+    title="Codex 零基础完整路线"
+    description="从安装、项目规则到可公开访问的小站。"
+    meta="4-6 小时 · 适合零基础"
+    href="/paths/#codex-zero"
+    linkText="开始学习 →"
+  />
   <Card
     title="AI 编程零基础入门"
     description="从不会写代码到能用 AI 独立完成小页面。"
@@ -60,8 +71,14 @@ import CardGrid from '../../components/CardGrid.astro';
     linkText="查看教程 →"
   />
   <Card
+    title="Codex"
+    description="OpenAI 出品的本地编程 agent，覆盖 CLI、AGENTS.md、验证、Git 与公开作品"
+    href="/codex/"
+    linkText="查看教程 →"
+  />
+  <Card
     title="更多 AI 编程工具"
-    description="其他 AI 编程工具的教程正在筹备中。本站目前以 Claude Code 为核心覆盖工具，后续根据社区反馈扩展。"
+    description="Claude Code 与 Codex 已有独立完整路径；其他工具只有在官方资料稳定且可持续复核时才会加入。"
     href="https://github.com/estelledc/zero-to-ai/discussions"
     linkText="想看哪个工具优先？GitHub Discussions 反馈 →"
   />

@@ -6,9 +6,11 @@
 
 ## 项目定位
 
-面向编程零基础用户的中文 AI 编程工具实战教程站。目前以 Claude Code 为核心覆盖工具，后续根据社区反馈扩展。
+面向编程零基础用户的中文 AI 编程工具实战教程站。Claude Code 与 Codex 各有独立可完成路径，公共验证、Git 与发布方法放在共享板块。
 
 每篇教程遵循统一节奏：日常类比 → 技术定义 → 实际操作 → 常见坑 → 自检 → 下一步导航。
+
+2.0 之后的阶段规划、新工具准入门槛与项目不变量见 [docs/ROADMAP.md](docs/ROADMAP.md)。
 
 ## 技术栈
 
@@ -42,8 +44,9 @@ npm run validate-refs
 # 内容时效性与官方来源矩阵
 npm run audit:content-freshness
 
-# Claude 配置 fixture 与存储/slug unit test
+# Claude 配置 fixture、Codex CLI 文档契约与存储/slug unit test
 npm run test:fixtures
+npm run test:codex-docs
 npm run test:unit
 
 # Playwright 桌面/移动端、axe 与交互 smoke
@@ -59,6 +62,7 @@ npm run verify
 src/
 ├── content/docs/          # 所有教程内容（Markdown）
 │   ├── claude-code/       # Claude Code 教程（16 篇）
+│   ├── codex/             # Codex CLI 完整零基础路径（8 篇）
 │   ├── methodology/       # 工具无关的方法论（8 篇）
 │   ├── projects/          # 实战项目（Learn Journal 等）
 │   └── appendix/          # 附录（Git 基础、常见问题排查等）
