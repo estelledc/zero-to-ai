@@ -7,7 +7,7 @@ prerequisites: []
 relatedContent:
   - { slug: 'methodology/basics', label: '通用环境基础设施' }
   - { slug: 'glossary', label: '术语对照表' }
-lastVerified: '2026-06-24'
+lastVerified: '2026-07-10'
 toolVersion: 'Claude Code CLI v2.1'
 ---
 

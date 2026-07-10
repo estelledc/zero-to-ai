@@ -14,7 +14,7 @@ relatedContent:
   - { slug: 'claude-code/agnes-free-vibe-coding', label: '第三方兼容实验边界' }
   - { slug: 'appendix/git-basics', label: 'Git 10 分钟速成' }
   - { slug: 'claude-code/context', label: '上下文窗口管理' }
-lastVerified: '2026-06-24'
+lastVerified: '2026-07-10'
 toolVersion: 'Claude Code CLI v2.1'
 ---
 
