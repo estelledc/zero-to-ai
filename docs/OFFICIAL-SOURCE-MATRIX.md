@@ -7,15 +7,19 @@
 - 教程 frontmatter 的 `toolVersion`、`lastVerified` 必须和矩阵一致。
 - 超过 90 天的页面进入维护警告；警告目前不阻断普通内容 PR。
 
-| 页面范围           | 操作系统                | 主要一手来源                                  | 当前结果 |
-| ------------------ | ----------------------- | --------------------------------------------- | -------- |
-| 安装、认证、上手   | macOS / Windows / Linux | Claude Code installation、authentication      | PASS     |
-| Settings / 权限    | macOS / Windows / Linux | Claude Code settings、permissions             | PASS     |
-| Hook               | macOS / Windows / Linux | Claude Code hooks reference、hooks guide      | PASS     |
-| Skill              | macOS / Windows / Linux | Claude Code skills                            | PASS     |
-| Subagent           | macOS / Windows / Linux | Claude Code sub-agents                        | PASS     |
-| 上下文与回退       | macOS / Windows / Linux | Claude Code checkpointing、interactive mode   | PASS     |
-| 成本               | macOS / Windows / Linux | Anthropic pricing、Claude Code costs          | PASS     |
-| 第三方兼容实验边界 | macOS / Windows / Linux | Claude Code authentication、provider 当前页面 | PARTIAL  |
+| 页面范围               | 操作系统                | 主要一手来源                                  | 当前结果 |
+| ---------------------- | ----------------------- | --------------------------------------------- | -------- |
+| 安装、认证、上手       | macOS / Windows / Linux | Claude Code installation、authentication      | PASS     |
+| Settings / 权限        | macOS / Windows / Linux | Claude Code settings、permissions             | PASS     |
+| Hook                   | macOS / Windows / Linux | Claude Code hooks reference、hooks guide      | PASS     |
+| Skill                  | macOS / Windows / Linux | Claude Code skills                            | PASS     |
+| Subagent               | macOS / Windows / Linux | Claude Code sub-agents                        | PASS     |
+| 上下文与回退           | macOS / Windows / Linux | Claude Code checkpointing、interactive mode   | PASS     |
+| 成本                   | macOS / Windows / Linux | Anthropic pricing、Claude Code costs          | PASS     |
+| 第三方兼容实验边界     | macOS / Windows / Linux | Claude Code authentication、provider 当前页面 | PARTIAL  |
+| Codex 安装、认证与成本 | macOS / Windows / Linux | Codex CLI、Authentication、Pricing、WSL       | PARTIAL  |
+| Codex 项目规则与权限   | macOS / Windows / Linux | AGENTS.md、Agent approvals & security         | PASS     |
+| Codex 修改、验证与 Git | macOS / Windows / Linux | Codex CLI、Agent approvals & security         | PASS     |
+| Codex capstone 与排错  | macOS / Windows / Linux | Codex CLI、Troubleshooting、GitHub Pages      | PARTIAL  |
 
 最后维护：2026-07-10。
