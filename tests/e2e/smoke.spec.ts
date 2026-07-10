@@ -11,6 +11,18 @@ test('首页和学习路径保留 base path', async ({ page }) => {
   expect(await pathLinks.count()).toBeGreaterThan(0);
   await page.goto('paths/');
   await expect(page.getByRole('heading', { level: 1, name: '学习路径' })).toBeVisible();
+  await expect(page.locator('#codex-zero')).toContainText('Codex 零基础完整路线');
+});
+
+test('Codex 路线可从首页进入并保留路径上下文', async ({ page }) => {
+  await page.goto('./');
+  await page.getByRole('link', { name: 'Codex 教程' }).click();
+  await expect(page.getByRole('heading', { level: 1, name: 'Codex 零基础路线' })).toBeVisible();
+
+  await page.goto('paths/');
+  await page.locator('#codex-zero .path-card__cta').click();
+  await expect(page).toHaveURL(/methodology\/basics\/?\?path=codex-zero$/);
+  await expect(page.getByText('Codex 零基础完整路线')).toBeVisible();
 });
 
 test('进度必须由学习者显式完成，并兼容旧 key', async ({ page }) => {
@@ -54,6 +66,15 @@ test('Pagefind 搜索可打开并返回结果', async ({ page }) => {
   await expect(searchDialog).toBeVisible();
   const searchbox = searchDialog.getByRole('textbox', { name: '搜索' });
   await searchbox.fill('安装 Claude Code');
+  await expect(searchDialog.locator('.pagefind-ui__result-link').first()).toBeVisible();
+});
+
+test('Pagefind 可检索 Codex 安装教程', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name === 'mobile-chromium', '搜索索引只需验证一次');
+  await page.goto('./');
+  await page.getByRole('button', { name: '搜索' }).click();
+  const searchDialog = page.getByRole('dialog', { name: '搜索' });
+  await searchDialog.getByRole('textbox', { name: '搜索' }).fill('codex 安装');
   await expect(searchDialog.locator('.pagefind-ui__result-link').first()).toBeVisible();
 });
 

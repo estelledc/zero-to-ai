@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.0-rc.1] - 2026-07-10
+
+### Added
+
+- 新增 `/codex/` 独立零基础路径：环境与成本、第一次只读任务、`AGENTS.md`、修改/验证/Git、公开作品 capstone、故障排查和官方资料索引。
+- 新增 `codex-zero` 学习路径，交付物包含公开 Pages URL、Git 历史、验收截图和项目规则。
+- 新增 `npm run test:codex-docs`，静态校验完整路径和官方来源；本机安装 Codex 时同时验证 0.144.x CLI 的 `--version`、`--help`、登录与非交互命令契约。
+- Pagefind 同义词和 Playwright smoke 覆盖 Codex 首页、路径上下文与安装搜索。
+
+### Changed
+
+- 首页与侧边栏从 Claude Code 单工具站升级为 Claude Code + Codex 双工具站；现有 `/claude-code/` URL、三条旧路径和进度 key 保持兼容。
+- 版本更新为 `2.0.0-rc.1`；正式 `2.0.0` 仅在两条路线验收完成后创建。
+
+### Verification
+
+- OpenAI 官方资料复核于 2026-07-10；本地命令契约使用 `codex-cli 0.144.0-alpha.4`，不调用模型、不消耗账户额度。
+- 登录、方案额度、组织权限和 GitHub Pages 发布保留为人工验收项。
+
 ## [1.1.0] - 2026-07-10
 
 ### Corrected

@@ -45,6 +45,19 @@ export default defineConfig({
           ],
         },
         {
+          label: 'Codex',
+          items: [
+            { slug: 'codex' },
+            { slug: 'codex/quickstart' },
+            { slug: 'codex/first-task' },
+            { slug: 'codex/agents-md' },
+            { slug: 'codex/modify-verify-git' },
+            { slug: 'codex/capstone' },
+            { slug: 'codex/troubleshooting' },
+            { slug: 'codex/official-sources' },
+          ],
+        },
+        {
           label: '方法论',
           items: [
             { slug: 'methodology' },
