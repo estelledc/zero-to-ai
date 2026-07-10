@@ -57,7 +57,7 @@ jobs:
         run: npm run test:e2e:run
       - name: Upload pull-request build
         if: github.event_name == 'pull_request'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: zero-to-ai-pr-${{ github.event.number }}
           path: dist
