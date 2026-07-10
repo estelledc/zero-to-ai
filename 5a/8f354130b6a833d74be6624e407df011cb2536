@@ -1,0 +1,27 @@
+CHANGELOG.md
+  s_3a0624a253b86f::t_80d706d5703cb7 5,34-38,76,83
+docs/RELEASE-CHECKLIST.md
+  s_3a0624a253b86f::t_2838fba9a8dac9 1-3,7-12,16-20,24-27,31
+package-lock.json
+  s_3a0624a253b86f::t_c7e8f970fd992c 3,9
+package.json
+  s_3a0624a253b86f::t_747a5161a0a847 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "5a8f354130b6a833d74be6624e407df011cb2536",
+  "prompts": {},
+  "sessions": {
+    "s_3a0624a253b86f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "s_3a0624a253b86f",
+        "model": "unknown"
+      },
+      "human_author": "zhouxun <zhouxun.13@bytedance.com>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
