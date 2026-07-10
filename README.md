@@ -12,7 +12,7 @@
 
 ## 技术栈
 
-- [Astro](https://astro.build/) v6 + [Starlight](https://starlight.astro.build/) v0.40（文档主题）
+- [Astro](https://astro.build/) v7 + [Starlight](https://starlight.astro.build/) v0.41（文档主题）
 - TypeScript 严格模式
 - GitHub Pages 部署（GitHub Actions CI/CD）
 - Pagefind 全文搜索（构建时自动生成索引）
@@ -38,6 +38,19 @@ npm run preview
 
 # 校验交叉引用完整性
 npm run validate-refs
+
+# 内容时效性与官方来源矩阵
+npm run audit:content-freshness
+
+# Claude 配置 fixture 与存储/slug unit test
+npm run test:fixtures
+npm run test:unit
+
+# Playwright 桌面/移动端、axe 与交互 smoke
+npm run test:e2e
+
+# 提交前统一门禁
+npm run verify
 ```
 
 ## 目录结构
@@ -53,8 +66,11 @@ src/
 ├── data/                  # 学习路径等结构化数据
 ├── pages/                 # 自定义页面
 └── styles/                # 全局样式
-scripts/
-└── validate-cross-refs.ts # 交叉引用校验（CI 集成）
+scripts/                   # 交叉引用、freshness、官方链接维护脚本
+tests/e2e/                 # Playwright 发布与无障碍 smoke
+tests/unit/                # 进度存储与 slug 合同测试
+tests/fixtures/            # Claude settings/Hook/Agent 安全 fixture
+metrics/                   # 双周脱敏指标快照模板
 ```
 
 ## 内容规范
@@ -88,9 +104,11 @@ scripts/
 
 1. Fork 本仓库
 2. 创建特性分支：`git checkout -b feat/your-feature`
-3. 本地运行 `npm run validate-refs` 确认引用无误
-4. 本地运行 `npm run build` 确认构建通过
+3. 本地运行 `npm run verify` 完成静态检查、引用、freshness、构建和 smoke
+4. 时效性教程同步更新 `docs/OFFICIAL-SOURCE-MATRIX.json`，只引用一手资料
 5. 提交 PR，描述你的改动
+
+PR 会上传 `dist` 构建产物供审查，但不会创建临时公开预览；只有 `main` push 才部署 GitHub Pages。安全边界见 `docs/SECURITY-BOUNDARY.md`，Search Console 与双周指标流程见 `docs/METRICS-BASELINE.md`。
 
 ## 许可
 

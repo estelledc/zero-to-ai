@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-07-10",
+  "sourceCommit": "49e2995f51a8e5b2ef16eff86591cb93053a3ac3",
+  "items": [
+    {
+      "scope": "tutorial-contracts",
+      "status": "IMPLEMENTED",
+      "verification": "official-source-matrix"
+    },
+    {
+      "scope": "third-party-provider",
+      "status": "IMPLEMENTED",
+      "verification": "core-path-regression"
+    },
+    { "scope": "progress-storage", "status": "IMPLEMENTED", "verification": "unit-and-e2e" },
+    {
+      "scope": "browser-accessibility",
+      "status": "IMPLEMENTED",
+      "verification": "playwright-and-axe"
+    },
+    { "scope": "dependencies", "status": "IMPLEMENTED", "verification": "check-build-audit" },
+    { "scope": "multi-tool-content", "status": "OUT_OF_SCOPE_1_1", "verification": "2.0-only" }
+  ]
+}
