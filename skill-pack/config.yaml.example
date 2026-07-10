@@ -1,0 +1,22 @@
+# Learn Journal 配置
+# 复制此文件为 config.yaml 并填入你的信息
+# 或运行 bash scripts/init.sh 自动生成
+
+user:
+  name: ""              # 你的名字
+  direction: ""         # 学习方向（如：前端开发、后端开发、数据分析）
+  level: beginner       # beginner / intermediate / experienced
+  language: zh          # zh / en
+
+modules:
+  daily: true           # 日报
+  learnings: true       # 学习笔记
+  problems: true        # 问题记录
+  sources: true         # 学习材料
+  review: false         # 间隔复习（建议积累 5 篇笔记后开启）
+  quality_check: false  # 质量门禁（建议使用一周后开启）
+
+style:
+  analogy_first: true   # 解释概念时先用类比
+  ask_why: true         # 追问为什么
+  socratic: true        # 苏格拉底式验证
