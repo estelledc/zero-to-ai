@@ -1,0 +1,31 @@
+CHANGELOG.md
+  s_9340ed41c548fc::t_298366d904d100 5-33
+README.md
+  s_9340ed41c548fc::t_03a6c3b0298c39 15,41-53,69-73,107-108,111-112
+docs/AUDIT-RECONCILIATION.md
+  s_9340ed41c548fc::t_40d84227dbf0d4 1-14
+docs/DEPENDENCY-REVIEW.md
+  s_9340ed41c548fc::t_d2190e889d21d1 1-18
+docs/RELEASE-CHECKLIST.md
+  s_9340ed41c548fc::t_1b85aae8892f8e 1-28
+docs/audit-reconciliation.json
+  s_9340ed41c548fc::t_0797014c75c43e 1-25
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "c7351d16e8d0db2d599b6322c60b60442cf3f8b4",
+  "prompts": {},
+  "sessions": {
+    "s_9340ed41c548fc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9788d74c-dc80-4c60-8ed9-f8f7c8e0039a",
+        "model": "unknown"
+      },
+      "human_author": "zhouxun <zhouxun.13@bytedance.com>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
