@@ -7,37 +7,65 @@ prerequisites: []
 relatedContent:
   - { slug: 'claude-code/quickstart', label: '10 分钟上手 Claude Code' }
   - { slug: 'methodology/basics', label: '通用环境基础设施' }
-lastVerified: '2026-06-24'
+  - { slug: 'appendix/troubleshooting', label: '常见问题排查' }
+  - { slug: 'projects/publish-first-site', label: '把第一张个人页面发布成小站' }
+lastVerified: '2026-07-10'
 ---
 
-## 类比：Git 像游戏存档
+## 这是什么
 
-玩 RPG 游戏时，打 boss 前你会存档。打赢了继续，打输了读档重来。**Git 就是给代码做同样的事**——每次修改后“存档”，任何时候可以回到之前的版本。
+这一页用约 10 分钟，让你在本机学会 Git 最核心的本地操作：`init` / `status` / `add` / `commit` / `diff` / `log`，外加 `clone` 的直觉。读完你应能在一个练习目录里留下至少两次 commit，并知道改乱文件时怎么回退。
 
-对应关系：
+本篇**不**覆盖分支协作、`push`/`pull` 冲突解决、rebase。那些在发布小站或团队协作时再学。
+
+## 类比
+
+玩 RPG 游戏时，打 boss 前你会存档。打赢了继续，打输了读档重来。**Git 就是给代码做同样的事**——每次修改后「存档」，任何时候可以回到之前的版本。
 
 | 游戏术语       | Git 术语       |
 | -------------- | -------------- |
 | 存档           | commit（提交） |
 | 存档列表       | log（日志）    |
-| 回到存档       | checkout       |
+| 回到存档       | restore / checkout |
 | 对比两个存档   | diff           |
 | 下载别人的存档 | clone          |
 
 本地操作不需要联网，不需要注册账号——Git 是你电脑上的程序。等你需要和别人协作（clone、push）时才需要网络。
 
-## 7 个核心操作
+## 开始之前
+
+- 会打开终端（不会？先读 [通用环境基础设施](/methodology/basics/)）
+- 本机已安装 Git。检查：
+
+**macOS / Linux / WSL：**
+
+```bash
+git --version
+```
+
+**Windows PowerShell：**
+
+```powershell
+git --version
+```
+
+若提示找不到命令：macOS 可装 Xcode Command Line Tools 或 `brew install git`；Windows 用 [Git for Windows](https://git-scm.com/download/win) 或 `winget install Git.Git`；Linux（Debian/Ubuntu）用 `sudo apt install git`。装完**重开终端**再检查。
+
+- **macOS / Linux / WSL2**：下列 bash 可直接用
+- **原生 Windows**：Git Bash 与下列 bash 一致；PowerShell 里 `git` 命令相同，路径用 `~\Desktop\...`
+
+## 实际操作
 
 ### 1. `git init` — 开始一个新游戏
 
-在文件夹里初始化 Git。只需要运行一次，Git 会在这个文件夹里建一个隐藏的 `.git` 目录，用来存放所有“存档”数据。
+在文件夹里初始化 Git。只需要运行一次，Git 会在这个文件夹里建一个隐藏的 `.git` 目录，用来存放所有「存档」数据。
 
 ```bash
 cd 你的项目文件夹
 git init
 ```
 
-运行后会看到 `Initialized empty Git repository in ...`，表示“游戏”开始了。
+运行后会看到 `Initialized empty Git repository in ...`，表示「游戏」开始了。
 
 ### 2. `git status` — 看现在什么状态
 
@@ -50,7 +78,7 @@ git status
 输出示例解读：
 
 - `Untracked files`（红色）— 新文件，Git 还不认识
-- `Changes not staged for commit`（红色）— 改过了但没标记“要存档”
+- `Changes not staged for commit`（红色）— 改过了但没标记「要存档」
 - `Changes to be committed`（绿色）— 已经标记好，等存档
 
 **每次不知道该做什么时，先 `git status`。**
@@ -65,7 +93,7 @@ git add 文件1 文件2     # 存多个文件
 git add .               # 存当前目录所有修改（小心！）
 ```
 
-`git add` 把文件放入**暂存区**（staging area）——相当于存档前的“待确认清单”。只有暂存区里的文件会被下一次 `git commit` 存进去。
+`git add` 把文件放入**暂存区**（staging area）——相当于存档前的「待确认清单」。只有暂存区里的文件会被下一次 `git commit` 存进去。
 
 `git add .` 的坑：会把当前目录所有修改都标记，包括你可能不想存的临时文件、配置文件。存之前看一眼 `git status` 确认。
 
@@ -85,6 +113,15 @@ git commit -m "存档说明"
 写清楚你做了什么，未来的你会感谢现在的你。
 
 **常见错误**：忘记 `git add` 直接 `git commit`——什么都没存进去。正确流程永远是：改文件 → `git add` → `git commit`。
+
+**第一次 commit 可能被拒（身份未配置）：**
+
+```bash
+git config --global user.name "你的名字"
+git config --global user.email "你的邮箱@example.com"
+```
+
+再用原来的 `git commit -m "..."` 重试。邮箱可用 GitHub 提供的 noreply 地址，不必公开私人邮箱。
 
 ### 5. `git diff` — 对比两次存档有什么不同
 
@@ -121,7 +158,7 @@ git clone <URL>
 
 除了以上 7 个基础命令，下面的场景还会用到几个保护性命令（`git stash`、`git restore`），遇到时现学即可。
 
-## 和 Claude Code 配合的 3 个关键场景
+## 和 AI 编程助手配合的 3 个关键场景
 
 ### 场景一：AI 改代码前先存档
 
@@ -140,18 +177,34 @@ AI 改完代码后，用 `git diff` 逐行看改了什么。
 git diff
 ```
 
-确认只改了该改的地方，没有多改、少改、改错。
+确认只改了该改的地方，没有多改、少改、改错。满意后再 `git add` + `git commit`。
 
-### 场景三：改错了回退
+### 场景三：改错了回退（失败恢复）
 
 两种情况：
 
-- **只想撤回某个文件**：`git checkout -- 文件名`，这个文件回到上次存档的状态，其他文件不受影响
-- **想把当前改到一半的进度暂时存起来**：`git stash`（像游戏的“快速存档”）。回来继续时 `git stash pop`
+- **只想撤回某个文件的未提交修改**：`git restore 文件名`（现代 Git 2.23+）；旧写法 `git checkout -- 文件名`
+- **想把当前改到一半的进度暂时存起来**：`git stash`（像游戏的「快速存档」）。回来继续时 `git stash pop`
 
-> 现代 Git（2.23+）推荐用 `git restore <file>` 替代 `git checkout -- <file>`，功能相同但语义更清晰。
+```bash
+# 看清要回退什么
+git status
+git diff
 
-学会这两个命令你就敢让 AI 随便改了——改乱了一个文件用 `git checkout --`（或 `git restore`），改乱了一堆用 `git stash`。
+# 丢弃单个文件的未提交修改（不可恢复，确认后再做）
+git restore 文件名
+
+# 或：暂存当前脏工作区，切去干别的
+git stash
+# ... 干完别的 ...
+git stash pop
+```
+
+学会这两个命令你就敢让 AI 改了——改乱了一个文件用 `git restore`，改乱了一堆未提交改动用 `git stash` 或按文件 restore。
+
+:::caution[不要一上来就用危险命令]
+本页不教 `git reset --hard` 或强推。未提交的修改用 `restore` / `stash` 即可。已提交的坏改动，发布场景里优先用 `git revert`（见 [发布小站](/projects/publish-first-site/)），而不是改写历史。
+:::
 
 ## 常见坑
 
@@ -166,21 +219,33 @@ secret.txt
 node_modules/
 ```
 
-**2. commit message 写“修改”、“更新”**
+若已经误提交密钥：立刻轮换密钥，不要假设「再 commit 删掉」就安全——历史里还在。求助时也不要把 key 贴进 Issue。
+
+**2. commit message 写「修改」、「更新」**
 
 没用。一个月后自己都看不懂。花 5 秒写清楚改了啥。
 
 **3. 忘记 `git add` 直接 `git commit`**
 
-什么都没存进去。习惯性在 `git commit` 前跑一次 `git status` 确认。
+什么都没存进去。习惯性在 `git commit` 前跑一次 `git status` 确认。若提示 `nothing to commit, working tree clean` 但你明明改过文件——多半改错了目录，先 `pwd`。
 
-**4. 不知道怎么回退就不敢让 AI 改代码**
+**4. `Author identity unknown`**
 
-回顾场景三的两招：改乱了一个文件用 `git restore <文件名>`，改到一半想切换任务用 `git stash` / `git stash pop`。学会这两个就够了。
+按上文配置 `user.name` / `user.email` 后重试 commit。
+
+**5. 不知道怎么回退就不敢让 AI 改代码**
+
+回顾场景三：未提交用 `git restore` / `git stash`；已提交坏改动用可追溯的 `git revert`（发布课再练）。
+
+**6. 在错误的文件夹里 `git init`**
+
+`git status` 若显示大量无关文件，先确认 `pwd`。不要在家目录整盘 init。练习用独立小文件夹。
 
 ## Checkpoint：动手试试
 
 打开终端，复制粘贴下面每一行，一行一行跑：
+
+**macOS / Linux / WSL：**
 
 ```bash
 cd ~/Desktop
@@ -197,11 +262,37 @@ git commit -m "加了第二行"
 git log --oneline
 ```
 
+**Windows PowerShell：**
+
+```powershell
+cd ~\Desktop
+mkdir test-git
+cd test-git
+git init
+Set-Content -Path test.txt -Value "第一行字"
+git add test.txt
+git commit -m "第一个存档"
+Add-Content -Path test.txt -Value "第二行字"
+git diff
+git add test.txt
+git commit -m "加了第二行"
+git log --oneline
+```
+
 跑完后你应该看到两个存档记录。这就学会了 Git 最核心的操作。
 
-本篇只涵盖本地操作。分支（branch）、推送（push）、合并（merge）等协作概念不在范围内——遇到时再学。术语速查见[术语对照表](/glossary/)。
+自检：
+
+- [ ] `git --version` 有输出
+- [ ] 练习目录里 `git log --oneline` 至少两条 commit
+- [ ] 你能解释 `status` / `add` / `commit` / `diff` 各干什么
+- [ ] 你知道未提交改乱文件时用 `git restore`，而不是删仓库重来
+
+本篇只涵盖本地操作。分支（branch）、推送（push）、合并（merge）等协作概念不在范围内——遇到时再学。术语速查见 [术语对照表](/glossary/)。
 
 ## 下一步
 
-- [开始之前](/claude-code/preflight/) — 几分钟确认 Claude Code 教程适不适合你（AI 编程零基础入门路径下一站）
-- [通用环境基础设施](/methodology/basics/) — 终端、PATH、包管理器、环境变量
+- 还不会终端？去 [通用环境基础设施](/methodology/basics/)
+- Claude 路径：去 [开始之前](/claude-code/preflight/)，或继续 [10 分钟上手](/claude-code/quickstart/)
+- 已有本地页面要上线：去 [把第一张个人页面发布成小站](/projects/publish-first-site/)
+- 报错了：去 [常见问题排查](/appendix/troubleshooting/)

@@ -12,7 +12,8 @@ relatedContent:
   - { slug: 'projects/learn-journal/quickstart', label: 'Learn Journal 快速开始' }
   - { slug: 'projects/learn-journal/design-philosophy', label: 'Learn Journal 设计哲学' }
   - { slug: 'methodology/skill-engineering', label: 'Skill 工程化设计' }
-lastVerified: '2026-06-24'
+  - { slug: 'codex/agents-md', label: 'Codex AGENTS.md' }
+lastVerified: '2026-07-10'
 ---
 
 ## 这是什么
@@ -22,6 +23,10 @@ lastVerified: '2026-06-24'
 **Skill Pack 把这些全部打包好了。** 你只需要下载一个 ZIP，解压，复制一个适配文件，就能立刻开始用。
 
 它从 [intern-journal](https://github.com/estelledc/intern-journal) 项目中提炼而来。原作者工作流有 50+ 天实践记录；这不能自动证明压缩包在所有平台都可迁移，平台状态见下方兼容性矩阵。
+
+:::note[诚实边界]
+Claude Code：结构与初始化 smoke 已验证，账户内触发仍需你本地验收。Codex：`AGENTS.md` 适配器存在，真实触发与官方文档对齐仍在推进。Cursor / CatDesk：适配器在，真实环境未充分验证。换工具前先看兼容性表，不要假设「解压即全功能」。
+:::
 
 ## 下载
 
@@ -103,11 +108,15 @@ my-learning/
 
 **协议驱动** — AI 的行为不是硬编码的，而是通过 markdown 协议文件定义的。你可以随时修改协议来调整 AI 的行为，不需要写代码。
 
+**具体例子**：想把「日终回顾」从三问改成五问？打开 `protocols/daily-rhythm.md` 改条目，不必改适配器或脚本。下次会话助手按新协议走。
+
 **无状态** — 文件系统就是状态。没有数据库、没有后端、没有账号。Git 提供版本控制，markdown 提供可读性。
 
-**平台无关** — 同一套协议通过不同的适配器文件支持多个 AI 工具。换工具不需要重新学习。
+**平台无关** — 同一套协议通过不同的适配器文件支持多个 AI 工具。换工具不需要重新学习。Claude 复制 `CLAUDE.md`，Codex 复制 `AGENTS.md`，协议目录共用。
 
 **渐进式** — 第一天只需要写 daily，熟悉后逐步引入知识捕获和交叉引用。不会一上来就用复杂度压垮你。
+
+**具体例子**：Day 1 只建 `daily/2026-07-10.md` 写三行；Day 7 再开第一条 `learnings/`；等笔记超过 10 篇再认真跑 lint。复杂度跟着你的使用量长，而不是反过来。
 
 ## 和本站其他内容的关系
 
@@ -123,10 +132,31 @@ my-learning/
 - **Skill 内容过长撑爆上下文窗口**：一个 Skill 文件写了上千行，Claude 把它全部读进来，留给实际工作的 context 空间就不够了。Skill 应该精瘦——只写“什么时候触发”和“触发后做什么”，详细的参考文档放在单独文件里按需读取。
 - **多个 Skill 定义冲突**：两个 Skill 都声称自己处理“用户说写完了”这个触发词，Claude 不知道该听谁的。解决方法是让触发条件互斥——比如一个管“写完代码”，另一个管“写完笔记”，不要用模糊的“写完了”同时匹配两个。
 
+## 动手试一试
+
+约 10 分钟，完成一次「最小安装验收」（不必一次用完全部能力）：
+
+1. 下载并解压 [skill-pack.zip](/downloads/skill-pack.zip)
+2. 按你的工具复制适配器（Claude → `CLAUDE.md`；Codex → `AGENTS.md`）
+3. 复制 `config.yaml.example` → `config.yaml`，填名字与学习方向
+4. 对助手说：「帮我初始化学习空间」，确认生成了 `daily/`（或等价目录）
+5. 写一条最短 daily（三行即可），保存后用编辑器打开确认是普通 markdown
+
+**成功标准：** 适配文件在仓库根目录；至少有一个 `daily/` 文件可读；你知道下一步该读 ZIP 内 `SETUP.md` 还是本站 Learn Journal quickstart。
+
+## Checkpoint
+
+- [ ] 我能说出 Skill Pack 与「学习管理系统」原理篇的分工（实现 vs 思想）
+- [ ] 我知道 Claude / Codex 各自该复制哪个适配器，且兼容性并非全部「已验证」
+- [ ] 我完成了上面的「动手试一试」，或至少打开过 ZIP 结构与 `SETUP.md`
+- [ ] 我理解协议可改、状态在文件里、应渐进启用能力
+- [ ] （Claude）我知道分发用的 `skills/` 还需按 `SETUP.md` 装到 `.claude/skills/`
+
 ## 下一步
 
-- [Learn Journal 产品介绍](/projects/learn-journal/)——完整的产品视角：这是什么、为什么你需要它
-- [快速上手](/projects/learn-journal/quickstart/)——从下载到第一次使用的完整指南
-- [设计哲学](/projects/learn-journal/design-philosophy/)——协议驱动、无状态、渐进增强的设计决策
+- [Learn Journal 产品介绍](/projects/learn-journal/)——完整产品视角
+- [快速上手](/projects/learn-journal/quickstart/)——从下载到第一次使用
+- [设计哲学](/projects/learn-journal/design-philosophy/)——协议驱动与渐进增强
+- [Skill 工程化设计](/methodology/skill-engineering/)——如何把协议做成可版本化资产
 
-下载后如果遇到问题，可以查看 ZIP 内的 `SETUP.md` 获取详细安装说明和常见问题解答。
+下载后如果遇到问题，查看 ZIP 内的 `SETUP.md` 获取详细安装说明和常见问题解答。
