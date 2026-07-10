@@ -1,0 +1,30 @@
+{
+  "periodEnd": "2026-07-10",
+  "githubTraffic": {
+    "views": null,
+    "uniqueVisitors": null,
+    "clones": null,
+    "uniqueCloners": null
+  },
+  "searchConsole": {
+    "status": "HUMAN_VERIFICATION_REQUIRED",
+    "clicks": null,
+    "impressions": null,
+    "ctr": null,
+    "indexedPages": null,
+    "topQueriesSanitized": []
+  },
+  "contentQuality": {
+    "verifiedTutorialsAddedOrUpdated": 36,
+    "stalePages": 0,
+    "brokenLinks": 0,
+    "failedCiRuns": 1
+  },
+  "decisions": [
+    "首份快照。统计窗口 2026-06-27 至 2026-07-10,覆盖 1.1.0 与 2.0.0 两次发布。",
+    "contentQuality 口径:内容页变更 = git diff d42f8bc..v2.0.0 下 src/content/docs/ 的 9 新增 + 27 更新,均通过 verify 门禁;stalePages/brokenLinks 来自 2026-07-10 本地运行 audit:content-freshness(26 页时效页无警告)与 validate-refs(45 文件 0 断链);failedCiRuns 来自 gh run list 窗口统计。",
+    "唯一失败 CI 为 dependabot 的 typescript 6→7 大版本升级 PR,属依赖评审范围,不影响内容发布;按 DEPENDENCY-REVIEW 流程另行处理。",
+    "githubTraffic 为 null:agent 凭据无 Traffic API 权限(403),需站点所有者从 GitHub Insights 补录 views/uniqueVisitors/clones/uniqueCloners。",
+    "searchConsole 保持 HUMAN_VERIFICATION_REQUIRED:URL-prefix property 验证尚未由所有者完成,见 METRICS-BASELINE.md 人工停止点。"
+  ]
+}
