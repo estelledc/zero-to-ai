@@ -10,7 +10,7 @@ relatedContent:
   - { slug: 'claude-code/quickstart', label: '10 分钟上手 Claude Code' }
   - { slug: 'claude-code/cost', label: '成本与计费' }
   - { slug: 'appendix/git-basics', label: 'Git 10 分钟速成' }
-lastVerified: '2026-06-24'
+lastVerified: '2026-07-10'
 ---
 
 本教程中所有术语遵循以下规范：
@@ -18,6 +18,37 @@ lastVerified: '2026-06-24'
 - **产品特性名称保留英文** — Hook、Skill、子 Agent 等 Claude Code 特有概念在正文中直接使用英文形式，因为你在终端和文档中看到的就是这些名字。中文释义见下表
 - **通用概念用中文** — 上下文窗口、提示词、工件等通用术语正文中用中文，方便零基础读者理解
 - **代码/配置中保留英文**，匹配你终端里实际看到的
+
+## 怎么用这张表
+
+1. **第一周**：只读下面「第一周必懂」——够走完安装与第一次对话。
+2. **遇到生词**：用浏览器页内搜索（或本站搜索）跳到对应行。
+3. **仍不懂**：回到该词「详见」链接的教程页，看类比与实操，而不是死记英文。
+
+## 第一周必懂
+
+零基础路径前几小时最常出现的词。先把这些变成「能用自己的话解释」。
+
+| 你听到的 | 白话 | 最小例子 |
+| -------- | ---- | -------- |
+| 终端 / Terminal | 用打字命令操作电脑的窗口 | 打开后输入 `pwd` 看当前目录 |
+| CLI | 命令行界面，和带按钮的软件相对 | `claude` / `codex` 都在终端里跑 |
+| prompt / 提示词 | 你发给 AI 的那句话或那段说明 | 「帮我在当前目录创建一个 hello.html」 |
+| token / 令牌 | 计费与上下文长度的计量单位（不是「密码」） | 用量页里看到的消耗数字 |
+| 上下文窗口 | AI「办公桌」一次能摊开的信息上限 | 对话太长就用 `/clear` 或 `/compact` |
+| API Key | 调用云端模型的身份凭证 | 像门锁钥匙，不要发到公开仓库 |
+| Git / commit | 给项目文件夹做「游戏存档」 | `git add` → `git commit` 留下检查点 |
+| repo | 被 Git 跟踪的那个项目文件夹 | 本地目录或 GitHub 上的仓库 |
+| CLAUDE.md | Claude Code 的项目说明书 | 放在项目根目录，约定怎么改代码 |
+| AGENTS.md | Codex 的项目说明书 | 不要和 CLAUDE.md 命令混用 |
+| `/clear` | 清空当前对话上下文 | 换任务前先清桌 |
+| `/usage` | 查看用量（订阅与 API 含义不同） | 贵之前先养成看一眼的习惯 |
+
+读完可自检：
+
+- [ ] 能向朋友解释「上下文窗口」和「token」不是同一件事
+- [ ] 知道 Claude 路线看 CLAUDE.md，Codex 路线看 AGENTS.md
+- [ ] 知道改文件前应先有 Git 存档习惯
 
 ## AI 编程核心
 
@@ -108,3 +139,20 @@ lastVerified: '2026-06-24'
 | natural reuse                | 自然复用            | 不安排专门复习时间，而是在日常工作中自然触发对已学知识的回顾。详见[运作原理](/projects/learn-journal/how-it-works/)            |
 | artifact selection heuristic | 工件选择启发式      | “命中即停”规则：按优先级判断该用哪种工件记录。详见[学习管理](/methodology/learning-management/)                                |
 | teach mode / execute mode    | 教学模式 / 实施模式 | Claude 在解释概念时用教学模式（六步讲解），在执行任务时用实施模式（直接操作）。详见[工作流设计](/methodology/workflow-design/) |
+
+## Codex 常用
+
+| 英文 | 中文 | 说明 |
+| ---- | ---- | ---- |
+| Codex CLI | Codex 命令行 | OpenAI 的本地编程 agent；命令与 Claude Code 不通用。详见[Codex 专区](/codex/) |
+| AGENTS.md | AGENTS.md（不翻译） | Codex 的项目规则文件。详见[用 AGENTS.md 写项目规则](/codex/agents-md/) |
+| `codex login` | 登录命令 | Codex 认证入口；与 Anthropic 登录流程独立。详见[安装、登录与成本](/codex/quickstart/) |
+| sandbox | 沙箱 | 限制 Codex 能碰哪些文件/网络的安全边界 |
+| approval policy | 审批策略 | 哪些动作需要你点头才执行 |
+
+## 下一步
+
+- 零基础 Claude：[开始之前](/claude-code/preflight/)
+- 零基础 Codex：[安装、登录与成本](/codex/quickstart/)
+- 生词仍卡：[常见问题排查](/appendix/troubleshooting/) 或回对应教程的类比段
+
