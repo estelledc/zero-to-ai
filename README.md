@@ -10,6 +10,8 @@
 
 每篇教程遵循统一节奏：日常类比 → 技术定义 → 实际操作 → 常见坑 → 自检 → 下一步导航。
 
+2.0 之后的阶段规划、新工具准入门槛与项目不变量见 [docs/ROADMAP.md](docs/ROADMAP.md)。
+
 ## 技术栈
 
 - [Astro](https://astro.build/) v7 + [Starlight](https://starlight.astro.build/) v0.41（文档主题）
