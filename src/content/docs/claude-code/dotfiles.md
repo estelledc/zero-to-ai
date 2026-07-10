@@ -13,7 +13,7 @@ relatedContent:
   - { slug: 'claude-code/config', label: '核心配置' }
   - { slug: 'claude-code/hooks', label: 'Hook 系统' }
   - { slug: 'claude-code/memory', label: '记忆系统' }
-lastVerified: '2026-06-24'
+lastVerified: '2026-07-10'
 toolVersion: 'Claude Code CLI v2.1'
 ---
 

@@ -13,7 +13,7 @@ relatedContent:
   - { slug: 'claude-code/skills', label: 'Skill 系统' }
   - { slug: 'claude-code/memory', label: '记忆系统' }
   - { slug: 'methodology/claude-md-philosophy', label: 'CLAUDE.md 编写哲学（进阶）' }
-lastVerified: '2026-06-24'
+lastVerified: '2026-07-10'
 toolVersion: 'Claude Code CLI v2.1'
 ---
 

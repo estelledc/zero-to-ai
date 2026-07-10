@@ -13,7 +13,7 @@ relatedContent:
   - { slug: 'appendix/git-basics', label: 'Git 10 分钟速成' }
   - { slug: 'claude-code/skills', label: 'Skill 体系' }
   - { slug: 'methodology/prompt-anatomy', label: '系统提示解剖学' }
-lastVerified: '2026-06-24'
+lastVerified: '2026-07-10'
 toolVersion: 'Claude Code CLI v2.1'
 ---
 

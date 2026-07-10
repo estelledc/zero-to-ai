@@ -12,7 +12,7 @@ relatedContent:
   - { slug: 'methodology/learning-management', label: '学习管理系统' }
   - { slug: 'methodology/skill-pack', label: 'Skill Pack 技能包' }
   - { slug: 'projects/learn-journal/index', label: 'Learn Journal 项目' }
-lastVerified: '2026-06-24'
+lastVerified: '2026-07-10'
 toolVersion: 'Claude Code CLI v2.1'
 ---
 
