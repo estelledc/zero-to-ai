@@ -28,7 +28,7 @@ relatedContent:
 
 ## 第一步：下载并解压
 
-从 [这里下载 skill-pack.zip](/downloads/skill-pack.zip)（约 32KB），解压到你准备好的文件夹里。
+从 [这里下载 skill-pack.zip](/downloads/skill-pack.zip)，解压到你准备好的文件夹里。
 
 解压后你会看到一个 `skill-pack/` 目录：
 
@@ -52,7 +52,16 @@ my-learning/              # 你的文件夹
 | Claude Code | `skill-pack/adapters/claude-code/CLAUDE.md` | `CLAUDE.md`    |
 | Codex       | `skill-pack/adapters/codex/AGENTS.md`       | `AGENTS.md`    |
 | CatDesk     | `skill-pack/adapters/catdesk/CATDESK.md`    | `CATDESK.md`   |
-| Cursor      | `skill-pack/adapters/cursor/.cursorrules`   | `.cursorrules` |
+
+Claude Code 还需要把 Skill 入口复制到官方发现目录：
+
+```bash
+mkdir -p .claude/skills
+cp -R skill-pack/skills/. .claude/skills/
+```
+
+每个入口应形如 `.claude/skills/<name>/SKILL.md`。Codex、CatDesk 和 Cursor 当前只有规则适配器，真实平台触发尚未完成同等级验收，不应理解为“完整支持”。
+| Cursor | `skill-pack/adapters/cursor/.cursorrules` | `.cursorrules` |
 
 然后把 `skill-pack/config.yaml.example` 复制为 `config.yaml`：
 

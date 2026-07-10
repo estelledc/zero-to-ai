@@ -21,11 +21,11 @@ lastVerified: '2026-06-24'
 
 **Skill Pack 把这些全部打包好了。** 你只需要下载一个 ZIP，解压，复制一个适配文件，就能立刻开始用。
 
-它从 [intern-journal](https://github.com/estelledc/intern-journal) 项目中提炼而来，经过 50+ 天的实际使用验证。不是理论设计，是跑通了的实践。
+它从 [intern-journal](https://github.com/estelledc/intern-journal) 项目中提炼而来。原作者工作流有 50+ 天实践记录；这不能自动证明压缩包在所有平台都可迁移，平台状态见下方兼容性矩阵。
 
 ## 下载
 
-[skill-pack.zip](/downloads/skill-pack.zip)（约 32KB）
+[skill-pack.zip](/downloads/skill-pack.zip)
 
 ## 快速上手
 
@@ -66,7 +66,7 @@ skill-pack/
 │   ├── quality-gates.md    ← 质量门禁规则
 │   └── review-system.md    ← 自然复用策略
 ├── templates/          ← 工件模板（日报、笔记等的格式）
-├── skills/             ← 功能描述（AI 在什么时候做什么）
+├── skills/             ← 每个 Skill 一个目录，入口为 SKILL.md
 ├── adapters/           ← 平台适配（不同 AI 工具的入口文件）
 ├── scripts/            ← lint 和初始化脚本
 └── config.yaml.example ← 配置模板
@@ -88,14 +88,14 @@ my-learning/
 
 ## 兼容性
 
-| AI 工具        | 支持状态           |
-| -------------- | ------------------ |
-| Claude Code    | 完整支持           |
-| OpenAI Codex   | 完整支持           |
-| CatDesk        | 完整支持           |
-| Cursor         | 完整支持           |
-| Windsurf       | 未测试（理论兼容） |
-| GitHub Copilot | 未测试             |
+| AI 工具        | 支持状态                                              |
+| -------------- | ----------------------------------------------------- |
+| Claude Code    | 结构、ZIP 与初始化 smoke 已验证；账户内触发需人工验收 |
+| OpenAI Codex   | 规则适配器存在；官方文档复核与真实触发待 2.0 完成     |
+| CatDesk        | 规则适配器存在；真实环境未验证                        |
+| Cursor         | 规则适配器存在；真实环境未验证                        |
+| Windsurf       | 未测试（理论兼容）                                    |
+| GitHub Copilot | 未测试                                                |
 
 ## 设计哲学
 
@@ -119,7 +119,7 @@ my-learning/
 
 ## 常见坑
 
-- **Skill 文件路径写错**：Claude 找 Skill 全靠路径。忘了 `.claude/skills/` 前缀、或者拼错了一个字母，Claude 就完全找不到对应的 Skill，表现出来就是“这个功能怎么不触发了”。检查路径时注意前导点号和斜杠，像检查快递地址一样逐字核对。
+- **Skill 文件路径写错**：Claude Code 的项目 Skill 必须是 `.claude/skills/<skill-name>/SKILL.md`。ZIP 中的 `skills/` 是分发源码，安装时还要按 `SETUP.md` 复制到 `.claude/skills/`。
 - **Skill 内容过长撑爆上下文窗口**：一个 Skill 文件写了上千行，Claude 把它全部读进来，留给实际工作的 context 空间就不够了。Skill 应该精瘦——只写“什么时候触发”和“触发后做什么”，详细的参考文档放在单独文件里按需读取。
 - **多个 Skill 定义冲突**：两个 Skill 都声称自己处理“用户说写完了”这个触发词，Claude 不知道该听谁的。解决方法是让触发条件互斥——比如一个管“写完代码”，另一个管“写完笔记”，不要用模糊的“写完了”同时匹配两个。
 

@@ -190,3 +190,12 @@ subagents ← skills ← config ← quickstart ← basics（4 跳）
 | 3   | `toolVersion` 使用 `(latest)` 而非具体版本号      | 15 篇 Claude Code 教程                                        | 轻微   | 可追溯性 |
 | 4   | 首页无「学习路径」专属页面的显著入口              | `index.mdx`                                                   | 轻微   | 导航遗漏 |
 | 5   | sidebar 方法论区缺少 2 篇高级教程                 | `astro.config.mjs` L43-51                                     | 摩擦   | 配置遗漏 |
+
+## 七、当前状态附录（2026-07-10）
+
+以上正文保留 2026-06-24 审计快照，不回写原始判断。当前实现已补齐当时发现的 sidebar、路径入口、交叉引用和导航问题；详细映射见 `PROJECT-DEFICIENCIES.md`。
+
+1. 站点已升级到 Astro 7 / Starlight 0.41，构建不再出现旧 Markdown 配置弃用提示。
+2. 路由、学习路径 slug、frontmatter 和 progress localStorage key 保持兼容。
+3. 新增 `audit:content-freshness`、Playwright smoke 和 PR 构建产物，原审计未覆盖这些门禁。
+4. 1.1 复审发现的教程协议、显式完成语义和安全边界属于后续状态，不应反向改写本快照。

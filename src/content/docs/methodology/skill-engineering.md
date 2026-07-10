@@ -43,7 +43,7 @@ relatedContent:
 
 关键不是"文件多"，而是**路由设计**。SKILL.md 充当路由器，按工作流阶段指向不同的 reference 文件。Agent 在生成"信息图"时只读 `references/infographics/` 下的 6 个文件，不浪费 context window 在"产品海报"或"技术图表"的模板上。
 
-这和我们之前学过的[渐进加载三级架构](/claude-code/skills/#三层加载架构)一脉相承：
+这和前面介绍的 [Skill 目录与入口结构](/claude-code/skills/#1-skill-的结构)一脉相承：
 
 | 层级 | 内容               | 加载时机         |
 | ---- | ------------------ | ---------------- |

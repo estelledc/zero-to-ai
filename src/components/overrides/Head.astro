@@ -17,8 +17,14 @@ const pageId = entry.id;
 
 const synonyms = slugVariants(pageId).flatMap((variant) => synonymMap[variant] ?? []);
 const uniqueSynonyms = [...new Set(synonyms)];
+const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 ---
 
 {head.map(({ tag: Tag, attrs, content }) => <Tag {...attrs} set:html={content} />)}
 {uniqueSynonyms.length > 0 && <meta data-pagefind-meta={`synonyms:${uniqueSynonyms.join(' ')}`} />}
+{
+  googleSiteVerification && (
+    <meta name="google-site-verification" content={googleSiteVerification} />
+  )
+}
 <link rel="alternate" type="application/rss+xml" title="Zero to AI" href={`${base}/rss.xml`} />

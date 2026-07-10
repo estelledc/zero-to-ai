@@ -34,6 +34,36 @@ const pathsWithTutorialInfo = learningPaths.map((path) => ({
         <p class="path-card__meta">
           适合：{path.targetAudience} &middot; 预估时间：{path.timeRange}
         </p>
+        <p>
+          <strong>最终产物：</strong>
+          {path.outcome}
+        </p>
+        <div class="path-card__outcomes">
+          <div>
+            <strong>里程碑</strong>
+            <ul>
+              {path.milestones.map((milestone) => (
+                <li>{milestone}</li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <strong>完成证据</strong>
+            <ul>
+              {path.completionEvidence.map((evidence) => (
+                <li>{evidence}</li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <strong>失败恢复</strong>
+            <ul>
+              {path.recoveryGuidance.map((guidance) => (
+                <li>{guidance}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
 
         <ol class="path-card__list" data-path-slug={path.slug}>
           {path.tutorialDetails.map((t) => (
@@ -81,6 +111,18 @@ const pathsWithTutorialInfo = learningPaths.map((path) => ({
     padding-left: 1.25rem;
   }
 
+  .path-card__outcomes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+
+  .path-card__outcomes ul {
+    margin: 0.25rem 0 0;
+    padding-left: 1.25rem;
+  }
+
   .path-card__list li {
     margin-bottom: 0.25rem;
   }
@@ -91,12 +133,17 @@ const pathsWithTutorialInfo = learningPaths.map((path) => ({
     font-weight: 600;
   }
 
-  .path-card__list li[data-visited] a::before {
+  .path-card__list li[data-completed] a::before {
     content: '\2713\00a0';
     color: var(--sl-color-green-high);
   }
 
-  .path-card__list li[data-visited] {
+  .path-card__list li[data-visited] a::before {
+    content: '\2022\00a0';
+    color: var(--sl-color-gray-3);
+  }
+
+  .path-card__list li[data-completed] {
     opacity: 0.75;
   }
 
@@ -125,10 +172,22 @@ const pathsWithTutorialInfo = learningPaths.map((path) => ({
     color: var(--sl-color-text);
     border-color: var(--sl-color-gray-4);
   }
+
+  @media (max-width: 40rem) {
+    .path-card__outcomes {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>
 
 <script>
-  import { PROGRESS_VERSION, progressKey, ACTIVE_PATH_KEY } from '../utils/progress-storage';
+  import { learningPaths } from '../data/learning-paths';
+  import {
+    ACTIVE_PATH_KEY,
+    ownedProgressKeys,
+    readProgress,
+    safeRemove,
+  } from '../utils/progress-storage';
 
   function applyProgressMarkers() {
     document
@@ -145,20 +204,16 @@ const pathsWithTutorialInfo = learningPaths.map((path) => ({
         list.querySelectorAll<HTMLLIElement>('li[data-tutorial-slug]').forEach((li) => {
           total++;
           li.removeAttribute('data-visited');
+          li.removeAttribute('data-completed');
           const slug = li.dataset.tutorialSlug;
           if (!slug) return;
 
-          const raw = localStorage.getItem(progressKey(pathSlug, slug));
-          if (!raw) return;
-
-          try {
-            const data = JSON.parse(raw);
-            if (data.v === PROGRESS_VERSION) {
-              li.setAttribute('data-visited', '');
-              visited++;
-            }
-          } catch {
-            localStorage.removeItem(progressKey(pathSlug, slug));
+          const entry = readProgress(localStorage, pathSlug, slug);
+          if (entry?.status === 'completed') {
+            li.setAttribute('data-completed', '');
+            visited++;
+          } else if (entry?.status === 'visited') {
+            li.setAttribute('data-visited', '');
           }
         });
 
@@ -176,14 +231,8 @@ const pathsWithTutorialInfo = learningPaths.map((path) => ({
   document.getElementById('reset-progress')?.addEventListener('click', () => {
     if (!confirm('确定要清除所有学习路径的进度记录吗？此操作不可撤销。')) return;
 
-    const keysToRemove: string[] = [];
-    for (let i = 0; i < localStorage.length; i++) {
-      const key = localStorage.key(i);
-      if (key?.startsWith('path:') || key === ACTIVE_PATH_KEY) {
-        keysToRemove.push(key);
-      }
-    }
-    keysToRemove.forEach((key) => localStorage.removeItem(key));
+    ownedProgressKeys(learningPaths).forEach((key) => safeRemove(localStorage, key));
+    safeRemove(localStorage, ACTIVE_PATH_KEY);
     applyProgressMarkers();
   });
 </script>

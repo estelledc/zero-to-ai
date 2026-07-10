@@ -1,4 +1,5 @@
 import type { CollectionEntry } from 'astro:content';
+import { slugMatches } from './slug';
 
 /**
  * Match a tutorial slug to a Content Collection entry.
@@ -9,9 +10,5 @@ export function findDoc(
   allDocs: CollectionEntry<'docs'>[],
   slug: string,
 ): CollectionEntry<'docs'> | undefined {
-  return (
-    allDocs.find((d) => d.id === slug) ||
-    allDocs.find((d) => d.id === slug.replace(/\/index$/, '')) ||
-    allDocs.find((d) => d.id === `${slug}/index`)
-  );
+  return allDocs.find((doc) => slugMatches(doc.id, slug));
 }

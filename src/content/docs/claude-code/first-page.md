@@ -6,12 +6,12 @@ difficulty: beginner
 prerequisites:
   - claude-code/quickstart
   - methodology/basics
-  - claude-code/agnes-free-vibe-coding
 relatedContent:
+  - { slug: 'projects/publish-first-site', label: '把个人页面发布成小站' }
   - { slug: 'claude-code/quickstart', label: '10 分钟上手' }
   - { slug: 'claude-code/verify', label: '验证方法论' }
   - { slug: 'claude-code/cost', label: '成本与计费' }
-  - { slug: 'claude-code/agnes-free-vibe-coding', label: '零成本 vibe coding' }
+  - { slug: 'claude-code/agnes-free-vibe-coding', label: '第三方兼容实验边界' }
   - { slug: 'appendix/git-basics', label: 'Git 10 分钟速成' }
   - { slug: 'claude-code/context', label: '上下文窗口管理' }
 lastVerified: '2026-06-24'
@@ -31,7 +31,7 @@ quickstart 的 hello.html 像试吃——尝一口知道味道。这一页是你
 ## 开始之前
 
 - 你已经完成 [10 分钟上手](/claude-code/quickstart/)，Claude Code 能正常启动
-- 你有可用的 API Key（Anthropic 付费或 [Agnes 免费](/claude-code/agnes-free-vibe-coding/) 都行）
+- 你已经按快速上手完成 Claude Code 登录：使用包含 Claude Code 的订阅，或 Claude Console API 凭证
 - 你知道怎么在终端里 `cd` 到一个文件夹
 
 ## 实际操作
@@ -151,6 +151,7 @@ git commit -m "我的第一个 AI 页面"
 
 ## 下一步
 
-- 还没花钱？用 [Agnes 免费模型](/claude-code/agnes-free-vibe-coding/)零成本完成上面的练习
+- 继续第二个 capstone：[把个人页面发布成小站](/projects/publish-first-site/)——补齐 Git、GitHub Pages、线上验证和恢复
+- 想了解第三方兼容网关？先读[第三方兼容实验的边界](/claude-code/agnes-free-vibe-coding/)，不要把它当成 Anthropic 官方免费方案
 - 想控制开销？学 [成本与计费](/claude-code/cost/)
 - 想让 Claude 更懂你？学 [核心配置](/claude-code/config/)——写你自己的 CLAUDE.md

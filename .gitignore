@@ -1,24 +1,6 @@
-# Build output
+node_modules/
 dist/
 .astro/
-
-# Dependencies
-node_modules/
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Editor
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# Logs
-*.log
-npm-debug.log*
-
-# Environment
-.env
-.env.*
+artifacts/
+test-results/
+playwright-report/

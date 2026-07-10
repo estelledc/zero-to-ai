@@ -3,14 +3,12 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  # Run validation for stacked/release-branch PRs too. Deployment remains main-only below.
   pull_request:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages-${{ github.ref }}
@@ -32,8 +30,16 @@ jobs:
         run: npm run format:check
       - name: Validate cross-references
         run: npm run validate-refs
+      - name: Audit content freshness
+        run: npm run audit:content-freshness
       - name: Type check
         run: npm run check
+      - name: Validate Claude fixtures
+        run: npm run test:fixtures
+      - name: Unit tests
+        run: npm run test:unit
+      - name: Skill pack smoke
+        run: npm run test:skill-pack
 
   build:
     needs: validate
@@ -45,11 +51,25 @@ jobs:
       - uses: withastro/action@v6
         with:
           node-version: 22
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+      - name: Run smoke tests
+        run: npm run test:e2e:run
+      - name: Upload pull-request build
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: zero-to-ai-pr-${{ github.event.number }}
+          path: dist
+          retention-days: 7
 
   deploy:
     needs: build
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
