@@ -19,9 +19,20 @@ toolVersion: 'Claude Code CLI v2.1'
 
 ## 这是什么
 
-Hook 是事件触发器：Claude Code 到达某个生命周期节点时，把一份 JSON 输入交给你的脚本，再根据脚本的退出码或 JSON 输出决定后续动作。
+**Hook（钩子）** 是事件触发器：Claude Code 到达某个生命周期节点时，把一份 JSON（一种结构化数据格式）输入交给你的脚本，再根据脚本的退出码或 JSON 输出决定后续动作。
 
 **类比**：`PreToolUse` 像门禁，事情发生前可以拒绝；`PostToolUse` 像质检，事情已经发生，只能反馈和要求补救；`SessionEnd` 像下班日志，只负责记录或清理。
+
+**安全警告（先读）：** Hook 脚本以你的用户权限运行，能读 stdin 里的工具参数，也能执行任意命令。只运行你信任的脚本；不要从不明来源复制 Hook；不要在 Hook 里把 transcript、token、绝对路径或凭证上传到外部系统。
+
+**术语速查：**
+
+| 词 | 含义 |
+| --- | --- |
+| matcher | 过滤器：决定哪些工具名/结束原因会触发这条 Hook |
+| stdin / stdout / stderr | 标准输入/输出/错误流；事件 JSON 从 stdin 进来，控制 JSON 只应走 stdout，日志走 stderr |
+| 退出码 | 脚本结束时返回的数字；`0` 正常，`2` 在 Hook 协议里表示阻断，其他非零多表示脚本错误 |
+| `$CLAUDE_PROJECT_DIR` | Claude Code 提供的环境变量，指向当前项目根目录 |
 
 Hook 事件远不止四种。初学时先掌握这四个：
 
@@ -167,24 +178,46 @@ Hook 有两种控制方式，每次执行选一种：
 3. 在测试仓库触发一次普通 Bash 和一次 `git push --force --dry-run` 形态的命令，确认 matcher 与拒绝原因符合预期。
 4. 用 `claude --debug` 排查 Hook 未触发或 JSON 解析失败；不要直接在重要仓库做第一次测试。
 
-## 常见误区
+## 常见误区与失败恢复
 
-- **错误认知：`SessionStop` 是会话结束事件** → 正确事件名是 `SessionEnd`；`Stop` 是模型准备停止回复时的另一类事件。
-- **错误认知：任何非零退出码都会 block** → 只有退出码 2 具有事件特定阻断语义，其他非零值表示 Hook 错误。
-- **错误认知：PostToolUse 能撤销工具调用** → 它只能反馈或要求补救，工具已经执行。
-- **错误认知：stdout 可以一边打日志一边输出 JSON** → 结构化模式要求 stdout 只有 JSON，调试信息写 stderr。
-- **错误认知：matcher 在所有事件都匹配工具名** → matcher 的含义随事件变化；`SessionEnd` 匹配结束原因。
+- **错误认知：`SessionStop` 是会话结束事件** → 正确事件名是 `SessionEnd`；`Stop` 是模型准备停止回复时的另一类事件。失败恢复：打开 settings.json，把 `SessionStop` 改成 `SessionEnd`。
+- **错误认知：任何非零退出码都会 block** → 只有退出码 2 具有事件特定阻断语义，其他非零值表示 Hook 错误。失败恢复：把“故意拒绝”统一改成 `exit 2`，脚本崩溃用日志修，不要用 `exit 1` 冒充拒绝。
+- **错误认知：PostToolUse 能撤销工具调用** → 它只能反馈或要求补救，工具已经执行。失败恢复：危险操作防护一律改到 `PreToolUse`。
+- **错误认知：stdout 可以一边打日志一边输出 JSON** → 结构化模式要求 stdout 只有 JSON，调试信息写 stderr。失败恢复：删掉所有 `echo` 到 stdout 的调试行，改 `echo ... >&2`。
+- **错误认知：matcher 在所有事件都匹配工具名** → matcher 的含义随事件变化；`SessionEnd` 匹配结束原因。失败恢复：对照官方 Hook reference 核对当前事件的 matcher 语义。
+- **Hook 注册了但不触发** → 常见原因：脚本无执行权限、路径错误、JSON 非法、matcher 未命中。失败恢复：`chmod +x` → 终端手动喂 JSON 测脚本 → `jq empty` 验 settings → `claude --debug` 看是否调用到脚本。
+- **从网上复制未知 Hook** → 安全风险：脚本可能外传代码或凭证。失败恢复：删除该 Hook 注册与脚本；轮换可能暴露的密钥；只保留你读懂并信任的脚本。
+
+## 最小可验证动作
+
+一次坐下来约 15 分钟（请在**测试仓库**做，不要第一次就在生产仓库试）：
+
+1. 按上文创建 `.claude/hooks/block-force-push.sh` 并 `chmod +x`
+2. 在项目 `.claude/settings.json` 注册 PreToolUse Hook
+3. 在终端单独验证脚本：
+
+```bash
+# 应退出 0
+printf '%s' '{"tool_input":{"command":"git status"}}' | .claude/hooks/block-force-push.sh; echo exit:$?
+
+# 应退出 2，并在 stderr 看到拒绝原因
+printf '%s' '{"tool_input":{"command":"git push --force origin main"}}' | .claude/hooks/block-force-push.sh; echo exit:$?
+```
+
+**成功标准：** 安全命令 `exit:0`，危险命令 `exit:2`。然后再在 Claude Code 里触发一次同类 Bash，确认拒绝原因可见。
 
 ## Checkpoint
 
-1. 为什么危险命令防护应放在 `PreToolUse`，而不是 `PostToolUse`？
-2. `exit 1` 与 `exit 2` 有什么区别？
-3. 把示例改成拒绝 `git add .`，并用两份 stdin JSON 做允许/拒绝测试。
-4. 解释 `Stop` 和 `SessionEnd` 为什么不是同一个事件。
+- [ ] 我能解释：为什么危险命令防护应放在 `PreToolUse`，而不是 `PostToolUse`
+- [ ] 我能区分 `exit 1`（脚本错误）与 `exit 2`（协议阻断）
+- [ ] 我完成了上面的「最小可验证动作」，两份 stdin JSON 测试通过
+- [ ] 我知道 `Stop` 和 `SessionEnd` 不是同一个事件
+- [ ] 我理解：Hook 以本机用户权限运行，不明来源脚本不可信；日志与凭证不外传
 
 ## 下一步
 
 - 用[配置即代码](/claude-code/dotfiles/)管理 Hook 脚本，但不要把密钥纳入 Git。
 - 用[工作流编排思路](/methodology/workflow-design/)决定哪些检查该自动化、哪些应保留人工判断。
+- 回到[核心配置](/claude-code/config/)核对 settings.json 与 CLAUDE.md 的分工。
 
 官方依据（复核于 2026-07-10）：[Hooks reference](https://code.claude.com/docs/en/hooks)、[Hooks guide](https://code.claude.com/docs/en/hooks-guide)。
