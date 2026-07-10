@@ -1,0 +1,73 @@
+scripts/build-skill-pack.py
+  s_9340ed41c548fc::t_aa215b67993e86 1-25
+scripts/test-skill-pack.py
+  s_9340ed41c548fc::t_8039bb1582b5d3 1-63
+skill-pack/README.md
+  s_9340ed41c548fc::t_5e34daeeaaba1e 1-69
+skill-pack/SETUP.md
+  s_9340ed41c548fc::t_745f44e13960d7 1-145
+skill-pack/adapters/catdesk/CATDESK.md
+  s_9340ed41c548fc::t_ecb0b5e8280fef 1-56
+skill-pack/adapters/claude-code/CLAUDE.md
+  s_9340ed41c548fc::t_6401e25c4b308c 1-56
+skill-pack/adapters/codex/AGENTS.md
+  s_9340ed41c548fc::t_3df58f9878d01d 1-56
+skill-pack/adapters/cursor/.cursorrules
+  s_9340ed41c548fc::t_5874a6510f2fc2 1-47
+skill-pack/config.yaml.example
+  s_9340ed41c548fc::t_c00db5804accd7 1-22
+skill-pack/protocols/artifact-routing.md
+  s_9340ed41c548fc::t_3a9ab35b64e6c3 1-74
+skill-pack/protocols/daily-rhythm.md
+  s_9340ed41c548fc::t_e7e2a4ba492139 1-93
+skill-pack/protocols/explain-protocol.md
+  s_9340ed41c548fc::t_6ab9482c258eb5 1-81
+skill-pack/protocols/quality-gates.md
+  s_9340ed41c548fc::t_0aa49cd54d216a 1-70
+skill-pack/protocols/review-system.md
+  s_9340ed41c548fc::t_d2832dc0b9271a 1-96
+skill-pack/scripts/init.sh
+  s_9340ed41c548fc::t_be4d537d3046eb 1-67
+skill-pack/scripts/lint-notes.py
+  s_9340ed41c548fc::t_31d00ee2a5a734 1-106
+skill-pack/skills/capture/SKILL.md
+  s_9340ed41c548fc::t_fa57c2b0fe465d 1-87
+skill-pack/skills/daily-review/SKILL.md
+  s_9340ed41c548fc::t_003aae89cd08e5 1-101
+skill-pack/skills/health-check/SKILL.md
+  s_9340ed41c548fc::t_85f8f4c2abed4e 1-102
+skill-pack/skills/learn/SKILL.md
+  s_9340ed41c548fc::t_219c10b995edba 1-106
+skill-pack/templates/daily.md
+  s_9340ed41c548fc::t_dfd026835eb5e4 1-36
+skill-pack/templates/learning.md
+  s_9340ed41c548fc::t_7026f59a56c52a 1-56
+skill-pack/templates/problem.md
+  s_9340ed41c548fc::t_e9f7327347e7ea 1-44
+skill-pack/templates/source.md
+  s_9340ed41c548fc::t_b5914113fe78ce 1-30
+src/content/docs/methodology/skill-pack.md
+  s_9340ed41c548fc::t_26c03375dbdbd0 24,28,69,91-98,122
+src/content/docs/projects/learn-journal/design-philosophy.md
+  s_9340ed41c548fc::t_cbf2c12eb4e5e2 216-217
+src/content/docs/projects/learn-journal/quickstart.md
+  s_9340ed41c548fc::t_5d60fafd82db8a 31,55-64
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "86cd17a77e14498c92aa0acaa27e6f3a718eaa5c",
+  "prompts": {},
+  "sessions": {
+    "s_9340ed41c548fc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9788d74c-dc80-4c60-8ed9-f8f7c8e0039a",
+        "model": "unknown"
+      },
+      "human_author": "zhouxun <zhouxun.13@bytedance.com>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
