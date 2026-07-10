@@ -1,7 +1,12 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 
-for (const route of ['', 'paths/', 'claude-code/quickstart/?path=ai-coding-zero']) {
+for (const route of [
+  '',
+  'paths/',
+  'claude-code/quickstart/?path=ai-coding-zero',
+  'codex/quickstart/?path=codex-zero',
+]) {
   test(`axe WCAG A/AA: ${route || 'home'}`, async ({ page }) => {
     await page.goto(route || './');
     const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze();

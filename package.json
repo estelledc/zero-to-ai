@@ -1,6 +1,6 @@
 {
   "name": "zero-to-ai",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "从零开始用 AI 编程工具 — 实战教程集合",
   "type": "module",
   "scripts": {
@@ -18,15 +18,17 @@
     "build:skill-pack": "python3 scripts/build-skill-pack.py",
     "test:skill-pack": "npm run build:skill-pack && python3 scripts/test-skill-pack.py",
     "test:fixtures": "tsx scripts/test-claude-fixtures.ts",
+    "test:codex-docs": "tsx scripts/test-codex-docs.ts",
     "test:unit": "tsx --test tests/unit/*.test.ts",
     "test:e2e:run": "playwright test",
     "test:e2e": "npm run build && npm run test:e2e:run",
-    "verify": "npm run check && npm run lint && npm run format:check && npm run audit:content-freshness && npm run test:fixtures && npm run test:skill-pack && npm run test:unit && npm run test:e2e",
+    "verify": "npm run check && npm run lint && npm run format:check && npm run audit:content-freshness && npm run test:fixtures && npm run test:codex-docs && npm run test:skill-pack && npm run test:unit && npm run test:e2e",
     "clean": "rm -rf dist .astro"
   },
   "keywords": [
     "ai-coding",
     "claude-code",
+    "codex",
     "tutorial",
     "astro",
     "starlight"
