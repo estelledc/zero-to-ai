@@ -5,6 +5,8 @@
 > 数据来源：`src/content/docs/` 全部 33 个 `.md/.mdx` 文件逐文件扫描 + `learning-paths.ts` + `astro.config.mjs` + `validate-cross-refs.ts` 交叉核对
 >
 > 审计视角：一个「不会写代码、从未用过终端」的读者，能否仅凭本站内容和导航结构，找到并走完「AI 编程零基础入门」路径？
+>
+> **快照声明（2026-07-10 回写）**：本报告是 33 文件 / 3 条路径时期的历史快照。2.0.0 现状为 45 文件 / 4 条路径（新增 `codex/` 分区与 `codex-zero` 路径）。当时发现的问题的逐项处置见 `PROJECT-DEFICIENCIES.md`（附录 E/F 为最新状态）；本文仅在对应章节追加「更新」标注，不改写原始结论。
 
 ---
 
@@ -21,6 +23,8 @@
 | 交叉引用校验结果              | ✅ 通过（0 错误 0 警告，`npm run validate-refs`）                                      |
 
 \*注：`projects/index` 在 sidebar 中通过 `{ slug: 'projects' }` 展现，Astro 6 会自动解析 `index.md`。`methodology/skill-engineering` 和 `methodology/prompt-anatomy` 在 sidebar 配置中**未列出**，但在 `learning-paths.ts` 的 `advanced-custom` 路径中包含。
+
+> **更新（2026-07-10）**：本表为历史快照。当前站点为 45 文件、4 条学习路径（新增 `codex-zero`）；两篇未列出教程已加入 sidebar（见 PROJECT-DEFICIENCIES 附录 D，证据 `astro.config.mjs`）。
 
 ---
 
@@ -101,6 +105,8 @@
 
 **关键发现**：`methodology/prompt-anatomy` 和 `methodology/skill-engineering` 两篇教程被 `advanced-custom` 路径引用，但不在 `astro.config.mjs` 的 sidebar 配置中。用户通过 sidebar 浏览「方法论」分区时**看不到这两篇**。仅通过「学习路径」页面或其他教程的 `relatedContent` 链接可达。
 
+> **更新（2026-07-10）**：此问题已修复，两篇均已列入 sidebar 方法论分区，见 PROJECT-DEFICIENCIES 附录 D（IA-AUDIT #1/#5）。
+
 ### 3.3 Index.mdx 首页 Card 链接一致性
 
 | 路径名            | Card href               | learning-paths.ts 首篇 | 一致？ | 问题 |
@@ -110,6 +116,8 @@
 | 高级定制与自动化  | `/claude-code/cost/`    | `claude-code/cost`     | ✅     | —    |
 
 **问题**：「日常效率提升」和「高级定制与自动化」两条路径的首页 Card 链接**完全相同**——都指向 `/claude-code/cost/`。这不是 bug（两条路径确实都从 cost 开始），但对用户造成**困惑**：点两个不同的卡片进了同一个页面，不知道差别在哪。
+
+> **更新（2026-07-10）**：此问题已修复，两 Card 分别指向 `/paths/#daily-efficiency` 与 `/paths/#advanced-custom`，见 PROJECT-DEFICIENCIES 附录 D（IA-AUDIT #2）。
 
 ---
 
@@ -190,6 +198,8 @@ subagents ← skills ← config ← quickstart ← basics（4 跳）
 | 3   | `toolVersion` 使用 `(latest)` 而非具体版本号      | 15 篇 Claude Code 教程                                        | 轻微   | 可追溯性 |
 | 4   | 首页无「学习路径」专属页面的显著入口              | `index.mdx`                                                   | 轻微   | 导航遗漏 |
 | 5   | sidebar 方法论区缺少 2 篇高级教程                 | `astro.config.mjs` L43-51                                     | 摩擦   | 配置遗漏 |
+
+> **更新（2026-07-10）**：上表 5 项均已修复——#1/#5 两篇已入 sidebar；#2 两 Card 已分流到 `/paths/` 锚点；#3 toolVersion 已填具体版本并绑定官方矩阵；#4 首页与 sidebar 均有 `/paths/` 入口。逐项证据见 PROJECT-DEFICIENCIES 附录 C/D。
 
 ## 七、当前状态附录（2026-07-10）
 
