@@ -14,11 +14,11 @@ export const base = import.meta.env.BASE_URL.replace(/\/$/, '');
  * When pathSlug is provided, appends ?path= for multi-path navigation context.
  */
 export function slugToHref(slug: string, pathSlug?: string): string {
-  // Strip trailing "index" or standalone "index"
-  const cleaned = slug.replace(/(^|\/)?index$/, '$1').replace(/\/$/, '');
+  const cleaned = canonicalSlug(slug);
   const href = `${base}/${cleaned}${cleaned ? '/' : ''}`;
   if (pathSlug) {
     return `${href}?path=${encodeURIComponent(pathSlug)}`;
   }
   return href;
 }
+import { canonicalSlug } from './slug';

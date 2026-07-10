@@ -1,0 +1,41 @@
+name: Weekly maintenance report
+
+on:
+  schedule:
+    - cron: '23 3 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Content freshness report
+        continue-on-error: true
+        run: npm run audit:content-freshness 2>&1 | tee freshness-report.txt
+      - name: Official link report
+        continue-on-error: true
+        run: npm run audit:official-links 2>&1 | tee official-links.log
+      - name: Dependency advisory report
+        continue-on-error: true
+        run: npm audit --json > dependency-audit.json
+      - name: Upload maintenance reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: maintenance-${{ github.run_id }}
+          path: |
+            freshness-report.txt
+            official-links.log
+            dependency-audit.json
+            artifacts/maintenance/official-link-report.json
+          if-no-files-found: warn
+          retention-days: 30

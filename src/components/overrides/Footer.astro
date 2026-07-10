@@ -28,6 +28,16 @@ import RelatedContent from '../RelatedContent.astro';
   }
 </footer>
 
+<script>
+  const makeCodeBlocksKeyboardScrollable = () => {
+    document.querySelectorAll<HTMLElement>('.expressive-code pre').forEach((block) => {
+      block.tabIndex = 0;
+    });
+  };
+  makeCodeBlocksKeyboardScrollable();
+  document.addEventListener('astro:page-load', makeCodeBlocksKeyboardScrollable);
+</script>
+
 <style>
   @layer starlight.core {
     footer {

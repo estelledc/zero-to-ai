@@ -62,6 +62,7 @@ export default defineConfig({
           label: '实战项目',
           items: [
             { slug: 'projects' },
+            { slug: 'projects/publish-first-site' },
             { slug: 'projects/learn-journal' },
             { slug: 'projects/learn-journal/quickstart' },
             { slug: 'projects/learn-journal/how-it-works' },
@@ -111,33 +112,6 @@ export default defineConfig({
         {
           tag: 'meta',
           attrs: { name: 'twitter:card', content: 'summary_large_image' },
-        },
-        // 站点验证（预留）
-        // { tag: 'meta', attrs: { name: 'google-site-verification', content: '...' } },
-        // 安全头：防止 clickjacking
-        {
-          tag: 'meta',
-          attrs: {
-            'http-equiv': 'X-Frame-Options',
-            content: 'DENY',
-          },
-        },
-        // 安全头：基本 CSP
-        {
-          tag: 'meta',
-          attrs: {
-            'http-equiv': 'Content-Security-Policy',
-            content:
-              "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'",
-          },
-        },
-        // 安全头：防止 MIME 嗅探
-        {
-          tag: 'meta',
-          attrs: {
-            'http-equiv': 'X-Content-Type-Options',
-            content: 'nosniff',
-          },
         },
       ],
 
