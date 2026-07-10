@@ -1,0 +1,39 @@
+docs/OFFICIAL-SOURCE-MATRIX.json
+  s_9340ed41c548fc::t_c5cfcb5e4328c5 4-100
+docs/OFFICIAL-SOURCE-MATRIX.md
+  s_9340ed41c548fc::t_7ad12955d9eb2a 10-23
+src/content/docs/codex/agents-md.md
+  s_9340ed41c548fc::t_cba604900b727c 1-81
+src/content/docs/codex/capstone.md
+  s_9340ed41c548fc::t_9594b7b8b362ad 1-98
+src/content/docs/codex/first-task.md
+  s_9340ed41c548fc::t_e0a8ec82a72bd5 1-90
+src/content/docs/codex/index.md
+  s_9340ed41c548fc::t_1fad12d077d6ae 1-47
+src/content/docs/codex/modify-verify-git.md
+  s_9340ed41c548fc::t_b5f2d6ad4c3d55 1-102
+src/content/docs/codex/official-sources.md
+  s_9340ed41c548fc::t_3a17e5f8703f66 1-48
+src/content/docs/codex/quickstart.md
+  s_9340ed41c548fc::t_70a707268521b4 1-92
+src/content/docs/codex/troubleshooting.md
+  s_9340ed41c548fc::t_ba4be735518ad7 1-82
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "b5f6ca3e88f51b0d441cc9cacccdb774660e1c39",
+  "prompts": {},
+  "sessions": {
+    "s_9340ed41c548fc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9788d74c-dc80-4c60-8ed9-f8f7c8e0039a",
+        "model": "unknown"
+      },
+      "human_author": "zhouxun <zhouxun.13@bytedance.com>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
