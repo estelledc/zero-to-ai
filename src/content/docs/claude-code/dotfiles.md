@@ -13,7 +13,7 @@ relatedContent:
   - { slug: 'claude-code/config', label: '核心配置' }
   - { slug: 'claude-code/hooks', label: 'Hook 系统' }
   - { slug: 'claude-code/memory', label: '记忆系统' }
-lastVerified: '2026-06-24'
+lastVerified: '2026-07-10'
 toolVersion: 'Claude Code CLI v2.1'
 ---
 
@@ -21,11 +21,31 @@ toolVersion: 'Claude Code CLI v2.1'
 
 搬家时你不用重新买家具。一个 U 盘插上新电脑，跑一个脚本，所有配置自动到位。
 
-IaC（Infrastructure as Code）传统上用于管理服务器配置——用代码描述服务器应该装什么软件、开什么端口、设什么权限。你的 Claude Code 配置同样可以 IaC：CLAUDE.md、settings.json、Skill、Hook、Memory 全部纳入 git 版本管理。
+**IaC（Infrastructure as Code，基础设施即代码）** 传统上用于管理服务器配置——用代码描述服务器应该装什么软件、开什么端口、设什么权限。你的 Claude Code 配置同样可以 IaC：CLAUDE.md、settings.json、Skill、Hook、Memory 全部纳入 git 版本管理。
 
-目标：换电脑 → clone 一个仓库 → 跑一个脚本 → Claude Code 完全恢复，包括所有偏好、规则、技能和记忆。
+本页说的 **dotfiles**，就是把这些“以点开头的配置目录/文件”（如 `~/.claude/`）收进一个 git 仓库，用脚本在新机器上复原。
+
+**目标：** 换电脑 → clone 一个仓库 → 跑一个脚本 → Claude Code 完全恢复，包括所有偏好、规则、技能和记忆。
+
+**安全警告（先读）：**
+
+- API key、token、密码**绝对不能**进 git（含历史）
+- 仓库里只放模板与占位符；真实 `settings.json` 本地生成并加入 `.gitignore`
+- 若凭证曾误提交：立刻在服务端 revoke（吊销）该 key，并视为已泄漏
+- Hook / MCP 配置随 dotfiles 传播时，同样只信任你自己审过的脚本与 server
+
+**术语速查：**
+
+| 词                  | 含义                                                        |
+| ------------------- | ----------------------------------------------------------- |
+| symlink（符号链接） | 一个“指针”文件，指向真实文件路径；编辑链接目标 = 编辑源文件 |
+| `envsubst`          | 把文本里的 `${VAR}` 替换成环境变量实际值的命令              |
+| 模板（template）    | 含占位符、可安全进 git 的配置骨架                           |
+| revoke              | 在服务端作废已泄漏的密钥，使其立即失效                      |
 
 ## Symlink 架构
+
+**Symlink（符号链接）** 像快捷方式：`~/.claude/` 下看到的文件其实指向 git 仓库里的源文件。
 
 核心思想：所有配置文件的实际内容存在 git 仓库里，`~/.claude/` 下的文件通过 symlink 指向它们。编辑 `~/.claude/` = 编辑 git 仓库 = 自动跟踪。
 
@@ -161,18 +181,60 @@ dotfiles/home-claude/skills/   ← 唯一源（git 跟踪）
 
 判断标准：“换一台新电脑，这个东西我需要手动重建吗？” 需要 → 进 dotfiles。不需要（比如项目本身的文件在项目仓库里）→ 不进。
 
-## 常见坑
+## 常见坑与失败恢复
 
-1. **编辑 ~/.claude/ 下的文件而不是 symlink 源**：如果创建 symlink 前文件已存在，或者某次操作替换了 symlink 为普通文件，你的编辑就不在 git 跟踪里。验证：`ls -la ~/.claude/CLAUDE.md`——看输出中有没有 `->` 箭头
+1. **编辑 ~/.claude/ 下的文件而不是 symlink 源**：如果创建 symlink 前文件已存在，或者某次操作替换了 symlink 为普通文件，你的编辑就不在 git 跟踪里。失败恢复：`ls -la ~/.claude/CLAUDE.md`——看输出中有没有 `->` 箭头；若没有，删掉普通文件后重新 `ln -sf` 指向仓库源。
 
-2. **settings.json 含真实 API key 进 git**：即使你后来删了、加了 `.gitignore`，git 历史里还有。检查：`git log -p -- settings.json`。如果泄漏了，立即在服务端 revoke 那个 key
+2. **settings.json 含真实 API key 进 git**：即使你后来删了、加了 `.gitignore`，git 历史里还有。检查：`git log -p -- settings.json`。失败恢复：立刻在服务端 revoke 那个 key；从历史中清除敏感文件（或轮换仓库）；改用 template + envsubst，确保真实文件在 `.gitignore`。
 
-3. **symlink 断掉**：源文件被移动或删除后，symlink 变成“悬空链接”。Claude Code 读不到配置但不会报明显错误。验证：`ls -la ~/.claude/` 逐个看箭头
+3. **symlink 断掉**：源文件被移动或删除后，symlink 变成“悬空链接”。Claude Code 读不到配置但不会报明显错误。失败恢复：`ls -la ~/.claude/` 逐个看箭头；修复源路径后重链；用一句话问 Claude 验证全局规则是否仍生效。
 
-4. **新机跑脚本前没装依赖**：git、node、jq、envsubst、Claude Code 本身——这些是脚本的前提。脚本开头加依赖检查
+4. **新机跑脚本前没装依赖**：git、node、jq、envsubst、Claude Code 本身——这些是脚本的前提。失败恢复：脚本开头加依赖检查（`command -v git` 等）；缺什么装什么，再重跑初始化。
+
+5. **把项目级 CLAUDE.md 放进全局 dotfiles**：项目约定被错误地应用到所有仓库。失败恢复：项目特有规则留在各项目仓库的 `CLAUDE.md`；全局只保留跨项目永远适用的内容。
+
+## 最小可验证动作
+
+一次坐下来约 15 分钟（可在临时目录练习，不必立刻改你的真实 `~/.claude`）：
+
+1. 建一个练习目录并放入一份假 CLAUDE.md：
+
+```bash
+mkdir -p ~/dotfiles-practice/home-claude
+echo '- 练习规则：回复开头先说「dotfiles-ok」' > ~/dotfiles-practice/home-claude/CLAUDE.md
+```
+
+2. 备份（若已有）并创建 symlink：
+
+```bash
+# 若 ~/.claude/CLAUDE.md 已存在，先备份
+test -e ~/.claude/CLAUDE.md && mv ~/.claude/CLAUDE.md ~/.claude/CLAUDE.md.bak-practice
+mkdir -p ~/.claude
+ln -sf ~/dotfiles-practice/home-claude/CLAUDE.md ~/.claude/CLAUDE.md
+ls -la ~/.claude/CLAUDE.md   # 必须看到 -> 箭头
+```
+
+3. 新开 Claude Code 会话，问：“你的全局规则要求回复开头说什么？”
+4. 练习结束后恢复备份（若有）：
+
+```bash
+rm ~/.claude/CLAUDE.md
+test -e ~/.claude/CLAUDE.md.bak-practice && mv ~/.claude/CLAUDE.md.bak-practice ~/.claude/CLAUDE.md
+```
+
+**成功标准：** `ls -la` 显示 symlink；新会话能复述练习规则。同时用 `grep` 确认你的 **template** 里没有真实 key 形态的字符串。
+
+## Checkpoint
+
+- □ 我能解释：为什么用 symlink 后，编辑 `~/.claude/` 等于在改 git 仓库
+- □ 我知道哪些进 dotfiles、哪些绝不进（尤其是真实凭证）
+- □ 我完成了上面的「最小可验证动作」，或在真实 dotfiles 仓库里完成了等价的 symlink + 验证
+- □ 我会用 `ls -la` 确认箭头，用 `grep` / `git log` 排查凭证泄漏
+- □ 我知道泄漏后的第一步是 revoke key，而不是只删文件
 
 ## 下一步
 
 - 回到配置基础 → [核心配置](/claude-code/config/)
 - 理解这套架构的哲学 → [CLAUDE.md 编写哲学](/methodology/claude-md-philosophy/)
+- Hook / Skill 也适合进 dotfiles → [Hook 系统](/claude-code/hooks/)、[Skill 体系](/claude-code/skills/)
 - 看看另一个高级主题 → [子 Agent 协作](/claude-code/subagents/)

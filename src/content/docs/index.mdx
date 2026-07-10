@@ -24,6 +24,25 @@ hero:
 import Card from '../../components/Card.astro';
 import CardGrid from '../../components/CardGrid.astro';
 
+## 先选路，再动手
+
+本站有两条**互不混用命令**的零基础闭环：Claude Code 与 Codex。公共知识（终端、Git、验证思路）放在方法论与附录；工具专属命令各自独立。
+
+### 30 秒决策
+
+| 你的情况                                    | 建议路径                                                    | 第一站                                                               |
+| ------------------------------------------- | ----------------------------------------------------------- | -------------------------------------------------------------------- |
+| 想跟 Anthropic 工具从零做出可展示页面       | [AI 编程零基础入门](/paths/#ai-coding-zero)（约 6–8 小时）  | [开始之前](/claude-code/preflight/)                                  |
+| 想跟 OpenAI Codex 做出可公开访问的小站      | [Codex 零基础完整路线](/paths/#codex-zero)（约 4–6 小时）   | [安装、登录与成本](/codex/quickstart/)                               |
+| 已会基础对话，想提效（记忆 / Skill / 节奏） | [日常效率提升](/paths/#daily-efficiency)（约 4–6 小时）     | [学习路径总览](/paths/#daily-efficiency)                             |
+| 要 Hook / MCP / 子 Agent / 配置即代码       | [高级定制与自动化](/paths/#advanced-custom)（约 7–10 小时） | [学习路径总览](/paths/#advanced-custom)                              |
+| 还没装过终端 / 不懂 Git                     | 先补预备知识                                                | [通用环境](/methodology/basics/) → [Git 速成](/appendix/git-basics/) |
+| 报错卡住了                                  | 先排障，再回路径                                            | [常见问题排查](/appendix/troubleshooting/)                           |
+
+:::note[成本要心里有数]
+Claude Code 与 Codex 都可能产生订阅或 API 费用。零基础路径会在开篇讲清计费入口；想先评估「适不适合自己」可从 [开始之前](/claude-code/preflight/) 或 [Codex 安装与成本](/codex/quickstart/) 入手，不必先充值。
+:::
+
 ## 不知道怎么开始？
 
 选一条学习路径，跟着走就行：
@@ -90,6 +109,12 @@ import CardGrid from '../../components/CardGrid.astro';
 
 <CardGrid minWidth="200px">
   <Card
+    title="把第一张页面发布成小站"
+    description="零成本 capstone：修改、验证、Git、GitHub Pages 与故障恢复。"
+    href="/projects/publish-first-site/"
+    linkText="去做公开作品 →"
+  />
+  <Card
     title="Learn Journal（方法论实验）"
     description="一个方法论实验 — 验证'AI 辅助结构化记录'能否产生更好的学习效果。从 50+ 天实习实践中提炼，N=1 验证。"
     href="/projects/learn-journal/"
@@ -98,6 +123,12 @@ import CardGrid from '../../components/CardGrid.astro';
 </CardGrid>
 
 ---
+
+## 卡住了怎么办
+
+1. 先看 [常见问题排查](/appendix/troubleshooting/)（安装、PATH、权限、发布失败）。
+2. Codex 专属问题看 [Codex 故障排查](/codex/troubleshooting/)。
+3. 仍解决不了：到 [GitHub Discussions](https://github.com/estelledc/zero-to-ai/discussions) 贴出命令、报错原文和你走的路径名。
 
 ## 关于本站
 

@@ -153,7 +153,7 @@
     {
       "page": "src/content/docs/claude-code/daily-rhythm.md",
       "toolVersion": "Claude Code CLI v2.1",
-      "lastReviewed": "2026-06-24",
+      "lastReviewed": "2026-07-10",
       "result": "PARTIAL",
       "platforms": ["macOS", "Windows", "Linux"],
       "sources": ["https://code.claude.com/docs/en/interactive-mode"]
@@ -161,7 +161,7 @@
     {
       "page": "src/content/docs/claude-code/dotfiles.md",
       "toolVersion": "Claude Code CLI v2.1",
-      "lastReviewed": "2026-06-24",
+      "lastReviewed": "2026-07-10",
       "result": "PARTIAL",
       "platforms": ["macOS", "Windows", "Linux"],
       "sources": [
@@ -172,7 +172,7 @@
     {
       "page": "src/content/docs/claude-code/first-page.md",
       "toolVersion": "Claude Code CLI v2.1",
-      "lastReviewed": "2026-06-24",
+      "lastReviewed": "2026-07-10",
       "result": "PARTIAL",
       "platforms": ["macOS", "Windows", "Linux"],
       "sources": ["https://code.claude.com/docs/en/quickstart"]
@@ -191,7 +191,7 @@
     {
       "page": "src/content/docs/claude-code/index.md",
       "toolVersion": "Claude Code CLI v2.1",
-      "lastReviewed": "2026-06-24",
+      "lastReviewed": "2026-07-10",
       "result": "PARTIAL",
       "platforms": ["macOS", "Windows", "Linux"],
       "sources": ["https://code.claude.com/docs/en/overview"]
@@ -207,7 +207,7 @@
     {
       "page": "src/content/docs/claude-code/memory.md",
       "toolVersion": "Claude Code CLI v2.1",
-      "lastReviewed": "2026-06-24",
+      "lastReviewed": "2026-07-10",
       "result": "PARTIAL",
       "platforms": ["macOS", "Windows", "Linux"],
       "sources": ["https://code.claude.com/docs/en/memory"]
@@ -226,7 +226,7 @@
     {
       "page": "src/content/docs/claude-code/project-guide.md",
       "toolVersion": "Claude Code CLI v2.1",
-      "lastReviewed": "2026-06-24",
+      "lastReviewed": "2026-07-10",
       "result": "PARTIAL",
       "platforms": ["macOS", "Windows", "Linux"],
       "sources": ["https://code.claude.com/docs/en/memory"]
@@ -261,7 +261,7 @@
     {
       "page": "src/content/docs/claude-code/verify.md",
       "toolVersion": "Claude Code CLI v2.1",
-      "lastReviewed": "2026-06-24",
+      "lastReviewed": "2026-07-10",
       "result": "PARTIAL",
       "platforms": ["macOS", "Windows", "Linux"],
       "sources": ["https://code.claude.com/docs/en/common-workflows"]

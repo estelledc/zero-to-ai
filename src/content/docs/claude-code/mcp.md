@@ -18,9 +18,19 @@ relatedContent:
 
 ## 这是什么
 
-MCP（Model Context Protocol）是 Anthropic 定义的一套开放协议，让 Claude Code 可以连接外部工具——数据库、浏览器、设计软件、文档系统等。它不是 Claude Code 独有的功能，任何支持 MCP 的 AI 工具都可以用同一套协议对接同样的外部服务。
+**MCP（Model Context Protocol，模型上下文协议）** 是 Anthropic 定义的一套开放协议，让 Claude Code 可以连接外部工具——数据库、浏览器、设计软件、文档系统等。它不是 Claude Code 独有的功能，任何支持 MCP 的 AI 工具都可以用同一套协议对接同样的外部服务。
+
+**MCP server（服务端）**：一个独立小程序，负责把 Claude 的工具调用翻译成外部服务能理解的操作（例如执行 SQL、控制浏览器）。你安装并配置它之后，Claude Code 才能调用它暴露的工具。
 
 这篇文章不是教你“必须学 MCP”。恰恰相反——读完你会知道大部分人不应该装 MCP，以及如果你需要它，该怎么安全地使用。
+
+**安全与权限警告（先读）：**
+
+- 每个 MCP server 都会扩大 Claude 能触达的数据与可执行操作
+- 只安装你信任的发布者提供的 server；核对包名、文档与权限范围
+- 首次调用前阅读权限提示；在不含敏感数据的测试项目里验证
+- 凭证用环境变量注入，不要写进可提交的配置文件；不要把含真实 token 的 settings 推上 Git
+- 不用时禁用或移除 server，缩小攻击面与上下文占用
 
 ## 类比
 
@@ -151,19 +161,54 @@ claude mcp remove <name>
 
 新手容易觉得“这个看起来有用，那个也可能用得上”，一口气注册多个 server。结果是工具选择更复杂、权限面更大，也可能增加上下文占用。
 
-解决：从 0 开始，只添加当前任务确实需要的一个；用 `/context` 和实际任务结果观察影响，不使用网上流传的固定百分比估算。
+失败恢复：从 0 开始，只添加当前任务确实需要的一个；用 `/context` 和实际任务结果观察影响，不使用网上流传的固定百分比估算。暂时不用的用 `claude mcp remove <name>` 或按发布者文档禁用。
 
 **坑 2：MCP server 启动失败但不报明显错误**
 
 症状：对话中 Claude 没有使用你预期的 MCP 工具。原因通常是 server 配置写错了——比如路径不对、命令不存在。
 
-排查：看 settings.json 里 MCP server 的命令你能不能在终端里单独跑起来。如果 `npx -y @some-scope/server` 在终端里报错，那 MCP 自然也启动不了。
+失败恢复：看 settings.json 里 MCP server 的命令你能不能在终端里单独跑起来。如果 `npx -y @some-scope/server` 在终端里报错，那 MCP 自然也启动不了。修好命令后再 `claude mcp list` 确认状态。
 
 **坑 3：把 MCP 当必修课**
 
 社区里有很多“我的 MCP 全家桶”分享，看起来很强。但 MCP 是工具，不是成就。它解决的是“需要让 Claude 操作外部服务”这个特定问题。如果你没有这个需求，装 MCP 不会让你的 Claude Code 用得更快——只会更慢（上下文被吃掉）。
 
-绝大多数 Claude Code 用户不需要 MCP。你不是例外，除非你搞清楚了为什么是。
+失败恢复：删掉用不上的 server，回到 CLAUDE.md + Skill + Hook 的主路径。绝大多数 Claude Code 用户不需要 MCP。你不是例外，除非你搞清楚了为什么是。
+
+**坑 4：权限过大或凭证进仓库**
+
+症状：server 能读写远超当前任务所需的数据，或 `settings.json` 里出现明文 token。
+
+失败恢复：立刻轮换已暴露的凭证；从 Git 历史排查泄漏；改用环境变量 + 模板（见[配置即代码](/claude-code/dotfiles/)）；缩小 server 权限到最小必要集。
+
+## 最小可验证动作
+
+一次坐下来约 10 分钟——**目标是验证“会不会装/卸”，不是装全家桶**：
+
+1. 打开发布者文档，选一个你**当前任务真正需要**的 server（没有需求就跳过本页，勾选 Checkpoint 里“我确认自己暂时不需要 MCP”）
+2. 在测试目录执行（把占位符换成文档给出的真实值）：
+
+```bash
+claude mcp add <name> -- <command> [args...]
+claude mcp list
+```
+
+3. 开一个不含敏感数据的测试项目，触发一次该 server 的最小能力（例如只读查询）
+4. 用 `/context` 看占用变化；验证完后：
+
+```bash
+claude mcp remove <name>
+```
+
+**成功标准：** `list` 能看到注册；最小调用符合预期且权限可接受；`remove` 后列表中消失。若启动失败，按坑 2 排查，不要在生产数据上重试。
+
+## Checkpoint
+
+- □ 我能用一句话说清 MCP 是什么，以及 MCP server 扮演什么角色
+- □ 我能判断自己当前是否真的需要 MCP（多数情况：不需要）
+- □ 我知道 MCP 会扩大权限面并可能增加上下文占用，会用 `/context` 观察
+- □ 我完成了上面的「最小可验证动作」，或明确勾选：暂时不需要 MCP，已跳过安装
+- □ 我知道：只信可验证发布者、最小权限、凭证不进 Git、不用就移除
 
 ## 下一步
 
@@ -171,4 +216,6 @@ claude mcp remove <name>
 
 - 回到[日常节奏](/claude-code/daily-rhythm/)巩固基础工作流——这才是每天都会用的东西
 - 看看[上下文管理](/claude-code/context/)了解如何更有效地利用上下文空间
+- 成本视角 → [成本与计费](/claude-code/cost/)
 - 如果确实需要外部服务，从发布者可验证、权限最小的一个 server 开始，并先在测试项目验证
+- 需要并行委派时 → [子 Agent 协作](/claude-code/subagents/)
