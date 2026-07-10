@@ -1,6 +1,6 @@
 {
   "name": "zero-to-ai",
-  "version": "2.0.0-rc.1",
+  "version": "2.0.0",
   "description": "从零开始用 AI 编程工具 — 实战教程集合",
   "type": "module",
   "scripts": {
