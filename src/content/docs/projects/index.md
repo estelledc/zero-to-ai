@@ -5,6 +5,7 @@ tags: [projects]
 difficulty: beginner
 prerequisites: []
 relatedContent:
+  - { slug: 'projects/publish-first-site', label: '发布第一个小站' }
   - { slug: 'projects/learn-journal/index', label: 'Learn Journal' }
   - { slug: 'claude-code/index', label: 'Claude Code 教程总览' }
 lastVerified: '2026-06-24'
@@ -16,6 +17,7 @@ lastVerified: '2026-06-24'
 
 ## 项目列表
 
+- [把第一张个人页面发布成小站](publish-first-site) — 零成本 capstone：修改、验证、Git、GitHub Pages 发布与故障恢复。
 - [Learn Journal](learn-journal) — AI 驱动的结构化学习助手（方法论实验）。从一个实习生 50+ 天的真实使用中提炼，184 篇笔记验证；核心假设仍在 spec 阶段，详见子系列文档。
 
 ## 想贡献项目？

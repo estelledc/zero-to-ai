@@ -29,7 +29,7 @@ const prereqDetails = prerequisites
       <ul class="prerequisites-bar__list" aria-labelledby="prerequisites-label">
         {prereqDetails.map((p) => (
           <li>
-            <a href={slugToHref(p.slug)} data-prereq-link>
+            <a href={slugToHref(p.slug)} data-prereq-link data-prereq-slug={p.slug}>
               {p.title}
             </a>
           </li>
@@ -40,18 +40,22 @@ const prereqDetails = prerequisites
 }
 
 <script>
-  import { ACTIVE_PATH_KEY } from '../utils/progress-storage';
+  import { learningPaths } from '../data/learning-paths';
+  import { ACTIVE_PATH_KEY, safeGet } from '../utils/progress-storage';
 
   const params = new URLSearchParams(window.location.search);
   const queryPath = params.get('path');
-  const storedPath = localStorage.getItem(ACTIVE_PATH_KEY);
+  const storedPath = safeGet(localStorage, ACTIVE_PATH_KEY);
   const activePath = queryPath || storedPath;
+  const activeDefinition = learningPaths.find((path) => path.slug === activePath);
 
-  if (activePath) {
+  if (activeDefinition) {
     document.querySelectorAll<HTMLAnchorElement>('a[data-prereq-link]').forEach((link) => {
+      const prerequisite = link.dataset.prereqSlug;
+      if (!prerequisite || !activeDefinition.tutorials.includes(prerequisite)) return;
       const url = new URL(link.href, window.location.origin);
       if (!url.searchParams.has('path')) {
-        url.searchParams.set('path', activePath);
+        url.searchParams.set('path', activeDefinition.slug);
         link.href = `${url.pathname}${url.search}`;
       }
     });

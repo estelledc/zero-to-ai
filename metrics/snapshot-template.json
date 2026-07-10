@@ -1,0 +1,24 @@
+{
+  "periodEnd": "YYYY-MM-DD",
+  "githubTraffic": {
+    "views": null,
+    "uniqueVisitors": null,
+    "clones": null,
+    "uniqueCloners": null
+  },
+  "searchConsole": {
+    "status": "HUMAN_VERIFICATION_REQUIRED",
+    "clicks": null,
+    "impressions": null,
+    "ctr": null,
+    "indexedPages": null,
+    "topQueriesSanitized": []
+  },
+  "contentQuality": {
+    "verifiedTutorialsAddedOrUpdated": null,
+    "stalePages": null,
+    "brokenLinks": null,
+    "failedCiRuns": null
+  },
+  "decisions": []
+}
