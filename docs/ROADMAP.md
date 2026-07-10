@@ -55,6 +55,7 @@
 
 1. **指标驱动**：连续运行双周快照，执行 `METRICS-BASELINE.md` 的 backlog 决策规则——低 CTR 先改标题与 description；有查询无页面的进入候选池；Discussions/Issues 卡点优先复现再修正文。
 2. **PARTIAL 收敛**：利用阶段 0 取得的真实账户与线上证据，把 `OFFICIAL-SOURCE-MATRIX.json` 中可收敛的 PARTIAL 页面升级为 PASS；确因经验值或第三方能力无法 PASS 的，在矩阵中注明不可收敛原因。
+   - **进展（2026-07-10）**：A/C 类已执行——`claude-code/index` 升 PASS；`memory` / `first-page` 改归 C 并固化原因；原 C 类 5 页复核刷新；B 类 Codex 4 页仍待所有者账户证据。
 3. **freshness 制度化**：90 天维护警告不过期堆积，复核后统一回写 `lastVerified` 与来源矩阵。
 4. **Learn Journal 可迁移性 N>1**：邀请至少 1 名非作者用户完整走通 skill-pack 安装与使用，记录脱敏结果，把「N=1 假设」升级为「有外部证据的方法论」，或如实记录失败。
 5. **文档债消化**：按 `PROJECT-DEFICIENCIES.md` 附录 D 清单回写 IA/UX/LEARNING 三份审计文档，修正其中 3 路径 / 33 文件的旧口径。
@@ -62,7 +63,7 @@
 ### 完成标准
 
 - [ ] 双周快照连续不少于 3 期，且至少 1 条 backlog 决策在快照 `decisions` 字段中有据可查
-- [ ] PARTIAL 页面数量较 12 页基线下降，或每页附有书面不可收敛原因（收敛路径分类见 `OFFICIAL-SOURCE-MATRIX.md`）
+- [x] PARTIAL 页面数量较 12 页基线下降，或每页附有书面不可收敛原因（收敛路径分类见 `OFFICIAL-SOURCE-MATRIX.md`）（更新 2026-07-10：A 类 `claude-code/index` 升 PASS，现 11 页 PARTIAL；其余 11 页均有书面原因——B 类 4 页待账户证据，C 类 7 页含经验值/第三方）
 - [ ] Learn Journal 有 N ≥ 2 的真实使用记录（成功或失败均可，但必须真实）
 - [x] 附录 D 回写清单清零，审计文档与当前站点状态一致（2026-07-10 完成，历史结论未改写）
 
