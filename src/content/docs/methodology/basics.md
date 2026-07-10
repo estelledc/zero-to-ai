@@ -49,7 +49,7 @@ echo "Hello"
 pwd
 ```
 
-输出：类似 `/Users/jason` 的路径。`pwd` = “print working directory”（打印当前目录）。
+输出：类似 `/Users/your-name`（macOS）或 `/home/your-name`（Linux）的路径。`pwd` = “print working directory”（打印当前目录）。
 
 ### 4. 这里有什么？
 
@@ -92,7 +92,7 @@ echo $PATH
 echo $HOME
 ```
 
-输出：你的用户主目录路径（如 `/Users/jason`）。
+输出：你的用户主目录路径（如 `/Users/your-name`）。
 
 环境变量是系统和程序之间共享的“便签”。`HOME` 告诉所有程序你的主目录在哪。AI 工具的 API Key 通常也通过环境变量传入（如 `ANTHROPIC_API_KEY`）。
 

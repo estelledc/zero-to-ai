@@ -8,8 +8,8 @@ relatedContent:
   - { slug: 'claude-code/quickstart', label: '10 分钟上手 Claude Code' }
   - { slug: 'methodology/basics', label: '通用环境基础设施' }
   - { slug: 'appendix/git-basics', label: 'Git 10 分钟速成' }
-  - { slug: 'claude-code/agnes-free-vibe-coding', label: '零成本 vibe coding' }
-lastVerified: '2026-06-24'
+  - { slug: 'claude-code/agnes-free-vibe-coding', label: '第三方兼容实验边界' }
+lastVerified: '2026-07-10'
 ---
 
 ## 这页是什么
@@ -33,69 +33,46 @@ source ~/.zshrc    # macOS/Linux (zsh)
 source ~/.bashrc   # macOS/Linux (bash)
 ```
 
-如果仍然找不到，确认安装是否成功：
+如果仍然找不到，运行官方诊断：
 
 ```bash
-npm list -g @anthropic-ai/claude-code
+claude doctor
 ```
 
-没有输出？重新安装：`npm install -g @anthropic-ai/claude-code`。
+macOS/Linux 原生安装通常位于 `~/.local/bin/claude`。先确认该目录在 `PATH` 中；仍失败时按[官方安装页](https://code.claude.com/docs/en/installation)重新执行对应平台的原生安装命令。不要同时保留原生、Homebrew 和旧 npm 全局安装。
 
-**根因**：npm 全局安装把可执行文件放到一个目录里，但当前终端窗口的 PATH 还没更新。重新打开终端或 `source` 配置文件让 PATH 生效。
+**根因**：安装文件存在，但当前终端的 `PATH` 没包含它所在的目录，或机器上并存了多个安装来源。
 
 详细说明 → [通用环境基础设施](/methodology/basics/)
 
-### `command not found: npm` / `command not found: node`
+### 旧教程要求 npm / Node.js
 
-**症状**：安装 Claude Code 的第一步就卡住了。
+**症状**：你看到旧教程要求先安装 Node.js，再执行 npm 全局安装。
 
 **快速修复**：
 
-```bash
-# macOS（需要先装 Homebrew，见下方说明）
-brew install node
+**快速修复**：回到[10 分钟上手](/claude-code/quickstart/)选择 macOS/Linux/WSL、PowerShell 或 CMD 的官方原生安装命令。当前原生安装不要求你先为 Claude Code 安装 Node.js；只有你自己的项目需要 npm 时，才单独安装 Node.js。
 
-# Windows
-winget install OpenJS.NodeJS.LTS
-
-# 验证
-node --version
-npm --version
-```
-
-macOS 没装 Homebrew？先装它：
-
-```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-装完后关掉终端重开，再 `brew install node`。
-
-**根因**：Node.js 不是操作系统自带的。Claude Code 是一个 npm 包，需要 Node.js 运行环境。
+**根因**：npm 曾是 Claude Code 的安装方式，旧页面仍可能保留该路径。把“项目依赖需要 Node.js”和“Claude Code 本身安装”混在一起，会给初学者增加无关前置步骤。
 
 详细说明 → [通用环境基础设施](/methodology/basics/)
 
-### `ANTHROPIC_API_KEY not set`
+### 登录后仍提示认证失败
 
-**症状**：启动 `claude` 后提示 API Key 没有设置。
+**症状**：你已用订阅账号登录，但 Claude Code 仍提示 API key 无效、余额不足或认证失败。
 
 **快速修复**：
 
-```bash
-# 确认当前终端有没有这个变量
-echo $ANTHROPIC_API_KEY
-
-# 没有输出？设置它
-export ANTHROPIC_API_KEY="你的-API-Key"
-```
-
-如果每次开新终端都要重设，写入配置文件：
+在 Claude Code 中运行 `/status`，确认当前认证来源。若你想使用订阅登录，但环境中残留了 API key，取消它后重启：
 
 ```bash
-echo 'export ANTHROPIC_API_KEY="你的-API-Key"' >> ~/.zshrc
+# macOS / Linux / WSL
+unset ANTHROPIC_API_KEY
 ```
 
-**根因**：`export` 只在当前终端窗口有效。写入 `~/.zshrc`（或 `~/.bashrc`）才能持久化。
+PowerShell 使用 `Remove-Item Env:ANTHROPIC_API_KEY`。
+
+**根因**：API key 认证优先于订阅登录。环境变量里残留的失效 key 会覆盖已登录的订阅会话。若你本来就使用 Claude Console API，再在当前终端设置 key，并以 Console 账单为准；不要把 key 写进仓库、截图或公开 Issue。
 
 详细说明 → [10 分钟上手](/claude-code/quickstart/)
 
@@ -134,29 +111,17 @@ git stash
 
 详细说明 → [Git 10 分钟速成](/appendix/git-basics/)
 
-### 免费模型（Agnes）配置后不生效
+### 第三方兼容网关配置后不生效
 
-**症状**：设置了 Agnes 的环境变量，但 Claude Code 仍然调用 Anthropic 官方模型，或者报错。
+**症状**：设置第三方网关变量后，Claude Code 仍使用原认证入口，或出现模型、认证和工具调用错误。
 
 **快速修复**：
 
-```bash
-# 逐个检查环境变量
-echo $ANTHROPIC_AUTH_TOKEN
-echo $ANTHROPIC_BASE_URL
-echo $ANTHROPIC_MODEL
+不要继续往全局 shell 配置追加变量。先在 Claude Code 运行 `/status`，再到提供方控制台核对请求和模型；无法确认时清除第三方 base URL/token 并恢复官方认证。
 
-# 直接测试 API 连通性
-curl -s https://apihub.agnes-ai.com/v1/messages \
-  -H "x-api-key: $ANTHROPIC_AUTH_TOKEN" \
-  -H "anthropic-version: 2023-06-01" \
-  -H "Content-Type: application/json" \
-  -d '{"model":"agnes-2.0-flash","max_tokens":10,"messages":[{"role":"user","content":"Say OK"}]}'
-```
+**根因**：第三方网关只保证它声明的 API 子集，不保证 Claude Code 全部产品行为；价格、模型映射和认证变量也可能随提供方变化。
 
-**根因**：通常是变量名拼错（`ANTHROPIC_AUTH_TOKEN` 不是 `ANTHROPIC_API_KEY`）、URL 没设、或模型名不精确匹配。
-
-详细说明 → [零成本 vibe coding](/claude-code/agnes-free-vibe-coding/)
+详细说明 → [第三方兼容实验边界](/claude-code/agnes-free-vibe-coding/)
 
 ## 成本相关
 
@@ -166,11 +131,12 @@ curl -s https://apihub.agnes-ai.com/v1/messages \
 
 **快速修复**：
 
-- 每次对话结束前输入 `/usage` 看费用
-- 简单任务切 Haiku：`claude --model claude-haiku-4-5`
-- 遵守 2 小时规则——超过 2 小时的对话每轮 input token 可能是新对话的 5-10 倍
+- 先用 `/status` 确认自己走订阅还是 API 认证
+- API 用户用 `/usage` 看本地估算，再到 Claude Console 对账
+- 订阅用户查看方案用量；不要把会话里的估算金额当成订阅外账单
+- 用 `/context` 找出不需要的 MCP 工具或冗余上下文，跨任务时 `/clear`
 
-**根因**：Claude 每轮都要把完整对话历史重新读一遍（这是 input token 的来源）。对话越长，每轮消耗越大。加上默认用 Sonnet 模型，简单任务也在吃高价 token。
+**根因**：认证入口、模型、输入/输出 token、缓存和工具上下文都会影响用量。固定“每月多少钱”或“聊多久一定贵几倍”都不是可靠结论；先确认入口，再用实际任务建立基线。
 
 详细说明 → [成本与计费](/claude-code/cost/)
 

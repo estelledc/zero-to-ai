@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "page": "src/content/docs/projects/publish-first-site.md",
+      "toolVersion": "GitHub Pages branch publishing (2026-07)",
+      "lastReviewed": "2026-07-10",
+      "result": "PASS",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": [
+        "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages",
+        "https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site"
+      ]
+    },
+    {
+      "page": "src/content/docs/claude-code/agnes-free-vibe-coding.md",
+      "toolVersion": "Claude Code CLI v2.1",
+      "lastReviewed": "2026-07-10",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://code.claude.com/docs/en/authentication", "https://apihub.agnes-ai.com"]
+    },
+    {
+      "page": "src/content/docs/claude-code/config.md",
+      "toolVersion": "Claude Code CLI v2.1",
+      "lastReviewed": "2026-07-10",
+      "result": "PASS",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": [
+        "https://code.claude.com/docs/en/settings",
+        "https://code.claude.com/docs/en/hooks"
+      ]
+    },
+    {
+      "page": "src/content/docs/claude-code/context.md",
+      "toolVersion": "Claude Code CLI v2.1",
+      "lastReviewed": "2026-07-10",
+      "result": "PASS",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": [
+        "https://code.claude.com/docs/en/checkpointing",
+        "https://code.claude.com/docs/en/interactive-mode"
+      ]
+    },
+    {
+      "page": "src/content/docs/claude-code/cost.md",
+      "toolVersion": "Claude Code CLI v2.1",
+      "lastReviewed": "2026-07-10",
+      "result": "PASS",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": [
+        "https://docs.anthropic.com/en/docs/about-claude/pricing",
+        "https://code.claude.com/docs/en/costs"
+      ]
+    },
+    {
+      "page": "src/content/docs/claude-code/daily-rhythm.md",
+      "toolVersion": "Claude Code CLI v2.1",
+      "lastReviewed": "2026-06-24",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://code.claude.com/docs/en/interactive-mode"]
+    },
+    {
+      "page": "src/content/docs/claude-code/dotfiles.md",
+      "toolVersion": "Claude Code CLI v2.1",
+      "lastReviewed": "2026-06-24",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": [
+        "https://code.claude.com/docs/en/settings",
+        "https://code.claude.com/docs/en/memory"
+      ]
+    },
+    {
+      "page": "src/content/docs/claude-code/first-page.md",
+      "toolVersion": "Claude Code CLI v2.1",
+      "lastReviewed": "2026-06-24",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://code.claude.com/docs/en/quickstart"]
+    },
+    {
+      "page": "src/content/docs/claude-code/hooks.md",
+      "toolVersion": "Claude Code CLI v2.1",
+      "lastReviewed": "2026-07-10",
+      "result": "PASS",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": [
+        "https://code.claude.com/docs/en/hooks",
+        "https://code.claude.com/docs/en/hooks-guide"
+      ]
+    },
+    {
+      "page": "src/content/docs/claude-code/index.md",
+      "toolVersion": "Claude Code CLI v2.1",
+      "lastReviewed": "2026-06-24",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://code.claude.com/docs/en/overview"]
+    },
+    {
+      "page": "src/content/docs/claude-code/mcp.md",
+      "toolVersion": "Claude Code CLI v2.1",
+      "lastReviewed": "2026-07-10",
+      "result": "PASS",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://code.claude.com/docs/en/mcp"]
+    },
+    {
+      "page": "src/content/docs/claude-code/memory.md",
+      "toolVersion": "Claude Code CLI v2.1",
+      "lastReviewed": "2026-06-24",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://code.claude.com/docs/en/memory"]
+    },
+    {
+      "page": "src/content/docs/claude-code/preflight.md",
+      "toolVersion": "Claude Code CLI v2.1",
+      "lastReviewed": "2026-07-10",
+      "result": "PASS",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": [
+        "https://code.claude.com/docs/en/installation",
+        "https://code.claude.com/docs/en/authentication"
+      ]
+    },
+    {
+      "page": "src/content/docs/claude-code/project-guide.md",
+      "toolVersion": "Claude Code CLI v2.1",
+      "lastReviewed": "2026-06-24",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://code.claude.com/docs/en/memory"]
+    },
+    {
+      "page": "src/content/docs/claude-code/quickstart.md",
+      "toolVersion": "Claude Code CLI v2.1",
+      "lastReviewed": "2026-07-10",
+      "result": "PASS",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": [
+        "https://code.claude.com/docs/en/installation",
+        "https://code.claude.com/docs/en/authentication"
+      ]
+    },
+    {
+      "page": "src/content/docs/claude-code/skills.md",
+      "toolVersion": "Claude Code CLI v2.1",
+      "lastReviewed": "2026-07-10",
+      "result": "PASS",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://code.claude.com/docs/en/skills"]
+    },
+    {
+      "page": "src/content/docs/claude-code/subagents.md",
+      "toolVersion": "Claude Code CLI v2.1",
+      "lastReviewed": "2026-07-10",
+      "result": "PASS",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://code.claude.com/docs/en/sub-agents"]
+    },
+    {
+      "page": "src/content/docs/claude-code/verify.md",
+      "toolVersion": "Claude Code CLI v2.1",
+      "lastReviewed": "2026-06-24",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://code.claude.com/docs/en/common-workflows"]
+    }
+  ]
+}
