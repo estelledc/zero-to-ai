@@ -3,8 +3,8 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  # Run validation for stacked/release-branch PRs too. Deployment remains main-only below.
   pull_request:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
