@@ -209,11 +209,11 @@ mkdir -p .claude/skills/review
 
 ## Checkpoint
 
-- [ ] 我能说出 Skill 目录必须叫什么、入口文件必须叫什么
-- [ ] 我知道项目级（`.claude/skills/`）和个人级（`~/.claude/skills/`）的差别
-- [ ] 我完成了上面的「最小可验证动作」，`/review`（或自建 Skill）能触发
-- [ ] 若 `/format` 之类命令没反应，我知道先查路径、文件名、description，再考虑重启会话
-- [ ] 我理解：先跑通最小版本，再迭代加模式与安全检查
+- □ 我能说出 Skill 目录必须叫什么、入口文件必须叫什么
+- □ 我知道项目级（`.claude/skills/`）和个人级（`~/.claude/skills/`）的差别
+- □ 我完成了上面的「最小可验证动作」，`/review`（或自建 Skill）能触发
+- □ 若 `/format` 之类命令没反应，我知道先查路径、文件名、description，再考虑重启会话
+- □ 我理解：先跑通最小版本，再迭代加模式与安全检查
 
 ## 下一步
 

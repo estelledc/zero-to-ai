@@ -36,12 +36,12 @@ toolVersion: 'Claude Code CLI v2.1'
 
 **术语速查：**
 
-| 词 | 含义 |
-| --- | --- |
+| 词                  | 含义                                                        |
+| ------------------- | ----------------------------------------------------------- |
 | symlink（符号链接） | 一个“指针”文件，指向真实文件路径；编辑链接目标 = 编辑源文件 |
-| `envsubst` | 把文本里的 `${VAR}` 替换成环境变量实际值的命令 |
-| 模板（template） | 含占位符、可安全进 git 的配置骨架 |
-| revoke | 在服务端作废已泄漏的密钥，使其立即失效 |
+| `envsubst`          | 把文本里的 `${VAR}` 替换成环境变量实际值的命令              |
+| 模板（template）    | 含占位符、可安全进 git 的配置骨架                           |
+| revoke              | 在服务端作废已泄漏的密钥，使其立即失效                      |
 
 ## Symlink 架构
 
@@ -226,11 +226,11 @@ test -e ~/.claude/CLAUDE.md.bak-practice && mv ~/.claude/CLAUDE.md.bak-practice 
 
 ## Checkpoint
 
-- [ ] 我能解释：为什么用 symlink 后，编辑 `~/.claude/` 等于在改 git 仓库
-- [ ] 我知道哪些进 dotfiles、哪些绝不进（尤其是真实凭证）
-- [ ] 我完成了上面的「最小可验证动作」，或在真实 dotfiles 仓库里完成了等价的 symlink + 验证
-- [ ] 我会用 `ls -la` 确认箭头，用 `grep` / `git log` 排查凭证泄漏
-- [ ] 我知道泄漏后的第一步是 revoke key，而不是只删文件
+- □ 我能解释：为什么用 symlink 后，编辑 `~/.claude/` 等于在改 git 仓库
+- □ 我知道哪些进 dotfiles、哪些绝不进（尤其是真实凭证）
+- □ 我完成了上面的「最小可验证动作」，或在真实 dotfiles 仓库里完成了等价的 symlink + 验证
+- □ 我会用 `ls -la` 确认箭头，用 `grep` / `git log` 排查凭证泄漏
+- □ 我知道泄漏后的第一步是 revoke key，而不是只删文件
 
 ## 下一步
 

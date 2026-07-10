@@ -105,11 +105,11 @@ git push -u origin main
 
 **失败恢复（push 被拒）：**
 
-| 你看到什么 | 先试什么 |
-| ---------- | -------- |
-| `remote origin already exists` | `git remote -v` 核对 URL；错了用 `git remote set-url origin <正确URL>` |
-| `failed to push` / 认证弹窗反复失败 | 用浏览器登录 GitHub，或改用 SSH / GitHub Desktop；不要把 PAT 贴进聊天 |
-| 远程已有 README，本地也有历史 | 不要强推覆盖；新建空仓库重来，或先 `git pull --rebase origin main` 再 push（先读懂冲突） |
+| 你看到什么                          | 先试什么                                                                                 |
+| ----------------------------------- | ---------------------------------------------------------------------------------------- |
+| `remote origin already exists`      | `git remote -v` 核对 URL；错了用 `git remote set-url origin <正确URL>`                   |
+| `failed to push` / 认证弹窗反复失败 | 用浏览器登录 GitHub，或改用 SSH / GitHub Desktop；不要把 PAT 贴进聊天                    |
+| 远程已有 README，本地也有历史       | 不要强推覆盖；新建空仓库重来，或先 `git pull --rebase origin main` 再 push（先读懂冲突） |
 
 ### 4. 开启 GitHub Pages
 
@@ -183,11 +183,11 @@ git push
 
 完成后应能给出以下证据：
 
-- [ ] 一个可在无痕窗口打开的 GitHub Pages URL
-- [ ] `git log --oneline` 至少两条有意义的提交
-- [ ] 桌面与移动端各一张脱敏截图
-- [ ] 一段故障演练记录：说明如果最后一次提交破坏页面，你会如何定位并恢复（`diff` / `revert` / 再验证）
-- [ ] 用自己的话解释为什么项目站资源路径要考虑 `/<仓库名>/`
+- □ 一个可在无痕窗口打开的 GitHub Pages URL
+- □ `git log --oneline` 至少两条有意义的提交
+- □ 桌面与移动端各一张脱敏截图
+- □ 一段故障演练记录：说明如果最后一次提交破坏页面，你会如何定位并恢复（`diff` / `revert` / 再验证）
+- □ 用自己的话解释为什么项目站资源路径要考虑 `/<仓库名>/`
 
 ## 下一步
 

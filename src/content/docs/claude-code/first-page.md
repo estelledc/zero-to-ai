@@ -227,7 +227,7 @@ git config --global user.email "you@example.com"
 - **手机上看排版乱**：让 Claude 加上：
 
   ```html
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   ```
 
   这是移动端适配的基础。
@@ -240,11 +240,11 @@ git config --global user.email "you@example.com"
 
 确认你的第一个 AI 页面已完成：
 
-- [ ] 项目目录里有 `index.html`，用浏览器打开不是空白页
-- [ ] 页面上有你的名字和至少一段自我介绍
-- [ ] 至少有 3 个链接，点击行为符合预期（或已按上面的坑修好）
-- [ ] 你至少让 Claude 修改过一次页面（体验了“说需求 → AI 改 → 看效果”的循环）
-- [ ] 你已用 Git commit 存档，或已把文件夹复制到安全位置
+- □ 项目目录里有 `index.html`，用浏览器打开不是空白页
+- □ 页面上有你的名字和至少一段自我介绍
+- □ 至少有 3 个链接，点击行为符合预期（或已按上面的坑修好）
+- □ 你至少让 Claude 修改过一次页面（体验了“说需求 → AI 改 → 看效果”的循环）
+- □ 你已用 Git commit 存档，或已把文件夹复制到安全位置
 
 全部勾上？这是你从“用过 AI”到“用 AI 做出东西”的分界线。
 

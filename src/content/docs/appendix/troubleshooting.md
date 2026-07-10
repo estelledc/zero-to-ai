@@ -242,22 +242,22 @@ git status --short
 
 本页与专页都试过仍失败时，按下面清单发帖（缺一项都会拖慢回复）：
 
-- [ ] 操作系统与终端类型（macOS Terminal / WSL2 Ubuntu / PowerShell 等）
-- [ ] 工具与版本（`claude --version` 或 `codex --version`、`git --version`）
-- [ ] 你执行的**完整命令**与 `pwd` 结果
-- [ ] **完整报错原文**（已脱敏）
-- [ ] 你已经试过的修复（例如「重开终端」「unset API key」「换 Pages source」）
-- [ ] 相关教程 slug（如 `claude-code/quickstart`、`codex/first-task`、`projects/publish-first-site`）
+- □ 操作系统与终端类型（macOS Terminal / WSL2 Ubuntu / PowerShell 等）
+- □ 工具与版本（`claude --version` 或 `codex --version`、`git --version`）
+- □ 你执行的**完整命令**与 `pwd` 结果
+- □ **完整报错原文**（已脱敏）
+- □ 你已经试过的修复（例如「重开终端」「unset API key」「换 Pages source」）
+- □ 相关教程 slug（如 `claude-code/quickstart`、`codex/first-task`、`projects/publish-first-site`）
 
 发到 [GitHub Discussions](https://github.com/estelledc/zero-to-ai/discussions)。不要只发「不行了」。
 
 ## Checkpoint
 
-- [ ] 你知道先保留现场，再按严重程度处理
-- [ ] Claude 找不到命令 → PATH / `claude doctor`；Codex 找不到 → 终端与安装环境是否一致
-- [ ] 改错文件 → `git restore` / `stash`，而不是删仓库
-- [ ] Pages 问题 → 公开仓库 + Actions + 子路径资源
-- [ ] 仍失败时，升级求助清单六项能填齐
+- □ 你知道先保留现场，再按严重程度处理
+- □ Claude 找不到命令 → PATH / `claude doctor`；Codex 找不到 → 终端与安装环境是否一致
+- □ 改错文件 → `git restore` / `stash`，而不是删仓库
+- □ Pages 问题 → 公开仓库 + Actions + 子路径资源
+- □ 仍失败时，升级求助清单六项能填齐
 
 ## 下一步
 

@@ -382,11 +382,11 @@ CLAUDE.md 里积了一堆“不要做 X”“永远做 Y”的规则，但三个
 
 ## Checkpoint
 
-- [ ] 我能说明教学模式与实施模式的触发信号，以及混淆时的坏体验
-- [ ] 我能按 Explore → Plan → Implement → Verify → Learn 口述一轮小功能改动
-- [ ] 我理解 Skill（做事）/ Hook 或脚本（挡错）/ Memory（记教训）如何闭环
-- [ ] 我完成了上面的「动手试一试」，至少有一张四格流程图
-- [ ] 我知道 Claude 可用 Skill/Hook，Codex 可用 `AGENTS.md` + 脚本/提示模板表达同一循环
+- □ 我能说明教学模式与实施模式的触发信号，以及混淆时的坏体验
+- □ 我能按 Explore → Plan → Implement → Verify → Learn 口述一轮小功能改动
+- □ 我理解 Skill（做事）/ Hook 或脚本（挡错）/ Memory（记教训）如何闭环
+- □ 我完成了上面的「动手试一试」，至少有一张四格流程图
+- □ 我知道 Claude 可用 Skill/Hook，Codex 可用 `AGENTS.md` + 脚本/提示模板表达同一循环
 
 ## 下一步
 

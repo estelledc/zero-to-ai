@@ -146,11 +146,11 @@ my-learning/
 
 ## Checkpoint
 
-- [ ] 我能说出 Skill Pack 与「学习管理系统」原理篇的分工（实现 vs 思想）
-- [ ] 我知道 Claude / Codex 各自该复制哪个适配器，且兼容性并非全部「已验证」
-- [ ] 我完成了上面的「动手试一试」，或至少打开过 ZIP 结构与 `SETUP.md`
-- [ ] 我理解协议可改、状态在文件里、应渐进启用能力
-- [ ] （Claude）我知道分发用的 `skills/` 还需按 `SETUP.md` 装到 `.claude/skills/`
+- □ 我能说出 Skill Pack 与「学习管理系统」原理篇的分工（实现 vs 思想）
+- □ 我知道 Claude / Codex 各自该复制哪个适配器，且兼容性并非全部「已验证」
+- □ 我完成了上面的「动手试一试」，或至少打开过 ZIP 结构与 `SETUP.md`
+- □ 我理解协议可改、状态在文件里、应渐进启用能力
+- □ （Claude）我知道分发用的 `skills/` 还需按 `SETUP.md` 装到 `.claude/skills/`
 
 ## 下一步
 

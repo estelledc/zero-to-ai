@@ -177,10 +177,10 @@ git restore path/to/unwanted-file
 
 再确认：
 
-- [ ] 你知道排错前先收集 version / login / git status
-- [ ] 你能按严重程度优先处理「找不到命令」和「登录/额度」
-- [ ] 你知道 Windows 原生与 WSL2 不能混着排查
-- [ ] 你分享日志前会脱敏
+- □ 你知道排错前先收集 version / login / git status
+- □ 你能按严重程度优先处理「找不到命令」和「登录/额度」
+- □ 你知道 Windows 原生与 WSL2 不能混着排查
+- □ 你分享日志前会脱敏
 
 ## 下一步
 

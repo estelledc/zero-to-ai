@@ -27,12 +27,12 @@ toolVersion: 'Claude Code CLI v2.1'
 
 **术语速查：**
 
-| 词 | 含义 |
-| --- | --- |
-| matcher | 过滤器：决定哪些工具名/结束原因会触发这条 Hook |
+| 词                      | 含义                                                                                  |
+| ----------------------- | ------------------------------------------------------------------------------------- |
+| matcher                 | 过滤器：决定哪些工具名/结束原因会触发这条 Hook                                        |
 | stdin / stdout / stderr | 标准输入/输出/错误流；事件 JSON 从 stdin 进来，控制 JSON 只应走 stdout，日志走 stderr |
-| 退出码 | 脚本结束时返回的数字；`0` 正常，`2` 在 Hook 协议里表示阻断，其他非零多表示脚本错误 |
-| `$CLAUDE_PROJECT_DIR` | Claude Code 提供的环境变量，指向当前项目根目录 |
+| 退出码                  | 脚本结束时返回的数字；`0` 正常，`2` 在 Hook 协议里表示阻断，其他非零多表示脚本错误    |
+| `$CLAUDE_PROJECT_DIR`   | Claude Code 提供的环境变量，指向当前项目根目录                                        |
 
 Hook 事件远不止四种。初学时先掌握这四个：
 
@@ -208,11 +208,11 @@ printf '%s' '{"tool_input":{"command":"git push --force origin main"}}' | .claud
 
 ## Checkpoint
 
-- [ ] 我能解释：为什么危险命令防护应放在 `PreToolUse`，而不是 `PostToolUse`
-- [ ] 我能区分 `exit 1`（脚本错误）与 `exit 2`（协议阻断）
-- [ ] 我完成了上面的「最小可验证动作」，两份 stdin JSON 测试通过
-- [ ] 我知道 `Stop` 和 `SessionEnd` 不是同一个事件
-- [ ] 我理解：Hook 以本机用户权限运行，不明来源脚本不可信；日志与凭证不外传
+- □ 我能解释：为什么危险命令防护应放在 `PreToolUse`，而不是 `PostToolUse`
+- □ 我能区分 `exit 1`（脚本错误）与 `exit 2`（协议阻断）
+- □ 我完成了上面的「最小可验证动作」，两份 stdin JSON 测试通过
+- □ 我知道 `Stop` 和 `SessionEnd` 不是同一个事件
+- □ 我理解：Hook 以本机用户权限运行，不明来源脚本不可信；日志与凭证不外传
 
 ## 下一步
 

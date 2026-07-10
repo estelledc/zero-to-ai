@@ -22,13 +22,13 @@ lastVerified: '2026-07-10'
 
 玩 RPG 游戏时，打 boss 前你会存档。打赢了继续，打输了读档重来。**Git 就是给代码做同样的事**——每次修改后「存档」，任何时候可以回到之前的版本。
 
-| 游戏术语       | Git 术语       |
-| -------------- | -------------- |
-| 存档           | commit（提交） |
-| 存档列表       | log（日志）    |
+| 游戏术语       | Git 术语           |
+| -------------- | ------------------ |
+| 存档           | commit（提交）     |
+| 存档列表       | log（日志）        |
 | 回到存档       | restore / checkout |
-| 对比两个存档   | diff           |
-| 下载别人的存档 | clone          |
+| 对比两个存档   | diff               |
+| 下载别人的存档 | clone              |
 
 本地操作不需要联网，不需要注册账号——Git 是你电脑上的程序。等你需要和别人协作（clone、push）时才需要网络。
 
@@ -283,10 +283,10 @@ git log --oneline
 
 自检：
 
-- [ ] `git --version` 有输出
-- [ ] 练习目录里 `git log --oneline` 至少两条 commit
-- [ ] 你能解释 `status` / `add` / `commit` / `diff` 各干什么
-- [ ] 你知道未提交改乱文件时用 `git restore`，而不是删仓库重来
+- □ `git --version` 有输出
+- □ 练习目录里 `git log --oneline` 至少两条 commit
+- □ 你能解释 `status` / `add` / `commit` / `diff` 各干什么
+- □ 你知道未提交改乱文件时用 `git restore`，而不是删仓库重来
 
 本篇只涵盖本地操作。分支（branch）、推送（push）、合并（merge）等协作概念不在范围内——遇到时再学。术语速查见 [术语对照表](/glossary/)。
 

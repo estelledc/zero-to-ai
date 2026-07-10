@@ -29,26 +29,26 @@ lastVerified: '2026-07-10'
 
 零基础路径前几小时最常出现的词。先把这些变成「能用自己的话解释」。
 
-| 你听到的 | 白话 | 最小例子 |
-| -------- | ---- | -------- |
-| 终端 / Terminal | 用打字命令操作电脑的窗口 | 打开后输入 `pwd` 看当前目录 |
-| CLI | 命令行界面，和带按钮的软件相对 | `claude` / `codex` 都在终端里跑 |
-| prompt / 提示词 | 你发给 AI 的那句话或那段说明 | 「帮我在当前目录创建一个 hello.html」 |
-| token / 令牌 | 计费与上下文长度的计量单位（不是「密码」） | 用量页里看到的消耗数字 |
-| 上下文窗口 | AI「办公桌」一次能摊开的信息上限 | 对话太长就用 `/clear` 或 `/compact` |
-| API Key | 调用云端模型的身份凭证 | 像门锁钥匙，不要发到公开仓库 |
-| Git / commit | 给项目文件夹做「游戏存档」 | `git add` → `git commit` 留下检查点 |
-| repo | 被 Git 跟踪的那个项目文件夹 | 本地目录或 GitHub 上的仓库 |
-| CLAUDE.md | Claude Code 的项目说明书 | 放在项目根目录，约定怎么改代码 |
-| AGENTS.md | Codex 的项目说明书 | 不要和 CLAUDE.md 命令混用 |
-| `/clear` | 清空当前对话上下文 | 换任务前先清桌 |
-| `/usage` | 查看用量（订阅与 API 含义不同） | 贵之前先养成看一眼的习惯 |
+| 你听到的        | 白话                                       | 最小例子                              |
+| --------------- | ------------------------------------------ | ------------------------------------- |
+| 终端 / Terminal | 用打字命令操作电脑的窗口                   | 打开后输入 `pwd` 看当前目录           |
+| CLI             | 命令行界面，和带按钮的软件相对             | `claude` / `codex` 都在终端里跑       |
+| prompt / 提示词 | 你发给 AI 的那句话或那段说明               | 「帮我在当前目录创建一个 hello.html」 |
+| token / 令牌    | 计费与上下文长度的计量单位（不是「密码」） | 用量页里看到的消耗数字                |
+| 上下文窗口      | AI「办公桌」一次能摊开的信息上限           | 对话太长就用 `/clear` 或 `/compact`   |
+| API Key         | 调用云端模型的身份凭证                     | 像门锁钥匙，不要发到公开仓库          |
+| Git / commit    | 给项目文件夹做「游戏存档」                 | `git add` → `git commit` 留下检查点   |
+| repo            | 被 Git 跟踪的那个项目文件夹                | 本地目录或 GitHub 上的仓库            |
+| CLAUDE.md       | Claude Code 的项目说明书                   | 放在项目根目录，约定怎么改代码        |
+| AGENTS.md       | Codex 的项目说明书                         | 不要和 CLAUDE.md 命令混用             |
+| `/clear`        | 清空当前对话上下文                         | 换任务前先清桌                        |
+| `/usage`        | 查看用量（订阅与 API 含义不同）            | 贵之前先养成看一眼的习惯              |
 
 读完可自检：
 
-- [ ] 能向朋友解释「上下文窗口」和「token」不是同一件事
-- [ ] 知道 Claude 路线看 CLAUDE.md，Codex 路线看 AGENTS.md
-- [ ] 知道改文件前应先有 Git 存档习惯
+- □ 能向朋友解释「上下文窗口」和「token」不是同一件事
+- □ 知道 Claude 路线看 CLAUDE.md，Codex 路线看 AGENTS.md
+- □ 知道改文件前应先有 Git 存档习惯
 
 ## AI 编程核心
 
@@ -142,17 +142,16 @@ lastVerified: '2026-07-10'
 
 ## Codex 常用
 
-| 英文 | 中文 | 说明 |
-| ---- | ---- | ---- |
-| Codex CLI | Codex 命令行 | OpenAI 的本地编程 agent；命令与 Claude Code 不通用。详见[Codex 专区](/codex/) |
-| AGENTS.md | AGENTS.md（不翻译） | Codex 的项目规则文件。详见[用 AGENTS.md 写项目规则](/codex/agents-md/) |
-| `codex login` | 登录命令 | Codex 认证入口；与 Anthropic 登录流程独立。详见[安装、登录与成本](/codex/quickstart/) |
-| sandbox | 沙箱 | 限制 Codex 能碰哪些文件/网络的安全边界 |
-| approval policy | 审批策略 | 哪些动作需要你点头才执行 |
+| 英文            | 中文                | 说明                                                                                  |
+| --------------- | ------------------- | ------------------------------------------------------------------------------------- |
+| Codex CLI       | Codex 命令行        | OpenAI 的本地编程 agent；命令与 Claude Code 不通用。详见[Codex 专区](/codex/)         |
+| AGENTS.md       | AGENTS.md（不翻译） | Codex 的项目规则文件。详见[用 AGENTS.md 写项目规则](/codex/agents-md/)                |
+| `codex login`   | 登录命令            | Codex 认证入口；与 Anthropic 登录流程独立。详见[安装、登录与成本](/codex/quickstart/) |
+| sandbox         | 沙箱                | 限制 Codex 能碰哪些文件/网络的安全边界                                                |
+| approval policy | 审批策略            | 哪些动作需要你点头才执行                                                              |
 
 ## 下一步
 
 - 零基础 Claude：[开始之前](/claude-code/preflight/)
 - 零基础 Codex：[安装、登录与成本](/codex/quickstart/)
 - 生词仍卡：[常见问题排查](/appendix/troubleshooting/) 或回对应教程的类比段
-

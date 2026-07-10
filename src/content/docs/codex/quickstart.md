@@ -120,12 +120,12 @@ codex logout
 
 按症状对号入座，一次只改一个变量：
 
-| 你看到什么 | 先做什么 |
-| ---------- | -------- |
+| 你看到什么                 | 先做什么                                                                                   |
+| -------------------------- | ------------------------------------------------------------------------------------------ |
 | `codex: command not found` | 重开终端；确认安装环境与当前终端一致（WSL 装的不能当 PowerShell 命令）；再跑一次官方安装器 |
-| 登录失败 / 额度不对 | `codex login status` → `codex logout` → `codex login`；确认你要的是订阅还是 API key |
-| 想用订阅却像在走 API | 退出 API 登录后重新 `codex login`；不要把 key 粘贴到公开地方 |
-| 权限弹窗看不懂 | 先用 `/permissions` 选更窄的范围；不要默认 `dangerously-bypass-approvals-and-sandbox` |
+| 登录失败 / 额度不对        | `codex login status` → `codex logout` → `codex login`；确认你要的是订阅还是 API key        |
+| 想用订阅却像在走 API       | 退出 API 登录后重新 `codex login`；不要把 key 粘贴到公开地方                               |
+| 权限弹窗看不懂             | 先用 `/permissions` 选更窄的范围；不要默认 `dangerously-bypass-approvals-and-sandbox`      |
 
 更完整的排查见 [Codex 故障排查](/codex/troubleshooting/)。
 
@@ -140,11 +140,11 @@ codex logout
 
 确认你完成了以下操作：
 
-- [ ] `codex --version` 能输出版本号
-- [ ] `codex login status` 显示有效登录
-- [ ] 你能说出自己使用 ChatGPT 订阅还是 API key
-- [ ] 你知道网络默认关闭，权限不够时先看提示而不是关闭保护
-- [ ] 你知道本机用的是 macOS/Linux、原生 Windows，还是 WSL2（且不是 WSL1）
+- □ `codex --version` 能输出版本号
+- □ `codex login status` 显示有效登录
+- □ 你能说出自己使用 ChatGPT 订阅还是 API key
+- □ 你知道网络默认关闭，权限不够时先看提示而不是关闭保护
+- □ 你知道本机用的是 macOS/Linux、原生 Windows，还是 WSL2（且不是 WSL1）
 
 全部勾上？可以进入第一次只读任务了。
 
