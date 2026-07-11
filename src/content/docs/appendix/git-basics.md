@@ -202,9 +202,9 @@ git stash pop
 
 学会这两个命令你就敢让 AI 改了——改乱了一个文件用 `git restore`，改乱了一堆未提交改动用 `git stash` 或按文件 restore。
 
-:::caution[不要一上来就用危险命令]
-本页不教 `git reset --hard` 或强推。未提交的修改用 `restore` / `stash` 即可。已提交的坏改动，发布场景里优先用 `git revert`（见 [发布小站](/projects/publish-first-site/)），而不是改写历史。
-:::
+> **不要一上来就用危险命令**
+>
+> 本页不教 `git reset --hard` 或强推。未提交的修改用 `restore` / `stash` 即可。已提交的坏改动，发布场景里优先用 `git revert`（见 [发布小站](/projects/publish-first-site/)），而不是改写历史。
 
 ## 常见坑
 

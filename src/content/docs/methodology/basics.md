@@ -17,9 +17,9 @@ relatedContent:
 
 AI 编程工具都需要你使用**终端**输入命令。如果你以前只点鼠标操作电脑，这篇文章帮你补齐基础知识。读完你会知道终端是什么、怎么打开、以及安装软件时经常出现的“PATH”“环境变量”是什么意思。
 
-:::note[和 Claude Code 安装的关系]
-[10 分钟上手](/claude-code/quickstart/)里的**原生安装不要求先装 Node.js**。本页教的是通用终端基础；Node/npm 只在你做某些网页工作流或发布站点时才需要，**不是** Claude Code CLI 本身的强制前置。
-:::
+> **和 Claude Code 安装的关系**
+>
+> [10 分钟上手](/claude-code/quickstart/)里的**原生安装不要求先装 Node.js**。本页教的是通用终端基础；Node/npm 只在你做某些网页工作流或发布站点时才需要，**不是** Claude Code CLI 本身的强制前置。
 
 ## 开始之前
 
@@ -122,11 +122,10 @@ PowerShell：`echo $HOME` 或 `$env:USERPROFILE`。
 
 ### 8. Node.js：可选，不是 Claude Code 的硬门槛
 
-:::tip[什么时候才需要 Node？]
-
-- **不需要**：只按 [quickstart 原生安装](/claude-code/quickstart/)使用 Claude Code CLI（`curl` / `irm` 安装脚本）。
-- **需要**：你的项目本身用 npm/Node（例如本地起开发服务器），或你要走某些[发布小站](/projects/publish-first-site/)等网页工作流。
-  :::
+> **什么时候才需要 Node？**
+>
+> - **不需要**：只按 [quickstart 原生安装](/claude-code/quickstart/)使用 Claude Code CLI（`curl` / `irm` 安装脚本）。
+> - **需要**：你的项目本身用 npm/Node（例如本地起开发服务器），或你要走某些[发布小站](/projects/publish-first-site/)等网页工作流。
 
 若你确定后面会用到 Node，再安装并验证：
 

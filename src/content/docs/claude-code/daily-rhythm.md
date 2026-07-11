@@ -218,9 +218,9 @@ Jason 的 CLAUDE.md 里有一条“命中即停”的工件选择规则，解决
 
 Jason 的日常不是零散地用一个一个 skill——它们是互相衔接的链条。下面三个最常用的链条，展示 skills 是怎么拼成完整流程的。
 
-:::note[这些是自定义 Skill 示例]
-`/source-learn`、`/learn`、`/wiki`、`/sync-all`、`/daily-learn`、`/render`、`/commit` 等来自个人/项目 Skill 包，不是 Claude Code 默认自带。没有它们时，用同一步骤的手动写法即可；创建 Skill 的方法见 [Skill 体系](/claude-code/skills/)。
-:::
+> **这些是自定义 Skill 示例**
+>
+> `/source-learn`、`/learn`、`/wiki`、`/sync-all`、`/daily-learn`、`/render`、`/commit` 等来自个人/项目 Skill 包，不是 Claude Code 默认自带。没有它们时，用同一步骤的手动写法即可；创建 Skill 的方法见 [Skill 体系](/claude-code/skills/)。
 
 ### 学习链：/source-learn → /learn → /wiki index → /sync-all
 

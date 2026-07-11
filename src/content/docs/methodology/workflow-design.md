@@ -17,9 +17,9 @@ relatedContent:
   - { slug: 'claude-code/mcp', label: 'MCP 集成' }
 ---
 
-:::note[工具对照]
-下文案例多来自 Claude Code（Skill / Hook / Memory）。Codex 用户可把同一套循环落在：`AGENTS.md` 规则 + 可重复的提示模板 + git / 脚本门禁。机制名字不同，**Explore → Plan → Implement → Verify → Learn** 与「教学/实施分模式」两边都适用。
-:::
+> **工具对照**
+>
+> 下文案例多来自 Claude Code（Skill / Hook / Memory）。Codex 用户可把同一套循环落在：`AGENTS.md` 规则 + 可重复的提示模板 + git / 脚本门禁。机制名字不同，**Explore → Plan → Implement → Verify → Learn** 与「教学/实施分模式」两边都适用。
 
 ## 类比：工作流像厨房
 

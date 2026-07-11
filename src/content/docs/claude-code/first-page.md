@@ -56,9 +56,9 @@ mkdir my-page
 cd my-page
 ```
 
-:::tip[桌面路径找不到？]
-不一定非要用 Desktop。任意空文件夹都行，例如 `mkdir ~/my-page && cd ~/my-page`（macOS/Linux）或 `mkdir ~\my-page; cd ~\my-page`（PowerShell）。关键是：之后所有命令都在这个目录里执行。
-:::
+> **桌面路径找不到？**
+>
+> 不一定非要用 Desktop。任意空文件夹都行，例如 `mkdir ~/my-page && cd ~/my-page`（macOS/Linux）或 `mkdir ~\my-page; cd ~\my-page`（PowerShell）。关键是：之后所有命令都在这个目录里执行。
 
 如果你学过 [Git](/appendix/git-basics/)，顺手初始化一下（可选但推荐）：
 

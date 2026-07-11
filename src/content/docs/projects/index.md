@@ -29,9 +29,9 @@ lastVerified: '2026-07-10'
 | 用 Codex 交付公开小站                     | [Codex Capstone](/codex/capstone/)（在 Codex 专区，不在本列表重复教命令） | 已完成 Codex 前序：规则 → 修改/验证/Git                    |
 | 了解 Learn Journal 这套记录方法是否适合你 | [Learn Journal](learn-journal)                                            | 能用终端 + 已有 Claude Code / 兼容适配器；详见实验页前提   |
 
-:::note[不是 demo 秀场]
-Learn Journal 系列以「方法论实验报告」为主——记录设计决策、验证结果和已知局限。核心假设仍带 N=1 标签，可迁移性未承诺。
-:::
+> **不是 demo 秀场**
+>
+> Learn Journal 系列以「方法论实验报告」为主——记录设计决策、验证结果和已知局限。核心假设仍带 N=1 标签，可迁移性未承诺。
 
 ## 项目列表
 

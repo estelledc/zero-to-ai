@@ -1,0 +1,309 @@
+---
+import { base } from '../utils/base-url';
+---
+
+<section class="route-finder" data-route-finder aria-labelledby="route-finder-title">
+  <div class="jx-case-question">
+    <p class="jx-case-question__label">First decision / 先做什么</p>
+    <div>
+      <h2 class="jx-case-question__prompt" id="route-finder-title">
+        用四个选择，把“我该读哪篇”变成今天能完成的第一项任务。
+      </h2>
+      <p class="jx-case-question__context">
+        路线不会混用 Claude Code 与 Codex 命令；预算只影响起步顺序，不会把付费能力写成免费能力。
+      </p>
+    </div>
+  </div>
+
+  <form class="route-finder__form" action={`${base}/paths/`} method="get" data-route-form>
+    <label>
+      <span>工具</span>
+      <select name="tool" required>
+        <option value="">请选择</option>
+        <option value="claude">Claude Code</option>
+        <option value="codex">OpenAI Codex</option>
+      </select>
+    </label>
+    <label>
+      <span>预算 / 额度</span>
+      <select name="budget" required>
+        <option value="">请选择</option>
+        <option value="evaluate">先评估，不急着付费</option>
+        <option value="subscription">已有订阅或可用额度</option>
+        <option value="api">接受 API 按量费用</option>
+      </select>
+    </label>
+    <label>
+      <span>经验</span>
+      <select name="experience" required>
+        <option value="">请选择</option>
+        <option value="new">第一次用命令行 AI</option>
+        <option value="some">做过几次修改</option>
+        <option value="advanced">已经有稳定工作流</option>
+      </select>
+    </label>
+    <label>
+      <span>这次目标</span>
+      <select name="goal" required>
+        <option value="">请选择</option>
+        <option value="public">做出一个公开小站</option>
+        <option value="safe">先完成一次安全的小任务</option>
+        <option value="daily">建立日常工作节奏</option>
+        <option value="automation">定制规则与自动化</option>
+        <option value="stuck">我现在正卡在报错里</option>
+      </select>
+    </label>
+    <button class="jx-action route-finder__submit" type="submit">给我第一项任务</button>
+  </form>
+
+  <output class="route-result" data-route-output aria-live="polite" tabindex="-1">
+    <span class="jx-source-tag" data-source="build">路线数据来自本站现有课程</span>
+    <strong data-route-title>先完成上面的四个选择</strong>
+    <p data-route-reason>结果会说明为什么从这里开始，并只给一个当前动作。</p>
+    <a class="jx-action" data-route-link href={`${base}/paths/`}>查看全部路线</a>
+  </output>
+
+  <noscript>
+    <p class="route-finder__noscript">
+      JavaScript 未启用：下面四张路线卡仍可直接阅读；提交表单会打开完整路线页，不影响学习内容访问。
+    </p>
+  </noscript>
+
+  <div class="route-options" aria-label="无 JavaScript 也可阅读的四条路线">
+    <article class="route-option" data-route="claude-zero">
+      <span>Claude Code · 零基础</span>
+      <h3>先确认环境、费用与成功标准</h3>
+      <p>第一项任务：读完“开始之前”，写下这次要交付的页面和明确不做的内容。</p>
+      <a href={`${base}/claude-code/preflight/`}>打开第一项任务 →</a>
+    </article>
+    <article class="route-option" data-route="codex-zero">
+      <span>Codex · 零基础</span>
+      <h3>先完成安装、登录与成本检查</h3>
+      <p>第一项任务：确认版本、认证入口与当前目录，再进入只读任务。</p>
+      <a href={`${base}/codex/quickstart/`}>打开第一项任务 →</a>
+    </article>
+    <article class="route-option" data-route="daily">
+      <span>已有基础 · 日常效率</span>
+      <h3>先记录一次真实工作节奏</h3>
+      <p>第一项任务：建立成本基线，再把完成、验证与复盘放进同一天循环。</p>
+      <a href={`${base}/claude-code/cost/`}>打开第一项任务 →</a>
+    </article>
+    <article class="route-option" data-route="advanced">
+      <span>深度用户 · 自动化</span>
+      <h3>先做一个权限最小的 Skill</h3>
+      <p>第一项任务：把重复动作写成可审查的 Skill，再用无敏感数据 fixture 验证。</p>
+      <a href={`${base}/claude-code/skills/`}>打开第一项任务 →</a>
+    </article>
+  </div>
+
+  <p class="jx-verification-line">
+    四条推荐均指向现有课程入口；完整路径、完成证据与失败恢复仍以路线页为准。
+  </p>
+</section>
+
+<script is:inline define:vars={{ base }}>
+  const finder = document.querySelector('[data-route-finder]');
+  const form = finder?.querySelector('[data-route-form]');
+  const output = finder?.querySelector('[data-route-output]');
+
+  if (finder && form && output) {
+    finder.dataset.enhanced = 'true';
+
+    const routes = {
+      'claude-zero': {
+        title: 'Claude Code 零基础路线',
+        href: `${base}/claude-code/preflight/`,
+        task: '先读“开始之前”，写下交付物、成本入口与本轮不做什么。',
+      },
+      'codex-zero': {
+        title: 'Codex 零基础路线',
+        href: `${base}/codex/quickstart/`,
+        task: '先确认安装、登录与成本，再完成一次不会改文件的只读任务。',
+      },
+      daily: {
+        title: '日常效率提升路线',
+        href: `${base}/claude-code/cost/`,
+        task: '先记录一次真实用量与完成证据，再决定哪些步骤值得固化。',
+      },
+      advanced: {
+        title: '高级定制与自动化路线',
+        href: `${base}/claude-code/skills/`,
+        task: '先做一个权限最小、能用 fixture 验证的 Skill，再接 Hook 或多 Agent。',
+      },
+      recovery: {
+        title: '先排障，再回学习路线',
+        href: `${base}/appendix/troubleshooting/`,
+        task: '先保存命令、报错原文、版本和当前路径；不要在错误状态里继续堆新改动。',
+      },
+      'codex-automation': {
+        title: 'Codex 项目约束路线',
+        href: `${base}/codex/agents-md/`,
+        task: '先写一份最小 AGENTS.md，把允许范围和验证命令固定下来，再谈自动化。',
+      },
+    };
+
+    const budgetNotes = {
+      evaluate: '你选择先评估：第一步只做环境、成本与只读检查，不要求先充值。',
+      subscription: '你已有订阅或额度：仍先确认认证入口，避免把订阅与 API 计费混在一起。',
+      api: '你接受按量费用：先设成本边界和停止条件，再运行外部模型调用。',
+    };
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const values = Object.fromEntries(new FormData(form).entries());
+      if (!values.tool || !values.budget || !values.experience || !values.goal) {
+        form.reportValidity();
+        return;
+      }
+
+      let key = values.tool === 'codex' ? 'codex-zero' : 'claude-zero';
+      if (values.goal === 'stuck') key = 'recovery';
+      else if (values.goal === 'daily') key = 'daily';
+      else if (values.goal === 'automation') {
+        key = values.tool === 'codex' ? 'codex-automation' : 'advanced';
+      }
+
+      const route = { ...routes[key] };
+      if (values.goal === 'safe' && values.tool === 'codex') {
+        route.href = `${base}/codex/first-task/`;
+        route.task = '先完成一次只读检查：确认目录、规则与 Git 状态，不修改任何文件。';
+      }
+      output.querySelector('[data-route-title]').textContent = route.title;
+      output.querySelector('[data-route-reason]').textContent =
+        `${budgetNotes[values.budget]} ${route.task}`;
+      const link = output.querySelector('[data-route-link]');
+      link.href = route.href;
+      link.textContent = '开始这项任务 →';
+      output.focus({ preventScroll: true });
+      output.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  }
+</script>
+
+<style>
+  .route-finder {
+    max-width: 67.5rem;
+    margin: 0 auto clamp(3.5rem, 7vw, 6rem);
+  }
+
+  .route-finder__form {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.9rem;
+    padding-block: 1.5rem;
+  }
+
+  .route-finder__form label {
+    display: grid;
+    gap: 0.45rem;
+    color: var(--sl-color-gray-2);
+    font-size: 0.78rem;
+    font-weight: 650;
+  }
+
+  .route-finder__form select {
+    width: 100%;
+    min-height: 2.75rem;
+    padding: 0.65rem 2rem 0.65rem 0.75rem;
+    color: var(--sl-color-white);
+    background: var(--sl-color-bg-nav);
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.55rem;
+    font: inherit;
+  }
+
+  .route-finder__submit {
+    grid-column: 1 / -1;
+    justify-self: start;
+    border: 0;
+    cursor: pointer;
+  }
+
+  .route-result {
+    display: grid;
+    gap: 0.7rem;
+    padding: 1.25rem;
+    background: color-mix(in oklab, var(--sl-color-accent-low), transparent 35%);
+    border-inline-start: 3px solid var(--sl-color-text-accent);
+    border-radius: 0 0.75rem 0.75rem 0;
+  }
+
+  .route-result strong {
+    color: var(--sl-color-white);
+    font-size: clamp(1.15rem, 2.4vw, 1.55rem);
+  }
+
+  .route-result p {
+    max-width: 58rem;
+    margin: 0;
+    color: var(--sl-color-gray-2);
+  }
+
+  .route-result .jx-action {
+    width: fit-content;
+  }
+
+  .route-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1.25rem;
+  }
+
+  .route-option {
+    padding: 1.15rem;
+    background: var(--sl-color-bg-nav);
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.75rem;
+  }
+
+  .route-option > span {
+    color: var(--sl-color-text-accent);
+    font-family: var(--jx-font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .route-option h3 {
+    margin: 0.65rem 0 0.4rem;
+    color: var(--sl-color-white);
+    font-size: 1rem;
+  }
+
+  .route-option p {
+    margin: 0 0 0.75rem;
+    color: var(--sl-color-gray-3);
+    font-size: 0.83rem;
+  }
+
+  .route-option a {
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+
+  .route-finder__noscript {
+    padding: 0.8rem 1rem;
+    color: var(--sl-color-gray-2);
+    border: 1px dashed var(--sl-color-gray-5);
+  }
+
+  @media (max-width: 62rem) {
+    .route-finder__form {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 38rem) {
+    .route-finder__form,
+    .route-options {
+      grid-template-columns: 1fr;
+    }
+
+    .route-finder__submit,
+    .route-result .jx-action {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>

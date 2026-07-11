@@ -25,9 +25,9 @@ relatedContent:
 
 这篇文章做的就是这件事。有一个开源项目 [system_prompts_leaks](https://github.com/asgeirtj/system_prompts_leaks)，收集了 Claude、ChatGPT、Gemini、Cursor、Devin 等主流 AI 产品的真实系统提示。我们从中逆向工程出 5 个可以直接用在自己项目指令文件（`CLAUDE.md` / `AGENTS.md`）和 Skill / 提示模板里的设计模式。
 
-:::note[工具对照]
-模式本身工具无关。Claude Code 用户落到 Skill + Hook；Codex 用户落到 `AGENTS.md` + 可重复提示模板 + 脚本门禁。下文用 Claude 生态举例最多，是因为公开材料更全，不是说只适用于 Claude。
-:::
+> **工具对照**
+>
+> 模式本身工具无关。Claude Code 用户落到 Skill + Hook；Codex 用户落到 `AGENTS.md` + 可重复提示模板 + 脚本门禁。下文用 Claude 生态举例最多，是因为公开材料更全，不是说只适用于 Claude。
 
 ## 开始之前
 

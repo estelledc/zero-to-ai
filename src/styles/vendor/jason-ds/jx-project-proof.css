@@ -1,0 +1,87 @@
+/* Jason DS · Project proof v2.0.0 */
+.jx-proof {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(240px, 0.75fr);
+  gap: clamp(var(--jx-space-6), 5vw, var(--jx-space-8));
+  padding: clamp(var(--jx-space-6), 5vw, var(--jx-space-8));
+  background: var(--jx-surface);
+  border-radius: var(--jx-radius-5);
+  box-shadow: var(--jx-shadow-stack);
+}
+.jx-proof__summary {
+  max-width: var(--jx-measure-body);
+  color: var(--jx-ink-2);
+  font-size: var(--jx-fs-lg);
+}
+.jx-proof__summary-en {
+  max-width: var(--jx-measure-lede);
+  color: var(--jx-ink-muted);
+  font-family: var(--jx-font-sans-latin);
+  font-size: var(--jx-fs-sm);
+}
+.jx-proof__meta,
+.jx-proof__facts {
+  margin: 0;
+  display: grid;
+  gap: var(--jx-space-4);
+}
+.jx-proof__meta div,
+.jx-proof__facts div {
+  padding-block-end: var(--jx-space-4);
+  border-bottom: 1px solid var(--jx-rule);
+}
+.jx-proof dt,
+.jx-proof__label {
+  margin-bottom: var(--jx-space-1);
+  color: var(--jx-ink-muted);
+  font-family: var(--jx-font-mono);
+  font-size: var(--jx-fs-micro);
+  letter-spacing: var(--jx-tracking-eyebrow);
+  text-transform: uppercase;
+}
+.jx-proof dd {
+  margin: 0;
+  color: var(--jx-ink);
+  font-weight: var(--jx-weight-ui);
+}
+.jx-proof__metrics {
+  margin-block: var(--jx-space-6) 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--jx-space-3);
+}
+.jx-proof__metric {
+  min-height: 112px;
+  padding: var(--jx-space-4);
+  background: var(--jx-surface-sunk);
+  border-radius: var(--jx-radius-3);
+  box-shadow: var(--jx-shadow-hairline);
+}
+.jx-proof__metric strong {
+  display: block;
+  margin-bottom: var(--jx-space-2);
+  font-family: var(--jx-font-display);
+  font-size: var(--jx-fs-h3);
+  font-weight: var(--jx-weight-heading);
+  line-height: var(--jx-leading-tight);
+}
+.jx-proof__metric span,
+.jx-proof__limitation {
+  color: var(--jx-ink-muted);
+  font-size: var(--jx-fs-sm);
+}
+.jx-proof__links {
+  margin-top: var(--jx-space-5);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--jx-space-3);
+}
+@media (max-width: 760px) {
+  .jx-proof {
+    grid-template-columns: 1fr;
+    padding: var(--jx-space-5);
+  }
+  .jx-proof__summary {
+    font-size: var(--jx-fs-body);
+  }
+}

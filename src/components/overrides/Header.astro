@@ -1,0 +1,172 @@
+---
+import config from 'virtual:starlight/user-config';
+import LanguageSelect from 'virtual:starlight/components/LanguageSelect';
+import Search from 'virtual:starlight/components/Search';
+import SiteTitle from 'virtual:starlight/components/SiteTitle';
+import SocialIcons from 'virtual:starlight/components/SocialIcons';
+import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
+
+const shouldRenderSearch =
+  config.pagefind || config.components.Search !== '@astrojs/starlight/components/Search.astro';
+const { hasSidebar } = Astro.locals.starlightRoute;
+---
+
+<div class="header">
+  <div class="title-wrapper sl-flex">
+    <SiteTitle />
+  </div>
+  <div class="search-wrapper sl-flex print:hidden">{shouldRenderSearch && <Search />}</div>
+  {
+    !hasSidebar && (
+      <details class="showcase-menu print:hidden">
+        <summary aria-label="打开作品集导航">菜单</summary>
+        <nav aria-label="作品集快捷导航">
+          <a href="https://estelledc.github.io/">作品集</a>
+          <a href="https://estelledc.github.io/about/">关于</a>
+          <a href="https://estelledc.github.io/resume/">简历</a>
+        </nav>
+      </details>
+    )
+  }
+  <nav class="showcase-nav print:hidden" aria-label="关于作者">
+    <a href="https://estelledc.github.io/about/">关于</a>
+    <a href="https://estelledc.github.io/resume/">简历</a>
+  </nav>
+  <div class="sl-hidden md:sl-flex print:hidden right-group">
+    <div class="sl-flex social-icons"><SocialIcons /></div>
+    <ThemeSelect />
+    <LanguageSelect />
+  </div>
+</div>
+
+<style>
+  @layer starlight.core {
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--sl-nav-gap);
+      height: 100%;
+    }
+
+    .title-wrapper {
+      min-width: 0;
+      overflow: clip;
+      padding: 0.25rem;
+      margin: -0.25rem;
+    }
+
+    .search-wrapper {
+      margin-inline-start: auto;
+    }
+
+    .showcase-nav {
+      display: none;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .showcase-nav a {
+      color: var(--sl-color-gray-2);
+      font-size: var(--sl-text-sm);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .showcase-nav a:hover {
+      color: var(--sl-color-white);
+    }
+
+    .showcase-menu {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .showcase-menu summary {
+      min-width: 2.75rem;
+      min-height: 2.75rem;
+      display: grid;
+      place-items: center;
+      color: var(--sl-color-gray-1);
+      border: 1px solid var(--sl-color-gray-5);
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-family: var(--jx-font-mono);
+      font-size: 0.68rem;
+      list-style: none;
+    }
+
+    .showcase-menu summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .showcase-menu nav {
+      position: absolute;
+      inset: calc(100% + 0.65rem) 0 auto auto;
+      min-width: 11rem;
+      display: grid;
+      gap: 0.25rem;
+      padding: 0.65rem;
+      background: var(--sl-color-bg-nav);
+      border: 1px solid var(--sl-color-gray-5);
+      border-radius: 0.75rem;
+      box-shadow: var(--sl-shadow-lg);
+    }
+
+    .showcase-menu nav a {
+      min-height: 2.75rem;
+      display: flex;
+      align-items: center;
+      padding-inline: 0.75rem;
+      color: var(--sl-color-gray-1);
+      border-radius: 0.4rem;
+      font-size: var(--sl-text-sm);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .showcase-menu nav a:hover {
+      color: var(--sl-color-white);
+      background: var(--sl-color-gray-6);
+    }
+
+    .right-group,
+    .social-icons {
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .social-icons::after {
+      content: '';
+      height: 2rem;
+      border-inline-end: 1px solid var(--sl-color-gray-5);
+    }
+
+    @media (min-width: 50rem) {
+      .showcase-menu {
+        display: none;
+      }
+
+      .header {
+        display: grid;
+        grid-template-columns: minmax(12rem, auto) minmax(10rem, 1fr) auto;
+      }
+
+      .search-wrapper {
+        min-width: 0;
+        justify-content: center;
+        margin-inline-start: 0;
+      }
+    }
+
+    @media (min-width: 72rem) {
+      .header {
+        grid-template-columns: minmax(13rem, auto) minmax(12rem, 1fr) auto auto;
+      }
+
+      .showcase-nav {
+        display: flex;
+      }
+    }
+  }
+</style>

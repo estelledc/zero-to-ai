@@ -14,6 +14,61 @@ test('首页和学习路径保留 base path', async ({ page }) => {
   await expect(page.locator('#codex-zero')).toContainText('Codex 零基础完整路线');
 });
 
+test('首页展示项目证据并接回个人作品集', async ({ page }) => {
+  await page.goto('./');
+
+  await expect(page.getByRole('link', { name: '返回 Jason 的作品集' })).toHaveAttribute(
+    'href',
+    'https://estelledc.github.io/',
+  );
+  await expect(
+    page.getByRole('heading', { level: 2, name: '把零散教程做成一套可验证的学习系统' }),
+  ).toBeVisible();
+  await expect(page.getByText('Maintained · v2.0')).toBeVisible();
+  await expect(page.getByRole('link', { name: '查看学习路径' })).toHaveAttribute(
+    'href',
+    `${basePath}paths/`,
+  );
+});
+
+test('首页输出 canonical、分享元信息与结构化数据', async ({ page }) => {
+  await page.goto('./');
+
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    'href',
+    'https://estelledc.github.io/zero-to-ai/',
+  );
+  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute(
+    'content',
+    'https://estelledc.github.io/zero-to-ai/og-default.png',
+  );
+  await expect(page.locator('meta[property="og:type"]')).toHaveAttribute('content', 'website');
+
+  const jsonLd = await page.locator('script[type="application/ld+json"]').textContent();
+  expect(jsonLd).toContain('LearningResource');
+  expect(jsonLd).toContain('https://github.com/estelledc');
+});
+
+test('移动端首页可直接访问作品集导航', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'mobile-chromium', '只验证移动端导航');
+  await page.goto('./');
+
+  await expect(page.getByRole('link', { name: '几分钟了解是否适合你' })).toBeInViewport();
+  const viewport = await page.evaluate(() => ({
+    clientWidth: document.documentElement.clientWidth,
+    scrollWidth: document.documentElement.scrollWidth,
+  }));
+  expect(viewport.scrollWidth).toBeLessThanOrEqual(viewport.clientWidth);
+
+  await page.locator('summary[aria-label="打开作品集导航"]').click();
+  const showcaseNavigation = page.getByRole('navigation', { name: '作品集快捷导航' });
+  await expect(showcaseNavigation).toBeVisible();
+  await expect(showcaseNavigation.getByRole('link', { name: '简历', exact: true })).toHaveAttribute(
+    'href',
+    'https://estelledc.github.io/resume/',
+  );
+});
+
 test('Codex 路线可从首页进入并保留路径上下文', async ({ page }) => {
   await page.goto('./');
   await page.getByRole('link', { name: 'Codex 教程' }).click();
@@ -81,10 +136,26 @@ test('Pagefind 可检索 Codex 安装教程', async ({ page }, testInfo) => {
 test('桌面主题切换可用', async ({ page }, testInfo) => {
   test.skip(testInfo.project.name === 'mobile-chromium', '移动端主题控件收纳在导航中');
   await page.goto('./');
-  const themeSelect = page.locator('select');
+  const themeSelect = page.locator('select:not([name])');
   expect(await themeSelect.count()).toBe(1);
   await themeSelect.selectOption('light');
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
+});
+
+test('首页选择器给出一个可执行的第一项任务', async ({ page }) => {
+  await page.goto('./');
+  await page.locator('select[name="tool"]').selectOption('codex');
+  await page.locator('select[name="budget"]').selectOption('evaluate');
+  await page.locator('select[name="experience"]').selectOption('new');
+  await page.locator('select[name="goal"]').selectOption('safe');
+  await page.getByRole('button', { name: '给我第一项任务' }).click();
+
+  const result = page.locator('[data-route-output]');
+  await expect(result.locator('[data-route-title]')).toContainText('Codex');
+  await expect(result.locator('[data-route-link]')).toHaveAttribute(
+    'href',
+    '/zero-to-ai/codex/first-task/',
+  );
 });
 
 test('自定义 404 可用', async ({ page }) => {

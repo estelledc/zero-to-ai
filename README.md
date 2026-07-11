@@ -1,6 +1,7 @@
 # Zero to AI
 
-从零开始，用 AI 工具编程。不是百科文档，是经过实战验证的使用策略集合。
+从零开始，用 AI 工具编程。不是百科文档，而是一套把 Claude Code 与 Codex
+从第一条命令带到公开交付的中文学习系统。
 
 **在线阅读** → [estelledc.github.io/zero-to-ai](https://estelledc.github.io/zero-to-ai/)
 
@@ -11,6 +12,15 @@
 每篇教程遵循统一节奏：日常类比 → 技术定义 → 实际操作 → 常见坑 → 自检 → 下一步导航。
 
 2.0 之后的阶段规划、新工具准入门槛与项目不变量见 [docs/ROADMAP.md](docs/ROADMAP.md)。
+
+## Showcase 摘要
+
+- **状态**：Maintained · v2.0.0
+- **个人职责**：产品决策、内容架构、验证标准与发布维护
+- **协作方式**：Jason 负责判断与验收；AI 协助资料整理、内容初稿和前端实现
+- **系统规模**：45 个内容页、4 条学习路径、2 套工具闭环
+- **验证证据**：交叉引用、内容 freshness、fixture、unit、Playwright/axe 与 GitHub Pages 发布检查
+- **公开限制**：部分真实账户和跨平台步骤仍待人工复核；运营指标尚未形成连续样本；Learn Journal 当前是 N=1 验证
 
 ## 技术栈
 

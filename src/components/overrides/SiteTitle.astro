@@ -1,0 +1,72 @@
+---
+const { siteTitle, siteTitleHref } = Astro.locals.starlightRoute;
+---
+
+<div class="site-identity">
+  <a
+    class="jx-return-to-hub site-identity__hub"
+    href="https://estelledc.github.io/"
+    aria-label="返回 Jason 的作品集"
+  >
+    <span class="site-identity__hub-wide">Jason / Works</span>
+    <span class="site-identity__hub-narrow" aria-hidden="true">JX</span>
+  </a>
+  <span class="site-identity__divider" aria-hidden="true">/</span>
+  <a href={siteTitleHref} class="site-title" translate="no">{siteTitle}</a>
+</div>
+
+<style>
+  @layer starlight.core {
+    .site-identity {
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      white-space: nowrap;
+    }
+
+    .site-identity__hub {
+      flex-shrink: 0;
+      padding-block: 0.25rem;
+    }
+
+    .site-identity__hub-narrow {
+      display: none;
+    }
+
+    .site-identity__divider {
+      color: var(--sl-color-gray-4);
+      font-family: var(--jx-font-mono);
+      font-size: 0.75rem;
+    }
+
+    .site-title {
+      min-width: 0;
+      overflow: hidden;
+      color: var(--sl-color-white);
+      font-size: var(--sl-text-base);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      text-decoration: none;
+      text-overflow: ellipsis;
+    }
+
+    .site-title:hover {
+      color: var(--sl-color-text-accent);
+    }
+
+    @media (max-width: 30rem) {
+      .site-identity {
+        gap: 0.5rem;
+      }
+
+      .site-identity__hub-wide {
+        display: none;
+      }
+
+      .site-identity__hub-narrow {
+        display: inline;
+      }
+    }
+  }
+</style>

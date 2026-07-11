@@ -28,9 +28,9 @@ toolVersion: 'Codex CLI v0.144.x'
 - **Windows**：Codex 有原生 Windows 路线，也支持 WSL2；零基础若已有 Linux 工具链，可按 OpenAI 的 [WSL 指南](https://learn.chatgpt.com/docs/windows/wsl) 操作。Codex 0.115 起不再支持 WSL1
 - 你准备好 ChatGPT 账号（Free / Go / Plus / Pro / Business / Edu / Enterprise 等方案可能包含 Codex，以官方定价页为准），或准备走 API key 按量计费
 
-:::note[成本先看一眼]
-截至 2026-07-10，OpenAI 官方定价页写明 Codex 包含在 ChatGPT Free、Go、Plus、Pro、Business、Edu 和 Enterprise 中；具体额度会随方案和任务变化。API key 是另一条按 API token 计费的入口，不能拿 ChatGPT 订阅额度抵扣，而且不包含 Codex cloud 等云功能。开始前请重新查看[官方定价页](https://developers.openai.com/codex/pricing)，不要把本站日期当成永久承诺。
-:::
+> **成本先看一眼**
+>
+> 截至 2026-07-10，OpenAI 官方定价页写明 Codex 包含在 ChatGPT Free、Go、Plus、Pro、Business、Edu 和 Enterprise 中；具体额度会随方案和任务变化。API key 是另一条按 API token 计费的入口，不能拿 ChatGPT 订阅额度抵扣，而且不包含 Codex cloud 等云功能。开始前请重新查看[官方定价页](https://developers.openai.com/codex/pricing)，不要把本站日期当成永久承诺。
 
 ## 实际操作
 

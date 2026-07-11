@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "npm run validate-refs && astro build",
+    "build": "npm run validate-refs && astro build && npm run audit:showcase",
     "preview": "astro preview",
     "check": "astro check",
     "lint": "eslint . --max-warnings=0",
@@ -15,7 +15,9 @@
     "validate-refs": "tsx scripts/validate-cross-refs.ts",
     "audit:content-freshness": "tsx scripts/audit-content-freshness.ts",
     "audit:official-links": "tsx scripts/audit-official-links.ts",
+    "audit:showcase": "node scripts/audit-showcase.mjs",
     "build:skill-pack": "python3 scripts/build-skill-pack.py",
+    "generate:og": "node scripts/generate-og-image.mjs",
     "test:skill-pack": "npm run build:skill-pack && python3 scripts/test-skill-pack.py",
     "test:fixtures": "tsx scripts/test-claude-fixtures.ts",
     "test:codex-docs": "tsx scripts/test-codex-docs.ts",

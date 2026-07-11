@@ -37,9 +37,9 @@ push 成功只等于「印刷稿送到了印刷厂」；Pages workflow 跑完、
 - **原生 Windows**：Git 与浏览器步骤相同；若在 PowerShell，把路径写成 `~\Desktop\...`；若项目在 WSL 里，请在 WSL 终端完成 Git 操作
 - 页面一旦发布就是公开内容：先移除手机号、住址、API key、内部项目名和不想公开的照片
 
-:::note[Codex 路径]
-若你走的是 Codex 零基础路线，公开作品验收在 [Codex Capstone](/codex/capstone/)；本页的 Pages 发布与故障恢复步骤两边通用。
-:::
+> **Codex 路径**
+>
+> 若你走的是 Codex 零基础路线，公开作品验收在 [Codex Capstone](/codex/capstone/)；本页的 Pages 发布与故障恢复步骤两边通用。
 
 ## 实际操作
 

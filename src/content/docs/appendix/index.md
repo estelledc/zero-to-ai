@@ -31,9 +31,9 @@ lastVerified: '2026-07-10'
 3. **回工具路径**：Claude → [preflight](/claude-code/preflight/)；Codex → [quickstart](/codex/quickstart/)
 4. **按需排障**：任何时候打开 [troubleshooting](troubleshooting)
 
-:::tip[与学习路径的关系]
-零基础路径通常把 basics 与 git-basics 排在工具安装前后。本附录是「随时可回跳」的抽屉，不是第三条独立工具路线。
-:::
+> **与学习路径的关系**
+>
+> 零基础路径通常把 basics 与 git-basics 排在工具安装前后。本附录是「随时可回跳」的抽屉，不是第三条独立工具路线。
 
 ## 文档地图
 
