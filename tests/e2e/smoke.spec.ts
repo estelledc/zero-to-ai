@@ -136,10 +136,26 @@ test('Pagefind 可检索 Codex 安装教程', async ({ page }, testInfo) => {
 test('桌面主题切换可用', async ({ page }, testInfo) => {
   test.skip(testInfo.project.name === 'mobile-chromium', '移动端主题控件收纳在导航中');
   await page.goto('./');
-  const themeSelect = page.locator('select');
+  const themeSelect = page.locator('select:not([name])');
   expect(await themeSelect.count()).toBe(1);
   await themeSelect.selectOption('light');
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
+});
+
+test('首页选择器给出一个可执行的第一项任务', async ({ page }) => {
+  await page.goto('./');
+  await page.locator('select[name="tool"]').selectOption('codex');
+  await page.locator('select[name="budget"]').selectOption('evaluate');
+  await page.locator('select[name="experience"]').selectOption('new');
+  await page.locator('select[name="goal"]').selectOption('safe');
+  await page.getByRole('button', { name: '给我第一项任务' }).click();
+
+  const result = page.locator('[data-route-output]');
+  await expect(result.locator('[data-route-title]')).toContainText('Codex');
+  await expect(result.locator('[data-route-link]')).toHaveAttribute(
+    'href',
+    '/zero-to-ai/codex/first-task/',
+  );
 });
 
 test('自定义 404 可用', async ({ page }) => {

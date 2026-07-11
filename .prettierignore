@@ -2,3 +2,5 @@ dist/
 .astro/
 node_modules/
 package-lock.json
+# Vendored from Jason DS; formatting and contrast are checked at the shared source.
+src/styles/jx/

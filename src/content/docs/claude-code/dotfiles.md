@@ -50,7 +50,7 @@ toolVersion: 'Claude Code CLI v2.1'
 核心思想：所有配置文件的实际内容存在 git 仓库里，`~/.claude/` 下的文件通过 symlink 指向它们。编辑 `~/.claude/` = 编辑 git 仓库 = 自动跟踪。
 
 ```text
-~/intern-journal/dotfiles/          ← git 仓库中的配置源
+$HOME/projects/intern-journal/dotfiles/ ← git 仓库中的配置源
   home-claude/
     CLAUDE.md                       ← 全局 CLAUDE.md 的源文件
     settings.template.json          ← settings.json 的模板（不含真实凭证）
@@ -72,7 +72,7 @@ toolVersion: 'Claude Code CLI v2.1'
 创建 symlink 的方法：
 
 ```bash
-ln -sf ~/intern-journal/dotfiles/home-claude/CLAUDE.md ~/.claude/CLAUDE.md
+ln -sf "$HOME/projects/intern-journal/dotfiles/home-claude/CLAUDE.md" ~/.claude/CLAUDE.md
 ```
 
 `-s` = symbolic link（符号链接，像一个指针），`-f` = force overwrite if exists（如果目标已存在就覆盖）。

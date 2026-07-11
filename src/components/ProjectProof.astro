@@ -21,11 +21,7 @@ const repositoryUrl = 'https://github.com/estelledc/zero-to-ai';
       evidence-backed paths for beginners.
     </p>
 
-    <div class="jx-proof__metrics" aria-label="项目规模">
-      <div class="jx-proof__metric">
-        <strong>45</strong>
-        <span>内容页，覆盖教程、方法论、项目与附录</span>
-      </div>
+    <div class="jx-proof__metrics" aria-label="学习系统结构证据">
       <div class="jx-proof__metric">
         <strong>4</strong>
         <span>条有里程碑、完成证据与失败恢复的学习路径</span>
@@ -34,7 +30,15 @@ const repositoryUrl = 'https://github.com/estelledc/zero-to-ai';
         <strong>2</strong>
         <span>套互不混用命令的完整工具闭环</span>
       </div>
+      <div class="jx-proof__metric">
+        <strong>1</strong>
+        <span>个零基础路线必须交付的公开小站</span>
+      </div>
     </div>
+
+    <p class="zero-proof__coverage">
+      Coverage / 覆盖面：当前 45 个内容页；页数只用于导航维护，不作为学习效果指标。
+    </p>
 
     <div class="jx-proof__links" aria-label="项目证据">
       <a class="zero-proof__route" href={`${base}/paths/`}
@@ -117,6 +121,14 @@ const repositoryUrl = 'https://github.com/estelledc/zero-to-ai';
 
   .zero-proof__route:hover {
     color: var(--sl-color-black);
+  }
+
+  .zero-proof__coverage {
+    margin: 0.9rem 0 0;
+    color: var(--jx-ink-muted);
+    font-family: var(--jx-font-mono);
+    font-size: var(--jx-fs-micro);
+    line-height: 1.55;
   }
 
   .zero-proof__route span {
