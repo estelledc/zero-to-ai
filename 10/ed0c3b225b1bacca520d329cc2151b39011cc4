@@ -1,0 +1,129 @@
+.github/workflows/deploy.yml
+  s_36698b0212b4ac::t_04008bac8fd96e 21-22,48,51,60,79
+.github/workflows/maintenance.yml
+  s_36698b0212b4ac::t_c4da5813b084dc 15-16,32
+README.md
+  s_36698b0212b4ac::t_d470b9f2e02fd4 3-4,16-24
+astro.config.mjs
+  s_36698b0212b4ac::t_f7c0e28014dfe7 14,117,121,125-135,147-150,154
+package.json
+  s_36698b0212b4ac::t_e9a0e9eb52769d 9,18,20
+playwright.config.ts
+  s_36698b0212b4ac::t_8322e00153690d 4,16
+scripts/audit-showcase.mjs
+  s_36698b0212b4ac::t_71f54e08cf095e 1-53
+scripts/generate-og-image.mjs
+  s_36698b0212b4ac::t_b949b7139c79be 1-64
+skill-pack/README.md
+  s_36698b0212b4ac::t_a17b328f5e81f5 67
+src/components/ProjectProof.astro
+  s_36698b0212b4ac::t_8508f1fb45256f 1-148
+src/components/overrides/Footer.astro
+  s_36698b0212b4ac::t_1bce25e132acf8 22-34,83-139
+src/components/overrides/Head.astro
+  s_36698b0212b4ac::t_ca88ce1d8da412 17-21,26-79,82-86
+src/components/overrides/Header.astro
+  s_36698b0212b4ac::t_31add48998afeb 1-172
+src/components/overrides/Hero.astro
+  s_36698b0212b4ac::t_aa4b2229f4b885 1-293
+src/components/overrides/MobileMenuFooter.astro
+  s_36698b0212b4ac::t_c6d85fe605bfa6 1-60
+src/components/overrides/SiteTitle.astro
+  s_36698b0212b4ac::t_cba50966ed3e12 1-72
+src/content/docs/appendix/git-basics.md
+  s_36698b0212b4ac::t_9b349c5e9ac0b3 205-207
+src/content/docs/appendix/index.md
+  s_36698b0212b4ac::t_a0fa51ea04b453 34-36
+src/content/docs/appendix/troubleshooting.md
+  s_36698b0212b4ac::t_cde4f897fb8329 23-25
+src/content/docs/claude-code/agnes-free-vibe-coding.md
+  s_36698b0212b4ac::t_7e451bdf6e21bc 23-25
+src/content/docs/claude-code/daily-rhythm.md
+  s_36698b0212b4ac::t_6e96a9fa1bbdaa 221-223
+src/content/docs/claude-code/first-page.md
+  s_36698b0212b4ac::t_805e5d02122e77 59-61
+src/content/docs/claude-code/index.md
+  s_36698b0212b4ac::t_d708cf6b881770 33-35
+src/content/docs/claude-code/quickstart.md
+  s_36698b0212b4ac::t_ae3c2b26972591 26-28,34-36
+src/content/docs/codex/index.md
+  s_36698b0212b4ac::t_e6c210504dadfd 29-31
+src/content/docs/codex/quickstart.md
+  s_36698b0212b4ac::t_01b544acf93df3 31-33
+src/content/docs/index.mdx
+  s_36698b0212b4ac::t_839cdb3d306dbf 26-29,46-50
+src/content/docs/methodology/basics.md
+  s_36698b0212b4ac::t_7d26568937e5a0 20-22,125-128
+src/content/docs/methodology/claude-md-philosophy.md
+  s_36698b0212b4ac::t_20dc8494edf71c 17-19
+src/content/docs/methodology/index.md
+  s_36698b0212b4ac::t_9181fe331179fd 26-28
+src/content/docs/methodology/learning-management.md
+  s_36698b0212b4ac::t_b9f3e003985286 20-22
+src/content/docs/methodology/memory-system-design.md
+  s_36698b0212b4ac::t_379f25129aa893 28-30
+src/content/docs/methodology/prompt-anatomy.md
+  s_36698b0212b4ac::t_c5f13e508fdd5a 28-30
+src/content/docs/methodology/skill-engineering.md
+  s_36698b0212b4ac::t_ec359586e56cf0 30-32
+src/content/docs/methodology/skill-pack.md
+  s_36698b0212b4ac::t_07d5edb5d102ea 25,27-29
+src/content/docs/methodology/workflow-design.md
+  s_36698b0212b4ac::t_381c698e32425d 20-22
+src/content/docs/projects/index.md
+  s_36698b0212b4ac::t_fde044c3b52f6c 32-34
+src/content/docs/projects/learn-journal/design-philosophy.md
+  s_36698b0212b4ac::t_351bee1f36036e 24-26,218
+src/content/docs/projects/learn-journal/how-it-works.md
+  s_36698b0212b4ac::t_397c4cbc7af545 24-26
+src/content/docs/projects/learn-journal/index.md
+  s_36698b0212b4ac::t_bd50a028280881 25-27,63
+src/content/docs/projects/learn-journal/quickstart.md
+  s_36698b0212b4ac::t_53b5c7b442d351 25-27
+src/content/docs/projects/publish-first-site.md
+  s_36698b0212b4ac::t_03c5aa4b089875 40-42
+src/styles/custom.css
+  s_36698b0212b4ac::t_0363b700a13812 9-60
+src/styles/jason-ds.css
+  s_36698b0212b4ac::t_4fedbac9956d56 1-6
+src/styles/jx/VERSION
+  s_36698b0212b4ac::t_b2ef2bc8a010e0 1
+src/styles/jx/base.css
+  s_36698b0212b4ac::t_2b7a65850bfb6d 1-165
+src/styles/jx/components.css
+  s_36698b0212b4ac::t_7fe3dd98d287c3 1-590
+src/styles/jx/tokens.css
+  s_36698b0212b4ac::t_7a430127bcf230 1-184
+src/styles/vendor/jason-ds/VERSION
+  s_36698b0212b4ac::t_171e1fc98a3edb 1
+src/styles/vendor/jason-ds/jx-external-pill.css
+  s_36698b0212b4ac::t_745b030b25865b 1-36
+src/styles/vendor/jason-ds/jx-project-proof.css
+  s_36698b0212b4ac::t_0ee2ded846910c 1-87
+src/styles/vendor/jason-ds/jx-return-to-hub.css
+  s_36698b0212b4ac::t_9dfa019171b011 1-26
+src/styles/vendor/jason-ds/jx-status-chip.css
+  s_36698b0212b4ac::t_f374c725efd780 1-57
+src/styles/vendor/jason-ds/jx-tokens.css
+  s_36698b0212b4ac::t_28b00c90f56a2c 1-181
+tests/e2e/smoke.spec.ts
+  s_36698b0212b4ac::t_fd8f4914b0755a 17-71
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "10ed0c3b225b1bacca520d329cc2151b39011cc4",
+  "prompts": {},
+  "sessions": {
+    "s_36698b0212b4ac": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "s_36698b0212b4ac",
+        "model": "unknown"
+      },
+      "human_author": "Jason <150260202+estelledc@users.noreply.github.com>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
