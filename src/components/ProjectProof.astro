@@ -1,0 +1,148 @@
+---
+import { base } from '../utils/base-url';
+
+const repositoryUrl = 'https://github.com/estelledc/zero-to-ai';
+---
+
+<section class="jx-proof zero-proof" aria-labelledby="project-proof-title">
+  <div class="zero-proof__story">
+    <div class="zero-proof__kicker">
+      <span class="jx-chip" data-state="maintained">Maintained · v2.0</span>
+      <span>Project proof / 项目证明</span>
+    </div>
+
+    <h2 id="project-proof-title">把零散教程做成一套可验证的学习系统</h2>
+    <p class="jx-proof__summary">
+      Zero to AI 不以文章数量为终点：它把工具入门、项目规则、修改验证、Git
+      与公开交付串成可完成路径，并用来源矩阵与自动化门禁约束内容质量。
+    </p>
+    <p class="jx-proof__summary-en" lang="en">
+      A creator-led Chinese learning system that turns AI-coding guidance into completable,
+      evidence-backed paths for beginners.
+    </p>
+
+    <div class="jx-proof__metrics" aria-label="项目规模">
+      <div class="jx-proof__metric">
+        <strong>45</strong>
+        <span>内容页，覆盖教程、方法论、项目与附录</span>
+      </div>
+      <div class="jx-proof__metric">
+        <strong>4</strong>
+        <span>条有里程碑、完成证据与失败恢复的学习路径</span>
+      </div>
+      <div class="jx-proof__metric">
+        <strong>2</strong>
+        <span>套互不混用命令的完整工具闭环</span>
+      </div>
+    </div>
+
+    <div class="jx-proof__links" aria-label="项目证据">
+      <a class="zero-proof__route" href={`${base}/paths/`}
+        >查看学习路径 <span aria-hidden="true">→</span></a
+      >
+      <a class="jx-pill" href={`${repositoryUrl}/actions`}>自动化门禁</a>
+      <a class="jx-pill" href={`${repositoryUrl}/blob/main/docs/OFFICIAL-SOURCE-MATRIX.md`}>
+        来源验证矩阵
+      </a>
+      <a class="jx-pill" href={repositoryUrl}>GitHub 源码</a>
+    </div>
+  </div>
+
+  <dl class="jx-proof__meta">
+    <div>
+      <dt>个人角色 / Role</dt>
+      <dd>产品决策、内容架构、验证标准与发布维护</dd>
+    </div>
+    <div>
+      <dt>协作方式 / Collaboration</dt>
+      <dd>Jason 负责判断与验收；AI 协助资料整理、内容初稿和前端实现</dd>
+    </div>
+    <div>
+      <dt>系统 / System</dt>
+      <dd>Astro + Starlight + Pagefind；有向学习路径、进度记录与 90 天内容复核机制</dd>
+    </div>
+    <div>
+      <dt>证据 / Evidence</dt>
+      <dd>交叉引用、fixture、unit、Playwright/axe 与 GitHub Pages 发布检查组成验证链</dd>
+    </div>
+    <div>
+      <dt>公开限制 / Limitations</dt>
+      <dd class="jx-proof__limitation">
+        部分真实账户和跨平台步骤仍待人工复核；运营指标尚未形成连续样本；Learn Journal 方法论当前仍是
+        N=1 验证。
+      </dd>
+    </div>
+  </dl>
+</section>
+
+<style>
+  .zero-proof {
+    margin-block: 0 clamp(3.5rem, 7vw, 6rem);
+  }
+
+  .zero-proof__story > h2 {
+    max-width: 18ch;
+    margin-block: 1rem;
+    font-family: var(--jx-font-display);
+    font-size: clamp(1.8rem, 4vw, 2.75rem);
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+  }
+
+  .zero-proof__kicker {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    color: var(--jx-ink-muted);
+    font-family: var(--jx-font-mono);
+    font-size: var(--jx-fs-micro);
+    letter-spacing: var(--jx-tracking-eyebrow);
+    text-transform: uppercase;
+  }
+
+  .zero-proof__route {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 2.25rem;
+    padding-inline: 1rem;
+    color: var(--sl-color-black);
+    background: var(--sl-color-text-accent);
+    border-radius: var(--jx-radius-pill);
+    font-size: var(--jx-fs-xs);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .zero-proof__route:hover {
+    color: var(--sl-color-black);
+  }
+
+  .zero-proof__route span {
+    transition: transform var(--jx-duration-fast) var(--jx-easing);
+  }
+
+  .zero-proof__route:hover span {
+    transform: translateX(2px);
+  }
+
+  .jx-proof__meta dd {
+    line-height: 1.55;
+  }
+
+  @media (max-width: 40rem) {
+    .zero-proof {
+      margin-inline: -0.25rem;
+      border-radius: var(--jx-radius-4);
+    }
+
+    .jx-proof__metrics {
+      grid-template-columns: 1fr;
+    }
+
+    .jx-proof__metric {
+      min-height: auto;
+    }
+  }
+</style>

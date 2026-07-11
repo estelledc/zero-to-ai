@@ -11,7 +11,7 @@ export default defineConfig({
     starlight({
       plugins: [starlightBasePath()],
       title: 'Zero to AI',
-      description: '从零开始用 AI 编程工具 — 实战教程集合',
+      description: '面向零基础学习者的中文 AI 编程学习系统：从第一条命令到公开交付。',
       defaultLocale: 'root',
       locales: {
         root: { label: '简体中文', lang: 'zh-CN' },
@@ -100,7 +100,6 @@ export default defineConfig({
       },
 
       social: [
-        { icon: 'external', label: '回主站', href: 'https://estelledc.github.io/' },
         { icon: 'github', label: 'GitHub', href: 'https://github.com/estelledc/zero-to-ai' },
       ],
 
@@ -115,16 +114,25 @@ export default defineConfig({
         },
         {
           tag: 'meta',
-          attrs: { property: 'og:type', content: 'website' },
+          attrs: { property: 'og:image:width', content: '1200' },
         },
         {
           tag: 'meta',
-          attrs: { property: 'og:locale', content: 'zh_CN' },
+          attrs: { property: 'og:image:height', content: '630' },
         },
-        // Twitter Card
         {
           tag: 'meta',
-          attrs: { name: 'twitter:card', content: 'summary_large_image' },
+          attrs: {
+            property: 'og:image:alt',
+            content: 'Zero to AI — 从第一条命令到公开交付的中文 AI 编程学习系统',
+          },
+        },
+        {
+          tag: 'meta',
+          attrs: {
+            name: 'twitter:image',
+            content: 'https://estelledc.github.io/zero-to-ai/og-default.png',
+          },
         },
       ],
 
@@ -136,10 +144,14 @@ export default defineConfig({
       components: {
         PageTitle: './src/components/overrides/PageTitle.astro',
         Head: './src/components/overrides/Head.astro',
+        Header: './src/components/overrides/Header.astro',
+        SiteTitle: './src/components/overrides/SiteTitle.astro',
+        MobileMenuFooter: './src/components/overrides/MobileMenuFooter.astro',
+        Hero: './src/components/overrides/Hero.astro',
         Footer: './src/components/overrides/Footer.astro',
       },
 
-      customCss: ['./src/styles/custom.css'],
+      customCss: ['./src/styles/jason-ds.css', './src/styles/custom.css'],
 
       // Pagefind 搜索（Starlight 内置，确保启用）
       pagefind: true,

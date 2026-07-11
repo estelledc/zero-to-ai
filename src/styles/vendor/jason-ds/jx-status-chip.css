@@ -1,0 +1,57 @@
+/* Jason DS · Status Chip v2.0.0 */
+.jx-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--jx-space-2);
+  padding: 2px var(--jx-space-3);
+  font-family: var(--jx-font-mono);
+  font-size: var(--jx-fs-micro);
+  font-weight: var(--jx-weight-heading);
+  text-transform: uppercase;
+  letter-spacing: var(--jx-tracking-eyebrow);
+  border-radius: var(--jx-radius-pill);
+  background: var(--_chip-tint);
+  color: var(--_chip-color);
+  font-feature-settings: var(--jx-font-features-mono);
+  white-space: nowrap;
+}
+.jx-chip::before {
+  content: var(--_chip-glyph);
+  font-size: 1em;
+  line-height: 1;
+}
+.jx-chip[data-state='learning'] {
+  --_chip-color: var(--jx-state-learning);
+  --_chip-tint: var(--jx-state-learning-tint);
+  --_chip-glyph: var(--jx-state-learning-glyph);
+}
+.jx-chip[data-state='building'] {
+  --_chip-color: var(--jx-state-building);
+  --_chip-tint: var(--jx-state-building-tint);
+  --_chip-glyph: var(--jx-state-building-glyph);
+}
+.jx-chip[data-state='shipped'] {
+  --_chip-color: var(--jx-state-shipped);
+  --_chip-tint: var(--jx-state-shipped-tint);
+  --_chip-glyph: var(--jx-state-shipped-glyph);
+}
+.jx-chip[data-state='concept'] {
+  --_chip-color: var(--jx-state-concept);
+  --_chip-tint: var(--jx-state-concept-tint);
+  --_chip-glyph: var(--jx-state-concept-glyph);
+}
+.jx-chip[data-state='prototype'] {
+  --_chip-color: var(--jx-state-prototype);
+  --_chip-tint: var(--jx-state-prototype-tint);
+  --_chip-glyph: var(--jx-state-prototype-glyph);
+}
+.jx-chip[data-state='maintained'] {
+  --_chip-color: var(--jx-state-maintained);
+  --_chip-tint: var(--jx-state-maintained-tint);
+  --_chip-glyph: var(--jx-state-maintained-glyph);
+}
+.jx-chip[data-state='archived'] {
+  --_chip-color: var(--jx-state-archived);
+  --_chip-tint: var(--jx-state-archived-tint);
+  --_chip-glyph: var(--jx-state-archived-glyph);
+}

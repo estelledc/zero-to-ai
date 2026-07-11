@@ -64,6 +64,6 @@ my-learning/
 
 ## 来源
 
-本 skill 包从 [intern-journal](https://github.com/estelledc/intern-journal) 项目提炼而来，经过 50+ 天实际使用验证。
+本 skill 包从作者的私有学习工作流中提炼而来，经过 50+ 天实际使用验证。
 
 这里的 50+ 天只证明原作者工作流，不等于所有平台均已验证。每个平台的当前状态以上表为准。

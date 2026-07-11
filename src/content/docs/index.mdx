@@ -23,6 +23,10 @@ hero:
 
 import Card from '../../components/Card.astro';
 import CardGrid from '../../components/CardGrid.astro';
+import ProjectProof from '../../components/ProjectProof.astro';
+import { Aside } from '@astrojs/starlight/components';
+
+<ProjectProof />
 
 ## 先选路，再动手
 
@@ -39,9 +43,11 @@ import CardGrid from '../../components/CardGrid.astro';
 | 还没装过终端 / 不懂 Git                     | 先补预备知识                                                | [通用环境](/methodology/basics/) → [Git 速成](/appendix/git-basics/) |
 | 报错卡住了                                  | 先排障，再回路径                                            | [常见问题排查](/appendix/troubleshooting/)                           |
 
-:::note[成本要心里有数]
-Claude Code 与 Codex 都可能产生订阅或 API 费用。零基础路径会在开篇讲清计费入口；想先评估「适不适合自己」可从 [开始之前](/claude-code/preflight/) 或 [Codex 安装与成本](/codex/quickstart/) 入手，不必先充值。
-:::
+<Aside type="note" title="成本要心里有数">
+  Claude Code 与 Codex 都可能产生订阅或 API
+  费用。零基础路径会在开篇讲清计费入口；想先评估「适不适合自己」可从
+  [开始之前](/claude-code/preflight/) 或 [Codex 安装与成本](/codex/quickstart/) 入手，不必先充值。
+</Aside>
 
 ## 不知道怎么开始？
 

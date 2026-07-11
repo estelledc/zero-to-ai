@@ -6,6 +6,58 @@
     'Noto Sans CJK SC', sans-serif;
   --sl-font-mono:
     'Sarasa Mono SC', 'Noto Sans Mono CJK SC', 'SF Mono', 'Fira Code', 'Consolas', monospace;
+
+  /* Jason DS 在 Starlight 中跟随手动主题，而不是只跟随系统主题。 */
+  --jx-paper: var(--sl-color-bg);
+  --jx-surface: var(--sl-color-bg-nav);
+  --jx-surface-sunk: color-mix(in oklab, var(--sl-color-bg), var(--sl-color-gray-6) 55%);
+  --jx-ink: var(--sl-color-white);
+  --jx-ink-2: var(--sl-color-gray-2);
+  --jx-ink-muted: var(--sl-color-gray-3);
+  --jx-ink-faint: var(--sl-color-gray-4);
+  --jx-rule: color-mix(in oklab, var(--sl-color-gray-5), transparent 30%);
+  --jx-rule-soft: color-mix(in oklab, var(--sl-color-gray-5), transparent 62%);
+  --jx-rule-strong: var(--sl-color-gray-4);
+  --jx-accent: var(--sl-color-text-accent);
+  --jx-accent-hover: var(--sl-color-white);
+  --jx-accent-tint: var(--sl-color-accent-low);
+  --jx-focus-ring: color-mix(in oklab, var(--sl-color-accent), transparent 65%);
+  --jx-link: var(--sl-color-text-accent);
+  --jx-shadow-stack: var(--sl-shadow-md);
+  --jx-accent-hub: var(--sl-color-text-accent);
+}
+
+:root[data-theme='dark'] {
+  --sl-color-accent-low: hsl(190, 60%, 18%);
+  --sl-color-accent: hsl(186, 74%, 52%);
+  --sl-color-accent-high: hsl(184, 86%, 82%);
+  --jx-state-maintained: #79c6d2;
+  --jx-state-maintained-tint: color-mix(in oklab, var(--jx-state-maintained), black 78%);
+}
+
+:root[data-theme='light'] {
+  --sl-color-accent-low: hsl(184, 67%, 92%);
+  --sl-color-accent: hsl(187, 78%, 24%);
+  --sl-color-accent-high: hsl(187, 82%, 22%);
+  --jx-state-maintained: #1c6876;
+  --jx-state-maintained-tint: color-mix(in oklab, var(--jx-state-maintained), white 86%);
+}
+
+/* 首页展示层使用更宽画布，教程正文仍保持原有阅读宽度。 */
+html[data-has-hero] {
+  --sl-content-width: min(72rem, 100%);
+}
+
+html[data-has-hero] .sl-markdown-content > h2,
+html[data-has-hero] .sl-markdown-content > h3,
+html[data-has-hero] .sl-markdown-content > p,
+html[data-has-hero] .sl-markdown-content > table,
+html[data-has-hero] .sl-markdown-content > ol,
+html[data-has-hero] .sl-markdown-content > ul,
+html[data-has-hero] .sl-markdown-content > .starlight-aside,
+html[data-has-hero] .sl-markdown-content > .zt-card-grid {
+  max-width: 67.5rem;
+  margin-inline: auto;
 }
 
 /* :focus-visible 自定义样式确保跨浏览器一致性 */

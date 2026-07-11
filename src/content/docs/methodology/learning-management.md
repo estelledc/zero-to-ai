@@ -17,9 +17,9 @@ lastVerified: '2026-07-10'
 
 > 如果你已经用过 AI 编程助手一周以上，可以直接读本文——不必严格按前置要求的顺序。
 
-:::note[工具对照]
-文件夹约定与管线步骤对 Claude Code / Codex / Cursor 都成立。Claude 侧可用 Skill（如 `/wiki`、`/sync-all`）加速；Codex 侧用同一目录结构 + `AGENTS.md` 里写「写笔记前先搜 learnings/」即可。没有 Skill 时，把步骤当 checklist 手动执行。
-:::
+> **工具对照**
+>
+> 文件夹约定与管线步骤对 Claude Code / Codex / Cursor 都成立。Claude 侧可用 Skill（如 `/wiki`、`/sync-all`）加速；Codex 侧用同一目录结构 + `AGENTS.md` 里写「写笔记前先搜 learnings/」即可。没有 Skill 时，把步骤当 checklist 手动执行。
 
 ## 学完教程之后呢？
 

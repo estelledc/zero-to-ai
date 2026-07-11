@@ -14,13 +14,76 @@ import { base } from '../../utils/base-url';
 const { head } = Astro.locals.starlightRoute;
 const entry = Astro.locals.starlightRoute.entry;
 const pageId = entry.id;
+const isHome = Astro.url.pathname.replace(/\/+$/, '') === base;
+const pageDescription =
+  entry.data.description ?? '面向零基础学习者的中文 AI 编程学习系统：从第一条命令到公开交付。';
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).href;
+const imageUrl = new URL(`${base}/og-default.png`, Astro.site ?? Astro.url.origin).href;
 
 const synonyms = slugVariants(pageId).flatMap((variant) => synonymMap[variant] ?? []);
 const uniqueSynonyms = [...new Set(synonyms)];
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
+const resolvedHead = head.map((item) =>
+  item.tag === 'meta' && item.attrs?.property === 'og:type' && isHome
+    ? { ...item, attrs: { ...item.attrs, content: 'website' } }
+    : item,
+);
+
+const person = {
+  '@type': 'Person',
+  '@id': 'https://estelledc.github.io/#jason',
+  name: 'Jason',
+  url: 'https://estelledc.github.io/',
+  sameAs: ['https://github.com/estelledc'],
+};
+
+const structuredData = isHome
+  ? {
+      '@context': 'https://schema.org',
+      '@graph': [
+        person,
+        {
+          '@type': 'WebSite',
+          '@id': 'https://estelledc.github.io/zero-to-ai/#website',
+          url: 'https://estelledc.github.io/zero-to-ai/',
+          name: 'Zero to AI',
+          description: pageDescription,
+          inLanguage: 'zh-CN',
+          author: { '@id': person['@id'] },
+        },
+        {
+          '@type': 'LearningResource',
+          '@id': 'https://estelledc.github.io/zero-to-ai/#learning-resource',
+          url: 'https://estelledc.github.io/zero-to-ai/',
+          name: 'Zero to AI',
+          description: pageDescription,
+          inLanguage: 'zh-CN',
+          isAccessibleForFree: true,
+          learningResourceType: '实战教程与学习路径',
+          audience: { '@type': 'Audience', audienceType: 'AI 编程零基础学习者' },
+          creator: { '@id': person['@id'] },
+        },
+      ],
+    }
+  : {
+      '@context': 'https://schema.org',
+      '@type': 'TechArticle',
+      '@id': canonicalUrl,
+      url: canonicalUrl,
+      headline: entry.data.title,
+      description: pageDescription,
+      inLanguage: 'zh-CN',
+      image: imageUrl,
+      author: person,
+      isPartOf: { '@id': 'https://estelledc.github.io/zero-to-ai/#website' },
+    };
 ---
 
-{head.map(({ tag: Tag, attrs, content }) => <Tag {...attrs} set:html={content} />)}
+{resolvedHead.map(({ tag: Tag, attrs, content }) => <Tag {...attrs} set:html={content} />)}
+<meta name="twitter:title" content={entry.data.title} />
+<meta name="twitter:description" content={pageDescription} />
+<meta name="twitter:image:alt" content="Zero to AI 中文 AI 编程学习系统" />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 {uniqueSynonyms.length > 0 && <meta data-pagefind-meta={`synonyms:${uniqueSynonyms.join(' ')}`} />}
 {
   googleSiteVerification && (

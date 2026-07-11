@@ -27,9 +27,9 @@ relatedContent:
 
 研究对象是开源项目 [garden-skills](https://github.com/ConardLi/garden-skills)，它包含 5 个生产级 Skill 和 168 个 reference 文件，是目前最成熟的开源 Skill 工程实践之一。
 
-:::note[工具对照]
-目录约定与 `SKILL.md` 入口以 Claude Code 生态最成熟。Codex / 其他工具可以把同一套「路由器 + references + 脚本」做成仓库内文档包，用 `AGENTS.md` 指向入口；分发形态不同，**路由、契约、checkpoint、反默认、自检分层**这些工程原则通用。
-:::
+> **工具对照**
+>
+> 目录约定与 `SKILL.md` 入口以 Claude Code 生态最成熟。Codex / 其他工具可以把同一套「路由器 + references + 脚本」做成仓库内文档包，用 `AGENTS.md` 指向入口；分发形态不同，**路由、契约、checkpoint、反默认、自检分层**这些工程原则通用。
 
 ## 开始之前
 

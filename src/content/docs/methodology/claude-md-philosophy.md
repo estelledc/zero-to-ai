@@ -14,9 +14,9 @@ relatedContent:
   - { slug: 'methodology/prompt-anatomy', label: '系统提示解剖学' }
 ---
 
-:::note[工具对照]
-本文案例多来自 Claude Code 的 `CLAUDE.md`，但**编写哲学对 Codex 的 `AGENTS.md`、Cursor 的规则文件同样成立**：活文档、错误日志模式、删不掉测试。语法与加载路径见 [Claude 配置](/claude-code/config/) 与 [Codex AGENTS.md](/codex/agents-md/)。
-:::
+> **工具对照**
+>
+> 本文案例多来自 Claude Code 的 `CLAUDE.md`，但**编写哲学对 Codex 的 `AGENTS.md`、Cursor 的规则文件同样成立**：活文档、错误日志模式、删不掉测试。语法与加载路径见 [Claude 配置](/claude-code/config/) 与 [Codex AGENTS.md](/codex/agents-md/)。
 
 ## 类比
 

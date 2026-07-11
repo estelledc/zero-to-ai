@@ -21,9 +21,9 @@ lastVerified: '2026-07-10'
 | **25 分钟**      | 全文                                                             | 能复述每个设计决策的**代价**，而不只是优点 |
 | **要做类似项目** | 全文 + 对照 [CLAUDE.md 哲学](/methodology/claude-md-philosophy/) | 一份可迁移的 trade-off 清单，不是抄协议    |
 
-:::note[只想用、不想设计？]
-可跳过本页，回 [导读](/projects/learn-journal/) 或 [快速上手](/projects/learn-journal/quickstart/)。本页是给「为什么这样设计 / 值不值得跟」的读者。
-:::
+> **只想用、不想设计？**
+>
+> 可跳过本页，回 [导读](/projects/learn-journal/) 或 [快速上手](/projects/learn-journal/quickstart/)。本页是给「为什么这样设计 / 值不值得跟」的读者。
 
 ## 这篇讲什么
 
@@ -215,7 +215,7 @@ Kill switch 用客观指标替代主观判断：
 
 ## 从个人工具到可分发产品
 
-Learn Journal 最初是一个人的实习日志系统（[intern-journal](https://github.com/estelledc/intern-journal)）。把它变成别人也能用的东西，遇到了三类问题：
+Learn Journal 最初是一个人的私有实习日志系统。把它变成别人也能用的东西，遇到了三类问题：
 
 ### 问题一：硬编码的个人偏好
 

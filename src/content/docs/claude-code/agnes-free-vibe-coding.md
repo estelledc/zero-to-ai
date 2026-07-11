@@ -20,9 +20,9 @@ toolVersion: 'Claude Code CLI v2.1'
 
 因此，这一页保留原 URL 作为历史迁移说明，但不再提供“一键免费配置”。零基础主路径只使用 Anthropic 官方支持的订阅登录或 Claude Console API。
 
-:::caution[先读再实验]
-如果你还在学 [10 分钟上手](/claude-code/quickstart/)，请先走官方路径。本页面向已经能稳定使用官方认证、并主动选择做兼容性实验的读者。
-:::
+> **先读再实验**
+>
+> 如果你还在学 [10 分钟上手](/claude-code/quickstart/)，请先走官方路径。本页面向已经能稳定使用官方认证、并主动选择做兼容性实验的读者。
 
 ## 类比
 
