@@ -131,12 +131,21 @@ const repositoryUrl = 'https://github.com/estelledc/zero-to-ai';
     line-height: 1.55;
   }
 
-  .zero-proof__route span {
-    transition: transform var(--jx-duration-fast) var(--jx-easing);
+  @media (hover: hover) and (pointer: fine) {
+    .zero-proof__route span {
+      transition: transform var(--jx-duration-fast) var(--jx-ease-out);
+    }
+
+    .zero-proof__route:hover span {
+      transform: translateX(2px);
+    }
   }
 
-  .zero-proof__route:hover span {
-    transform: translateX(2px);
+  @media (prefers-reduced-motion: reduce) {
+    .zero-proof__route span {
+      transform: none;
+      transition: none;
+    }
   }
 
   .jx-proof__meta dd {
