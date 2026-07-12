@@ -20,6 +20,20 @@ async function collectHtml(directory) {
 const failures = [];
 const htmlFiles = await collectHtml(dist);
 
+try {
+  await readdir(new URL('../src/styles/vendor/jason-ds/', import.meta.url));
+  failures.push('src/styles/vendor/jason-ds: stale second design-system copy remains');
+} catch (error) {
+  if (error?.code !== 'ENOENT') throw error;
+}
+
+const designSystemVersion = (
+  await readFile(new URL('../src/styles/jx/VERSION', import.meta.url), 'utf8')
+).trim();
+if (designSystemVersion !== '2.2.0') {
+  failures.push(`src/styles/jx/VERSION: expected 2.2.0, got ${designSystemVersion}`);
+}
+
 for (const file of htmlFiles) {
   const html = await readFile(file, 'utf8');
   const displayPath = relative(root, file);

@@ -144,6 +144,12 @@ test('桌面主题切换可用', async ({ page }, testInfo) => {
 
 test('首页选择器给出一个可执行的第一项任务', async ({ page }) => {
   await page.goto('./');
+  await page.evaluate(() => {
+    Element.prototype.scrollIntoView = function (options) {
+      const behavior = typeof options === 'object' ? options.behavior : undefined;
+      document.documentElement.dataset.routeScrollBehavior = behavior ?? 'auto';
+    };
+  });
   await page.locator('select[name="tool"]').selectOption('codex');
   await page.locator('select[name="budget"]').selectOption('evaluate');
   await page.locator('select[name="experience"]').selectOption('new');
@@ -156,6 +162,10 @@ test('首页选择器给出一个可执行的第一项任务', async ({ page }) 
     'href',
     '/zero-to-ai/codex/first-task/',
   );
+  await expect(page.locator('html')).toHaveAttribute('data-route-scroll-behavior', 'smooth');
+
+  await page.getByRole('button', { name: '给我第一项任务' }).press('Enter');
+  await expect(page.locator('html')).toHaveAttribute('data-route-scroll-behavior', 'instant');
 });
 
 test('自定义 404 可用', async ({ page }) => {

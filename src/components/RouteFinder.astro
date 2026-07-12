@@ -108,6 +108,15 @@ import { base } from '../utils/base-url';
 
   if (finder && form && output) {
     finder.dataset.enhanced = 'true';
+    let lastInteraction = 'keyboard';
+    let outputFeedback;
+
+    form.addEventListener('pointerdown', () => {
+      lastInteraction = 'pointer';
+    });
+    form.addEventListener('keydown', () => {
+      lastInteraction = 'keyboard';
+    });
 
     const routes = {
       'claude-zero': {
@@ -174,8 +183,16 @@ import { base } from '../utils/base-url';
       const link = output.querySelector('[data-route-link]');
       link.href = route.href;
       link.textContent = '开始这项任务 →';
+      outputFeedback?.cancel();
+      outputFeedback = output.animate([{ opacity: 0.72 }, { opacity: 1 }], {
+        duration: 180,
+        easing: 'cubic-bezier(0.23, 1, 0.32, 1)',
+      });
       output.focus({ preventScroll: true });
-      output.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const behavior = prefersReducedMotion || lastInteraction !== 'pointer' ? 'instant' : 'smooth';
+      output.scrollIntoView({ behavior, block: 'nearest' });
+      lastInteraction = 'keyboard';
     });
   }
 </script>
