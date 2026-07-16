@@ -1,0 +1,25 @@
+.github/workflows/deploy.yml
+  s_073123c2a5e44e::t_8cf68d86d4789f 39-40,43-44
+package.json
+  s_073123c2a5e44e::t_3a57bc959fcaa7 22,28
+tests/unit/deploy-workflow-contract.test.ts
+  s_073123c2a5e44e::t_5c336d61049bea 1-47
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "a7f36105cf37bf74787e5cdfd02769971fd21daf",
+  "prompts": {},
+  "sessions": {
+    "s_073123c2a5e44e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "s_073123c2a5e44e",
+        "model": "unknown"
+      },
+      "human_author": "zhouxun <zhouxun.13@bytedance.com>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
