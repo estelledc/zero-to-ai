@@ -36,10 +36,12 @@ jobs:
         run: npm run check
       - name: Validate Claude fixtures
         run: npm run test:fixtures
+      - name: Validate Codex docs
+        run: npm run test:codex-docs
       - name: Unit tests
         run: npm run test:unit
-      - name: Skill pack smoke
-        run: npm run test:skill-pack
+      - name: Verify published skill pack
+        run: npm run verify:skill-pack
 
   build:
     needs: validate
