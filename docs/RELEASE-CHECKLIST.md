@@ -24,7 +24,7 @@
 ### 人工停止点
 
 - [ ] **DEFERRED**：在真实 Claude Code 账户运行 `/status`、`/permissions`、`/agents`，只记录脱敏结果
-- [ ] **DEFERRED**：在 GitHub Pages 发布后复查首页、三条路径、Pagefind、RSS、sitemap、404、主题和移动端
+- [x] 在 GitHub Pages 发布后复查首页、三条路径、Pagefind、RSS、sitemap、404、主题和移动端 —— 2026-07-26 于 v2.0.1 部署后完成：Playwright smoke + axe 套件直跑生产 URL（desktop Chromium + Pixel 7 设备模拟，34 passed / 0 failed），sitemap 46/46 URL 200，robots / RSS / 404 语义 / http→https 均通过。移动端为浏览器设备模拟，真机证据仍见跨平台条目
 - [ ] **DEFERRED**：Search Console URL-prefix property 完成人工登录与 HTML/meta 验证；未完成不阻塞 1.1.0
 - [ ] **DEFERRED**：在 macOS、Windows 和 Linux/WSL 的真实环境补充可迁移性证据
 
@@ -57,7 +57,7 @@ PR 必须保持 ready、自动门禁全绿并取得明确 merge 授权。采用�
 ### 人工停止点
 
 - [ ] **DEFERRED**：在真实 Codex 账户验证登录、方案额度和组织权限，只记录脱敏结果
-- [ ] **DEFERRED**：在 GitHub Pages 发布后复查 `/codex/`、学习路径、搜索、主题和移动端
+- [x] 在 GitHub Pages 发布后复查 `/codex/`、学习路径、搜索、主题和移动端 —— 2026-07-26 于 v2.0.1 部署后完成，证据同 1.1.0 线上复查条目（Playwright 直跑生产 URL，含 Codex 路线进入与 Pagefind 检索 Codex 教程用例；移动端为设备模拟）
 - [ ] **DEFERRED**：Search Console URL-prefix property 完成人工登录与 HTML/meta 验证；未完成不阻塞 2.0.0
 - [ ] **DEFERRED**：在 macOS、Windows 和 Linux/WSL 的真实环境补充可迁移性证据
 

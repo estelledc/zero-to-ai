@@ -1,0 +1,30 @@
+{
+  "periodEnd": "2026-07-26",
+  "githubTraffic": {
+    "views": 1,
+    "uniqueVisitors": 1,
+    "clones": 73,
+    "uniqueCloners": 32
+  },
+  "searchConsole": {
+    "status": "HUMAN_VERIFICATION_REQUIRED",
+    "clicks": null,
+    "impressions": null,
+    "ctr": null,
+    "indexedPages": null,
+    "topQueriesSanitized": []
+  },
+  "contentQuality": {
+    "verifiedTutorialsAddedOrUpdated": 2,
+    "stalePages": 0,
+    "brokenLinks": 0,
+    "failedCiRuns": 0
+  },
+  "decisions": [
+    {
+      "date": "2026-07-26",
+      "decision": "以 2.0.1 patch 回写前沿信息：官方文档域名迁移 platform.claude.com、术语表模型示例更新为 claude-sonnet-5、依赖批量升级并清零 npm audit；Codex CLI 锚点经 0.145.0 release notes 复查后保持 0.144.x 不虚升。",
+      "evidence": "npm run verify 与 audit:official-links 全绿；v2.0.1 部署后 Playwright smoke+axe 直跑生产 URL 34 passed/0 failed（桌面 Chromium + Pixel 7 模拟），sitemap 46/46 URL 返回 200。GitHub Traffic 为过去 14 天窗口；Search Console 仍待站点所有者人工验证。"
+    }
+  ]
+}
