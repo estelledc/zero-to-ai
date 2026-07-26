@@ -1,6 +1,6 @@
 {
   "name": "zero-to-ai",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "从零开始用 AI 编程工具 — 实战教程集合",
   "type": "module",
   "scripts": {
@@ -47,22 +47,22 @@
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
     "@astrojs/starlight": "^0.41.3",
-    "astro": "^7.0.7",
+    "astro": "^7.1.1",
     "sharp": "^0.35.3",
-    "starlight-base-path": "^0.2.0"
+    "starlight-base-path": "^0.2.1"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
     "@axe-core/playwright": "^4.12.1",
     "@playwright/test": "1.61.1",
     "@typescript-eslint/eslint-plugin": "^8.63.0",
-    "@typescript-eslint/parser": "^8.63.0",
-    "eslint": "^10.6.0",
+    "@typescript-eslint/parser": "^8.64.0",
+    "eslint": "^10.7.0",
     "eslint-plugin-astro": "^2.1.1",
     "gray-matter": "^4.0.3",
     "prettier": "^3.9.5",
     "prettier-plugin-astro": "^0.14.1",
-    "tsx": "^4.23.0",
+    "tsx": "^4.23.1",
     "typescript": "^6.0.3"
   },
   "overrides": {

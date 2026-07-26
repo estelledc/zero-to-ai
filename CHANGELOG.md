@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.1] - 2026-07-26
+
+### Changed
+
+- 依赖例行更新：astro 7.1.1、starlight-base-path 0.2.1、eslint 10.7.0、`@typescript-eslint/parser` 8.64.0、tsx 4.23.1，GitHub Actions checkout 7.0.1 与 setup-node 7.0.0；`npm audit fix`（未使用 `--force`）后 0 advisory。
+- 回写 Anthropic 官方文档域名迁移：定价链接从 `docs.anthropic.com` 更新为 `platform.claude.com`（旧域名 301 重定向仍有效），`OFFICIAL-SOURCE-MATRIX.json` 同步。
+- 术语表模型示例从 `claude-sonnet-4-20250514` 更新为 `claude-sonnet-5`，并补充说明新一代无日期模型 ID 同为固定版本快照。
+
+### Verification
+
+- 复核于 2026-07-26，一手来源为 platform.claude.com 模型总览与定价页。版本锚点仍成立：Claude Code CLI v2.1（上游 2.1.220 / 本机 2.1.207）、Codex CLI v0.144.x（本机 0.144.1）；Codex 0.145.0 稳定版 release notes 复查无教程相关破坏性变更，锚点保持 0.144.x 不升级，等待本机实测后再回写。
+- 自动门禁 `npm run verify`、`npm run audit:official-links`、`npm audit` 全绿。
+- 2.0.0 遗留的延期人工证据（真实账户、Search Console、跨平台可迁移性）状态不变，仍为未验证。
+
 ## [2.0.0] - 2026-07-10
 
 ### Added
