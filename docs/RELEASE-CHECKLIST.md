@@ -23,10 +23,10 @@
 
 ### 人工停止点
 
-- [ ] **DEFERRED**：在真实 Claude Code 账户运行 `/status`、`/permissions`、`/agents`，只记录脱敏结果
+- [ ] **WAIVED**：在真实 Claude Code 账户运行 `/status`、`/permissions`、`/agents`，只记录脱敏结果 —— 站点所有者于 2026-07-26 书面放弃执行本项；按 ROADMAP 阶段 0 完成标准以书面放弃闭环，未验证声明保持。旁证：headless `claude -p "/status"` 不可用，需交互会话；本机 CLI 2.1.207 为已登录环境
 - [x] 在 GitHub Pages 发布后复查首页、三条路径、Pagefind、RSS、sitemap、404、主题和移动端 —— 2026-07-26 于 v2.0.1 部署后完成：Playwright smoke + axe 套件直跑生产 URL（desktop Chromium + Pixel 7 设备模拟，34 passed / 0 failed），sitemap 46/46 URL 200，robots / RSS / 404 语义 / http→https 均通过。移动端为浏览器设备模拟，真机证据仍见跨平台条目
-- [ ] **DEFERRED**：Search Console URL-prefix property 完成人工登录与 HTML/meta 验证；未完成不阻塞 1.1.0
-- [ ] **DEFERRED**：在 macOS、Windows 和 Linux/WSL 的真实环境补充可迁移性证据
+- [ ] **WAIVED**：Search Console URL-prefix property 完成人工登录与 HTML/meta 验证；未完成不阻塞 1.1.0 —— 站点所有者于 2026-07-26 书面放弃执行；构建管道已预先接线 `PUBLIC_GOOGLE_SITE_VERIFICATION`（见 deploy.yml），未来如改变决定仅需设置仓库变量并点 Verify
+- [ ] **WAIVED**：在 macOS、Windows 和 Linux/WSL 的真实环境补充可迁移性证据 —— 站点所有者于 2026-07-26 书面放弃执行；macOS 侧本地门禁与线上复查证据已存在，Windows / Linux(WSL) 相关教程步骤维持「未在真机验证」口径
 
 ### 发布决策
 
@@ -56,10 +56,10 @@ PR 必须保持 ready、自动门禁全绿并取得明确 merge 授权。采用�
 
 ### 人工停止点
 
-- [ ] **DEFERRED**：在真实 Codex 账户验证登录、方案额度和组织权限，只记录脱敏结果
+- [ ] **WAIVED**：在真实 Codex 账户验证登录、方案额度和组织权限，只记录脱敏结果 —— 站点所有者于 2026-07-26 书面放弃执行剩余部分；已留部分证据：本机 `codex login status` 输出「Logged in using ChatGPT」（codex-cli 0.144.1），登录态真实确认；方案额度与组织权限未验证声明保持
 - [x] 在 GitHub Pages 发布后复查 `/codex/`、学习路径、搜索、主题和移动端 —— 2026-07-26 于 v2.0.1 部署后完成，证据同 1.1.0 线上复查条目（Playwright 直跑生产 URL，含 Codex 路线进入与 Pagefind 检索 Codex 教程用例；移动端为设备模拟）
-- [ ] **DEFERRED**：Search Console URL-prefix property 完成人工登录与 HTML/meta 验证；未完成不阻塞 2.0.0
-- [ ] **DEFERRED**：在 macOS、Windows 和 Linux/WSL 的真实环境补充可迁移性证据
+- [ ] **WAIVED**：Search Console URL-prefix property 完成人工登录与 HTML/meta 验证；未完成不阻塞 2.0.0 —— 站点所有者于 2026-07-26 书面放弃执行；管道已接线，恢复路径见 1.1.0 同名条目
+- [ ] **WAIVED**：在 macOS、Windows 和 Linux/WSL 的真实环境补充可迁移性证据 —— 站点所有者于 2026-07-26 书面放弃执行，口径同 1.1.0 同名条目
 
 ### 发布决策
 
