@@ -142,11 +142,11 @@
     {
       "page": "src/content/docs/claude-code/cost.md",
       "toolVersion": "Claude Code CLI v2.1",
-      "lastReviewed": "2026-07-10",
+      "lastReviewed": "2026-07-26",
       "result": "PASS",
       "platforms": ["macOS", "Windows", "Linux"],
       "sources": [
-        "https://docs.anthropic.com/en/docs/about-claude/pricing",
+        "https://platform.claude.com/docs/en/about-claude/pricing",
         "https://code.claude.com/docs/en/costs"
       ]
     },

@@ -10,7 +10,7 @@ relatedContent:
   - { slug: 'claude-code/mcp', label: 'MCP 集成' }
   - { slug: 'claude-code/agnes-free-vibe-coding', label: 'Agnes 第三方兼容路线' }
   - { slug: 'claude-code/quickstart', label: '10 分钟上手' }
-lastVerified: '2026-07-10'
+lastVerified: '2026-07-26'
 toolVersion: 'Claude Code CLI v2.1'
 ---
 
@@ -49,7 +49,7 @@ API 账单的基本公式是：
 费用 = 输入 token × 输入单价 + 输出 token × 输出单价 + 缓存相关费用
 ```
 
-不同模型、缓存写入和缓存命中的单价不同，而且会调整。不要把某天的价格表记成永久常量；计算时打开 [Anthropic 模型定价](https://docs.anthropic.com/en/docs/about-claude/pricing)，把当日单价代入。
+不同模型、缓存写入和缓存命中的单价不同，而且会调整。不要把某天的价格表记成永久常量；计算时打开 [Anthropic 模型定价](https://platform.claude.com/docs/en/about-claude/pricing)，把当日单价代入。
 
 ### 3. 一个不冒充真实账单的练习（可复制）
 
@@ -112,4 +112,4 @@ API 账单的基本公式是：
 - 使用第三方兼容网关前，阅读 [Agnes 兼容路线](/claude-code/agnes-free-vibe-coding/)的认证优先级与恢复步骤
 - 回到动手路径：[你的第一个 AI 页面](/claude-code/first-page/)
 
-官方依据（复核于 2026-07-10）：[Claude Code 成本管理](https://code.claude.com/docs/en/costs)、[Anthropic 模型定价](https://docs.anthropic.com/en/docs/about-claude/pricing)。
+官方依据（复核于 2026-07-26）：[Claude Code 成本管理](https://code.claude.com/docs/en/costs)、[Anthropic 模型定价](https://platform.claude.com/docs/en/about-claude/pricing)。官方文档域名已从 `docs.anthropic.com` 迁移到 `platform.claude.com`，旧链接会自动重定向。

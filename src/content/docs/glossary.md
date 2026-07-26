@@ -10,7 +10,7 @@ relatedContent:
   - { slug: 'claude-code/quickstart', label: '10 分钟上手 Claude Code' }
   - { slug: 'claude-code/cost', label: '成本与计费' }
   - { slug: 'appendix/git-basics', label: 'Git 10 分钟速成' }
-lastVerified: '2026-07-10'
+lastVerified: '2026-07-26'
 ---
 
 本教程中所有术语遵循以下规范：
@@ -52,26 +52,26 @@ lastVerified: '2026-07-10'
 
 ## AI 编程核心
 
-| 英文                                     | 中文               | 说明                                                                                                                                                           |
-| ---------------------------------------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| /clear                                   | /clear（不翻译）   | 清空当前对话上下文，切换任务时使用                                                                                                                             |
-| /compact                                 | /compact（不翻译） | 主动压缩对话历史为摘要，释放上下文空间                                                                                                                         |
-| /rewind                                  | /rewind（不翻译）  | 打开 checkpoint 菜单，可恢复对话、Claude 的代码改动或两者；快捷键 Esc+Esc                                                                                      |
-| /usage                                   | /usage（不翻译）   | 查看用量信息；订阅额度与 API 账单含义不同，最终以对应账户后台为准                                                                                              |
-| agentic loop                             | 代理循环           | Claude Code 的“读取-思考-行动-观察-重复”工作方式                                                                                                               |
-| compaction                               | 压缩               | 将长对话总结为关键信息，释放上下文空间                                                                                                                         |
-| context window                           | 上下文窗口         | Claude 一次能“记住”的最大信息量，类比办公桌大小。详见[上下文管理](/claude-code/context/)                                                                       |
-| MCP (Model Context Protocol)             | 模型上下文协议     | 让 Claude Code 连接外部工具的标准协议。详见 [MCP 集成](/claude-code/mcp/)                                                                                      |
-| model                                    | 模型               | AI 的“大脑版本”，如 Haiku（快而便宜）、Sonnet（均衡）、Opus（强而贵）。实际使用时带版本号，如 `claude-sonnet-4-20250514`，详见[成本与计费](/claude-code/cost/) |
-| Plan Mode                                | 计划模式           | 让 Claude 先出方案再写代码的工作模式                                                                                                                           |
-| prompt                                   | 提示词 / prompt    | 发送给 AI 的指令或问题                                                                                                                                         |
-| subagent                                 | 子 Agent           | Claude Code 创建的独立工作进程，完成特定子任务。详见[子 Agent 协作](/claude-code/subagents/)                                                                   |
-| token                                    | 令牌               | AI 收费的基本单位，处理一段文字的计费单元。详见[成本与计费](/claude-code/cost/)                                                                                |
-| CLI (Command Line Interface)             | 命令行界面         | 在终端里输入文字命令来操作电脑的方式                                                                                                                           |
-| IDE (Integrated Development Environment) | 集成开发环境       | 写代码的专用软件，如 VS Code、Cursor                                                                                                                           |
-| artifact                                 | 工件               | 结构化的知识记录单元，如日报（daily）、学习笔记（learnings）、问题记录（problems）                                                                             |
-| cold start                               | 冷启动             | 新用户/新系统从零开始的初始化阶段，需要特殊策略降低上手门槛。详见[设计哲学](/projects/learn-journal/design-philosophy/)                                        |
-| kill switch                              | 终止开关           | 预设的自动检测条件，当指标异常时提醒用户系统可能失效，需要干预。详见[设计哲学](/projects/learn-journal/design-philosophy/)                                     |
+| 英文                                     | 中文               | 说明                                                                                                                                                                                                     |
+| ---------------------------------------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| /clear                                   | /clear（不翻译）   | 清空当前对话上下文，切换任务时使用                                                                                                                                                                       |
+| /compact                                 | /compact（不翻译） | 主动压缩对话历史为摘要，释放上下文空间                                                                                                                                                                   |
+| /rewind                                  | /rewind（不翻译）  | 打开 checkpoint 菜单，可恢复对话、Claude 的代码改动或两者；快捷键 Esc+Esc                                                                                                                                |
+| /usage                                   | /usage（不翻译）   | 查看用量信息；订阅额度与 API 账单含义不同，最终以对应账户后台为准                                                                                                                                        |
+| agentic loop                             | 代理循环           | Claude Code 的“读取-思考-行动-观察-重复”工作方式                                                                                                                                                         |
+| compaction                               | 压缩               | 将长对话总结为关键信息，释放上下文空间                                                                                                                                                                   |
+| context window                           | 上下文窗口         | Claude 一次能“记住”的最大信息量，类比办公桌大小。详见[上下文管理](/claude-code/context/)                                                                                                                 |
+| MCP (Model Context Protocol)             | 模型上下文协议     | 让 Claude Code 连接外部工具的标准协议。详见 [MCP 集成](/claude-code/mcp/)                                                                                                                                |
+| model                                    | 模型               | AI 的“大脑版本”，如 Haiku（快而便宜）、Sonnet（均衡）、Opus（强而贵）。实际使用时用具体模型 ID，如 `claude-sonnet-5`（新一代 ID 不带日期，但同样固定指向一个版本），详见[成本与计费](/claude-code/cost/) |
+| Plan Mode                                | 计划模式           | 让 Claude 先出方案再写代码的工作模式                                                                                                                                                                     |
+| prompt                                   | 提示词 / prompt    | 发送给 AI 的指令或问题                                                                                                                                                                                   |
+| subagent                                 | 子 Agent           | Claude Code 创建的独立工作进程，完成特定子任务。详见[子 Agent 协作](/claude-code/subagents/)                                                                                                             |
+| token                                    | 令牌               | AI 收费的基本单位，处理一段文字的计费单元。详见[成本与计费](/claude-code/cost/)                                                                                                                          |
+| CLI (Command Line Interface)             | 命令行界面         | 在终端里输入文字命令来操作电脑的方式                                                                                                                                                                     |
+| IDE (Integrated Development Environment) | 集成开发环境       | 写代码的专用软件，如 VS Code、Cursor                                                                                                                                                                     |
+| artifact                                 | 工件               | 结构化的知识记录单元，如日报（daily）、学习笔记（learnings）、问题记录（problems）                                                                                                                       |
+| cold start                               | 冷启动             | 新用户/新系统从零开始的初始化阶段，需要特殊策略降低上手门槛。详见[设计哲学](/projects/learn-journal/design-philosophy/)                                                                                  |
+| kill switch                              | 终止开关           | 预设的自动检测条件，当指标异常时提醒用户系统可能失效，需要干预。详见[设计哲学](/projects/learn-journal/design-philosophy/)                                                                               |
 
 ## Claude Code 配置
 
