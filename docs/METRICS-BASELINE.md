@@ -6,7 +6,7 @@
 
 1. 在 Google Search Console 新建 URL-prefix property：`https://estelledc.github.io/zero-to-ai/`，包含协议、路径和末尾 `/`。
 2. 选择 HTML meta tag 验证，复制 `content` 值。
-3. 在 GitHub Pages 的构建环境设置 `PUBLIC_GOOGLE_SITE_VERIFICATION`，重新部署。
+3. 在仓库 Settings → Secrets and variables → Actions → Variables 新建 `PUBLIC_GOOGLE_SITE_VERIFICATION`（值为上一步的 `content`），然后重新运行 Deploy workflow；`deploy.yml` 构建步骤已把该变量接入 Astro 构建环境（2026-07-26 接线）。
 4. 查看线上首页源代码，确认 `<head>` 中存在 `google-site-verification`，再回 Search Console 点 Verify。
 
 代码只在变量存在时输出验证 meta，不加载 Google Analytics、Tag Manager 或其他统计脚本。登录、复制 token 和最终 Verify 必须由站点所有者完成。

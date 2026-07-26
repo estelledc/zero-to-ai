@@ -53,6 +53,10 @@ jobs:
       - uses: withastro/action@e84f40bd8d2caa9e768ec82ad30dd81f0b280853 # v6
         with:
           node-version: 22
+        env:
+          # 仓库 Settings → Secrets and variables → Actions → Variables 中设置后生效；
+          # 未设置时为空串，Head.astro 不输出验证 meta（见 METRICS-BASELINE.md）
+          PUBLIC_GOOGLE_SITE_VERIFICATION: ${{ vars.PUBLIC_GOOGLE_SITE_VERIFICATION }}
       - name: Install Playwright browser
         run: npx playwright install --with-deps chromium
       - name: Run smoke tests
