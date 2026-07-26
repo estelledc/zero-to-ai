@@ -43,7 +43,7 @@
 
 ### 完成标准
 
-- [x] `RELEASE-CHECKLIST.md` 中 1.1.0 与 2.0.0 的人工停止点全部勾选，或逐项给出书面放弃理由 —— 2026-07-26：2 项线上复查完成勾选，其余 6 条（4 类）由站点所有者书面放弃（WAIVED），未验证声明保持
+- [ ] `RELEASE-CHECKLIST.md` 中 1.1.0 与 2.0.0 的人工停止点全部勾选，或逐项给出书面放弃理由
 - [x] `metrics/snapshots/` 存在至少 1 份脱敏快照 —— 2026-07-26 首份快照已产出
 - [x] 线上复查发现的问题已通过 patch 发布，或登记为已知限制 —— 2026-07-26 线上复查（Playwright 直跑生产 URL + sitemap 46 URL 扫描）未发现问题
 
@@ -52,11 +52,6 @@
 - 已完成：1.1.0 与 2.0.0 的「GitHub Pages 发布后线上复查」两项以 v2.0.1 部署为对象闭环（Playwright smoke + axe 直跑生产 URL，34 passed / 0 failed；移动端为 Pixel 7 设备模拟），证据见 `RELEASE-CHECKLIST.md` 对应条目；首份脱敏快照 `metrics/snapshots/2026-07-26.json` 产出，双周节奏自本期起算。
 - 仍延期：真实 Claude Code / Codex 账户验证、Search Console 人工验证、跨平台真机可迁移性——均为站点所有者人工停止点，自动化 agent 不代替，也不标记为已验证。
 - 本期以 2.0.1 patch 回写前沿信息：官方文档域名迁移 `platform.claude.com`、术语表模型示例更新、依赖批量升级并清零 `npm audit`；Codex CLI 锚点经 0.145.0 release notes 复查后保持 0.144.x。详见 CHANGELOG。
-
-### 更新（2026-07-26 晚）——阶段 0 关闭
-
-- 站点所有者决定不执行剩余人工验证项（真实 Claude Code / Codex 账户、Search Console、跨平台真机），已在 `RELEASE-CHECKLIST.md` 逐项记为 WAIVED 并保留未验证声明；连同已完成的线上复查与首份指标快照，阶段 0 三条完成标准全部满足，**阶段 0 关闭，进入阶段 1（2.1）**。
-- 对阶段 1 的影响：任务 2「PARTIAL 收敛」中依赖真实账户证据的页面不再等待账户验证，改为逐页注明不可收敛原因；Search Console 指标在快照中长期保持 `HUMAN_VERIFICATION_REQUIRED`（构建管道已接线，owner 改变决定时可随时恢复）；Learn Journal N>1 需外部用户参与，保持开放。
 
 ---
 
