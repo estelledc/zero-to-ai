@@ -50,6 +50,8 @@ export const synonymMap: Record<string, string[]> = {
     '大厂工程博客',
     'OpenAI Anthropic Cursor',
     'agent harness eval inference',
+    'AI 安全 沙箱 评测污染',
+    '多模态 世界模型 Agent 记忆',
   ],
   'projects/index': ['实战', '项目', '案例'],
   'projects/publish-first-site': ['发布网站', '上线', 'github pages', '公开网址', '部署'],

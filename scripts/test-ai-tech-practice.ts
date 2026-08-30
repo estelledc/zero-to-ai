@@ -23,14 +23,16 @@ const practiceRoot = path.join(root, 'src/content/docs/ai-tech-practice');
 const indexPath = path.join(practiceRoot, 'index.mdx');
 const matrixPath = path.join(root, 'docs/OFFICIAL-SOURCE-MATRIX.json');
 const astroConfigPath = path.join(root, 'astro.config.mjs');
-const expectedArticleCount = 27;
+const expectedArticleCount = 51;
 const errors: string[] = [];
 
 const publisherDomains: Record<string, string> = {
   Anthropic: 'anthropic.com',
   Cursor: 'cursor.com',
   'Google DeepMind': 'deepmind.google',
+  'Google Research': 'research.google',
   'Hugging Face': 'huggingface.co',
+  'Meta AI': 'meta.com',
   'Microsoft Research': 'microsoft.com',
   'NVIDIA Technical Blog': 'nvidia.com',
   OpenAI: 'openai.com',

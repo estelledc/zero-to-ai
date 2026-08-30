@@ -18,7 +18,7 @@
 - **状态**：Maintained · v2.0.1
 - **个人职责**：产品决策、内容架构、验证标准与发布维护
 - **协作方式**：Jason 负责判断与验收；AI 协助资料整理、内容初稿和前端实现
-- **系统规模**：73 个内容页、4 条学习路径、2 套工具闭环、27 篇技术文章实践
+- **系统规模**：97 个内容页、4 条学习路径、2 套工具闭环、51 篇技术文章实践
 - **验证证据**：交叉引用、内容 freshness、fixture、unit、Playwright/axe 与 GitHub Pages 发布检查
 - **公开限制**：部分真实账户和跨平台步骤仍待人工复核；运营指标尚未形成连续样本；Learn Journal 当前是 N=1 验证
 
@@ -75,7 +75,7 @@ src/
 │   ├── claude-code/       # Claude Code 教程（16 篇）
 │   ├── codex/             # Codex CLI 完整零基础路径（8 篇）
 │   ├── methodology/       # 工具无关的方法论（8 篇）
-│   ├── ai-tech-practice/  # 官方英文技术文章的原创中文实践版（27 篇）
+│   ├── ai-tech-practice/  # 官方英文技术文章的原创中文实践版（51 篇）
 │   ├── projects/          # 实战项目（Learn Journal 等）
 │   └── appendix/          # 附录（Git 基础、常见问题排查等）
 ├── components/            # 自定义 Astro 组件

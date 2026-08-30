@@ -520,6 +520,234 @@
       "result": "PARTIAL",
       "platforms": ["macOS", "Windows", "Linux"],
       "sources": ["https://openai.com/index/scientific-computing-agentic-ai/"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/windows-agent-sandbox.md",
+      "sourceTitle": "Building a safe, effective sandbox to enable Codex on Windows",
+      "toolVersion": "Article published 2026-05-13",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://openai.com/index/building-codex-windows-sandbox/"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/in-house-data-agent.md",
+      "sourceTitle": "Inside OpenAI’s in-house data agent",
+      "toolVersion": "Article published 2026-01-29",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://openai.com/index/inside-our-in-house-data-agent/"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/codex-agent-loop.md",
+      "sourceTitle": "Unrolling the Codex agent loop",
+      "toolVersion": "Article published 2026-01-23",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://openai.com/index/unrolling-the-codex-agent-loop/"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/parallel-claude-c-compiler.md",
+      "sourceTitle": "Building a C compiler with a team of parallel Claudes",
+      "toolVersion": "Article published 2026-02-05",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://www.anthropic.com/engineering/building-c-compiler"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/multi-agent-research-system.md",
+      "sourceTitle": "How we built our multi-agent research system",
+      "toolVersion": "Article published 2025-06-13",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://www.anthropic.com/engineering/multi-agent-research-system"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/effective-agent-tools.md",
+      "sourceTitle": "Writing effective tools for agents — with agents",
+      "toolVersion": "Article published 2025-09-11",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://www.anthropic.com/engineering/writing-tools-for-agents"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/cursor-codex-model-harness.md",
+      "sourceTitle": "Improving Cursor’s agent for OpenAI Codex models",
+      "toolVersion": "Article published 2025-12-04",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://cursor.com/blog/codex-model-harness"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/cursor-semantic-search.md",
+      "sourceTitle": "Improving agent with semantic search",
+      "toolVersion": "Article published 2025-11-06",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://cursor.com/blog/semsearch"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/monitor-coding-agents.md",
+      "sourceTitle": "How we monitor internal coding agents for misalignment",
+      "toolVersion": "Article published 2026-03-19",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment/"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/cot-monitorability.md",
+      "sourceTitle": "Evaluating chain-of-thought monitorability",
+      "toolVersion": "Article published 2025-12-18",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://openai.com/index/evaluating-chain-of-thought-monitorability/"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/browsecomp-browsing-agents.md",
+      "sourceTitle": "BrowseComp: a benchmark for browsing agents",
+      "toolVersion": "Article published 2025-04-10",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://openai.com/index/browsecomp/"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/browsecomp-eval-awareness.md",
+      "sourceTitle": "Eval awareness in Claude Opus 4.6’s BrowseComp performance",
+      "toolVersion": "Article published 2026-03-06",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://www.anthropic.com/engineering/eval-awareness-browsecomp"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/ai-resistant-evaluations.md",
+      "sourceTitle": "Designing AI-resistant technical evaluations",
+      "toolVersion": "Article published 2026-01-21",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://www.anthropic.com/engineering/AI-resistant-technical-evaluations"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/double-blind-ai-evals.md",
+      "sourceTitle": "Piloting the world's first double-blind AI evaluations",
+      "toolVersion": "Article published 2026-08-27",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": [
+        "https://deepmind.google/blog/piloting-the-worlds-first-double-blind-ai-evaluations/"
+      ]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/ai-control-roadmap.md",
+      "sourceTitle": "Securing the future of AI agents",
+      "toolVersion": "Article published 2026-06-18",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://deepmind.google/blog/securing-the-future-of-ai-agents/"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/gaia2-agent-evaluation.md",
+      "sourceTitle": "Gaia2 and ARE: Empowering the Community to Evaluate Agents",
+      "toolVersion": "Article published 2025-09-22",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://huggingface.co/blog/gaia2"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/composer-2-training.md",
+      "sourceTitle": "A technical report on Composer 2",
+      "toolVersion": "Article published 2026-03-27",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://cursor.com/blog/composer-2-technical-report"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/real-time-rl-composer.md",
+      "sourceTitle": "Improving Composer through real-time RL",
+      "toolVersion": "Article published 2026-03-26",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://cursor.com/blog/real-time-rl-for-composer"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/agent-distillation-flywheel.md",
+      "sourceTitle": "Build Efficient AI Agents Through Model Distillation With the NVIDIA Data Flywheel Blueprint",
+      "toolVersion": "Article published 2025-06-11",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": [
+        "https://developer.nvidia.com/blog/build-efficient-ai-agents-through-model-distillation-with-nvidias-data-flywheel-blueprint/"
+      ]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/speculative-cascades.md",
+      "sourceTitle": "Speculative cascades — A hybrid approach for smarter, faster LLM inference",
+      "toolVersion": "Article published 2025-09-11",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": [
+        "https://research.google/blog/speculative-cascades-a-hybrid-approach-for-smarter-faster-llm-inference/"
+      ]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/plugmem-agent-memory.md",
+      "sourceTitle": "PlugMem: Transforming raw agent interactions into reusable knowledge",
+      "toolVersion": "Article published 2026-03-10",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": [
+        "https://www.microsoft.com/en-us/research/blog/from-raw-interaction-to-reusable-knowledge-rethinking-memory-for-ai-agents/"
+      ]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/argos-multimodal-verifier.md",
+      "sourceTitle": "Argos: Multimodal reinforcement learning with agentic verifier for AI agents",
+      "toolVersion": "Article published 2026-01-20",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": [
+        "https://www.microsoft.com/en-us/research/blog/multimodal-reinforcement-learning-with-agentic-verifier-for-ai-agents/"
+      ]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/alphagenome.md",
+      "sourceTitle": "AlphaGenome: AI for better understanding the genome",
+      "toolVersion": "Article published 2025-06-25",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": [
+        "https://deepmind.google/blog/alphagenome-ai-for-better-understanding-the-genome/"
+      ]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/v-jepa-2-world-model.md",
+      "sourceTitle": "Introducing the V-JEPA 2 world model and new benchmarks for physical reasoning",
+      "toolVersion": "Article published 2025-06-11",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://ai.meta.com/blog/v-jepa-2-world-model-benchmarks/"]
     }
   ]
 }
