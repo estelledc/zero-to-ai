@@ -4,6 +4,7 @@ import { expect, test } from '@playwright/test';
 for (const route of [
   '',
   'paths/',
+  'ai-tech-practice/',
   'claude-code/quickstart/?path=ai-coding-zero',
   'codex/quickstart/?path=codex-zero',
 ]) {
@@ -13,6 +14,24 @@ for (const route of [
     expect(results.violations).toEqual([]);
   });
 }
+
+test('AI 技术实践库在 320px 暗色模式下无溢出和对比度告警', async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 800 });
+  await page.emulateMedia({ colorScheme: 'dark' });
+  await page.goto('ai-tech-practice/');
+  await page.evaluate(() => {
+    document.documentElement.dataset.theme = 'dark';
+  });
+
+  const layout = await page.locator('html').evaluate((element) => ({
+    clientWidth: element.clientWidth,
+    scrollWidth: element.scrollWidth,
+  }));
+  expect(layout.scrollWidth).toBe(layout.clientWidth);
+
+  const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze();
+  expect(results.violations).toEqual([]);
+});
 
 test('学习路径支持键盘与触控目标', async ({ page }) => {
   await page.goto('claude-code/quickstart/?path=ai-coding-zero');

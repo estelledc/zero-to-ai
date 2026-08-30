@@ -1,0 +1,394 @@
+---
+import { getCollection } from 'astro:content';
+import { articleSlugs, categories, paths } from '../data/ai-tech-practice';
+import { slugToHref } from '../utils/base-url';
+import { findDoc } from '../utils/find-doc';
+
+const difficultyLabels = {
+  beginner: '起步',
+  intermediate: '进阶',
+  advanced: '高级',
+} as const;
+
+const allDocs = await getCollection('docs');
+const articles = new Map(
+  articleSlugs.map((slug) => {
+    const doc = findDoc(allDocs, `ai-tech-practice/${slug}`);
+    if (!doc) throw new Error(`AI 技术实践目录找不到文章：${slug}`);
+    if (!doc.data.source) throw new Error(`AI 技术实践文章缺少来源：${slug}`);
+    if (!doc.data.difficulty) throw new Error(`AI 技术实践文章缺少难度：${slug}`);
+    if (!doc.data.lastVerified) throw new Error(`AI 技术实践文章缺少复核日期：${slug}`);
+
+    return [
+      slug,
+      {
+        slug,
+        title: doc.data.title,
+        description: doc.data.description,
+        difficulty: doc.data.difficulty,
+        lastVerified: doc.data.lastVerified,
+        source: doc.data.source,
+      },
+    ];
+  }),
+);
+
+const publisherCount = new Set([...articles.values()].map((article) => article.source.publisher))
+  .size;
+---
+
+<div class="practice-library" data-practice-library>
+  <dl class="practice-library__stats" aria-label="实践库规模">
+    <div><dt>{articles.size}</dt><dd>篇文章</dd></div>
+    <div><dt>{publisherCount}</dt><dd>个发布方</dd></div>
+    <div><dt>{categories.length}</dt><dd>个主题</dd></div>
+    <div><dt>{paths.length}</dt><dd>条路径</dd></div>
+  </dl>
+
+  <section class="practice-library__section" aria-labelledby="practice-paths-title">
+    <h2 id="practice-paths-title">先选一条阅读路径</h2>
+    <p>路径按学习依赖排序，同一篇文章也会出现在下方的主题目录中。</p>
+    <div class="practice-library__path-grid">
+      {
+        paths.map((path) => (
+          <article class="practice-path" data-practice-path={path.slug}>
+            <h3>{path.title}</h3>
+            <p>{path.description}</p>
+            <p class="practice-path__outcome">
+              <strong>读完能做：</strong>
+              {path.outcome}
+            </p>
+            <ol>
+              {path.articles.map((slug) => {
+                const article = articles.get(slug);
+                if (!article) return null;
+                return (
+                  <li>
+                    <a href={slugToHref(`ai-tech-practice/${slug}`)}>{article.title}</a>
+                  </li>
+                );
+              })}
+            </ol>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="practice-library__section" aria-labelledby="practice-categories-title">
+    <h2 id="practice-categories-title">按主题浏览全部文章</h2>
+    <nav class="practice-library__category-nav" aria-label="按主题跳转">
+      {
+        categories.map((category) => (
+          <a
+            href={`#practice-category-${category.slug}`}
+            data-practice-category-link={category.slug}
+          >
+            <span>{category.title}</span>
+            <small>{category.articles.length} 篇</small>
+          </a>
+        ))
+      }
+    </nav>
+    {
+      categories.map((category) => (
+        <section
+          class="practice-category"
+          data-practice-category={category.slug}
+          aria-labelledby={`practice-category-${category.slug}`}
+        >
+          <div class="practice-category__heading">
+            <div>
+              <h3 id={`practice-category-${category.slug}`}>{category.title}</h3>
+              <p>{category.description}</p>
+            </div>
+            <p class="practice-category__outcome">
+              <strong>这一组的产出：</strong>
+              {category.outcome}
+            </p>
+          </div>
+
+          <div class="practice-library__card-grid">
+            {category.articles.map((slug) => {
+              const article = articles.get(slug);
+              if (!article) return null;
+              const isStart = slug === category.startSlug;
+
+              return (
+                <article
+                  class="practice-card"
+                  data-practice-card={slug}
+                  data-practice-start={isStart ? 'true' : undefined}
+                  aria-labelledby={`practice-card-title-${slug}`}
+                >
+                  <div class="practice-card__labels">
+                    <span class:list={['practice-card__difficulty', `is-${article.difficulty}`]}>
+                      {difficultyLabels[article.difficulty]}
+                    </span>
+                    {isStart && <span class="practice-card__start">推荐起点</span>}
+                  </div>
+                  <h4 id={`practice-card-title-${slug}`}>{article.title}</h4>
+                  <p class="practice-card__description">{article.description}</p>
+                  <dl class="practice-card__meta">
+                    <div>
+                      <dt>发布方</dt>
+                      <dd>{article.source.publisher}</dd>
+                    </div>
+                    <div>
+                      <dt>发布</dt>
+                      <dd>
+                        <time datetime={article.source.published}>{article.source.published}</time>
+                      </dd>
+                    </div>
+                    <div>
+                      <dt>复核</dt>
+                      <dd>
+                        <time datetime={article.lastVerified}>{article.lastVerified}</time>
+                      </dd>
+                    </div>
+                  </dl>
+                  <div class="practice-card__links">
+                    <a
+                      class="practice-card__primary-link"
+                      href={slugToHref(`ai-tech-practice/${slug}`)}
+                      aria-label={`阅读解读：${article.title}`}
+                      data-practice-article-link
+                    >
+                      阅读解读
+                    </a>
+                    <a
+                      href={article.source.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`英文原文：${article.source.title}（在新标签页打开）`}
+                      data-practice-source-link
+                    >
+                      英文原文<span class="sr-only">（在新标签页打开）</span>
+                    </a>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </section>
+      ))
+    }
+  </section>
+</div>
+
+<style>
+  .practice-library,
+  .practice-library * {
+    box-sizing: border-box;
+  }
+
+  .practice-library {
+    min-width: 0;
+  }
+
+  .practice-library__stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin: 1.5rem 0 2.5rem;
+  }
+
+  .practice-library__stats div {
+    min-width: 0;
+    padding: 1rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.75rem;
+    text-align: center;
+  }
+
+  .practice-library__stats dt {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .practice-library__stats dd {
+    margin: 0.25rem 0 0;
+    color: var(--sl-color-gray-2);
+    font-size: 0.875rem;
+  }
+
+  .practice-library__section {
+    margin-top: 2.5rem;
+  }
+
+  .practice-library__category-nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: 0.75rem;
+    margin: 1rem 0 2rem;
+  }
+
+  .practice-library__category-nav a {
+    display: flex;
+    min-width: 0;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.75rem;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+    text-decoration: none;
+  }
+
+  .practice-library__category-nav small {
+    flex: 0 0 auto;
+    color: var(--sl-color-gray-2);
+  }
+
+  .practice-library__path-grid,
+  .practice-library__card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .practice-path,
+  .practice-card {
+    min-width: 0;
+    padding: 1.25rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.75rem;
+    overflow-wrap: anywhere;
+  }
+
+  .practice-path h3,
+  .practice-card h4 {
+    margin-top: 0;
+  }
+
+  .practice-path ol {
+    margin-bottom: 0;
+    padding-left: 1.5rem;
+  }
+
+  .practice-path__outcome,
+  .practice-category__outcome {
+    color: var(--sl-color-gray-2);
+  }
+
+  .practice-category {
+    margin-top: 2.5rem;
+    scroll-margin-top: 5rem;
+  }
+
+  .practice-category__heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    gap: 1rem;
+    align-items: end;
+    margin-bottom: 1rem;
+  }
+
+  .practice-category__heading h3,
+  .practice-category__heading p {
+    margin-block: 0.25rem;
+  }
+
+  .practice-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .practice-card__labels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .practice-card__difficulty,
+  .practice-card__start {
+    display: inline-flex;
+    width: fit-content;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+
+  .practice-card__difficulty.is-beginner {
+    color: #166534;
+    background: #dcfce7;
+  }
+
+  .practice-card__difficulty.is-intermediate {
+    color: #1e40af;
+    background: #dbeafe;
+  }
+
+  .practice-card__difficulty.is-advanced {
+    color: #6b21a8;
+    background: #f3e8ff;
+  }
+
+  .practice-card__start {
+    color: var(--sl-color-text-accent);
+    background: var(--sl-color-accent-low);
+  }
+
+  .practice-card__description {
+    flex: 1;
+  }
+
+  .practice-card__meta {
+    display: grid;
+    gap: 0.35rem;
+    margin: 1rem 0;
+    font-size: 0.8125rem;
+  }
+
+  .practice-card__meta div {
+    display: grid;
+    grid-template-columns: 3.5rem minmax(0, 1fr);
+    gap: 0.5rem;
+  }
+
+  .practice-card__meta dt {
+    color: var(--sl-color-gray-2);
+  }
+
+  .practice-card__meta dd {
+    min-width: 0;
+    margin: 0;
+  }
+
+  .practice-card__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+    align-items: center;
+  }
+
+  .practice-card__primary-link {
+    font-weight: 700;
+  }
+
+  @media (max-width: 50rem) {
+    .practice-library__stats,
+    .practice-library__path-grid,
+    .practice-library__card-grid,
+    .practice-category__heading {
+      grid-template-columns: 1fr;
+    }
+
+    .practice-library__stats {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 24rem) {
+    .practice-library__stats {
+      grid-template-columns: 1fr;
+    }
+
+    .practice-path,
+    .practice-card {
+      padding: 1rem;
+    }
+  }
+</style>

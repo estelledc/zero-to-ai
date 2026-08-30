@@ -49,6 +49,55 @@ test('首页输出 canonical、分享元信息与结构化数据', async ({ page
   expect(jsonLd).toContain('https://github.com/estelledc');
 });
 
+test('AI 技术实践库按目录、主题与阅读路径完整聚合', async ({ page }) => {
+  await page.goto('ai-tech-practice/');
+
+  await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+  await expect(page.locator('[data-practice-library]')).toBeVisible();
+  await expect(page.locator('[data-practice-path]')).toHaveCount(5);
+  await expect(page.locator('[data-practice-category]')).toHaveCount(6);
+  await expect(page.locator('[data-practice-category-link]')).toHaveCount(6);
+  await expect(page.locator('[data-practice-card]')).toHaveCount(51);
+
+  const articleLinks = page.locator('[data-practice-article-link]');
+  await expect(articleLinks).toHaveCount(51);
+  const articleHrefs = await articleLinks.evaluateAll((links) =>
+    links.map((link) => link.getAttribute('href')),
+  );
+  expect(new Set(articleHrefs).size).toBe(51);
+  expect(
+    articleHrefs.every((href) => href?.startsWith(`${basePath}ai-tech-practice/`)),
+  ).toBeTruthy();
+  const articleLabels = await articleLinks.evaluateAll((links) =>
+    links.map((link) => link.getAttribute('aria-label')),
+  );
+  expect(articleLabels.every(Boolean)).toBeTruthy();
+  expect(new Set(articleLabels).size).toBe(51);
+
+  expect(await page.locator('[data-practice-start]').count()).toBeGreaterThanOrEqual(6);
+  const sourceLinks = page.locator('[data-practice-source-link]');
+  await expect(sourceLinks).toHaveCount(51);
+  const sourceLinkSecurity = await sourceLinks.evaluateAll((links) =>
+    links.map((link) => ({
+      rel: link.getAttribute('rel')?.split(/\s+/) ?? [],
+      target: link.getAttribute('target'),
+    })),
+  );
+  expect(sourceLinkSecurity.every(({ target }) => target === '_blank')).toBeTruthy();
+  expect(sourceLinkSecurity.every(({ rel }) => rel.includes('noopener'))).toBeTruthy();
+  const sourceLabels = await sourceLinks.evaluateAll((links) =>
+    links.map((link) => link.getAttribute('aria-label')),
+  );
+  expect(sourceLabels.every(Boolean)).toBeTruthy();
+  expect(new Set(sourceLabels).size).toBe(51);
+
+  const viewport = await page.evaluate(() => ({
+    clientWidth: document.documentElement.clientWidth,
+    scrollWidth: document.documentElement.scrollWidth,
+  }));
+  expect(viewport.scrollWidth).toBeLessThanOrEqual(viewport.clientWidth);
+});
+
 test('移动端首页可直接访问作品集导航', async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== 'mobile-chromium', '只验证移动端导航');
   await page.goto('./');

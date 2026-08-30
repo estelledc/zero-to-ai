@@ -13,9 +13,14 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 
+- AI 技术实践库改由单一目录数据生成聚合页与侧边栏，并重组为 6 个主题、5 条静态阅读路径；51 篇正文与英文来源边界保持不变。
 - 首页、侧边栏和 Pagefind 同义词增加 AI 技术实践入口；内容时效性审计扩展到来源型文章，并继续绑定官方资料矩阵。
 - 来源域名扩展到 Google Research 与 Meta AI，文章、聚合页、侧边栏和官方来源矩阵继续保持一一对应。
 - GitHub Pages 校验任务加入 AI 技术实践内容契约；部署前安全审计将 `brace-expansion`、`fast-uri`、`js-yaml` 与 `nanoid` 更新到已修复版本，不使用强制升级。
+
+### Fixed
+
+- 修复 320px 暗色模式下站点缩写链接的文字对比度，并加入无横向溢出与 WCAG A/AA 回归测试。
 
 ## [2.0.1] - 2026-07-26
 

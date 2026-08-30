@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
+import { articleSlugs, categories, paths, sidebarGroups } from '../src/data/ai-tech-practice';
 
 type SourceInfo = {
   title: string;
@@ -23,7 +24,10 @@ const practiceRoot = path.join(root, 'src/content/docs/ai-tech-practice');
 const indexPath = path.join(practiceRoot, 'index.mdx');
 const matrixPath = path.join(root, 'docs/OFFICIAL-SOURCE-MATRIX.json');
 const astroConfigPath = path.join(root, 'astro.config.mjs');
+const componentPath = path.join(root, 'src/components/PracticeLibrary.astro');
 const expectedArticleCount = 51;
+const expectedCategoryCount = 6;
+const expectedPathCount = 5;
 const errors: string[] = [];
 
 const publisherDomains: Record<string, string> = {
@@ -58,6 +62,88 @@ if (articleFiles.length !== expectedArticleCount) {
   );
 }
 
+const articleFileSlugs = new Set(articleFiles.map((file) => file.replace(/\.md$/, '')));
+const catalogSlugs = new Set(articleSlugs);
+if (articleSlugs.length !== expectedArticleCount || catalogSlugs.size !== expectedArticleCount) {
+  fail(
+    'ai-tech-practice catalog',
+    `expected ${expectedArticleCount} unique article slugs, found ${articleSlugs.length} entries and ${catalogSlugs.size} unique slugs`,
+  );
+}
+for (const slug of articleFileSlugs) {
+  if (!catalogSlugs.has(slug)) fail('ai-tech-practice catalog', `missing article slug: ${slug}`);
+}
+for (const slug of catalogSlugs) {
+  if (!articleFileSlugs.has(slug)) fail('ai-tech-practice catalog', `orphan article slug: ${slug}`);
+}
+
+if (categories.length !== expectedCategoryCount) {
+  fail(
+    'ai-tech-practice categories',
+    `expected ${expectedCategoryCount}, found ${categories.length}`,
+  );
+}
+const categoryIds = new Set<string>();
+const categoryMembership = new Map<string, number>();
+for (const category of categories) {
+  if (categoryIds.has(category.slug)) fail(category.slug, 'duplicate category slug');
+  categoryIds.add(category.slug);
+  if (!category.title.trim() || !category.description.trim() || !category.outcome.trim()) {
+    fail(category.slug, 'category needs title, description and outcome');
+  }
+  if (!category.articles.includes(category.startSlug)) {
+    fail(category.slug, `startSlug is not in its category: ${category.startSlug}`);
+  }
+  for (const slug of category.articles) {
+    categoryMembership.set(slug, (categoryMembership.get(slug) ?? 0) + 1);
+  }
+}
+for (const slug of articleFileSlugs) {
+  const count = categoryMembership.get(slug) ?? 0;
+  if (count !== 1) fail(slug, `must belong to exactly one category (found ${count})`);
+}
+for (const slug of categoryMembership.keys()) {
+  if (!articleFileSlugs.has(slug)) fail(slug, 'category references an unknown article');
+}
+
+if (paths.length !== expectedPathCount) {
+  fail('ai-tech-practice paths', `expected ${expectedPathCount}, found ${paths.length}`);
+}
+const pathIds = new Set<string>();
+for (const readingPath of paths) {
+  if (pathIds.has(readingPath.slug)) fail(readingPath.slug, 'duplicate path slug');
+  pathIds.add(readingPath.slug);
+  if (!readingPath.title.trim() || !readingPath.description.trim() || !readingPath.outcome.trim()) {
+    fail(readingPath.slug, 'path needs title, description and outcome');
+  }
+  const pathSlugs = new Set(readingPath.articles);
+  if (pathSlugs.size !== readingPath.articles.length) {
+    fail(readingPath.slug, 'path must not repeat an article');
+  }
+  for (const slug of readingPath.articles) {
+    if (!articleFileSlugs.has(slug)) fail(readingPath.slug, `unknown article slug: ${slug}`);
+  }
+}
+
+if (sidebarGroups.length !== expectedCategoryCount) {
+  fail(
+    'ai-tech-practice sidebar',
+    `expected ${expectedCategoryCount} groups, found ${sidebarGroups.length}`,
+  );
+}
+for (const [index, group] of sidebarGroups.entries()) {
+  const category = categories[index];
+  if (!category) continue;
+  if (!group.collapsed) fail(category.slug, 'sidebar group must be collapsed');
+  if (group.label !== category.title)
+    fail(category.slug, 'sidebar label must match category title');
+  const expectedItems = category.articles.map((slug) => `ai-tech-practice/${slug}`);
+  const actualItems = group.items.map((item) => item.slug);
+  if (JSON.stringify(actualItems) !== JSON.stringify(expectedItems)) {
+    fail(category.slug, 'sidebar items must be generated from category articles in order');
+  }
+}
+
 const matrix = JSON.parse(fs.readFileSync(matrixPath, 'utf8')) as { pages: MatrixRow[] };
 const practiceRows = matrix.pages.filter((row) =>
   row.page.startsWith('src/content/docs/ai-tech-practice/'),
@@ -70,6 +156,7 @@ for (const row of practiceRows) {
 
 const indexBody = fs.readFileSync(indexPath, 'utf8');
 const astroConfig = fs.readFileSync(astroConfigPath, 'utf8');
+const componentBody = fs.readFileSync(componentPath, 'utf8');
 const sourceUrls = new Set<string>();
 const articlePaths = new Set<string>();
 
@@ -81,7 +168,6 @@ for (const file of articleFiles) {
   const data = parsed.data;
   const body = parsed.content;
   const source = data.source as SourceInfo | undefined;
-  const slug = file.replace(/\.md$/, '');
   articlePaths.add(relative);
 
   if (!Array.isArray(data.tags) || !data.tags.includes('ai-tech-practice')) {
@@ -152,18 +238,6 @@ for (const file of articleFiles) {
     }
     if (matrixRow.result === 'FAIL') fail(owner, 'matrix result must not be FAIL');
   }
-
-  const href = `/ai-tech-practice/${slug}/`;
-  const indexOccurrences = indexBody.split(href).length - 1;
-  if (indexOccurrences !== 1) {
-    fail(owner, `index must link to ${href} exactly once (found ${indexOccurrences})`);
-  }
-
-  const sidebarNeedle = `{ slug: 'ai-tech-practice/${slug}' }`;
-  const sidebarOccurrences = astroConfig.split(sidebarNeedle).length - 1;
-  if (sidebarOccurrences !== 1) {
-    fail(owner, `sidebar must contain ${sidebarNeedle} exactly once (found ${sidebarOccurrences})`);
-  }
 }
 
 for (const row of practiceRows) {
@@ -176,18 +250,51 @@ if (practiceRows.length !== expectedArticleCount) {
   );
 }
 
-const articleSlugs = new Set(articleFiles.map((file) => file.replace(/\.md$/, '')));
-const sidebarSlugs = [...astroConfig.matchAll(/\{ slug: 'ai-tech-practice\/([^']+)' \}/g)].map(
-  (match) => match[1],
-);
-for (const slug of sidebarSlugs) {
-  if (!articleSlugs.has(slug)) fail('astro.config.mjs', `orphan practice sidebar slug: ${slug}`);
+if (
+  !indexBody.includes("import PracticeLibrary from '../../../components/PracticeLibrary.astro';")
+) {
+  fail('ai-tech-practice/index.mdx', 'must import PracticeLibrary');
 }
-if (sidebarSlugs.length !== expectedArticleCount) {
-  fail(
-    'astro.config.mjs',
-    `expected ${expectedArticleCount} practice article slugs, found ${sidebarSlugs.length}`,
-  );
+if (!indexBody.includes('<PracticeLibrary />')) {
+  fail('ai-tech-practice/index.mdx', 'must render PracticeLibrary');
+}
+if (/\/ai-tech-practice\/[^/\s)]+\//.test(indexBody)) {
+  fail('ai-tech-practice/index.mdx', 'must not hand-write article URLs');
+}
+
+if (!astroConfig.includes("import { sidebarGroups } from './src/data/ai-tech-practice';")) {
+  fail('astro.config.mjs', 'must import shared practice sidebar groups');
+}
+if (!astroConfig.includes("items: [{ slug: 'ai-tech-practice' }, ...sidebarGroups]")) {
+  fail('astro.config.mjs', 'must consume shared practice sidebar groups');
+}
+if (/\{ slug: 'ai-tech-practice\/[^']+' \}/.test(astroConfig)) {
+  fail('astro.config.mjs', 'must not hand-write practice article slugs');
+}
+
+for (const selector of [
+  'data-practice-library',
+  'data-practice-path',
+  'data-practice-category',
+  'data-practice-category-link',
+  'data-practice-card',
+  'data-practice-article-link',
+  'data-practice-source-link',
+  'data-practice-start',
+]) {
+  if (!componentBody.includes(selector)) fail('PracticeLibrary.astro', `missing ${selector}`);
+}
+if (!componentBody.includes("import { slugToHref } from '../utils/base-url';")) {
+  fail('PracticeLibrary.astro', 'must use the shared base-path helper');
+}
+if (/client:|localStorage|<script/i.test(componentBody)) {
+  fail('PracticeLibrary.astro', 'must stay server-rendered without client state');
+}
+if (
+  !componentBody.includes('target="_blank"') ||
+  !componentBody.includes('rel="noopener noreferrer"')
+) {
+  fail('PracticeLibrary.astro', 'external source links need target and rel');
 }
 
 for (const error of errors) console.error(`ERROR ${error}`);
