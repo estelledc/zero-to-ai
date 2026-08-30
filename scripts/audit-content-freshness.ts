@@ -4,11 +4,19 @@ import matter from 'gray-matter';
 
 type MatrixRow = {
   page: string;
+  sourceTitle?: string;
   toolVersion: string;
   lastReviewed: string;
   result: 'PASS' | 'PARTIAL' | 'FAIL';
   platforms: Array<'macOS' | 'Windows' | 'Linux'>;
   sources: string[];
+};
+
+type SourceInfo = {
+  title: string;
+  publisher: string;
+  url: string;
+  published: string;
 };
 
 const root = process.cwd();
@@ -43,7 +51,9 @@ for (const file of walk(docsRoot)) {
     .replace(/\.mdx?$/, '')
     .replaceAll(path.sep, '/');
   const { data } = matter(fs.readFileSync(file, 'utf8'));
-  const timeSensitive = contentSlug.startsWith('claude-code/') || Boolean(data.toolVersion);
+  const source = data.source as SourceInfo | undefined;
+  const timeSensitive =
+    contentSlug.startsWith('claude-code/') || Boolean(data.toolVersion) || Boolean(source);
   if (!timeSensitive) {
     if (data.lastVerified !== undefined) {
       if (!isoDate(data.lastVerified)) {
@@ -66,11 +76,26 @@ for (const file of walk(docsRoot)) {
   }
   if (data.lastVerified > todayIso) errors.push(`${relative}: lastVerified is in the future`);
 
-  if (typeof data.toolVersion !== 'string' || !/\d/.test(data.toolVersion)) {
-    errors.push(`${relative}: time-sensitive content needs a concrete toolVersion`);
-  }
-  if (/\b(latest|current|最新版|最新)\b/i.test(String(data.toolVersion))) {
-    errors.push(`${relative}: toolVersion must not use a moving “latest/current” label`);
+  if (source) {
+    if (
+      typeof source.title !== 'string' ||
+      typeof source.publisher !== 'string' ||
+      typeof source.url !== 'string' ||
+      !source.url.startsWith('https://') ||
+      !isoDate(source.published)
+    ) {
+      errors.push(`${relative}: source needs title, publisher, HTTPS url and ISO published date`);
+    }
+    if (source.published > todayIso) {
+      errors.push(`${relative}: source published date is in the future`);
+    }
+  } else {
+    if (typeof data.toolVersion !== 'string' || !/\d/.test(data.toolVersion)) {
+      errors.push(`${relative}: time-sensitive content needs a concrete toolVersion`);
+    }
+    if (/\b(latest|current|最新版|最新)\b/i.test(String(data.toolVersion))) {
+      errors.push(`${relative}: toolVersion must not use a moving “latest/current” label`);
+    }
   }
 
   const row = matrixByPage.get(relative);
@@ -80,7 +105,17 @@ for (const file of walk(docsRoot)) {
     if (row.lastReviewed !== data.lastVerified) {
       errors.push(`${relative}: matrix lastReviewed must match lastVerified`);
     }
-    if (row.toolVersion !== data.toolVersion) {
+    if (source) {
+      if (row.sourceTitle !== source.title) {
+        errors.push(`${relative}: matrix sourceTitle must match frontmatter source title`);
+      }
+      if (row.toolVersion !== `Article published ${source.published}`) {
+        errors.push(`${relative}: matrix article publication date must match frontmatter source`);
+      }
+      if (!row.sources.includes(source.url)) {
+        errors.push(`${relative}: matrix sources must include frontmatter source url`);
+      }
+    } else if (row.toolVersion !== data.toolVersion) {
       errors.push(`${relative}: matrix toolVersion must match frontmatter`);
     }
     if (row.sources.length === 0 || row.sources.some((url) => !url.startsWith('https://'))) {

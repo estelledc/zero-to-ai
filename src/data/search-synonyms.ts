@@ -44,6 +44,13 @@ export const synonymMap: Record<string, string[]> = {
   'methodology/skill-pack': ['skill pack', '技能包', '下载', '部署'],
   'methodology/prompt-anatomy': ['prompt', '提示词', '怎么写'],
   'methodology/skill-engineering': ['skill 工程', '技能开发', '自动化'],
+  'ai-tech-practice/index': [
+    'AI 技术文章',
+    '英文技术文章',
+    '大厂工程博客',
+    'OpenAI Anthropic Cursor',
+    'agent harness eval inference',
+  ],
   'projects/index': ['实战', '项目', '案例'],
   'projects/publish-first-site': ['发布网站', '上线', 'github pages', '公开网址', '部署'],
   'projects/learn-journal/index': ['learn journal', '学习日志', '笔记系统'],

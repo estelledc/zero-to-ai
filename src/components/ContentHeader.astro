@@ -18,6 +18,8 @@ const entry = route.entry;
 const difficulty = entry.data.difficulty as 'beginner' | 'intermediate' | 'advanced' | undefined;
 const lastVerified = entry.data.lastVerified as string | undefined;
 const toolVersion = entry.data.toolVersion as string | undefined;
+const source = entry.data.source as
+  { title: string; publisher: string; url: string; published: string } | undefined;
 
 const pageId = entry.id;
 const belongsTo = pageId
@@ -41,7 +43,7 @@ const isMultiPath = pathsProgress.length > 1;
 const hasPrerequisites =
   Array.isArray(entry.data.prerequisites) && entry.data.prerequisites.length > 0;
 const showHeader =
-  difficulty || belongsTo.length > 0 || hasPrerequisites || lastVerified || toolVersion;
+  difficulty || belongsTo.length > 0 || hasPrerequisites || lastVerified || toolVersion || source;
 ---
 
 {
@@ -53,8 +55,14 @@ const showHeader =
         </div>
       )}
 
-      {(lastVerified || toolVersion) && (
+      {(lastVerified || toolVersion || source) && (
         <p class="content-header__meta">
+          {source && (
+            <span>
+              来源：<a href={source.url}>{source.publisher}</a> · 发布于 {source.published}
+            </span>
+          )}
+          {source && (lastVerified || toolVersion) && <span aria-hidden="true"> · </span>}
           {lastVerified && <span>最近复核于 {lastVerified}</span>}
           {lastVerified && toolVersion && <span aria-hidden="true"> · </span>}
           {toolVersion && <span>适用 {toolVersion}</span>}

@@ -265,6 +265,261 @@
       "result": "PARTIAL",
       "platforms": ["macOS", "Windows", "Linux"],
       "sources": ["https://code.claude.com/docs/en/common-workflows"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/harness-engineering-codex.md",
+      "sourceTitle": "Harness engineering: leveraging Codex in an agent-first world",
+      "toolVersion": "Article published 2026-02-11",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://openai.com/index/harness-engineering/"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/context-engineering-agents.md",
+      "sourceTitle": "Effective context engineering for AI agents",
+      "toolVersion": "Article published 2025-09-29",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": [
+        "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"
+      ]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/cursor-agent-harness.md",
+      "sourceTitle": "Continually improving our agent harness",
+      "toolVersion": "Article published 2026-04-30",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://cursor.com/blog/continually-improving-agent-harness"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/long-running-app-harness.md",
+      "sourceTitle": "Harness design for long-running application development",
+      "toolVersion": "Article published 2026-03-24",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://www.anthropic.com/engineering/harness-design-long-running-apps"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/managed-agents-runtime.md",
+      "sourceTitle": "Scaling Managed Agents: Decoupling the brain from the hands",
+      "toolVersion": "Article published 2026-04-08",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://www.anthropic.com/engineering/managed-agents"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/dynamic-context-discovery.md",
+      "sourceTitle": "Dynamic context discovery",
+      "toolVersion": "Article published 2026-01-06",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://cursor.com/blog/dynamic-context-discovery"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/scaling-autonomous-coding.md",
+      "sourceTitle": "Scaling long-running autonomous coding",
+      "toolVersion": "Article published 2026-01-14",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://cursor.com/blog/scaling-agents"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/cloud-agent-environment.md",
+      "sourceTitle": "How we set up our cloud agent environment",
+      "toolVersion": "Article published 2026-07-30",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://cursor.com/blog/cloud-agent-environment"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/arc-agi-harness-settings.md",
+      "sourceTitle": "How enabling two settings tripled our scores on the ARC-AGI-3 benchmark",
+      "toolVersion": "Article published 2026-07-29",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://openai.com/index/how-two-settings-tripled-our-arc-agi-3-scores/"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/agent-evals.md",
+      "sourceTitle": "Demystifying evals for AI agents",
+      "toolVersion": "Article published 2026-01-09",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/coding-eval-signal-noise.md",
+      "sourceTitle": "Separating signal from noise in coding evaluations",
+      "toolVersion": "Article published 2026-07-08",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://openai.com/index/separating-signal-from-noise-coding-evaluations/"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/claude-containment.md",
+      "sourceTitle": "How we contain Claude across products",
+      "toolVersion": "Article published 2026-05-25",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://www.anthropic.com/engineering/how-we-contain-claude"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/agentic-eval-infrastructure-noise.md",
+      "sourceTitle": "Quantifying infrastructure noise in agentic coding evals",
+      "toolVersion": "Article published 2026-02-05",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://www.anthropic.com/engineering/infrastructure-noise"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/reward-hacking-coding-benchmarks.md",
+      "sourceTitle": "Reward hacking is swamping model intelligence gains",
+      "toolVersion": "Article published 2026-06-25",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://cursor.com/blog/reward-hacking-coding-benchmarks"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/gpt-red-self-improving-red-team.md",
+      "sourceTitle": "GPT-Red: Unlocking Self-Improvement for Robustness",
+      "toolVersion": "Article published 2026-07-15",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://openai.com/index/unlocking-self-improvement-gpt-red/"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/agentrx-debugging.md",
+      "sourceTitle": "Systematic debugging for AI agents: Introducing the AgentRx framework",
+      "toolVersion": "Article published 2026-03-12",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": [
+        "https://www.microsoft.com/en-us/research/blog/systematic-debugging-for-ai-agents-introducing-the-agentrx-framework/"
+      ]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/hugging-face-incident.md",
+      "sourceTitle": "The Hugging Face incident and the road ahead",
+      "toolVersion": "Article published 2026-08-26",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://openai.com/index/hugging-face-incident-and-the-road-ahead/"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/gpt-5-6-efficiency.md",
+      "sourceTitle": "How GPT-5.6 fuses frontier intelligence with frontier efficiency",
+      "toolVersion": "Article published 2026-07-29",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://openai.com/index/gpt-5-6-frontier-intelligence-efficiency/"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/llm-overthinking-structure.md",
+      "sourceTitle": "Towards Structural Understanding of LLM Overthinking",
+      "toolVersion": "Article published 2026-07-02",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://deepmind.google/research/publications/203490/"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/open-models-summer-2026.md",
+      "sourceTitle": "State of Open Models: Summer 2026 Observations",
+      "toolVersion": "Article published 2026-08-14",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://huggingface.co/blog/state-of-open-models-summer-2026"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/fara-1-5-computer-use.md",
+      "sourceTitle": "Fara1.5 – A family of frontier computer use agent models",
+      "toolVersion": "Article published 2026-05-21",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://www.microsoft.com/en-us/research/articles/fara1-5-computer-use-agent/"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/socialrl-negotiators.md",
+      "sourceTitle": "From Passive Delegates to Strategic Negotiators: Reinforcing Social Reasoning in Small Language Models",
+      "toolVersion": "Article published 2026-07-15",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": [
+        "https://www.microsoft.com/en-us/research/articles/from-passive-delegates-to-strategic-negotiators-reinforcing-social-reasoning-in-small-language-models/"
+      ]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/nvidia-dynamo-inference.md",
+      "sourceTitle": "How NVIDIA Dynamo 1.0 Powers Multi-Node Inference at Production Scale",
+      "toolVersion": "Article published 2026-03-16",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://developer.nvidia.com/blog/nvidia-dynamo-1-production-ready/"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/dflash-speculative-decoding.md",
+      "sourceTitle": "Boost Inference Performance up to 15x on NVIDIA Blackwell Using DFlash Speculative Decoding",
+      "toolVersion": "Article published 2026-06-23",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": [
+        "https://developer.nvidia.com/blog/boost-inference-performance-up-to-15x-on-nvidia-blackwell-using-dflash-speculative-decoding/"
+      ]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/gemini-robotics-2.md",
+      "sourceTitle": "Gemini Robotics 2 brings whole body intelligence to robots",
+      "toolVersion": "Article published 2026-07-30",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": [
+        "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/"
+      ]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/co-scientist.md",
+      "sourceTitle": "Co-Scientist: A multi-agent AI partner to accelerate research",
+      "toolVersion": "Article published 2026-05-19",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": [
+        "https://deepmind.google/blog/co-scientist-a-multi-agent-ai-partner-to-accelerate-research/"
+      ]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/scientific-computing-agentic-ai.md",
+      "sourceTitle": "Scientific computing in the age of agentic AI",
+      "toolVersion": "Article published 2026-07-28",
+      "lastReviewed": "2026-08-30",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://openai.com/index/scientific-computing-agentic-ai/"]
     }
   ]
 }

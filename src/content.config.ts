@@ -21,6 +21,14 @@ export const collections = {
           .optional(),
         lastVerified: z.string().optional(),
         toolVersion: z.string().optional(),
+        source: z
+          .object({
+            title: z.string(),
+            publisher: z.string(),
+            url: z.url(),
+            published: z.string(),
+          })
+          .optional(),
       }),
     }),
   }),

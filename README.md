@@ -1,13 +1,13 @@
 # Zero to AI
 
 从零开始，用 AI 工具编程。不是百科文档，而是一套把 Claude Code 与 Codex
-从第一条命令带到公开交付的中文学习系统。
+从第一条命令带到公开交付，并把英文 AI 技术文章转成可执行实践的中文学习系统。
 
 **在线阅读** → [estelledc.github.io/zero-to-ai](https://estelledc.github.io/zero-to-ai/)
 
 ## 项目定位
 
-面向编程零基础用户的中文 AI 编程工具实战教程站。Claude Code 与 Codex 各有独立可完成路径，公共验证、Git 与发布方法放在共享板块。
+面向编程零基础用户的中文 AI 编程工具实战教程站。Claude Code 与 Codex 各有独立可完成路径，公共验证、Git 与发布方法放在共享板块；AI 技术文章实践库面向已有基础的读者，把官方英文文章改写成带证据边界的低成本实验。
 
 每篇教程遵循统一节奏：日常类比 → 技术定义 → 实际操作 → 常见坑 → 自检 → 下一步导航。
 
@@ -18,7 +18,7 @@
 - **状态**：Maintained · v2.0.1
 - **个人职责**：产品决策、内容架构、验证标准与发布维护
 - **协作方式**：Jason 负责判断与验收；AI 协助资料整理、内容初稿和前端实现
-- **系统规模**：45 个内容页、4 条学习路径、2 套工具闭环
+- **系统规模**：73 个内容页、4 条学习路径、2 套工具闭环、27 篇技术文章实践
 - **验证证据**：交叉引用、内容 freshness、fixture、unit、Playwright/axe 与 GitHub Pages 发布检查
 - **公开限制**：部分真实账户和跨平台步骤仍待人工复核；运营指标尚未形成连续样本；Learn Journal 当前是 N=1 验证
 
@@ -54,9 +54,10 @@ npm run validate-refs
 # 内容时效性与官方来源矩阵
 npm run audit:content-freshness
 
-# Claude 配置 fixture、Codex CLI 文档契约与存储/slug unit test
+# Claude 配置 fixture、Codex/技术文章内容契约与存储/slug unit test
 npm run test:fixtures
 npm run test:codex-docs
+npm run test:ai-tech-practice
 npm run test:unit
 
 # Playwright 桌面/移动端、axe 与交互 smoke
@@ -74,6 +75,7 @@ src/
 │   ├── claude-code/       # Claude Code 教程（16 篇）
 │   ├── codex/             # Codex CLI 完整零基础路径（8 篇）
 │   ├── methodology/       # 工具无关的方法论（8 篇）
+│   ├── ai-tech-practice/  # 官方英文技术文章的原创中文实践版（27 篇）
 │   ├── projects/          # 实战项目（Learn Journal 等）
 │   └── appendix/          # 附录（Git 基础、常见问题排查等）
 ├── components/            # 自定义 Astro 组件
@@ -101,6 +103,7 @@ metrics/                   # 双周脱敏指标快照模板
 | `relatedContent` | `{slug, label}[]`                        | 相关内容链接      |
 | `lastVerified`   | `string`                                 | 最后验证日期      |
 | `toolVersion`    | `string`                                 | 适用工具版本      |
+| `source`         | `{title,publisher,url,published}`        | 技术文章来源      |
 
 ### 交叉引用
 

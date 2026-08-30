@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+
+### Added
+
+- 新增 AI 技术文章实践库：完整保留 27 个官方英文选题，按 Agent/Context/Harness、Evals/可靠性/安全、模型/推理/基础设施、多模态/机器人/AI for Science 四组组织。
+- 每篇提供原创中文机制解读、低成本实验、成功证据、停止线和英文原文链接；不逐句翻译或转载原文，也不把厂商数据写成作者实测。
+- 内容 frontmatter 新增结构化 `source` 元数据，教程页直接展示发布方、原文链接、发布日期和本站复核日期。
+
+### Changed
+
+- 首页、侧边栏和 Pagefind 同义词增加 AI 技术实践入口；内容时效性审计扩展到来源型文章，并继续绑定官方资料矩阵。
+- GitHub Pages 校验任务加入 AI 技术实践内容契约；部署前安全审计将 `brace-expansion`、`fast-uri`、`js-yaml` 与 `nanoid` 更新到已修复版本，不使用强制升级。
+
 ## [2.0.1] - 2026-07-26
 
 ### Changed

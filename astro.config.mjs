@@ -72,6 +72,63 @@ export default defineConfig({
           ],
         },
         {
+          label: 'AI 技术实践',
+          items: [
+            { slug: 'ai-tech-practice' },
+            {
+              label: 'Agent、Context 与 Harness',
+              collapsed: true,
+              items: [
+                { slug: 'ai-tech-practice/harness-engineering-codex' },
+                { slug: 'ai-tech-practice/context-engineering-agents' },
+                { slug: 'ai-tech-practice/cursor-agent-harness' },
+                { slug: 'ai-tech-practice/long-running-app-harness' },
+                { slug: 'ai-tech-practice/managed-agents-runtime' },
+                { slug: 'ai-tech-practice/dynamic-context-discovery' },
+                { slug: 'ai-tech-practice/scaling-autonomous-coding' },
+                { slug: 'ai-tech-practice/cloud-agent-environment' },
+              ],
+            },
+            {
+              label: 'Evals、可靠性与安全',
+              collapsed: true,
+              items: [
+                { slug: 'ai-tech-practice/arc-agi-harness-settings' },
+                { slug: 'ai-tech-practice/agent-evals' },
+                { slug: 'ai-tech-practice/coding-eval-signal-noise' },
+                { slug: 'ai-tech-practice/claude-containment' },
+                { slug: 'ai-tech-practice/agentic-eval-infrastructure-noise' },
+                { slug: 'ai-tech-practice/reward-hacking-coding-benchmarks' },
+                { slug: 'ai-tech-practice/gpt-red-self-improving-red-team' },
+                { slug: 'ai-tech-practice/agentrx-debugging' },
+                { slug: 'ai-tech-practice/hugging-face-incident' },
+              ],
+            },
+            {
+              label: '模型、推理与基础设施',
+              collapsed: true,
+              items: [
+                { slug: 'ai-tech-practice/gpt-5-6-efficiency' },
+                { slug: 'ai-tech-practice/llm-overthinking-structure' },
+                { slug: 'ai-tech-practice/open-models-summer-2026' },
+                { slug: 'ai-tech-practice/fara-1-5-computer-use' },
+                { slug: 'ai-tech-practice/socialrl-negotiators' },
+                { slug: 'ai-tech-practice/nvidia-dynamo-inference' },
+                { slug: 'ai-tech-practice/dflash-speculative-decoding' },
+              ],
+            },
+            {
+              label: '多模态、机器人与 AI for Science',
+              collapsed: true,
+              items: [
+                { slug: 'ai-tech-practice/gemini-robotics-2' },
+                { slug: 'ai-tech-practice/co-scientist' },
+                { slug: 'ai-tech-practice/scientific-computing-agentic-ai' },
+              ],
+            },
+          ],
+        },
+        {
           label: '实战项目',
           items: [
             { slug: 'projects' },

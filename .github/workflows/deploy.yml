@@ -38,6 +38,8 @@ jobs:
         run: npm run test:fixtures
       - name: Validate Codex docs
         run: npm run test:codex-docs
+      - name: Validate AI technical practice library
+        run: npm run test:ai-tech-practice
       - name: Unit tests
         run: npm run test:unit
       - name: Verify published skill pack

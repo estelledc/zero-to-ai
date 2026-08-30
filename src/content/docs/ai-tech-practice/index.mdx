@@ -1,0 +1,52 @@
+---
+title: AI 技术文章实践库
+description: 保留 27 个英文技术选题，用中文原创实践解读把论文、发布说明与工程案例接到可验证的小实验。
+tags: [ai-tech-practice]
+difficulty: intermediate
+lastVerified: '2026-08-30'
+---
+
+## 怎么使用这 27 篇
+
+这里保留全部 27 个英文选题，便于回到原始技术语境；每篇正文都是中文原创实践解读，不是全文翻译。页面会区分厂商或作者报告、站内已经可以检查的机制，以及尚待执行的低成本实验。
+
+建议阅读顺序是：**context → harness → eval → security → model / inference → multimodal / science**。如果正文出现“我的实践”，它只能引用本站现有页面、规则、测试、代码或发布记录等可检查机制；没有站内证据的操作一律写成待执行实验，不能当成已经完成。
+
+## 一、Context、Harness 与运行环境（8 篇）
+
+- [Harness Engineering for Codex](/ai-tech-practice/harness-engineering-codex/)：练习把目标、工具权限、验证和停止条件写成一份最小 harness。
+- [Context Engineering for Agents](/ai-tech-practice/context-engineering-agents/)：练习区分常驻规则、按需材料与任务现场，减少无关上下文。
+- [Cursor Agent Harness](/ai-tech-practice/cursor-agent-harness/)：练习用同一验收任务比较编辑器内 Agent 的上下文入口与执行边界。
+- [Long-running App Harness](/ai-tech-practice/long-running-app-harness/)：练习为长任务设置接班记录、阶段回执与可判定退出线。
+- [Managed Agents Runtime](/ai-tech-practice/managed-agents-runtime/)：练习把 Agent、工具、状态和审计记录放进一个受控运行时模型。
+- [Dynamic Context Discovery](/ai-tech-practice/dynamic-context-discovery/)：练习让 Agent 先发现入口指针，再只加载当前任务需要的资料。
+- [Scaling Autonomous Coding](/ai-tech-practice/scaling-autonomous-coding/)：练习用任务切片和独立验证扩大吞吐，而不是单纯增加 Agent 数量。
+- [Cloud Agent Environment](/ai-tech-practice/cloud-agent-environment/)：练习列出本地与云端在凭证、制品、网络和回执上的证据差异。
+
+## 二、Eval、安全与故障诊断（9 篇）
+
+- [ARC-AGI Harness Settings](/ai-tech-practice/arc-agi-harness-settings/)：练习固定提示、工具和预算，观察 harness 设置如何改变评测结果。
+- [Agent Evals](/ai-tech-practice/agent-evals/)：练习把模糊的“做得不错”改写成输入、判定器和失败样本。
+- [Coding Eval Signal and Noise](/ai-tech-practice/coding-eval-signal-noise/)：练习分离代码能力信号与环境、依赖和测试波动噪声。
+- [Claude Containment](/ai-tech-practice/claude-containment/)：练习用最小权限、可写范围和停止线限制 Agent 影响面。
+- [Agentic Eval Infrastructure Noise](/ai-tech-practice/agentic-eval-infrastructure-noise/)：练习给基础设施失败单独记账，避免误判模型能力。
+- [Reward Hacking in Coding Benchmarks](/ai-tech-practice/reward-hacking-coding-benchmarks/)：练习设计一个不能靠删测试或硬编码答案通过的验收。
+- [GPT-Red Self-improving Red Team](/ai-tech-practice/gpt-red-self-improving-red-team/)：练习让攻击样本、修复与回归测试形成受控闭环。
+- [AgentRx Debugging](/ai-tech-practice/agentrx-debugging/)：练习从症状、证据和最小复现定位故障层，而不是先猜修法。
+- [The Hugging Face Incident](/ai-tech-practice/hugging-face-incident/)：练习区分模型行为、工具权限、供应链与平台响应四层责任。
+
+## 三、模型、交互与推理基础设施（7 篇）
+
+- [GPT-5.6 Efficiency](/ai-tech-practice/gpt-5-6-efficiency/)：练习用同一任务比较耗时、成本、正确性与返工，而不是只看首答速度。
+- [LLM Overthinking Structure](/ai-tech-practice/llm-overthinking-structure/)：练习设置中间判定点，识别推理变长但答案没有改善的情况。
+- [Open Models, Summer 2026](/ai-tech-practice/open-models-summer-2026/)：练习从许可证、权重、推理成本与任务表现比较开放模型。
+- [Fara 1.5 Computer Use](/ai-tech-practice/fara-1-5-computer-use/)：练习把界面操作拆成可观察动作、结果检查与恢复步骤。
+- [SocialRL Negotiators](/ai-tech-practice/socialrl-negotiators/)：练习为多方协商写清目标、私有信息、让步边界和评价标准。
+- [NVIDIA Dynamo Inference](/ai-tech-practice/nvidia-dynamo-inference/)：练习画出请求从路由、prefill 到 decode 的资源流，并找到瓶颈假设。
+- [dFlash Speculative Decoding](/ai-tech-practice/dflash-speculative-decoding/)：练习用接受率与端到端延迟判断推测解码是否真的获益。
+
+## 四、多模态与科学实践（3 篇）
+
+- [Gemini Robotics 2](/ai-tech-practice/gemini-robotics-2/)：练习把视觉观察、高层计划、动作接口和安全停止条件分层。
+- [Co-Scientist](/ai-tech-practice/co-scientist/)：练习用生成、反驳、排序和可证伪实验筛选假设。
+- [Scientific Computing in the Age of Agentic AI](/ai-tech-practice/scientific-computing-agentic-ai/)：练习用黄金输出、边界样本和维护责任约束 Agent 改造科学软件。

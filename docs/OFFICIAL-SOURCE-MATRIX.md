@@ -2,9 +2,9 @@
 
 本文件说明验证口径；机器可读记录见 `OFFICIAL-SOURCE-MATRIX.json`。
 
-- 只记录页面、适用版本、操作系统范围、官方来源、复核日期和结果，不复制官方正文。
-- `PASS` 表示该页所有时效性操作已按对应版本复核；`PARTIAL` 表示核心命令有依据，但仍含经验值、第三方能力或人工账户步骤；`FAIL` 会阻断 `npm run audit:content-freshness`。
-- 教程 frontmatter 的 `toolVersion`、`lastVerified` 必须和矩阵一致。
+- 只记录页面、适用版本或文章来源日期、操作系统范围、官方来源、复核日期和结果，不复制官方正文。
+- `PASS` 表示该页所有时效性操作已按对应版本复核；`PARTIAL` 表示核心内容有一手依据，但仍含经验值、厂商自报数据、第三方能力或人工账户步骤；`FAIL` 会阻断 `npm run audit:content-freshness`。
+- 工具教程 frontmatter 的 `toolVersion`、`lastVerified` 必须和矩阵一致；文章实践页的 `source.title`、`source.published`、`source.url`、`lastVerified` 必须和矩阵一致。
 - 超过 90 天的页面进入维护警告；警告目前不阻断普通内容 PR。
 
 | 页面范围               | 操作系统                | 主要一手来源                                  | 当前结果 |
@@ -21,5 +21,6 @@
 | Codex 项目规则与权限   | macOS / Windows / Linux | AGENTS.md、Agent approvals & security         | PASS     |
 | Codex 修改、验证与 Git | macOS / Windows / Linux | Codex CLI、Agent approvals & security         | PASS     |
 | Codex capstone 与排错  | macOS / Windows / Linux | Codex CLI、Troubleshooting、GitHub Pages      | PARTIAL  |
+| AI 技术文章实践库      | macOS / Windows / Linux | OpenAI、Anthropic、Cursor 等官方英文原文      | PARTIAL  |
 
-最后维护：2026-07-10。
+最后维护：2026-08-30。
