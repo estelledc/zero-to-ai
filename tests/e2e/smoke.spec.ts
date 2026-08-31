@@ -54,17 +54,17 @@ test('AI 技术实践库按目录、主题与阅读路径完整聚合', async ({
 
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
   await expect(page.locator('[data-practice-library]')).toBeVisible();
-  await expect(page.locator('[data-practice-path]')).toHaveCount(5);
-  await expect(page.locator('[data-practice-category]')).toHaveCount(6);
-  await expect(page.locator('[data-practice-category-link]')).toHaveCount(6);
-  await expect(page.locator('[data-practice-card]')).toHaveCount(51);
+  await expect(page.locator('[data-practice-path]')).toHaveCount(6);
+  await expect(page.locator('[data-practice-category]')).toHaveCount(7);
+  await expect(page.locator('[data-practice-category-link]')).toHaveCount(7);
+  await expect(page.locator('[data-practice-card]')).toHaveCount(59);
 
   const articleLinks = page.locator('[data-practice-article-link]');
-  await expect(articleLinks).toHaveCount(51);
+  await expect(articleLinks).toHaveCount(59);
   const articleHrefs = await articleLinks.evaluateAll((links) =>
     links.map((link) => link.getAttribute('href')),
   );
-  expect(new Set(articleHrefs).size).toBe(51);
+  expect(new Set(articleHrefs).size).toBe(59);
   expect(
     articleHrefs.every((href) => href?.startsWith(`${basePath}ai-tech-practice/`)),
   ).toBeTruthy();
@@ -72,11 +72,11 @@ test('AI 技术实践库按目录、主题与阅读路径完整聚合', async ({
     links.map((link) => link.getAttribute('aria-label')),
   );
   expect(articleLabels.every(Boolean)).toBeTruthy();
-  expect(new Set(articleLabels).size).toBe(51);
+  expect(new Set(articleLabels).size).toBe(59);
 
-  expect(await page.locator('[data-practice-start]').count()).toBeGreaterThanOrEqual(6);
+  expect(await page.locator('[data-practice-start]').count()).toBeGreaterThanOrEqual(7);
   const sourceLinks = page.locator('[data-practice-source-link]');
-  await expect(sourceLinks).toHaveCount(51);
+  await expect(sourceLinks).toHaveCount(59);
   const sourceLinkSecurity = await sourceLinks.evaluateAll((links) =>
     links.map((link) => ({
       rel: link.getAttribute('rel')?.split(/\s+/) ?? [],
@@ -89,7 +89,7 @@ test('AI 技术实践库按目录、主题与阅读路径完整聚合', async ({
     links.map((link) => link.getAttribute('aria-label')),
   );
   expect(sourceLabels.every(Boolean)).toBeTruthy();
-  expect(new Set(sourceLabels).size).toBe(51);
+  expect(new Set(sourceLabels).size).toBe(59);
 
   const viewport = await page.evaluate(() => ({
     clientWidth: document.documentElement.clientWidth,

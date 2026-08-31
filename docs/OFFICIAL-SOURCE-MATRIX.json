@@ -748,6 +748,88 @@
       "result": "PARTIAL",
       "platforms": ["macOS", "Windows", "Linux"],
       "sources": ["https://ai.meta.com/blog/v-jepa-2-world-model-benchmarks/"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/anthropic-ai-native-sdlc.md",
+      "sourceTitle": "The AI-Native SDLC playbook",
+      "toolVersion": "Article published 2026-08-21",
+      "lastReviewed": "2026-08-31",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://claude.com/blog/the-ai-native-sdlc-playbook"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/cursor-agent-best-practices.md",
+      "sourceTitle": "Best practices for coding with agents",
+      "toolVersion": "Article published 2026-01-09",
+      "lastReviewed": "2026-08-31",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://cursor.com/blog/agent-best-practices"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/cursor-debug-mode.md",
+      "sourceTitle": "Introducing Debug Mode: Agents with runtime logs",
+      "toolVersion": "Article published 2025-12-10",
+      "lastReviewed": "2026-08-31",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": ["https://cursor.com/blog/debug-mode"]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/openai-iterative-repair.md",
+      "sourceTitle": "Build iterative repair loops with Codex",
+      "toolVersion": "Article published 2026-05-11",
+      "lastReviewed": "2026-08-31",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": [
+        "https://developers.openai.com/cookbook/examples/codex/build_iterative_repair_loops_with_codex"
+      ]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/github-diff-first-code-review.md",
+      "sourceTitle": "Better tools made Copilot code review worse. Here’s how we actually improved it.",
+      "toolVersion": "Article published 2026-07-10",
+      "lastReviewed": "2026-08-31",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": [
+        "https://github.blog/ai-and-ml/github-copilot/better-tools-made-copilot-code-review-worse-heres-how-we-actually-improved-it/"
+      ]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/aws-reproducible-migration.md",
+      "sourceTitle": "Reproducible Code Migration at Scale with AI-Generated Playbooks",
+      "toolVersion": "Article published 2026-05-13",
+      "lastReviewed": "2026-08-31",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": [
+        "https://aws.amazon.com/blogs/migration-and-modernization/reproducible-code-migration-at-scale-with-ai-generated-playbooks/"
+      ]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/github-agentic-workflows.md",
+      "sourceTitle": "Automate repository tasks with GitHub Agentic Workflows",
+      "toolVersion": "Article published 2026-02-13",
+      "lastReviewed": "2026-08-31",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": [
+        "https://github.blog/ai-and-ml/automate-repository-tasks-with-github-agentic-workflows/"
+      ]
+    },
+    {
+      "page": "src/content/docs/ai-tech-practice/aws-release-readiness.md",
+      "sourceTitle": "AWS DevOps Agent adds release management capabilities to assess code changes before production (preview)",
+      "toolVersion": "Article published 2026-06-17",
+      "lastReviewed": "2026-08-31",
+      "result": "PARTIAL",
+      "platforms": ["macOS", "Windows", "Linux"],
+      "sources": [
+        "https://aws.amazon.com/blogs/aws/aws-devops-agent-adds-release-management-capabilities-to-assess-code-changes-before-production-preview/"
+      ]
     }
   ]
 }

@@ -25,21 +25,23 @@ const indexPath = path.join(practiceRoot, 'index.mdx');
 const matrixPath = path.join(root, 'docs/OFFICIAL-SOURCE-MATRIX.json');
 const astroConfigPath = path.join(root, 'astro.config.mjs');
 const componentPath = path.join(root, 'src/components/PracticeLibrary.astro');
-const expectedArticleCount = 51;
-const expectedCategoryCount = 6;
-const expectedPathCount = 5;
+const expectedArticleCount = 59;
+const expectedCategoryCount = 7;
+const expectedPathCount = 6;
 const errors: string[] = [];
 
-const publisherDomains: Record<string, string> = {
-  Anthropic: 'anthropic.com',
-  Cursor: 'cursor.com',
-  'Google DeepMind': 'deepmind.google',
-  'Google Research': 'research.google',
-  'Hugging Face': 'huggingface.co',
-  'Meta AI': 'meta.com',
-  'Microsoft Research': 'microsoft.com',
-  'NVIDIA Technical Blog': 'nvidia.com',
-  OpenAI: 'openai.com',
+const publisherDomains: Record<string, string[]> = {
+  Anthropic: ['anthropic.com', 'claude.com'],
+  AWS: ['aws.amazon.com'],
+  Cursor: ['cursor.com'],
+  GitHub: ['github.blog'],
+  'Google DeepMind': ['deepmind.google'],
+  'Google Research': ['research.google'],
+  'Hugging Face': ['huggingface.co'],
+  'Meta AI': ['meta.com'],
+  'Microsoft Research': ['microsoft.com'],
+  'NVIDIA Technical Blog': ['nvidia.com'],
+  OpenAI: ['openai.com'],
 };
 
 function fail(owner: string, message: string): void {
@@ -197,10 +199,14 @@ for (const file of articleFiles) {
   } catch {
     fail(owner, 'source URL is invalid');
   }
-  const expectedDomain = publisherDomains[source.publisher];
-  if (!expectedDomain) {
+  const expectedDomains = publisherDomains[source.publisher];
+  if (!expectedDomains) {
     fail(owner, `unsupported publisher: ${source.publisher}`);
-  } else if (hostname !== expectedDomain && !hostname.endsWith(`.${expectedDomain}`)) {
+  } else if (
+    !expectedDomains.some(
+      (expectedDomain) => hostname === expectedDomain || hostname.endsWith(`.${expectedDomain}`),
+    )
+  ) {
     fail(owner, `publisher ${source.publisher} does not match source host ${hostname}`);
   }
 

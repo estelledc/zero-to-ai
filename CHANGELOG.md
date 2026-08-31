@@ -8,14 +8,15 @@ All notable changes to this project will be documented in this file.
 
 - 新增 AI 技术文章实践库：完整保留 27 个官方英文选题，按 Agent/Context/Harness、Evals/可靠性/安全、模型/推理/基础设施、多模态/机器人/AI for Science 四组组织。
 - 第二批新增 24 篇，实践库扩展到 51 篇；补入 Agent 沙箱与循环、工具与检索设计、浏览评测污染、AI 控制、实时 RL、模型蒸馏、Agent 记忆、多模态 verifier、基因组与世界模型。
+- 第三批新增 8 篇软件开发实践，实践库扩展到 59 篇；补入 SDLC、Agent 编码习惯、运行时调试、迭代修复、diff-first 审查、可复现迁移、仓库自动化与发布就绪。
 - 每篇提供原创中文机制解读、低成本实验、成功证据、停止线和英文原文链接；不逐句翻译或转载原文，也不把厂商数据写成作者实测。
 - 内容 frontmatter 新增结构化 `source` 元数据，教程页直接展示发布方、原文链接、发布日期和本站复核日期。
 
 ### Changed
 
-- AI 技术实践库改由单一目录数据生成聚合页与侧边栏，并重组为 6 个主题、5 条静态阅读路径；51 篇正文与英文来源边界保持不变。
+- AI 技术实践库改由单一目录数据生成聚合页与侧边栏，并扩展为 7 个主题、6 条静态阅读路径；59 篇正文与英文来源边界保持不变。
 - 首页、侧边栏和 Pagefind 同义词增加 AI 技术实践入口；内容时效性审计扩展到来源型文章，并继续绑定官方资料矩阵。
-- 来源域名扩展到 Google Research 与 Meta AI，文章、聚合页、侧边栏和官方来源矩阵继续保持一一对应。
+- 来源域名扩展到 Google Research、Meta AI、GitHub、AWS 与 Claude 官方站，文章、聚合页、侧边栏和官方来源矩阵继续保持一一对应。
 - GitHub Pages 校验任务加入 AI 技术实践内容契约；部署前安全审计将 `brace-expansion`、`fast-uri`、`js-yaml` 与 `nanoid` 更新到已修复版本，不使用强制升级。
 
 ### Fixed
